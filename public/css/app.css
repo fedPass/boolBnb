@@ -10891,9 +10891,32 @@ a.text-dark:focus {
   height: 849px;
 }
 
-.in-evidenza {
+.evidence-container {
+  margin-top: 50px;
+}
+
+.evidence-container h1 {
+  padding: 10px;
+}
+
+.evidence-container .in-evidenza {
   display: flex;
   flex-wrap: wrap;
+}
+
+.booking-container {
+  background-color: white;
+  margin-left: 5%;
+  margin-top: 5%;
+  border-radius: 5px;
+  width: 450px;
+  padding: 25px;
+}
+
+.booking-container label {
+  color: #2196F3;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .navbar {

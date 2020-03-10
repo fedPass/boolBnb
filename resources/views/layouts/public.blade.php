@@ -21,6 +21,7 @@
     <main>
       <div class="home">
         @include('layouts.partials.navbar')
+        @include('layouts.partials.book')
       </div>
       @yield('content')
     </main>
