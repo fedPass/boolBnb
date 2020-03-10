@@ -1,1 +1,0 @@
-<h1>View creata da Giovanni</h1>
