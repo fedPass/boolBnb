@@ -23,10 +23,10 @@
         <a class="nav-link" href="#">Aiuto</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Registrati</a>
+        <a class="nav-link" href="{{ route('register') }}">Registrati</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Accedi</a>
+        <a class="nav-link" href="{{ route('login') }}">Accedi</a>
       </li>
     </ul>
   </div>
