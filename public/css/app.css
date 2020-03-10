@@ -10939,6 +10939,38 @@ a.text-dark:focus {
   padding: 10px;
 }
 
+.navbar .collapse.show {
+  z-index: 1000;
+}
+
+.navbar .collapse.show .navbar-nav {
+  background-color: white;
+}
+
+.navbar .collapse.show .navbar-nav .nav-item .nav-link {
+  color: #1976D2;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.change-prop {
+  z-index: 1000;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.change-prop .navbar-nav {
+  background-color: white;
+}
+
+.change-prop .navbar-nav .nav-item .nav-link {
+  color: #1976D2;
+  font-weight: bold;
+  padding: 20px;
+}
+
 footer {
   padding: 24px 0;
   color: #757575;

@@ -1,3 +1,4 @@
+{{-- RIQUADRO BIANCO DELLA RICERCA APPARTAMENTI --}}
 <div class="booking-container">
   <h1>Prenota alloggi e attività unici.</h1>
   <form action="" method="post">

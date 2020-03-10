@@ -17,4 +17,34 @@
     width: 50px;
     padding: 10px;
   }
+  .collapse.show {
+    z-index: 1000;
+    .navbar-nav {
+      background-color: white;
+      .nav-item {
+        .nav-link {
+          color: $primary-color-dark;
+          font-weight: bold;
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
+.change-prop{
+  z-index: 1000;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  .navbar-nav {
+    background-color: white;
+    .nav-item {
+      .nav-link {
+        color: $primary-color-dark;
+        font-weight: bold;
+        padding: 20px;
+      }
+    }
+  }
 }

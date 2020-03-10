@@ -49526,6 +49526,23 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(document).ready(function () {
+  $(window).on('scroll', function (e) {
+    //quando vado a fare scroll con il mouse
+    st = $(this).scrollTop(); //imposto la posizione di scorrimento
+    //console.log(st);
+
+    if (st > 100) {
+      //se la posizione di scorrimento è maggiore a 100 (quindi quando faccio scroll in basso fino a 100px)
+      $('.navbar').addClass('change-prop'); //cambio le proprietà della navbar
+    } else {
+      //altrimenti (se faccio scroll in alto)
+      $('.navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
+    }
+
+    prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
+  });
+});
 
 /***/ }),
 
