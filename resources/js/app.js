@@ -37,7 +37,9 @@ $(document).ready(function(){
   //console.log(st);
   if (st > 100) { //se la posizione di scorrimento è maggiore a 100 (quindi quando faccio scroll in basso fino a 100px)
     $('.navbar').addClass('change-prop'); //cambio le proprietà della navbar
+    $('.logoBlue').slideDown(); //appare il logo blue
   } else { //altrimenti (se faccio scroll in alto)
+    $('.logoBlue').hide(); //scompare il logo blue
     $('.navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento

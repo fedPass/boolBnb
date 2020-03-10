@@ -10939,6 +10939,12 @@ a.text-dark:focus {
   padding: 10px;
 }
 
+.navbar .logoBlue {
+  display: none;
+  width: 80px;
+  padding: 10px;
+}
+
 .navbar .collapse.show {
   z-index: 1000;
 }
