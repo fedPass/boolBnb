@@ -19,7 +19,9 @@
   </head>
   <body>
     <main>
-      @include('layouts.partials.navbar')
+      <div class="home">
+        @include('layouts.partials.navbar')
+      </div>
       @yield('content')
     </main>
   </body>
