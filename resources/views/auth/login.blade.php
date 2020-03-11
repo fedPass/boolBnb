@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +69,41 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<div class="container-fluid">
+            <div class="accedi row">
+                <div class="col-md-6">
+                    <i class="close fas fa-times"></i>
+                    <h3>Accedi</h3>
+                    <hr>
+                    <select class="form-control">
+                      <option>Italia (+39)</option>
+                      <option>Australia (+61)</option>
+                      <option>Francia (+33)</option>
+                      <option>Svizzera (+41)</option>
+                      <option>Messico (+52)</option>
+                    </select>
+                    <input type="number" class="form-control" placeholder="Numero di telefono">
+                    <small>Ti chiameremo o ti invieremo un messaggio per confermare il tuo numero. Sono previsti costi standard per messaggi e traffico dati.</small>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Continua</button>
+                    <hr>
+                    <button type="button" class="btn btn-light btn-lg btn-block">
+                        <i class="far fa-envelope"></i>
+                        Continua con un indirizzo e-mail</button>
+                    <button type="button" class="btn btn-light btn-lg btn-block">
+                        <i class="fab fa-facebook-square"></i>
+                        Continua con Facebook</button>
+                    <button type="button" class="btn btn-light btn-lg btn-block">
+                        <i class="fab fa-google"></i>
+                        Continua con Google</button>
+                    <p>Hai già un account?</p>
+                    <a href="#"> <p>Accedi</p></a>
+                </div>
+
+            </div>
+
+        </div>
+
 @endsection
