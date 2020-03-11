@@ -1,5 +1,5 @@
 {{-- recupero template per la pagine admin --}}
-@extends('layouts.partials.admin')
+@extends('layouts.admin')
 
 {{-- struttura da inserire come content nel yield --}}
 @section('content')
@@ -19,26 +19,27 @@
                       <th scope="col">First</th>
                       <th scope="col">Last</th>
                       <th scope="col">Handle</th>
+                      <th scope="col" class="text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td colspan="2">Larry the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                      @for ($i=0; $i < 10; $i++)
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td class="text-right">
+                              <a class="btn btn-info" href="#">Vedi dettagli</a>
+                              <a class="btn btn-info" href="#">Modifica</a>
+                              <a class="btn btn-info" href="#">Statistiche</a>
+                              <div class="custom-control custom-switch d-inline">
+                                  <label class="custom-control-label" for="customSwitch1">Visibilità annuncio</label>
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                              </div>
+                            </td>
+                          </tr>
+                      @endfor
                   </tbody>
                 </table>
             </div>
