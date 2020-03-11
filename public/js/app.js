@@ -49533,7 +49533,7 @@ $(document).ready(function () {
     //console.log(st);
 
     if (st > 100) {
-      //se la posizione di scorrimento è maggiore a 100 (quindi quando faccio scroll in basso fino a 100px)
+      //se la posizione di scorrimento è maggiore a 100px
       $('.navbar').addClass('change-prop'); //cambio le proprietà della navbar
 
       $('.logoBlue').slideDown(); //appare il logo blue
@@ -49682,8 +49682,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
