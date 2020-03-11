@@ -4,8 +4,9 @@
 @section('content')
     <div class="container mt-5 mb-5">
         <div class="row d-flex justify-content-center">
-            <div class="col-8">
-                <h1 class="pb-3">Aggiungi un appartamento</h1>
+            <div class="col-8 add-product">
+                <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
+                <hr>
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="row form-group">
                       <label class="col-3" for="titolo">Titolo</label>
@@ -61,7 +62,7 @@
                       <input class="col-9" type="file" class="form-control-file" id="img" name="img">
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary float-center mt-2">Aggiungi un nuovo appartamento</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Aggiungi un nuovo appartamento</button>
                     </div>
                 </form>
             </div>

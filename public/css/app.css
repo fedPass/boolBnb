@@ -11248,3 +11248,33 @@ footer .footer-bottom i {
   }
 }
 
+.navbar-admin {
+  color: #1976D2;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.admin-container {
+  margin-top: 80px;
+}
+
+.admin-container hr {
+  border: 2px solid #1976D2;
+}
+
+.admin-container .card {
+  margin-bottom: 20px;
+}
+
+.add-product {
+  margin-top: 80px;
+  background-color: white;
+  border: 1px solid #1976D2;
+  padding: 40px 30px;
+  border-radius: 15px;
+}
+
+.add-product hr {
+  border: 2px solid #1976D2;
+}
+
