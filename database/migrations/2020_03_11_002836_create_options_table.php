@@ -15,12 +15,7 @@ class CreateOptionsTable extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('wifi')->default('0');
-            $table->tinyInteger('posto_macchina')->default('0');
-            $table->tinyInteger('piscina')->default('0');
-            $table->tinyInteger('portineria')->default('0');
-            $table->tinyInteger('sauna')->default('0');
-            $table->tinyInteger('vista_mare')->default('0');
+            $table->string('nome');
             $table->timestamps();
         });
     }

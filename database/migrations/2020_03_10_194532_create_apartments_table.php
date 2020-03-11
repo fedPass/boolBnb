@@ -15,7 +15,9 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
           $table->id();
+          $table->unsignedBigInteger('user_id');
           $table->text('titolo' , 50)->nullable();
+          $table->boolean('visibilita')->default(1);
           $table->integer('stanze')->nullable();
           $table->integer('posti_letto')->nullable();
           $table->integer('bagni')->nullable();
@@ -30,6 +32,7 @@ class CreateApartmentsTable extends Migration
           $table->string('paese')->nullable();
           $table->string('lon')->nullable();
           $table->string('lat')->nullable();
+          $table->foreign('user_id')->references('id')->on('users');
           $table->timestamps();
         });
     }

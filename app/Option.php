@@ -8,15 +8,10 @@ use App\Apartment;
 class Option extends Model
 {
     protected $fillable = [
-      'wifi',
-      'posto_macchina',
-      'piscina',
-      'portineria',
-      'sauna',
-      'vista_mare',
+      'nome'
     ];
 
-    public function apartment(){
+    public function apartments(){
       return $this->belongsToMany(Apartment::class);
     }
 }

@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Apartment;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Apartment::class, function (Faker $faker) {
@@ -21,6 +22,8 @@ $factory->define(Apartment::class, function (Faker $faker) {
         'provincia' => $faker->state(),
         'paese' => $faker->country(),
         'lon' => $faker->longitude($min = -180, $max = 180),
-        'lat' => $faker->latitude($min = -90, $max = 90)
+        'lat' => $faker->latitude($min = -90, $max = 90),
+        'user_id' => User::inRandomOrder()->first()->id,
+        'visibilita' => 1
     ];
 });
