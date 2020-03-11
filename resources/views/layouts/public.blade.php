@@ -19,10 +19,7 @@
   </head>
   <body>
     <main>
-      <div class="home">
-        @include('layouts.partials.navbar')
-        @include('layouts.partials.book')
-      </div>
+      @include('layouts.partials.navbar')
       @yield('content')
     </main>
     @include('layouts.partials.footer')

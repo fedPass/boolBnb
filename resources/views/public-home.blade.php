@@ -1,5 +1,10 @@
+
 @extends('layouts.public')
 @section('content')
+<div>
+  <div class="container-fluid home">
+    @include('layouts.partials.book')
+  </div>
   <div class="container">
     <div class="row justify-content-center evidence-container">
         <h1>Appartamenti in evidenza</h1>
@@ -13,5 +18,5 @@
       </div>
     </div>
   </div>
-
+</div>
 @endsection
