@@ -10910,7 +10910,7 @@ a.text-dark:focus {
   border-radius: 5px;
   position: absolute;
   margin-left: 5%;
-  transform: translateY(30%);
+  transform: translateY(35%);
   width: 450px;
   padding: 25px;
 }
@@ -11053,5 +11053,20 @@ footer .footer-bottom i {
   .footer-bottom {
     text-align: left !important;
   }
+}
+
+.previev {
+  display: flex;
+}
+
+.previev,
+.top,
+.bottom {
+  border: 1px solid black;
+  padding: 0;
+}
+
+.room-img {
+  width: 100%;
 }
 

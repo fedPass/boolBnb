@@ -23,6 +23,10 @@ Route::get('/terms', function () {
     ['datas'=>config('termini-privacy')]);
     })->name('termini-privacy');
 
+Route::get('/room', function () {
+    return view('room-details');
+});
+
 Auth::routes();
 
 //home admin
