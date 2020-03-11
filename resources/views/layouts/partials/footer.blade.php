@@ -54,7 +54,7 @@
                 </ul>
             </div>
             <div class="col-12 col-xl-4 float-xl-left">
-                <span><i class="fab fa-airbnb"></i>© 2020 Airbnb, Inc. All rights reserved.</span>
+                <span><a href="#"><i class="fab fa-airbnb"></i></a>© 2020 Airbnb, Inc. All rights reserved.</span>
             </div>
             <div class="col-12 col-xl-4 float-xl-left">
                 {{-- <span>- <a href="{{ route('termini-privacy') }}"> Termini</a></span>

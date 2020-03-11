@@ -17,9 +17,15 @@ Route::get('/', function () {
     return view('public-home');
 });
 
+// pagina termini e privacy - public
 Route::get('/terms', function () {
     return view('termini-privacy',
     ['datas'=>config('termini-privacy')]);
     })->name('termini-privacy');
 
 Auth::routes();
+
+//home admin
+Route::get('/admin', function () {
+    return view('admin.home');
+});
