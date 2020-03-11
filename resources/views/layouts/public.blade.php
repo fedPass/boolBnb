@@ -19,7 +19,9 @@
   </head>
   <body>
     <main>
-      @include('layouts.partials.navbar')
+      @if (\Route::current()->getName() != 'public-home')
+        @include('layouts.partials.public-navbar')
+      @endif
       @yield('content')
     </main>
     @include('layouts.partials.footer')

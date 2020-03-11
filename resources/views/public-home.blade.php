@@ -1,6 +1,6 @@
-
 @extends('layouts.public')
 @section('content')
+@include('layouts.partials.navbar')
 <div>
   <div class="container-fluid home">
     @include('layouts.partials.book')

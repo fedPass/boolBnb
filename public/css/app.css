@@ -10979,6 +10979,12 @@ a.text-dark:focus {
   padding: 20px;
 }
 
+.public-nav .navbar-nav .nav-item .nav-link {
+  color: #1976D2;
+  font-weight: bold;
+  padding: 20px;
+}
+
 footer {
   padding: 24px 0;
   color: #757575;
@@ -11062,11 +11068,17 @@ footer .footer-bottom i {
 .previev,
 .top,
 .bottom {
-  border: 1px solid black;
   padding: 0;
 }
 
 .room-img {
+  border: 1px solid black;
   width: 100%;
+}
+
+@media (max-width: 992px) {
+  .bottom {
+    display: none;
+  }
 }
 

@@ -2,9 +2,15 @@
   display: flex;
 }
 .previev, .top, .bottom {
-  border: 1px solid black;
   padding: 0;
 }
 .room-img {
+  border: 1px solid black;
   width: 100%;
+}
+
+@media (max-width: 992px) {
+    .bottom {
+      display: none;
+    }
 }
