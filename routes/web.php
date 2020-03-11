@@ -17,4 +17,9 @@ Route::get('/', function () {
     return view('public-home');
 });
 
+Route::get('/terms', function () {
+    return view('termini-privacy',
+    ['datas'=>config('termini-privacy')]);
+    })->name('termini-privacy');
+
 Auth::routes();

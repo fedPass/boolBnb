@@ -57,7 +57,9 @@
                 <span><i class="fab fa-airbnb"></i>© 2020 Airbnb, Inc. All rights reserved.</span>
             </div>
             <div class="col-12 col-xl-4 float-xl-left">
-                <span>- <a href="#"> Termini</a></span>
+                {{-- <span>- <a href="{{ route('termini-privacy') }}"> Termini</a></span>
+                <span>- <a href="{{ route('termini-privacy') }}"> Privacy</a></span> --}}
+                <span>- <a href="{{ route('termini-privacy') }}"> Termini</a></span>
                 <span>- <a href="#"> Privacy</a></span>
             </div>
 
