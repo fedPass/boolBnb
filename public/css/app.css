@@ -10985,6 +10985,11 @@ a.text-dark:focus {
   padding: 20px;
 }
 
+.logoBlue-visible {
+  width: 80px;
+  padding: 10px;
+}
+
 .container-fluid .accedi,
 .container-sm .accedi,
 .container-md .accedi,

@@ -49534,14 +49534,14 @@ $(document).ready(function () {
 
     if (st > 80) {
       //se la posizione di scorrimento è maggiore a 80px
-      $('.navbar').addClass('change-prop'); //cambio le proprietà della navbar
+      $('.home-navbar').addClass('change-prop'); //cambio le proprietà della navbar
 
       $('.logoBlue').slideDown(); //appare il logo blue
     } else {
       //altrimenti (se faccio scroll in alto)
       $('.logoBlue').hide(); //scompare il logo blue
 
-      $('.navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
+      $('.home-navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
     }
 
     prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
@@ -49682,8 +49682,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolBnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

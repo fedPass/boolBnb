@@ -36,11 +36,11 @@ $(document).ready(function(){
   st = $(this).scrollTop(); //imposto la posizione di scorrimento
   //console.log(st);
   if (st > 80) { //se la posizione di scorrimento è maggiore a 80px
-    $('.navbar').addClass('change-prop'); //cambio le proprietà della navbar
+    $('.home-navbar').addClass('change-prop'); //cambio le proprietà della navbar
     $('.logoBlue').slideDown(); //appare il logo blue
   } else { //altrimenti (se faccio scroll in alto)
     $('.logoBlue').hide(); //scompare il logo blue
-    $('.navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
+    $('.home-navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
 });
