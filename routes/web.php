@@ -33,3 +33,7 @@ Auth::routes();
 Route::get('/admin', function () {
     return view('admin.home');
 });
+//pagina di create
+Route::get('/admin/create', function () {
+    return view('admin.apartaments.create');
+    })->name('admin-create');

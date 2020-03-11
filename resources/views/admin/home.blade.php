@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="float-left">Gestisci i tuoi appartamenti</h1>
-                <a class="btn btn-info float-right" href="#">Aggiungi appartamento</a>
+                <a class="btn btn-info float-right" href="{{ route('admin-create') }}">Aggiungi appartamento</a>
             </div>
         </div>
         <div class="row mt-3 mb-3">

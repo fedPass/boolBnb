@@ -2,37 +2,67 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>Aggiungi un appartamento</h1>
+    <div class="container mt-5 mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-8">
+                <h1 class="pb-3">Aggiungi un appartamento</h1>
                 <form action="" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                      <label for="title">Titolo</label>
+                    <div class="row form-group">
+                      <label class="col-3" for="titolo">Titolo</label>
                       {{-- old per recuperare vallue in caso di errore compilazione form --}}
-                      <input type="text" class="form-control" id="title" placeholder="Titolo" name="title" value="{{ old('title') }}">
+                      <input type="text" class="form-control col-9" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}">
                     </div>
-                    <div class="form-group">
-                        <label for="rooms-number">Numero di stanze</label>
-                        <input type="number" min="1" class="form-control" id="rooms-number" placeholder="Numero di stanze" name="rooms-number" value="{{ old('rooms-number') }}">
+                    <div class="row form-group">
+                        <label class="col-3" for="stanze">Numero di stanze</label>
+                        <input type="number" min="1" class="form-control col-9" id="stanze" placeholder="Numero di stanze" name="stanze" value="{{ old('stanze') }}">
                     </div>
-                    <div class="form-group">
-                        <label for="beds-number">Numero posti letto</label>
-                        <input type="number" min="1" class="form-control" id="beds-number" placeholder="Numero di posti letto" name="beds-number" value="{{ old('beds-number') }}">
+                    <div class="row form-group">
+                        <label class="col-3" for="posti_letto">Numero posti letto</label>
+                        <input type="number" min="1" class="form-control col-9" id="posti_letto" placeholder="Numero di posti letto" name="posti_letto" value="{{ old('posti_letto') }}">
                     </div>
-                    <div class="form-group">
-                        <label for="bathroom-number">Numero di bagni</label>
-                        <input type="number" min="1" class="form-control" id="bathroom-number" placeholder="Numero di bagni" name="bathroom-number" value="{{ old('bathroom-number') }}">
+                    <div class="row form-group">
+                        <label class="col-3" for="bagni">Numero di bagni</label>
+                        <input type="number" min="1" class="form-control col-9" id="bagni" placeholder="Numero di bagni" name="bagni" value="{{ old('bagni') }}">
                     </div>
-                    <div class="form-group">
-                        <label for="mq-room">Dimensioni (mq)</label>
-                        <input type="number" min="1" class="form-control" id="mq-room" placeholder="Dimensioni in mq" name="mq-room" value="{{ old('mq-room') }}">
+                    <div class="row form-group">
+                        <label class="col-3" for="dimensioni">Dimensioni (mq)</label>
+                        <input type="number" min="1" class="form-control col-9" id="dimensioni" placeholder="Dimensioni in mq" name="dimensioni" value="{{ old('dimensioni') }}">
                     </div>
-                    <div class="form-group">
-                      <label for="cover_img">Immagine di copertina</label>
-                      <input type="file" class="form-control-file" id="cover_img" name="cover_img">
+                    <div class="row form-group">
+                      <label class="col-3" for="descrizione">Descrizione</label>
+                      <input type="text" class="form-control col-9" id="descrizione" placeholder="Descrizione" name="descrizione" value="{{ old('descrizione') }}">
                     </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="row form-group">
+                      <label class="col-3" for="via">Via</label>
+                      <input type="text" class="form-control col-9" id="via" placeholder="Via/Piazza" name="via" value="{{ old('via') }}">
+                    </div>
+                    <div class="row form-group">
+                      <label class="col-3" for="civico">N. civico</label>
+                      <input type="number" min="1" class="form-control col-9" id="civico" placeholder="N. civico" name="via" value="{{ old('civico') }}">
+                    </div>
+                    <div class="row form-group">
+                      <label class="col-3" for="cap">CAP</label>
+                      <input type="number" min="1" class="form-control col-9" id="cap" placeholder="CAP" name="cap" value="{{ old('cap') }}">
+                    </div>
+                    <div class="row form-group">
+                      <label class="col-3" for="cita">Città</label>
+                      <input type="text" class="form-control col-9" id="cita" placeholder="Città" name="cita" value="{{ old('cita') }}">
+                    </div>
+                    <div class="row form-group">
+                      <label class="col-3" for="provincia">Provincia</label>
+                      <input type="text" class="form-control col-9" id="provincia" placeholder="Provincia" name="provincia" value="{{ old('provincia') }}">
+                    </div>
+                    <div class="row form-group">
+                      <label class="col-3" for="paese">Paese</label>
+                      <input type="text" class="form-control col-9" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}">
+                    </div>
+                    <div class="row form-group">
+                      <label class="col-3" for="img">Immagine di copertina</label>
+                      <input class="col-9" type="file" class="form-control-file" id="img" name="img">
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary float-center mt-2">Aggiungi un nuovo appartamento</button>
+                    </div>
                 </form>
             </div>
         </div>
