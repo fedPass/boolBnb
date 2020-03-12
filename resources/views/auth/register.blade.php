@@ -94,7 +94,7 @@
             <i class="close fas fa-times"></i>
             <h3>Registrati</h3>
             <hr>
-            <form  method="POST" action="{{ route('') }}">
+            <form  method="POST" action="{{ route('register') }}">
                   @csrf
                   <div class="form-row">
                     <div class="col">

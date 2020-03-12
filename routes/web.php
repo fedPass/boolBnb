@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('public-home');
 })->name('public-home');
 
+
 // pagina termini e privacy - public
 Route::get('/terms', function () {
     return view('termini-privacy',
@@ -39,7 +40,7 @@ Route::get('/admin/create', function () {
     })->name('admin-create');
 
 // pagine visibile per utente registrato
-Route::middleware('auth')->namespace('admin')->prefix('admin')->name('admin')->group(function(){
-    Route::get('/', 'HomeController@index')->name('index');
-    Route::resource('/apartments', 'ApartmentController');
-});
+// Route::middleware('auth')->namespace('admin')->prefix('admin')->name('admin')->group(function(){
+//     Route::get('/', 'HomeController@index')->name('index');
+//     Route::resource('/apartments', 'ApartmentController');
+// });

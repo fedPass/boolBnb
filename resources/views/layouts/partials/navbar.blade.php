@@ -61,5 +61,6 @@
               </div>
           </li>
       @endguest
+    </ul>
   </div>
 </nav>

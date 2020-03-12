@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.public')
+
 
 @section('content')
 <!-- <div class="container">
@@ -79,7 +80,7 @@
             <i class="close fas fa-times"></i>
             <h3>Accedi</h3>
             <hr>
-            <form  method="POST" action="{{ route('register') }}">
+            <form  method="POST" action="{{ route('login') }}">
                   @csrf
                 <div class="form-group">
                     <label for="email">Email address</label>
