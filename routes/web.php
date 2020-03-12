@@ -34,13 +34,17 @@ Auth::routes();
 Route::get('/admin', function () {
     return view('admin.home');
 })->name('admin-home');
+//index admin
+Route::get('/admin/index', function () {
+    return view('admin.apartaments.index');
+})->name('admin-index');
 //pagina di create
 Route::get('/admin/create', function () {
     return view('admin.apartaments.create');
     })->name('admin-create');
 
-//pagine visibile per utente registrato
-Route::middleware('auth')->namespace('admin')->prefix('admin')->name('admin')->group(function(){
-    Route::get('/', 'HomeController@index')->name('index');
-    Route::resource('/apartments', 'ApartmentController');
-});
+// //pagine visibile per utente registrato
+// Route::middleware('auth')->namespace('admin')->prefix('admin')->name('admin')->group(function(){
+//     Route::get('/', 'HomeController@index')->name('index');
+//     Route::resource('/apartments', 'ApartmentController');
+// });

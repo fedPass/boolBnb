@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+// li aggiungo perchè stanno su un namespace diverso
+use App\Apartment;
+use App\Option;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +18,7 @@ class ApartmentController extends Controller
     public function index()
     {
       $apartments = Apartment::all();
-      return view('admin.apartment.index', ['apartment' => $apartment]);
+      return view('admin.home', ['apartments' => $apartments]);
     }
 
     /**
@@ -26,7 +29,9 @@ class ApartmentController extends Controller
     public function create()
     {
         $options = Option::all();
-        return view('admin.apartment.create', compact('options'));
+        // return view('admin.apartment.create', compact('options'));
+        // return view('admin.apartment.create', ['options' => $options]);
+        return view('admin.apartment.create');
     }
 
     /**
