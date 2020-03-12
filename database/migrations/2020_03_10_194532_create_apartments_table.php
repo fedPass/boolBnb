@@ -14,7 +14,7 @@ class CreateApartmentsTable extends Migration
     public function up()
     {
         Schema::create('apartments', function (Blueprint $table) {
-          $table->id();
+          $table->bigIncrements('id');
           $table->unsignedBigInteger('user_id');
           $table->text('titolo' , 50)->nullable();
           $table->boolean('visibilita')->default(1);
