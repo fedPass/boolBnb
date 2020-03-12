@@ -10926,6 +10926,11 @@ a.text-dark:focus {
   background-color: transparent;
 }
 
+.navbar .navbar-nav .ita {
+  border-bottom: 2px solid;
+  visibility: hidden;
+}
+
 .navbar .navbar-nav .nav-item .nav-link {
   color: white;
   font-weight: bold;
