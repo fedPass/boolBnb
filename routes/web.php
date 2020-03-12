@@ -37,3 +37,9 @@ Route::get('/admin', function () {
 Route::get('/admin/create', function () {
     return view('admin.apartaments.create');
     })->name('admin-create');
+
+// pagine visibile per utente registrato
+Route::middleware('auth')->namespace('admin')->prefix('admin')->name('admin')->group(function(){
+    Route::get('/', 'HomeController@index')->name('index');
+    Route::resource('/apartments', 'ApartmentController');
+});
