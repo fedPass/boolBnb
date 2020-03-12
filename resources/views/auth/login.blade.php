@@ -72,38 +72,54 @@
 </div> -->
 
 
+
 <div class="container-fluid">
-            <div class="accedi row">
-                <div class="col-md-6">
-                    <i class="close fas fa-times"></i>
-                    <h3>Accedi</h3>
-                    <hr>
-                    <select class="form-control">
-                      <option>Italia (+39)</option>
-                      <option>Australia (+61)</option>
-                      <option>Francia (+33)</option>
-                      <option>Svizzera (+41)</option>
-                      <option>Messico (+52)</option>
-                    </select>
-                    <input type="number" class="form-control" placeholder="Numero di telefono">
-                    <small>Ti chiameremo o ti invieremo un messaggio per confermare il tuo numero. Sono previsti costi standard per messaggi e traffico dati.</small>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Continua</button>
-                    <hr>
-                    <button type="button" class="btn btn-light btn-lg btn-block">
-                        <i class="far fa-envelope"></i>
-                        Continua con un indirizzo e-mail</button>
-                    <button type="button" class="btn btn-light btn-lg btn-block">
-                        <i class="fab fa-facebook-square"></i>
-                        Continua con Facebook</button>
-                    <button type="button" class="btn btn-light btn-lg btn-block">
-                        <i class="fab fa-google"></i>
-                        Continua con Google</button>
-                    <p>Hai già un account?</p>
-                    <a href="#"> <p>Accedi</p></a>
+    <div class="accedi row">
+        <div class="col-md-6">
+            <i class="close fas fa-times"></i>
+            <h3>Accedi</h3>
+            <hr>
+            <form  method="POST" action="{{ route('register') }}">
+                  @csrf
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-            </div>
-
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block">Continua</button>
+                <hr>
+                <button type="button" class="btn btn-light btn-lg btn-block">
+                    <i class="far fa-envelope"></i>
+                    Continua con un indirizzo e-mail</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">
+                    <i class="fab fa-facebook-square"></i>
+                    Continua con Facebook</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">
+                    <i class="fab fa-google"></i>
+                    Continua con Google</button>
+                <p>Non hai un account?</p>
+                <a href="#"> <p>Registrati</p></a>
+            </form>
         </div>
+
+
+    </div>
+
+</div>
 
 @endsection
