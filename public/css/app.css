@@ -11199,6 +11199,11 @@ footer .footer-bottom i {
   }
 }
 
+.info-room-navbar {
+  display: none;
+  background-color: #1976D2;
+}
+
 .room {
   margin-top: 80px;
 }
@@ -11259,6 +11264,12 @@ footer .footer-bottom i {
 
 @media (max-width: 992px) {
   .bottom {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ul-right {
     display: none;
   }
 }

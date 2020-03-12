@@ -37,10 +37,12 @@ $(document).ready(function(){
   //console.log(st);
   if (st > 80) { //se la posizione di scorrimento è maggiore a 80px
     $('.home-navbar').addClass('change-prop'); //cambio le proprietà della navbar
+    $('.info-room-navbar').slideDown();
     $('.logoBlue').slideDown(); //appare il logo blue
   } else { //altrimenti (se faccio scroll in alto)
     $('.logoBlue').hide(); //scompare il logo blue
     $('.home-navbar').removeClass('change-prop'); //rimetto le proprietà della navbar come prima
+    $('.info-room-navbar').slideUp();
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
   if ($(window).width() > 996) { //se le dimensioni del display sono inferiori a 996px
