@@ -10990,6 +10990,12 @@ a.text-dark:focus {
   padding: 10px;
 }
 
+@media (max-width: 768px) {
+  .navsearch {
+    width: 100px;
+  }
+}
+
 .container-fluid .accedi,
 .container-sm .accedi,
 .container-md .accedi,
@@ -11227,15 +11233,24 @@ footer .footer-bottom i {
 
 .scrol-left .info {
   margin: 30px 0 20px;
-  border-bottom: 1px solid #757575;
-}
-
-.scrol-left .other-info-container {
-  border-bottom: 1px solid #757575;
 }
 
 .scrol-left .other-info-container .other-info .fas {
   margin-right: 10px;
+}
+
+.scrol-left .description,
+.scrol-left .services-container,
+.scrol-left .maps {
+  padding: 20px 0;
+}
+
+.scrol-left .services {
+  display: flex;
+}
+
+.section {
+  border-bottom: 1px solid #BDBDBD;
 }
 
 .fix-right {

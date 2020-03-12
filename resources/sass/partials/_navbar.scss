@@ -62,3 +62,9 @@
   width: 80px;
   padding: 10px;
 }
+
+@media (max-width: 768px) {
+  .navsearch {
+    width: 100px;
+  }
+}

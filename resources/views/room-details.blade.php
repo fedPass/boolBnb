@@ -19,7 +19,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 scrol-left">
+    <div class="col-lg-8 col-sm-12 scrol-left">
       <div class="title">
         <h2>Titolo stanza</h2>
         <div class="user-container float-right">
@@ -27,11 +27,11 @@
           <p class="text-center">Nome user</p>
         </div>
       </div>
-      <div class="info">
+      <div class="info section">
         <a href="#">Città</a>
         <p>2 ospiti 1 camera da letto 1 letto 1 bagno</p>
       </div>
-      <div class="other-info-container">
+      <div class="other-info-container section">
         <div class="other-info">
           <strong><i class="fas fa-home"></i> Casa intera</strong>
           <p>Appartamento: sarà a tua completa disposizione.</p>
@@ -45,9 +45,36 @@
           <p>Il 100% degli ospiti recenti ha valutato la posizione con 5 stelle.</p>
         </div>
       </div>
+      <div class="description section">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="services-container section">
+        <strong>Servizi</strong>
+        <div class="services">
+          <div class="col-lg-6">
+            <p>Wi-fi</p>
+            <p>Posto macchina</p>
+            <p>Piscina</p>
+          </div>
+          <div class="col-lg-6">
+            <p>Vista mare</p>
+            <p>Portineria</p>
+            <p>Cucina</p>
+          </div>
+        </div>
+      </div>
+      <div class="maps">
+        <div class="maps-title">
+          <h3>Il quartiere</h3>
+          <p>La casa di Nome user si trova a Città, Regione, Nazione.</p>
+        </div>
+        <div class="maps-location">
+          <img src="https://www.google.com/maps/d/thumbnail?mid=1eBOTPbXdQ5Zn4cj_n06wOPUVQHQ" alt="">
+        </div>
+      </div>
     </div>
     <div class="col-lg-4 fix-right">
-      <div class="card" style="width: 20rem;">
+      <div class="card card-scroll" style="width: 20rem;">
         <div class="card-body">
           <h5 class="card-title">Scrivi al proprietario</h5>
           <small>* Campi obbligatori</small>

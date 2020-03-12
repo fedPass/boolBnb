@@ -22,16 +22,23 @@
   }
   .info {
     margin: 30px 0 20px;
-    border-bottom: 1px solid #757575;
   }
   .other-info-container {
-    border-bottom: 1px solid #757575;
     .other-info {
       .fas {
         margin-right: 10px;
       }
     }
   }
+  .description, .services-container, .maps {
+    padding: 20px 0;
+  }
+  .services {
+    display: flex;
+  }
+}
+.section {
+  border-bottom: 1px solid $divider-color;
 }
 .fix-right {
   padding: 20px;
