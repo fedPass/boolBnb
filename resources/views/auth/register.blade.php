@@ -133,6 +133,11 @@
                         </span>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="password-confirm">Conferma password *</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                
+                </div>
 
                 <div class="form-group">
                     <label for="birthday">Data di nascita</label>

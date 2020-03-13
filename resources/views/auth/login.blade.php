@@ -104,7 +104,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Continua</button>
                 <hr>
-                <button type="button" class="btn btn-light btn-lg btn-block">
+                <button type="submit" class="btn btn-light btn-lg btn-block">
                     <i class="far fa-envelope"></i>
                     Continua con un indirizzo e-mail</button>
                 <button type="button" class="btn btn-light btn-lg btn-block">
