@@ -15,10 +15,10 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $apartments = Apartment::all();
-      return view('apartments.index');
+      $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();;
+      return view('apartments.index',compact('apartments'));
     }
 
     /**

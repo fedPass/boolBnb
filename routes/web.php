@@ -27,13 +27,17 @@ Route::get('/room', function () {
 });
 
 //public apartment
-Route::get('/apartments', 'ApartmentController@index')->name('apartlist');
+Route::get('/apartments', 'ApartmentController@index');
 Route::get('/apartments/{id}', 'ApartmentController@show')->name('apartshow');
 
 
 Route::post('/apartments/{id}', 'LeadController@store')->name('email');
 
 Auth::routes();
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/')->with('error', 'You were logged out successfully!');
+});
 
 //pagine visibile per utente registrato
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
