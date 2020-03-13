@@ -20,7 +20,7 @@
   </head>
   <body>
       <main>
-          @include('layouts.partials.admin-navbar')
+          @include('layouts.partials.public-navbar')
           @yield('content')
       </main>
         @include('layouts.partials.footer')

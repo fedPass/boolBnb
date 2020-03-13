@@ -29,25 +29,44 @@
       </li>
       <!-- Authentication Links -->
       @guest
-      <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-      </li>
-      @if (Route::has('register'))
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-      </li>
-      @endif
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li>
+          @if (Route::has('register'))
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          </li>
+          @endif
       @else
+      <li class="nav-item"><a class="nav-item nav-link" href="{{ route('admin-index') }}">Dashboard</a></li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('logout') }}"
-             onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
+          {{-- tasto Dashboard --}}
+          <a class="dropdown-item" href="{{ route('admin-index') }}">
+              {{ __('Dashboard') }}
           </a>
+          {{-- tasto agg app --}}
+          <a class="dropdown-item" href="{{ route('admin-create') }}">
+              {{ __('Aggiungi appartamento') }}
+          </a>
+          {{-- tasto messaggi --}}
+          <a class="dropdown-item" href="#">
+              {{ __('Messaggi') }}
+          </a>
+          {{-- tasto pubblicità --}}
+          <a class="dropdown-item" href="#">
+              {{ __('Pubblicità') }}
+          </a>
+          <hr>
+          {{-- tasto logout --}}
+        <a class="dropdown-item" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
           </form>
