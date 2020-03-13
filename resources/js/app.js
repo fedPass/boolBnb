@@ -46,7 +46,7 @@ $(document).ready(function(){
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
   if ($(window).width() > 996) { //se le dimensioni del display sono inferiori a 996px
-    if (st > 900) { //se si fa scroll oltre i 900px
+    if (st > 1000) { //se si fa scroll oltre i 900px
       $('.card-scroll').css('margin-top','700px'); //la card a lato scende fino in fondo
     } else {
       $('.card-scroll').css('margin-top','0'); //altrimenti risale

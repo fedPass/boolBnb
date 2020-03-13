@@ -67,7 +67,6 @@ class ApartmentController extends Controller
     public function show($id)
     {
       $apartment = Apartment::find($id);
-      dd($apartment);
       return view('admin.apartments.show', ['apartment' => $apartment]);
     }
 

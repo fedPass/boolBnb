@@ -11343,6 +11343,15 @@ footer .footer-bottom i {
 .info-room-navbar {
   display: none;
   background-color: #1976D2;
+  position: fixed;
+  top: 80px;
+  height: 60px;
+  width: 100%;
+  z-index: 10000;
+}
+
+.info-room-navbar .navbar-nav .nav-item .nav-link {
+  padding: 10px;
 }
 
 .room {

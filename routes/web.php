@@ -22,6 +22,7 @@ Route::get('/terms', function () {
     ['datas'=>config('termini-privacy')]);
     })->name('termini-privacy');
 
+//pagina dettaglio stanza
 Route::get('/room', function () {
     return view('room-details');
 });
