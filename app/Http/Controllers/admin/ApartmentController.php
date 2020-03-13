@@ -7,13 +7,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
+// Federica: facade used to interact with any of your configured disks
+use Illuminate\Support\Facades\Storage;
+//----
 
 class ApartmentController extends Controller
 {
-  // public function __construct()
-  //   {
-  //       $this->middleware('auth');
-  //   }
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -49,6 +52,17 @@ class ApartmentController extends Controller
       $new_apartment = new Apartment();
       $new_apartment->fill($data);
       $new_apartment->user_id = auth()->user()->id;
+      //Federica: --- start facade used to interact with any of your configured disks
+      //IMPORTANT: da rivedere forse si deve fare un ciclo per tutte 5 le img
+      // if(!empty($data['img'])) {
+      //     //prendi il file
+      //     $img = $data['img'];
+      //     //estraggo la path
+      //     $img_path = Storage::put('uploads', $img);
+      //     //salvo la path
+      //     $new_apartment->img = $img_path;
+      // }
+      //--- end facade
       $new_apartment->save();
       return redirect()->route('admin.apartments.index');
       //
@@ -67,6 +81,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
       $apartment = Apartment::find($id);
+      dd($apartment);
       return view('admin.apartments.show', ['apartment' => $apartment]);
     }
 
@@ -85,7 +100,10 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-      return view('admin.apartments.edit', ['apartment' => $apartment]);
+        //Federica ---prendo le options per creare le checkbox e le passo alla view
+        $options = Option::all();
+        //---
+      return view('admin.apartments.edit', ['apartment' => $apartment, 'options' => $options]);
     }
 
     /**

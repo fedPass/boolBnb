@@ -11443,6 +11443,10 @@ footer .footer-bottom i {
   min-width: 250px;
 }
 
+.admin-container .card img {
+  height: 200px;
+}
+
 .admin-container .card h5 {
   height: 45px;
   overflow-y: hidden;

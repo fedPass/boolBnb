@@ -49551,14 +49551,35 @@ $(document).ready(function () {
 
     if ($(window).width() > 996) {
       //se le dimensioni del display sono inferiori a 996px
-      if (st > 1000) {
+      if (st > 900) {
         //se si fa scroll oltre i 900px
         $('.card-scroll').css('margin-top', '700px'); //la card a lato scende fino in fondo
       } else {
         $('.card-scroll').css('margin-top', '0'); //altrimenti risale
       }
     }
-  });
+  }); //-----FORM VALIDATION BOOTSTRAP-----------//
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+  (function () {
+    'use strict';
+
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation'); // Loop over them and prevent submission
+
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
 });
 
 /***/ }),
@@ -49695,8 +49716,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

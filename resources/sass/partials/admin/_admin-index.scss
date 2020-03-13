@@ -6,6 +6,9 @@
     .card {
         height: 500px;
         min-width: 250px;
+        img {
+            height: 200px;
+        }
         h5 {
             height: 45px;
             overflow-y: hidden;
