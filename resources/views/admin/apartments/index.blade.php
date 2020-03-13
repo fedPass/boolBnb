@@ -7,8 +7,8 @@
         <div class="row pt-5">
             <div class="col-12">
                 <h1 class="float-left">Gestisci i tuoi appartamenti</h1>
-                {{-- <a class="btn btn-info float-right" href="{{ route('adminapartments.create') }}">Aggiungi appartamento</a> --}}
-                <a class="btn btn-info float-right" href="{{ route('admin-create') }}">Aggiungi appartamento</a>
+                {{-- <a class="btn btn-info float-right" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a> --}}
+                <a class="btn btn-info float-right" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
             </div>
         </div>
         <hr>
@@ -20,8 +20,8 @@
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         <p class="card-text">{{ $apartment->descrizione }}</p>
-                        {{-- <a href="{{ route('adminapartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
-                        <a href="{{ route('adminapartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a> --}}
+                        {{-- <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
+                        <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a> --}}
                         <div class="d-flex justify-content-between">
                             <a href="#" class="btn btn-primary">Modifica</a>
                             <a href="#" class="btn btn-primary">Statistiche</a>

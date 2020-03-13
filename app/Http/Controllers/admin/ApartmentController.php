@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\admin;
 // li aggiungo perchè stanno su un namespace diverso
-use App\Apartment;
-use App\Option;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Apartment;
+use App\Option;
 
 class ApartmentController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +22,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-      $apartments = Apartment::all();
-      return view('admin.apartaments.index', ['apartments' => $apartments]);
+      $apartments = Apartment::where('Auth::user()->id');
+      return view('admin.apartments.index' , ['apartments' => $apartments]);
     }
 
     /**
@@ -29,8 +34,7 @@ class ApartmentController extends Controller
     public function create()
     {
         $options = Option::all();
-        // return view('admin.apartment.create', compact('options'));
-        return view('admin.apartaments.create', ['options' => $options]);
+        return view('admin.apartments.create', compact('options'));
     }
 
     /**
@@ -42,10 +46,16 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
       $data = $request->all();
-      $new_apartment = new Product();
+      $new_apartment = new Apartment();
       $new_apartment->fill($data);
+      $new_apartment->user_id = auth()->user()->id;
       $new_apartment->save();
-      return redirect()->route('admin.apartaments.index');
+      return redirect()->route('admin.apartments.index');
+      //
+      // $alfa_romeo = new Auto();
+      // $alfa_romeo->marca = “Alfa Romeo”
+      // $alfa_romeo->targa = “AB000AD”;
+
     }
 
     /**
@@ -56,7 +66,8 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-      return view('admin.apartaments.show', ['apartments' => $apartments]);
+      $apartments = Apartment::where('Auth::user()->id');
+      return view('admin.apartments.show', ['apartments' => $apartments]);
     }
 
     /**
@@ -67,7 +78,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-      return view('admin.apartaments.edit', ['apartments' => $apartments]);
+      return view('admin.apartments.edit', ['apartment' => $apartment]);
     }
 
     /**
@@ -81,7 +92,7 @@ class ApartmentController extends Controller
     {
       $data = $request->all();
       $apartment->update($data);
-      return redirect()->route('admin.apartament.index');
+      return redirect()->route('admin.apartments.index');
     }
 
     /**
@@ -93,6 +104,6 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
       $apartment->delete();
-      return redirect()->route('admin.apartaments.index');
+      return redirect()->route('admin.apartments.index');
     }
 }

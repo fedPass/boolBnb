@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('public-home');
-})->name('public-home');
-
+// Home page
+Route::get('/', 'HomeController@index')->name('public-home');
 
 // pagina termini e privacy - public
 Route::get('/terms', function () {
@@ -28,17 +26,18 @@ Route::get('/room', function () {
     return view('room-details');
 });
 
+//public apartment
+Route::get('/apartments', 'ApartmentController@index')->name('apartlist');
+Route::get('/apartments/{id}', 'ApartmentController@show')->name('apartshow');
+
+
+Route::post('/apartments/{id}', 'LeadController@store')->name('email');
+
 Auth::routes();
 
-//home admin
-Route::get('/admin', 'admin\HomeController@index')->name('admin-home');
-//index admin
-Route::get('/admin/index', 'admin\ApartmentController@index')->name('admin-index');
-//pagina di create
-Route::get('/admin/create', 'admin\ApartmentController@create')->name('admin-create');
-
-// //pagine visibile per utente registrato
-// Route::middleware('auth')->namespace('admin')->prefix('admin')->name('admin.')->group(function(){
-//     Route::get('/', 'HomeController@index')->name('index');
-//     Route::resource('/apartaments', 'ApartmentController');
-// });
+//pagine visibile per utente registrato
+Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
+    Route::get('/', 'HomeController@index')->name('index');
+    Route::resource('/apartments', 'ApartmentController');
+    Route::resource('/leads', 'LeadController');
+});

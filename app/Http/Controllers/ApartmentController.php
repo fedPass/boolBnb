@@ -1,31 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+// li aggiungo perchè stanno su un namespace diverso
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
 
-class HomeController extends Controller
+class ApartmentController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display a listing of the resource.
      *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('public-home');
+      $apartments = Apartment::all();
+      return view('apartments.index');
     }
 
     /**
@@ -35,7 +28,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+      //
     }
 
     /**
@@ -46,7 +39,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
 
     /**
@@ -57,8 +50,7 @@ class HomeController extends Controller
      */
     public function show(Apartment $apartment)
     {
-
-        return view('apartments.show', ['apartment' => $apartment]);
+      return view('apartments.show', ['apartment' => $apartment]);
     }
 
     /**
@@ -79,9 +71,9 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+      //
     }
 
     /**
@@ -92,6 +84,6 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //
     }
 }

@@ -6,9 +6,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="{{ route('admin-index') }}">Dashboard</a>
-          <a class="nav-item nav-link" href="{{ route('admin-create') }}">Aggiungi appartamento</a>
-          <a class="nav-item nav-link" href="#">Messaggi</a>
+          <a class="nav-item nav-link active" href="">Dashboard <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="">Aggiungi appartamento</a>
           <a class="nav-item nav-link" href="#">Pubblicità</a>
         </div>
       </div>

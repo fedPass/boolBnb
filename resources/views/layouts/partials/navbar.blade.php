@@ -38,18 +38,18 @@
           </li>
           @endif
       @else
-      <li class="nav-item"><a class="nav-item nav-link" href="{{ route('admin-index') }}">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-item nav-link" href="{{ route('admin.apartments.index') }}">Dashboard</a></li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           {{-- tasto Dashboard --}}
-          <a class="dropdown-item" href="{{ route('admin-index') }}">
+          <a class="dropdown-item" href="{{ route('admin.apartments.index') }}">
               {{ __('Dashboard') }}
           </a>
           {{-- tasto agg app --}}
-          <a class="dropdown-item" href="{{ route('admin-create') }}">
+          <a class="dropdown-item" href="{{ route('admin.apartments.create') }}">
               {{ __('Aggiungi appartamento') }}
           </a>
           {{-- tasto messaggi --}}

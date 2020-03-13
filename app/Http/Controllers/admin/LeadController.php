@@ -1,31 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Apartment;
-use App\Option;
+use App\Lead;
 
-class HomeController extends Controller
+class LeadController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Display a listing of the resource.
      *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('public-home');
+        return view('admin.leads.index');
     }
 
     /**
@@ -46,7 +36,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
 
     /**
@@ -55,10 +45,9 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show(Lead $lead)
     {
-
-        return view('apartments.show', ['apartment' => $apartment]);
+      return view('admin.leads.show', ['lead' => $lead]);
     }
 
     /**
@@ -90,8 +79,9 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Lead $lead)
     {
-        //
+        $lead->delete();
+        return redirect()->route('admin.leads.index');
     }
 }
