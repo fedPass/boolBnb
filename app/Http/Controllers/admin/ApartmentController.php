@@ -18,7 +18,7 @@ class ApartmentController extends Controller
     public function index()
     {
       $apartments = Apartment::all();
-      return view('admin.home', ['apartments' => $apartments]);
+      return view('admin.apartaments.index', ['apartments' => $apartments]);
     }
 
     /**
@@ -30,8 +30,7 @@ class ApartmentController extends Controller
     {
         $options = Option::all();
         // return view('admin.apartment.create', compact('options'));
-        // return view('admin.apartment.create', ['options' => $options]);
-        return view('admin.apartment.create');
+        return view('admin.apartaments.create', ['options' => $options]);
     }
 
     /**
@@ -46,7 +45,7 @@ class ApartmentController extends Controller
       $new_apartment = new Product();
       $new_apartment->fill($data);
       $new_apartment->save();
-      return redirect()->route('admin.apartment.index');
+      return redirect()->route('admin.apartaments.index');
     }
 
     /**
@@ -57,7 +56,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-      return view('admin.apartment.show', ['apartment' => $apartment]);
+      return view('admin.apartaments.show', ['apartments' => $apartments]);
     }
 
     /**
@@ -68,7 +67,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-      return view('admin.apartment.edit', ['apartment' => $apartment]);
+      return view('admin.apartaments.edit', ['apartments' => $apartments]);
     }
 
     /**
@@ -82,7 +81,7 @@ class ApartmentController extends Controller
     {
       $data = $request->all();
       $apartment->update($data);
-      return redirect()->route('admin.apartment.index');
+      return redirect()->route('admin.apartament.index');
     }
 
     /**
@@ -94,6 +93,6 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
       $apartment->delete();
-      return redirect()->route('admin.apartment.index');
+      return redirect()->route('admin.apartaments.index');
     }
 }

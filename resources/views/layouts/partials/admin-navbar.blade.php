@@ -8,6 +8,7 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="{{ route('admin-index') }}">Dashboard</a>
           <a class="nav-item nav-link" href="{{ route('admin-create') }}">Aggiungi appartamento</a>
+          <a class="nav-item nav-link" href="#">Messaggi</a>
           <a class="nav-item nav-link" href="#">Pubblicità</a>
         </div>
       </div>

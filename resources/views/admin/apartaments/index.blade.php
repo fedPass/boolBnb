@@ -13,20 +13,24 @@
         </div>
         <hr>
         <div class="row mt-3 mb-3">
-            @forelse ($apartments as $apartament)
-                <div class="col-6 col-md-4 col-lg-3">
+            @forelse ($apartments as $apartment)
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
                     <div class="card">
-                      <img class="img-thumbnail" src="{{ $apartament->img }}" alt="Immagine appartamento">
+                      <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
                       <div class="card-body">
-                        <h5 class="card-title">{{ $apartament->titolo }}</h5>
-                        <p class="card-text">{{ $apartament->descrizione }}</p>
+                        <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                        <p class="card-text">{{ $apartment->descrizione }}</p>
                         {{-- <a href="{{ route('adminapartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
                         <a href="{{ route('adminapartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a> --}}
-                        <a href="#" class="btn btn-primary float-left">Modifica</a>
-                        <a href="#" class="btn btn-primary float-right">Statistiche</a>
-                        <div class="custom-control custom-switch text-center mt-2">
-                            <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
-                          <input type="checkbox" class="custom-control-input" id="visibilita">
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn btn-primary">Modifica</a>
+                            <a href="#" class="btn btn-primary">Statistiche</a>
+                        </div>
+                        <div class="col-12 mt-3 d-flex justify-content-center">
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="visibilita">
+                              <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
+                            </div>
                         </div>
                       </div>
                     </div>

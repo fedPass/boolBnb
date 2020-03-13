@@ -1,0 +1,18 @@
+.admin-container {
+    margin-top: $height-header;
+    hr {
+        border: 2px solid $primary-color-dark;
+    }
+    .card {
+        height: 500px;
+        min-width: 250px;
+        h5 {
+            height: 45px;
+            overflow-y: hidden;
+        }
+        p {
+            height: 115px;
+            overflow-y: auto;
+        }
+    }
+}

@@ -11430,7 +11430,18 @@ footer .footer-bottom i {
 }
 
 .admin-container .card {
-  margin-bottom: 20px;
+  height: 500px;
+  min-width: 250px;
+}
+
+.admin-container .card h5 {
+  height: 45px;
+  overflow-y: hidden;
+}
+
+.admin-container .card p {
+  height: 115px;
+  overflow-y: auto;
 }
 
 .add-product {
