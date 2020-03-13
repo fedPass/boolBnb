@@ -22,7 +22,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-      $apartments = Apartment::where('Auth::user()->id');
+      $apartments = Apartment::where('user_id', auth()->user()->id)->get();
       return view('admin.apartments.index' , ['apartments' => $apartments]);
     }
 
@@ -64,11 +64,19 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show($id)
     {
-      $apartments = Apartment::where('Auth::user()->id');
-      return view('admin.apartments.show', ['apartments' => $apartments]);
+      $apartment = Apartment::find($id);
+      dd($apartment);
+      return view('admin.apartments.show', ['apartment' => $apartment]);
     }
+
+//     public function show($id)
+// {
+//     $post = Post::find($id);
+//     return view('admin.posts.show', ['post' => $post]);
+// }
+
 
     /**
      * Show the form for editing the specified resource.
