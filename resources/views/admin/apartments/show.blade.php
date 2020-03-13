@@ -93,7 +93,7 @@
       <div class="maps" id="maps">
         <div class="maps-title">
           <h3>Il quartiere</h3>
-          <p>La casa di Nome user si trova a Città, Regione, Nazione.</p>
+          <p>La casa di {{$apartment->user->name}} si trova a {{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
         </div>
         <div class="maps-location">
           <img src="https://www.google.com/maps/d/thumbnail?mid=1eBOTPbXdQ5Zn4cj_n06wOPUVQHQ" alt="">
