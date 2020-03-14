@@ -15,8 +15,8 @@ return [
 
     // 'default' => env('FILESYSTEM_DRIVER', 'local'),
 
-    //fede - settato il fylesystem da default a public
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    //fede - settato il fylesystem da local a public
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
