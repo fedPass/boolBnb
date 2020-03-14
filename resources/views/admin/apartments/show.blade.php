@@ -4,9 +4,6 @@
   <div class="container">
     <div class="ul-left col-lg-6">
       <ul class="navbar-nav">
-        <li>
-          <a href="{{ url('/') }}"><img class="img-fluid logo" src="https://i2.wp.com/supportdriven.com/wp-content/uploads/2018/05/Belo.png?fit=301%2C323&ssl=1&w=640" alt="logo-bianco"></a>
-        </li>
         <li class="nav-item active">
           <a class="nav-link text-white" href="#title">Panoramica</a>
         </li>
