@@ -28,8 +28,8 @@ Route::get('/room', function () {
 });
 
 //public apartment
-Route::get('/apartments', 'ApartmentController@index');
-Route::get('/apartments/{id}', 'ApartmentController@show')->name('apartshow');
+Route::get('/apartments', 'ApartmentController@index')->name('apartments.index');
+Route::get('/apartments/{id}', 'ApartmentController@show')->name('apertments.show');
 
 Route::post('/apartments/{id}', 'LeadController@store')->name('email');
 
