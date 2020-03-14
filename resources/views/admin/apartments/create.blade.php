@@ -144,9 +144,9 @@
                     <hr>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
-                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-1" name="img-1">
+                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img">
                     </div>
-                    <div class="row form-group">
+                    {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-2" name="img-2">
                     </div>
@@ -161,11 +161,11 @@
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-5">Immagine 5</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-5" name="img-5">
-                    </div>
+                    </div> --}}
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="visibilita">
+                          <input type="checkbox" class="custom-control-input" id="visibilita" data-on="1" data-off="0">
                           <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                         </div>
                     </div>

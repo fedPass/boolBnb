@@ -19,7 +19,7 @@
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         <p class="card-text">{{ $apartment->descrizione }}</p>
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-around">
                             <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
                             <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a>
                         </div>

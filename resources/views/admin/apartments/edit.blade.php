@@ -7,7 +7,7 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Modifica dettagli appartamento</h1>
                 <hr>
-                <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                 <form action="{{ route('admin.apartments.update')}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="row form-group">
@@ -150,12 +150,13 @@
                     <hr>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
+                        {{-- se avevo caricato img mostramela --}}
                         @if ($apartment->img)
                             <img src="{{ asset('storage/'. $apartment->img) }}" alt="{{ $apartment->titolo }}">
                         @endif
-                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-1" name="img-1">
+                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img">
                     </div>
-                    <div class="row form-group">
+                    {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-2" name="img-2">
                     </div>
@@ -170,7 +171,7 @@
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-5">Immagine 5</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-5" name="img-5">
-                    </div>
+                    </div> --}}
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
@@ -179,7 +180,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Aggiungi un nuovo appartamento</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Modifica dettagli dell'appartamento</button>
                     </div>
                 </form>
             </div>

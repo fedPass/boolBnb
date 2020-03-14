@@ -9,6 +9,7 @@ use App\Apartment;
 use App\Option;
 // Federica: facade used to interact with any of your configured disks
 use Illuminate\Support\Facades\Storage;
+
 //----
 
 class ApartmentController extends Controller
@@ -53,17 +54,24 @@ class ApartmentController extends Controller
       $new_apartment->fill($data);
       $new_apartment->user_id = auth()->user()->id;
       //Federica: --- start facade used to interact with any of your configured disks
-      //IMPORTANT: da rivedere forse si deve fare un ciclo per tutte 5 le img
-      // if(!empty($data['img'])) {
-      //     //prendi il file
-      //     $img = $data['img'];
-      //     //estraggo la path
-      //     $img_path = Storage::put('uploads', $img);
-      //     //salvo la path
-      //     $new_apartment->img = $img_path;
-      // }
-      //--- end facade
+          if(!empty($data['img'])) {
+              //prendi il file
+              $img = $data['img'];
+              //estraggo la path
+              $img_path = Storage::put('uploads', $img);
+              //salvo la path
+              $new_apartment->img = $img_path;
+          }
+          //--- end facade
       $new_apartment->save();
+      //fede: prima salvo e poi popolo tab pivot per options
+          //se ho selezionato delle options le assegno all'apart
+          //controllo quindi l'array che ho creato dal form
+          if (!empty($data['nome_id'])) {
+              //la funzione options() è quello dichiarata nel model Apartment
+              //sync per popolare tabella pivot (fill si occupa della tab Apartment)
+              $new_apartment->options()->sync($data['nome_id']);
+          }
       return redirect()->route('admin.apartments.index');
       //
       // $alfa_romeo = new Auto();
@@ -116,7 +124,9 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment)
     {
       $data = $request->all();
+      // da fare: creare if per vedere se img cambia, eventualmente cancella da storage quella precedente e fare put in storage della nuova
       $apartment->update($data);
+      // da fare: se ho selezionato dei nuovi servizi (quindi ho un array con elementi) devo fare sync() dell'array altrimenti sync([]) du array vuoto
       return redirect()->route('admin.apartments.index');
     }
 
@@ -128,6 +138,8 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        //da fare: prevedere delete da Storage
+        //da fare: se l'array delle options non è vuoto fare sync([]) di array vuoto per cancellare options da apartment e cancellare la relazione tra le due tabelle
       $apartment->delete();
       return redirect()->route('admin.apartments.index');
     }
