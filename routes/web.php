@@ -18,8 +18,7 @@ Route::get('/', 'HomeController@index')->name('public-home');
 
 // pagina termini e privacy - public
 Route::get('/terms', function () {
-    return view('termini-privacy',
-    ['datas'=>config('termini-privacy')]);
+    return view('termini-privacy');
     })->name('termini-privacy');
 
 //pagina dettaglio stanza
@@ -29,7 +28,8 @@ Route::get('/room', function () {
 
 //public apartment
 Route::get('/apartments', 'ApartmentController@index')->name('apartments.index');
-Route::get('/apartments/{id}', 'ApartmentController@show')->name('apertments.show');
+//corretto apertments--> Route::get('/apartments/{id}', 'ApartmentController@show')->name('apertments.show');
+Route::get('/apartments/{id}', 'ApartmentController@show')->name('apartments.show');
 
 Route::post('/apartments/{id}', 'LeadController@store')->name('email');
 

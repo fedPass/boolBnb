@@ -49,6 +49,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        // da fare: inserire validate()
       $data = $request->all();
       $new_apartment = new Apartment();
       $new_apartment->fill($data);
@@ -89,7 +90,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
       $apartment = Apartment::find($id);
-      dd($apartment);
+      // dd($apartment);
       return view('admin.apartments.show', ['apartment' => $apartment]);
     }
 
@@ -123,6 +124,7 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
+      // da fare: inserire validate()
       $data = $request->all();
       // da fare: creare if per vedere se img cambia, eventualmente cancella da storage quella precedente e fare put in storage della nuova
       $apartment->update($data);

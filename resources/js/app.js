@@ -74,4 +74,10 @@ $(document).ready(function(){
   }, false);
 })();
 
+    //-----toggle Visibilità
+    $('.input-visibilita').click(function(){
+        // alert('ciao');
+        $('this').toggle();
+    });
+
 });

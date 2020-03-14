@@ -1,7 +1,87 @@
 @extends('layouts.public')
 
 @section('content')
-<div class="container">
+{{-- form custom --}}
+<div class="container-fluid">
+    <div class="accedi row">
+        <div class="col-md-6">
+            <i class="close fas fa-times"></i>
+            <h3>Registrati</h3>
+            <hr>
+            <form  method="POST" action="{{ route('register') }}">
+                  @csrf
+                  <div class="form-row">
+                    <div class="col">
+                      <label for="name">Nome</label>
+                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                      @error('name')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                    <div class="col">
+                        <label>Cognome</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+
+                <div class="form-group">
+                    <label for="email">Email address *</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="password-confirm">Conferma password *</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthday">Data di nascita</label>
+                    <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" >
+
+                    @error('birthday')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Continua</button>
+                <hr>
+                <button type="button" class="btn btn-light btn-lg btn-block">
+                    <i class="far fa-envelope"></i>
+                    Continua con un indirizzo e-mail</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">
+                    <i class="fab fa-facebook-square"></i>
+                    Continua con Facebook</button>
+                <button type="button" class="btn btn-light btn-lg btn-block">
+                    <i class="fab fa-google"></i>
+                    Continua con Google</button>
+                <p>Hai già un account?</p>
+                <a href="{{ route('login') }}"> <p>Accedi</p></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- form di default  --}}
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -85,97 +165,5 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="container-fluid">
-    <div class="accedi row">
-        <div class="col-md-6">
-            <i class="close fas fa-times"></i>
-            <h3>Registrati</h3>
-            <hr>
-            <form  method="POST" action="{{ route('register') }}">
-                  @csrf
-                  <div class="form-row">
-                    <div class="col">
-                      <label for="name">Nome</label>
-                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                      @error('name')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                    </div>
-                    <div class="col">
-                        <label>Cognome</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-
-                <div class="form-group">
-                    <label for="email">Email address *</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="password">Password *</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="password-confirm">Conferma password *</label>
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                
-                </div>
-
-                <div class="form-group">
-                    <label for="birthday">Data di nascita</label>
-                    <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" >
-
-                    @error('birthday')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Continua</button>
-                <hr>
-                <button type="button" class="btn btn-light btn-lg btn-block">
-                    <i class="far fa-envelope"></i>
-                    Continua con un indirizzo e-mail</button>
-                <button type="button" class="btn btn-light btn-lg btn-block">
-                    <i class="fab fa-facebook-square"></i>
-                    Continua con Facebook</button>
-                <button type="button" class="btn btn-light btn-lg btn-block">
-                    <i class="fab fa-google"></i>
-                    Continua con Google</button>
-                <p>Hai già un account?</p>
-                <a href="#"> <p>Accedi</p></a>
-            </form>
-        </div>
-
-
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
+</div> --}}
 @endsection

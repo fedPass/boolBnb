@@ -133,6 +133,7 @@
                             @foreach ($options as $option)
                                 <div class="col-6">
                                     <input class="form-check-input" type="checkbox" id="nome_{{ $option->id }}" name="nome_id[]" value="{{ $option->id }}"
+                                    {{-- recuperare check selezionati in caso di errore --}}
                                     {{ in_array($option->id, old('nome_id', array())) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="nome_{{ $option->id }}">
                                         {{ $option->nome }}
@@ -165,9 +166,10 @@
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="visibilita" data-on="1" data-off="0">
+                          <input type="checkbox" class="custom-control-input" id="visibilita">
                           <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                         </div>
+                        {{-- <input type="checkbox" checked data-toggle="toggle" data-on="Visibile" data-off="Non visibile" data-onstyle="primary" data-offstyle="light"> --}}
                     </div>
                     <div class="row">
                         <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Aggiungi un nuovo appartamento</button>
