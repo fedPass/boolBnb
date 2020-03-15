@@ -19,13 +19,7 @@
         <a class="nav-link" href="#">€ EUR</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Offri una casa</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Offri un'esperienza</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Aiuto</a>
+          <a class="nav-link" href="{{ route('admin.apartments.create') }}">Offri una casa</a>
       </li>
       <!-- Authentication Links -->
       @guest

@@ -58,20 +58,6 @@
         <a href="#">{{$apartment->cita}}</a>
         <p>Stanze:{{$apartment->stanze}}  Posti letto:{{$apartment->posti_letto}} Bagni:{{$apartment->bagno}}</p>
       </div>
-      <div class="other-info-container section">
-        <div class="other-info">
-          <strong><i class="fas fa-home"></i> Casa intera</strong>
-          <p>Appartamento: sarà a tua completa disposizione.</p>
-        </div>
-        <div class="other-info">
-          <strong><i class="fas fa-broom"></i> Pulizia perfetta</strong>
-          <p>4 ospiti recenti hanno affermato che questo alloggio ha una pulizia impeccabile.</p>
-        </div>
-        <div class="other-info">
-          <strong><i class="fas fa-map-marker-alt"></i> Ottima posizione</strong>
-          <p>Il 100% degli ospiti recenti ha valutato la posizione con 5 stelle.</p>
-        </div>
-      </div>
       <div class="description section">
         <p>{{$apartment->descrizione}}</p>
       </div>
@@ -94,34 +80,6 @@
         </div>
         <div class="maps-location">
           <img src="https://www.google.com/maps/d/thumbnail?mid=1eBOTPbXdQ5Zn4cj_n06wOPUVQHQ" alt="">
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 fix-right">
-      <div class="card card-scroll" style="width: 20rem;">
-        <div class="card-body">
-          <h5 class="card-title">Scrivi al proprietario</h5>
-          <small>* Campi obbligatori</small>
-          <form action="" method="post">
-            @csrf
-            <div class="form-group">
-              <label for="name">Nome*</label>
-              <input type="text" class="form-control" name='name' id="name"  placeholder="Nome" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email*</label>
-              <input type="email" class="form-control" name='email' id="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-              <label for="subject">Oggetto*</label>
-              <input type="text" class="form-control" name='subject' id="subject" placeholder="Oggetto" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Messaggio*</label>
-              <textarea class="form-control" id="message" placeholder="Inserisci qui il tuo messaggio..." name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Invia</button>
-          </form>
         </div>
       </div>
     </div>
