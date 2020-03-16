@@ -45,8 +45,8 @@
                               <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                             </div> --}}
                             <div class="custom-control custom-switch">
-                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita" data-id="{{$apartment->id}}">
-                              <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
+                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}">
+                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
                             </div>
                         </div>
                       </div>

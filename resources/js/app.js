@@ -74,24 +74,4 @@ $(document).ready(function(){
   }, false);
 })();
 
-    //-----toggle Visibilità
-    $('.input-visibilita').click(function(){
-        // alert('ciao');
-
-        // $(this).toggle('checked');
-
-        // if ($(this).prop('checked') == true) {
-        //     $(this).prop('checked', false)
-        // } else {
-        //     $(this).prop('checked', true)
-        // }
-
-        var checkBox = $('input[data-id="{{$apartment->id}}"]');
-       if (checkBox.prop('checked') == true) {
-           checkBox.prop('checked', false)
-       } else {
-           checkBox.prop('checked', true)
-       }
-
-    });
 });
