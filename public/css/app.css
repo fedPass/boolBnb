@@ -11419,6 +11419,11 @@ footer .footer-bottom i {
   padding: 20px;
 }
 
+.fix-right .card-scroll {
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+}
+
 .container-admin-img {
   display: flex;
   justify-content: center;

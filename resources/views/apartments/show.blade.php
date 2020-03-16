@@ -98,7 +98,7 @@
       </div>
     </div>
     <div class="col-lg-4 fix-right">
-      <div class="card card-scroll" style="width: 20rem;">
+      <div class="card-scroll" style="width: 20rem;">
         <div class="card-body">
           <h5 class="card-title">Scrivi al proprietario</h5>
           <small>* Campi obbligatori</small>
