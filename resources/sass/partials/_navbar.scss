@@ -1,4 +1,4 @@
-.navbar {
+.navbar { //per tutte le navbar
   height: 80px;
   background-color: transparent;
   .navbar-nav{
@@ -40,7 +40,7 @@
     }
   }
 }
-.change-prop{
+.change-prop{ //proprietà che cambiano (JS) quando si fa scroll
   z-index: 1000;
   background-color: white;
   position: fixed;
@@ -60,7 +60,7 @@
     }
   }
 }
-.public-nav .navbar-nav .nav-item .nav-link {
+.public-nav .navbar-nav .nav-item .nav-link { //navbar bianca
   color: $primary-color-dark;
   font-weight: bold;
   padding: 20px;

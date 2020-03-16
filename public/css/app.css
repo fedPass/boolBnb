@@ -10921,6 +10921,12 @@ a.text-dark:focus {
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 768px) {
+  .booking-container {
+    width: 300px;
+  }
+}
+
 .navbar {
   height: 80px;
   background-color: transparent;

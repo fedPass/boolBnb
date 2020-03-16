@@ -15,9 +15,14 @@
             @forelse ($apartments as $apartment)
                 <div class="col-6 col-md-4 mb-3">
                     <div class="card">
+<<<<<<< HEAD
                         <div class="card-img">
                             <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                         </div>
+=======
+                      <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
+                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+>>>>>>> modifiche sulle card lato admin
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         {{-- <p class="card-text">{{ $apartment->descrizione }}</p> --}}

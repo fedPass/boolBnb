@@ -5,7 +5,7 @@
     <div class="ul-left col-lg-6">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link text-white" href="#title">Panoramica</a>
+          <a class="nav-link text-white {{--Route::currentRouteName() == 'apartments/{id}#title' ? 'active' : ''--}}" href="#title">Panoramica</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="#services">Servizi</a>
@@ -102,7 +102,7 @@
         <div class="card-body">
           <h5 class="card-title">Scrivi al proprietario</h5>
           <small>* Campi obbligatori</small>
-          <form action="" method="post">
+          <form action="{{--inserire la rotta che ti porta alla view grazie--}}" method="post">
             @csrf
             <div class="form-group">
               <label for="name">Nome*</label>
