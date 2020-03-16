@@ -28,20 +28,20 @@
   </div>
 </nav>
 <div class="container-fluid room">
-  <div class="row">
-    <div class="col-lg-6 col-md-6">
+  <div class="row container-admin-img">
+    <div class="col-sm-2">
       <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}">
     </div>
-    <div class="col-lg-6 col-md-6">
+    <div class="col-sm-2">
       <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
     </div>
-    <div class="col-lg-6 col-md-6">
+    <div class="col-sm-2">
       <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
     </div>
-    <div class="col-lg-6 bottom">
+    <div class="col-sm-2">
       <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
     </div>
-    <div class="col-lg-6 bottom">
+    <div class="col-sm-2">
       <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
     </div>
   </div>
