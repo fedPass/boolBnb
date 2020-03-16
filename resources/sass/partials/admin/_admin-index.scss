@@ -7,8 +7,13 @@
         border: 1px solid $primary-color-dark;
         height: 500px;
         min-width: 250px;
-        img {
+        .card-img {
             height: 250px;
+            width: 100%;
+            img {
+                height: 100%;
+                width: 100%;
+            }
         }
         h5 {
             height: 25px;
@@ -29,6 +34,6 @@
 
 @media (min-width: 1200px) {
     .card {
-        height: 400px!important;
+        height: 415px!important;
     }
 }

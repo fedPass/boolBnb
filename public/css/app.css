@@ -11445,8 +11445,14 @@ footer .footer-bottom i {
   min-width: 250px;
 }
 
-.admin-container .card img {
+.admin-container .card .card-img {
   height: 250px;
+  width: 100%;
+}
+
+.admin-container .card .card-img img {
+  height: 100%;
+  width: 100%;
 }
 
 .admin-container .card h5 {
@@ -11467,7 +11473,7 @@ footer .footer-bottom i {
 
 @media (min-width: 1200px) {
   .card {
-    height: 400px !important;
+    height: 415px !important;
   }
 }
 

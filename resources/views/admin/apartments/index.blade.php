@@ -15,7 +15,9 @@
             @forelse ($apartments as $apartment)
                 <div class="col-6 col-md-4 mb-3">
                     <div class="card">
-                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                        <div class="card-img">
+                            <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                        </div>
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         {{-- <p class="card-text">{{ $apartment->descrizione }}</p> --}}
@@ -36,8 +38,12 @@
                             </div>
                         </div>
                         <div class="col-12 mt-3 d-flex justify-content-center">
-                            <div class="custom-control custom-switch">
+                            {{-- <div class="custom-control custom-switch">
                               <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita">
+                              <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
+                            </div> --}}
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita" data-id="{{$apartment->id}}">
                               <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                             </div>
                         </div>
@@ -45,7 +51,7 @@
                     </div>
                 </div>
             @empty
-                <div class="col-6 mt-5">
+                <div class="col-12 mt-5 mb-5">
                     <div class="d-flex align-items-center flex-column text-center">
                         <h4>Non ci sono ancora appartamenti da mostrare</h4>
                         <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
