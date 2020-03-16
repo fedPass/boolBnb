@@ -9,24 +9,28 @@
             <h3>Registrati</h3>
             <hr>
             <form  method="POST" action="{{ route('register') }}">
-                  @csrf
-                  <div class="form-row">
-                    <div class="col">
-                      <label for="name">Nome</label>
-                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                      @error('name')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
+                @csrf
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="col">
+                        <label for="first_name">Nome</label>
+                        <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                        @error('first_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
+                      <div class="col">
+                        <label for="last_name">Cognome</label>
+                        <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                        @error('last_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
                     </div>
-                    <div class="col">
-                        <label>Cognome</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-
                 <div class="form-group">
                     <label for="email">Email address *</label>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

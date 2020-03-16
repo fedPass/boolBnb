@@ -51,7 +51,7 @@
         <h2>{{$apartment->titolo}}</h2>
         <div class="user-container float-right">
           <img class="user-img" src="https://a0.muscache.com/im/pictures/user/bbb4fb56-fdd7-4ee5-8cc6-fc03ffd4d7bf.jpg?aki_policy=profile_x_medium" alt="">
-          <p class="text-center">{{$apartment->user->name}}</p>
+          <p class="text-center">{{$apartment->user->first_name}}</p>
         </div>
       </div>
       <div class="info section">
@@ -76,7 +76,7 @@
       <div class="maps" id="maps">
         <div class="maps-title">
           <h3>Il quartiere</h3>
-          <p>La casa di {{$apartment->user->name}} si trova a {{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
+          <p>La casa di {{$apartment->user->first_name}} si trova a {{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
         </div>
         <div class="maps-location">
           <img src="https://www.google.com/maps/d/thumbnail?mid=1eBOTPbXdQ5Zn4cj_n06wOPUVQHQ" alt="">
