@@ -19,6 +19,7 @@
       @empty
       <p>Non ci sono ancora appartamenti da mostrare</p>
       @endforelse
+      {{$apartments->links()}}
     </div>
   </div>
 </div>

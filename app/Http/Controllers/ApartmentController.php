@@ -18,7 +18,7 @@ class ApartmentController extends Controller
     public function index(Request $request)
     {
       $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();
-      $apartments = Apartment::paginate(3);
+      $apartments = Apartment::paginate(12);
       return view('apartments.index',compact('apartments'));
     }
 
