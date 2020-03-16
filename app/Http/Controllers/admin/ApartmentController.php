@@ -185,6 +185,11 @@ class ApartmentController extends Controller
       // da fare: creare if per vedere se img cambia, eventualmente cancella da storage quella precedente e fare put in storage della nuova
       $apartment->update($data);
       // da fare: se ho selezionato dei nuovi servizi (quindi ho un array con elementi) devo fare sync() dell'array altrimenti sync([]) du array vuoto
+      if (!empty($data['nome_id'])) {
+          //la funzione options() è quello dichiarata nel model Apartment
+          //sync per popolare tabella pivot (fill si occupa della tab Apartment)
+          $apartment->options()->sync($data['nome_id']);
+      }
       return redirect()->route('admin.apartments.index');
     }
 
