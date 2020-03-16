@@ -33,7 +33,10 @@
                     </div>
                 </div>
             @empty
-                <p>Non ci sono ancora appartamenti da mostrare</p>
+                <div class="col-6 mt-5 d-flex justify-content-center flex-column text-center">
+                    <h4>Non ci sono ancora appartamenti da mostrare</h4>
+                    <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
+                </div>
             @endforelse
         </div>
     </div>
