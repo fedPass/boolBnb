@@ -11,7 +11,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ $apartment->titolo }}</h5>
             <p class="card-text">{{ $apartment->descrizione }}</p>
-            <a href="{{route('apartments.show', ['apartment'=>$apartment->id])}}" class="btn btn-primary">Visualizza dettagli</a>
+            <a href="{{route('apartments.show', $apartment->id)}}" class="btn btn-primary">Visualizza dettagli</a>
           </div>
         </div>
       </div>

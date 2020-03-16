@@ -16,7 +16,7 @@ class ApartmentController extends Controller
      */
     public function index(Request $request)
     {
-      $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();;
+      $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();
       return view('apartments.index',compact('apartments'));
     }
 
@@ -47,10 +47,11 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show($id)
     {
-      $apartment = Apartment::where('titolo')->get();
-      return view('apartments.show', ['apartment' => $apartment]);
+      $apartment = Apartment::find($id);
+      // $apartment = Apartment::where('titolo')->get();
+      return view('apartments.show', compact('apartment'));
     }
 
     /**
