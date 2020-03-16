@@ -26,6 +26,7 @@
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         {{-- <p class="card-text">{{ $apartment->descrizione }}</p> --}}
+                      </a>
                         <div class="row">
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                 <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>

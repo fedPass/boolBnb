@@ -5,7 +5,7 @@
     <div class="ul-left col-lg-6">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link text-white" href="#title">Panoramica</a>
+          <a class="nav-link text-white title" {{--onclick="myFunction()"--}} href="#title">Panoramica</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="#services">Servizi</a>
@@ -29,24 +29,26 @@
 </nav>
 <div class="container-fluid room">
   <div class="row">
-    <div class="col-lg-6 col-md-6 previev">
+    <div class="col-lg-6 col-md-6">
       <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}">
     </div>
-    <div class="col-lg-6 col-md-6 previev">
-      <div class="col-lg-6 col-md-12 top">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-      </div>
-      <div class="col-lg-6 bottom">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-      </div>
+    <div class="col-lg-6 col-md-6">
+      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+    </div>
+    <div class="col-lg-6 bottom">
+      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+    </div>
+    <div class="col-lg-6 bottom">
+      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-sm-12 scrol-left">
+    <div class="col-lg-12 scrol-left">
       <div class="title" id="title">
         <h2>{{$apartment->titolo}}</h2>
         <div class="user-container float-right">
@@ -56,7 +58,7 @@
       </div>
       <div class="info section">
         <a href="#">{{$apartment->cita}}</a>
-        <p>Stanze:{{$apartment->stanze}}  Posti letto:{{$apartment->posti_letto}} Bagni:{{$apartment->bagno}}</p>
+        <p>Stanze: {{$apartment->stanze}}, Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</p>
       </div>
       <div class="description section">
         <p>{{$apartment->descrizione}}</p>
