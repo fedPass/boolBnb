@@ -16,8 +16,10 @@
                 <div class="col-6 col-md-4 mb-3">
                     <div class="card">
                       <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
-                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
-                      <div class="card-body">
+                    <div class="card-img">
+                        <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                    </div>
+                    <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         {{-- <p class="card-text">{{ $apartment->descrizione }}</p> --}}
                       </a>
