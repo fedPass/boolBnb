@@ -77,7 +77,6 @@ $(document).ready(function(){
     //-----toggle Visibilità
     $('.input-visibilita').click(function(){
         // alert('ciao');
-        $('this').toggle();
+        $('this').toggle('checked');
     });
-
 });

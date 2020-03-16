@@ -15,13 +15,19 @@
             @forelse ($apartments as $apartment)
                 <div class="col-6 col-md-4 mb-3">
                     <div class="card">
-                      <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
+                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         <p class="card-text">{{ $apartment->descrizione }}</p>
                         <div class="d-flex justify-content-around">
                             <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
                             <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a>
+                            {{-- <form class="d-inline" action="{{ route(' admin.apartments.destroy', ['apartment' => $apartment->id]) }}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')"> --}}
+                            <form class="d-inline" action="" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                            </form>
                         </div>
                         <div class="col-12 mt-3 d-flex justify-content-center">
                             <div class="custom-control custom-switch">
@@ -33,9 +39,11 @@
                     </div>
                 </div>
             @empty
-                <div class="col-6 mt-5 d-flex justify-content-center flex-column text-center">
-                    <h4>Non ci sono ancora appartamenti da mostrare</h4>
-                    <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
+                <div class="col-6 mt-5">
+                    <div class="d-flex justify-content-center flex-column text-center">
+                        <h4>Non ci sono ancora appartamenti da mostrare</h4>
+                        <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
+                    </div>
                 </div>
             @endforelse
         </div>
