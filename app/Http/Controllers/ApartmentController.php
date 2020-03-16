@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
+use Illuminate\Database\Eloquent\Builder;
 
 class ApartmentController extends Controller
 {
@@ -17,6 +18,7 @@ class ApartmentController extends Controller
     public function index(Request $request)
     {
       $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();
+      $apartments = Apartment::paginate(3);
       return view('apartments.index',compact('apartments'));
     }
 
