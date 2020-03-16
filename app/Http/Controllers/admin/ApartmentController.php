@@ -107,11 +107,13 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment)
+    public function edit($id)
     {
         //Federica ---prendo le options per creare le checkbox e le passo alla view
+        $apartment = Apartment::find($id);
         $options = Option::all();
         //---
+
       return view('admin.apartments.edit', ['apartment' => $apartment, 'options' => $options]);
     }
 
@@ -122,9 +124,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Apartment $apartment)
+    public function update(Request $request, $id)
     {
       // da fare: inserire validate()
+      $apartment = Apartment::find($id);
       $data = $request->all();
       // da fare: creare if per vedere se img cambia, eventualmente cancella da storage quella precedente e fare put in storage della nuova
       $apartment->update($data);
