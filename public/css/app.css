@@ -11440,6 +11440,7 @@ footer .footer-bottom i {
 }
 
 .admin-container .card {
+  border: 1px solid #1976D2;
   height: 500px;
   min-width: 250px;
 }
@@ -11456,6 +11457,18 @@ footer .footer-bottom i {
 .admin-container .card p {
   height: 90px;
   overflow-y: auto;
+}
+
+.admin-container .card .btn-apartment-crud a,
+.admin-container .card .btn-apartment-crud button {
+  width: 95px;
+  margin: 5px 0;
+}
+
+@media (min-width: 1200px) {
+  .card {
+    height: 400px !important;
+  }
 }
 
 .add-product {
