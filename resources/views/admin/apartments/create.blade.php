@@ -12,13 +12,23 @@
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="titolo">Titolo</label>
                       {{-- old per recuperare vallue in caso di errore compilazione form --}}
-                      <input type="text" class="form-control col-12 col-md-9" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
+                      <input type="text" class="form-control col-12 col-md-9 @error('titolo') is-invalid @enderror" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
+                      @error('titolo')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">Ok!</div>
                       <div class="invalid-feedback col-12 col-md-9 offset-md-3">Aggiungi un titolo</div>
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="stanze">Numero di stanze</label>
-                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="stanze" placeholder="Numero di stanze" name="stanze" value="{{ old('stanze') }}" required>
+                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9 @error('stanze') is-invalid @enderror" id="stanze" placeholder="Numero di stanze" name="stanze" value="{{ old('stanze') }}" required>
+                        @error('stanze')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                         </div>
@@ -28,7 +38,12 @@
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="posti_letto">Numero posti letto</label>
-                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="posti_letto" placeholder="Numero di posti letto" name="posti_letto" value="{{ old('posti_letto') }}" required>
+                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9 @error('posti_letto') is-invalid @enderror" id="posti_letto" placeholder="Numero di posti letto" name="posti_letto" value="{{ old('posti_letto') }}" required>
+                        @error('posti_letto')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -38,7 +53,12 @@
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="bagni">Numero di bagni</label>
-                        <input type="number" min="1" class="form-control col-12 col-md-9" id="bagni" placeholder="Numero di bagni" name="bagni" value="{{ old('bagni') }}" required>
+                        <input type="number" min="1" class="form-control col-12 col-md-9 @error('bagni') is-invalid @enderror" id="bagni" placeholder="Numero di bagni" name="bagni" value="{{ old('bagni') }}" required>
+                        @error('bagni')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                         </div>
@@ -48,7 +68,12 @@
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="dimensioni">Dimensioni (mq)</label>
-                        <input type="number" min="1" class="form-control col-12 col-md-9" id="dimensioni" placeholder="Dimensioni in mq" name="dimensioni" value="{{ old('dimensioni') }}" required>
+                        <input type="number" min="1" class="form-control col-12 col-md-9 @error('dimensioni') is-invalid @enderror" id="dimensioni" placeholder="Dimensioni in mq" name="dimensioni" value="{{ old('dimensioni') }}" required>
+                        @error('dimensioni')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                           </div>
@@ -58,7 +83,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="descrizione">Descrizione</label>
-                      <textarea type="text" class="form-control col-12 col-md-9" id="descrizione" placeholder="Descrizione" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
+                      <textarea type="text" class="form-control col-12 col-md-9 @error('descrizione') is-invalid @enderror" id="descrizione" placeholder="Descrizione" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
+                      @error('descrizione')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -68,7 +98,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="via">Via</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="Via/Piazza" name="via" value="{{ old('via') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9 @error('via') is-invalid @enderror" id="via" placeholder="Via/Piazza" name="via" value="{{ old('via') }}" required>
+                      @error('via')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -78,7 +113,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="civico">N. civico</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="civico" placeholder="N. civico" name="via" value="{{ old('civico') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9 @error('civico') is-invalid @enderror" id="civico" placeholder="N. civico" name="via" value="{{ old('civico') }}" required>
+                        @error('civico')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -88,7 +128,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="cap">CAP</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="cap" placeholder="CAP" name="cap" value="{{ old('cap') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9 @error('cap') is-invalid @enderror" id="cap" placeholder="CAP" name="cap" value="{{ old('cap') }}" required>
+                      @error('cap')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -98,7 +143,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="cita">Città</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="cita" placeholder="Città" name="cita" value="{{ old('cita') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9 @error('cita') is-invalid @enderror" id="cita" placeholder="Città" name="cita" value="{{ old('cita') }}" required>
+                      @error('cita')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -108,7 +158,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="provincia">Provincia</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="provincia" placeholder="Provincia" name="provincia" value="{{ old('provincia') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9 @error('provincia') is-invalid @enderror" id="provincia" placeholder="Provincia" name="provincia" value="{{ old('provincia') }}" required>
+                      @error('provincia')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -118,7 +173,12 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="paese">Paese</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9  @error('paese') is-invalid @enderror" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
+                      @error('paese')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>

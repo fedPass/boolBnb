@@ -49,7 +49,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-      $request = Apartment::where('titolo')
+      $apartment = Apartment::where('titolo')->get();
       return view('apartments.show', ['apartment' => $apartment]);
     }
 

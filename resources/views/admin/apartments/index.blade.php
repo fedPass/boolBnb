@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                 {{-- <form class="d-inline" action="{{ route(' admin.apartments.destroy', ['apartment' => $apartment->id]) }}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')"> --}}
-                                <form action="" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
+                                <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-outline-danger">Elimina</button>

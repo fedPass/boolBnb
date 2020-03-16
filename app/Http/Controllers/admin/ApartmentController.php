@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
+use Illuminate\Support\Facades\Validator;
 // Federica: facade used to interact with any of your configured disks
 use Illuminate\Support\Facades\Storage;
 
@@ -28,6 +29,56 @@ class ApartmentController extends Controller
     {
       $apartments = Apartment::where('user_id', auth()->user()->id)->get();
       return view('admin.apartments.index' , ['apartments' => $apartments]);
+    }
+
+    /**
+     * Get a validator for an incoming creation request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        $message = [
+            'titolo.required' => 'Titolo richiesto',
+            'titolo.min' => 'Minimo 2 carateri',
+            'titolo.max' => 'Titolo troppo lungo!',
+            'visibilita.required' => 'Nascondi o mostra?',
+            'stanze.required' => 'Campo richiesto',
+            'stanze.integer' => 'Campo non negativo!',
+            'stanze.min' => 'Minimo 2 carateri',
+            'posti_letto.required' => 'Campo richiesto',
+            'posti_letto.integer' => 'Campo non negativo!',
+            'posti_letto.min' => 'Minimo 2 carateri',
+            'bagni.required' => 'Campo richiesto',
+            'bagni.integer' => 'Campo non negativo!',
+            'dimensioni.required' => 'Campo richiesto',
+            'dimensioni.integer' => 'Campo non negativo!',
+            'descrizione.required' => 'Campo richiesto',
+            'via.required' => 'Campo richiesto',
+            'civico.required' => 'Campo richiesto',
+            'civico.integer' => 'Campo non negativo!',
+            'cap.required' => 'Campo richiesto',
+            'cap.integer' => 'Campo non negativo!',
+            'cita.required' => 'Campo richiesto',
+            'provincia.required' => 'Campo richiesto',
+            'paese.required' => 'Campo richiesto'
+        ];
+
+        return Validator::make($data, [
+            'titolo' => ['required', 'string', 'min:2','max:255'],
+            'stanze' => ['required', 'integer', 'min:1'],
+            'posti_letto' => ['required', 'integer','min:1'],
+            'bagni' => ['required', 'integer', 'min:1'],
+            'dimensioni' => ['required', 'integer', 'min:1'],
+            'descrizione' => ['required', 'string'],
+            'via' => ['required', 'string'],
+            'civico' => ['required', 'integer', 'min:1'],
+            'cap' => ['required', 'integer', 'min:1'],
+            'cita' => ['required', 'string'],
+            'provincia' => ['required', 'string'],
+            'paese' => ['required', 'string', 'min:2']
+        ],$message);
     }
 
     /**
