@@ -35,20 +35,30 @@
     <div class="col-lg-12 scrol-left">
       <div class="title" id="title">
         <h2>{{$apartment->titolo}}</h2>
+
+        <!-- Button modifica -->
+        <button class="btn-apartment-crud modif" type="submit" name="button">
+            <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
+        </button>
+        <!-- fine -->
+
         <div class="user-container float-right">
           <img class="user-img" src="https://a0.muscache.com/im/pictures/user/bbb4fb56-fdd7-4ee5-8cc6-fc03ffd4d7bf.jpg?aki_policy=profile_x_medium" alt="">
           <p class="text-center">{{$apartment->user->first_name}}</p>
         </div>
       </div>
+
       <div class="info section">
+        <h4>Info</h4>
         <a href="#">{{$apartment->cita}}</a>
         <p>Stanze: {{$apartment->stanze}}, Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</p>
       </div>
       <div class="description section">
+          <h4>Descrizione</h4>
         <p>{{$apartment->descrizione}}</p>
       </div>
       <div class="services-container section" id="services">
-        <strong>Servizi</strong>
+        <h4>Servizi</h4>
         <div class="services">
           <div class="col-lg-6">
             @forelse ($apartment->options as $option)
@@ -63,14 +73,10 @@
 
       <!-- parte da implementare con le immagini -->
       <div class="room section">
-        <p>Immagini appartamento</p>
+        <h4>Immagini appartamento</h4>
         <div class="row container-admin-img container-fluid">
           <div class="col-sm-2">
             <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}"> -->
-            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
-          </div>
-          <div class="col-sm-2">
-            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
             <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
           </div>
           <div class="col-sm-2">
@@ -94,23 +100,41 @@
       <!-- fine -->
 
 
-      <div class="graphic " id="graphic">
-        <div class="graphic-title">
-          <h3>Visualizzazioni</h3>
-        </div>
-        <div class="grafici">
-          <img src="https://lh3.googleusercontent.com/proxy/677Gcfcq6m0jUxE7pQG8HbQl436suKSrVXTYFRWkH43v4HlNfKVhbbh6XzwTz-kiBE9OtASW5rCidHkS6a-K0OmMNP8brmU3" alt="">
-        </div>
+      <div id="graphic">
+          <h4>Statistiche</h4>
+
+          <div class="d-flex justify-content-center">
+              <div class="graphic">
+                <div class="graphic-title">
+                  <h5>Visualizzazioni</h5>
+                </div>
+                <div class="grafici">
+                    <div class="grafico1">
+                        <div class="canv-container">
+                            <canvas id="yourChart" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="graphic">
+                <div class="graphic-title">
+                  <h5>Messaggi</h5>
+                </div>
+                <div class="grafici">
+                    <div class="grafico2">
+                       <div class="canv-container">
+                           <canvas id="myChart" width="400" height="400"></canvas>
+                       </div>
+                   </div>
+                </div>
+              </div>
+          </div>
+
       </div>
 
-      <div class="graphic float-left" id="graphic">
-        <div class="graphic-title">
-          <h3>Messaggi</h3>
-        </div>
-        <div class="grafici">
-          <img src="https://accentsconagua.com/img/images_6/how-to-create-a-line-chart-with-chartjs.png" alt="">
-        </div>
-      </div>
+
+
     </div>
   </div>
 </div>

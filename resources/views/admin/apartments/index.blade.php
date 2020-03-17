@@ -28,7 +28,7 @@
                                 <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
                             </div>
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a>
+                                <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
                             </div>
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                 <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
