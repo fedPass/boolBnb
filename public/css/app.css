@@ -11444,7 +11444,7 @@ footer .footer-bottom i {
 
 .results-container {
   display: flex;
-  margin: 100px 0 50px;
+  margin: 150px 0 50px;
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -11454,12 +11454,15 @@ footer .footer-bottom i {
 }
 
 .results-container .card-click .card-results {
-  margin-bottom: 30px;
+  padding-top: 20px;
+  margin-bottom: 50px;
   color: #1976D2;
 }
 
 .results-container .card-click .card-results:hover {
   color: #FFFFFF;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 39px 12px #BDBDBD;
 }
 
 .navbar-admin {

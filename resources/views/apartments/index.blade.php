@@ -5,7 +5,7 @@
   <div class="row">
     <div class="results-container">
       @forelse ($apartments as $apartment)
-      <div class="col-sm-12 col-md-3 col-lg-3">
+      <div class="col-sm-12 col-md-6 col-lg-3">
         <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
         <div class="card btn btn-primary card-results">
             <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
