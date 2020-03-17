@@ -11,7 +11,7 @@
           <a class="nav-link text-white" href="#services">Servizi</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#maps">La posizione</a>
+            <a class="nav-link text-white" href="#graphic">Statistiche</a>
         </li>
       </ul>
     </div>
@@ -27,26 +27,10 @@
     </div>
   </div>
 </nav>
-<div class="container-fluid room">
-  <div class="row container-admin-img">
-    <div class="col-sm-2">
-      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}">
-    </div>
-    <div class="col-sm-2">
-      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-    </div>
-    <div class="col-sm-2">
-      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-    </div>
-    <div class="col-sm-2">
-      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-    </div>
-    <div class="col-sm-2">
-      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-    </div>
-  </div>
-</div>
-<div class="container">
+
+
+
+<div class="container stacca">
   <div class="row">
     <div class="col-lg-12 scrol-left">
       <div class="title" id="title">
@@ -75,13 +59,56 @@
           </div>
         </div>
       </div>
-      <div class="maps" id="maps">
-        <div class="maps-title">
-          <h3>Il quartiere</h3>
-          <p>La casa di {{$apartment->user->first_name}} si trova a {{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
+
+
+      <!-- parte da implementare con le immagini -->
+      <div class="room section">
+        <p>Immagini appartamento</p>
+        <div class="row container-admin-img container-fluid">
+          <div class="col-sm-2">
+            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}"> -->
+            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+          </div>
+          <div class="col-sm-2">
+            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
+            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+          </div>
+          <div class="col-sm-2">
+            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
+            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+          </div>
+          <div class="col-sm-2">
+            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
+            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+          </div>
+          <div class="col-sm-2">
+            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
+            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+          </div>
+          <div class="col-sm-2">
+            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
+            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+          </div>
         </div>
-        <div class="maps-location">
-          <img src="https://www.google.com/maps/d/thumbnail?mid=1eBOTPbXdQ5Zn4cj_n06wOPUVQHQ" alt="">
+      </div>
+      <!-- fine -->
+
+
+      <div class="graphic " id="graphic">
+        <div class="graphic-title">
+          <h3>Visualizzazioni</h3>
+        </div>
+        <div class="grafici">
+          <img src="https://lh3.googleusercontent.com/proxy/677Gcfcq6m0jUxE7pQG8HbQl436suKSrVXTYFRWkH43v4HlNfKVhbbh6XzwTz-kiBE9OtASW5rCidHkS6a-K0OmMNP8brmU3" alt="">
+        </div>
+      </div>
+
+      <div class="graphic float-left" id="graphic">
+        <div class="graphic-title">
+          <h3>Messaggi</h3>
+        </div>
+        <div class="grafici">
+          <img src="https://accentsconagua.com/img/images_6/how-to-create-a-line-chart-with-chartjs.png" alt="">
         </div>
       </div>
     </div>

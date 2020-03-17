@@ -11361,8 +11361,13 @@ footer .footer-bottom i {
   padding: 10px;
 }
 
+.stacca {
+  margin-top: 150px;
+}
+
 .room {
-  margin-top: 80px;
+  margin-top: 20px;
+  padding-bottom: 22px;
 }
 
 .previev {
@@ -11412,7 +11417,7 @@ footer .footer-bottom i {
 }
 
 .section {
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom: 1px solid #1976D2;
 }
 
 .fix-right {
@@ -11427,7 +11432,16 @@ footer .footer-bottom i {
 .container-admin-img {
   display: flex;
   justify-content: center;
-  margin-top: 150px;
+}
+
+.grafici img {
+  width: 400px;
+  height: 400px;
+}
+
+.graphic {
+  margin: 50px;
+  display: inline-block;
 }
 
 @media (max-width: 992px) {
