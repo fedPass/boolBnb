@@ -18,9 +18,7 @@
                         <div class="card-img">
                             <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                         </div>
-
                       <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
-                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                       <div class="card-body">
                         <h5 class="card-title">{{ $apartment->titolo }}</h5>
                         {{-- <p class="card-text">{{ $apartment->descrizione }}</p> --}}
@@ -33,7 +31,6 @@
                                 <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-right">Statistiche</a>
                             </div>
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                {{-- <form class="d-inline" action="{{ route(' admin.apartments.destroy', ['apartment' => $apartment->id]) }}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')"> --}}
                                 <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
                                     @csrf
                                     @method('DELETE')

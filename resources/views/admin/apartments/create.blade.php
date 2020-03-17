@@ -113,7 +113,7 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="civico">N. civico</label>
-                      <input type="text" class="form-control col-12 col-md-9 @error('civico') is-invalid @enderror" id="civico" placeholder="N. civico" name="via" value="{{ old('civico') }}" required>
+                      <input type="text" class="form-control col-12 col-md-9 @error('civico') is-invalid @enderror" id="civico" placeholder="N. civico" name="civico" value="{{ old('civico') }}" required>
                         @error('civico')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
