@@ -226,10 +226,9 @@
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="visibilita">
-                          <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
+                          <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}">
+                          <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
                         </div>
-                        {{-- <input type="checkbox" checked data-toggle="toggle" data-on="Visibile" data-off="Non visibile" data-onstyle="primary" data-offstyle="light"> --}}
                     </div>
                     <div class="row">
                         <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Aggiungi un nuovo appartamento</button>
