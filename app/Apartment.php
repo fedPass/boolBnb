@@ -22,7 +22,8 @@ class Apartment extends Model
     'provincia',
     'paese',
     'lon',
-    'lat'
+    'lat',
+    'user_id'
   ];
 
   // protected $guarded = [];

@@ -116,7 +116,6 @@ class ApartmentController extends Controller
           //     $new_apartment->img = $img_path;
           // }
           //--- end facade
-      // dd($new_apartment);
       $new_apartment->save();
       //fede: prima salvo e poi popolo tab pivot per options
           //se ho selezionato delle options le assegno all'apart
@@ -199,10 +198,14 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Apartment $apartment)
+    public function destroy($id)
     {
         //da fare: prevedere delete da Storage
         //da fare: se l'array delle options non è vuoto fare sync([]) di array vuoto per cancellare options da apartment e cancellare la relazione tra le due tabelle
+      $apartment = Apartment::find($id);
+      if($apartment->options->isNotEmpty()) {
+            $apartment->options()->sync([]);
+        }
       $apartment->delete();
       return redirect()->route('admin.apartments.index');
     }
