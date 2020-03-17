@@ -1,0 +1,16 @@
+.results-container {
+  display: flex;
+  margin: 100px 0 50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .card-click {
+    color: $primary-color-dark;
+    .card-results {
+      margin-bottom: 30px;
+      color: $primary-color-dark;
+      &:hover {
+        color: $primary-color-text;
+      }
+    }
+  }
+}

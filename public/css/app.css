@@ -11442,6 +11442,26 @@ footer .footer-bottom i {
   }
 }
 
+.results-container {
+  display: flex;
+  margin: 100px 0 50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.results-container .card-click {
+  color: #1976D2;
+}
+
+.results-container .card-click .card-results {
+  margin-bottom: 30px;
+  color: #1976D2;
+}
+
+.results-container .card-click .card-results:hover {
+  color: #FFFFFF;
+}
+
 .navbar-admin {
   color: #1976D2;
   font-weight: bold;
