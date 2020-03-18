@@ -46,17 +46,21 @@
 
       <div class="info section">
         <h4>Info</h4>
-        <a href="#">{{$apartment->cita}}</a>
-        <p>Stanze: {{$apartment->stanze}}, Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</p>
+        <div class="col-lg-12">
+            <a href="#">{{$apartment->cita}}</a>
+            <p>Stanze: {{$apartment->stanze}}, Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</p>
+        </div>
       </div>
       <div class="description section">
-          <h4>Descrizione</h4>
-        <p>{{$apartment->descrizione}}</p>
+        <h4>Descrizione</h4>
+        <div class="col-lg-12">
+            <p>{{$apartment->descrizione}}</p>
+        </div>
       </div>
       <div class="services-container section" id="services">
         <h4>Servizi</h4>
         <div class="services">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             @forelse ($apartment->options as $option)
               {{ $option->nome }}{{ $loop->last ? '' : ',' }}
             @empty
