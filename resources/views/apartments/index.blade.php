@@ -21,10 +21,10 @@
       @endfor
     </select>
   </div>
-  {{-- @foreach ($apartment_option as $option)
+  {{-- @foreach ($options as $option)
     <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="customCheck1">
-      <label class="custom-control-label" for="customCheck1">{{$option->name}}</label>
+      <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
     </div>
   @endforeach --}}
 </nav>

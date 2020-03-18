@@ -11380,9 +11380,13 @@ footer .footer-bottom i {
   padding: 0;
 }
 
+.room-img-public,
 .room-img {
   border: 1px solid black;
   width: 100%;
+}
+
+.room-img {
   margin: 15px auto;
 }
 
@@ -11392,11 +11396,6 @@ footer .footer-bottom i {
 
 .scrol-left h2 {
   display: inline-block;
-}
-
-.scrol-left .user-img {
-  width: 70px;
-  border-radius: 50%;
 }
 
 .scrol-left .info {

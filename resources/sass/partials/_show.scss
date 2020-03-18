@@ -2,7 +2,7 @@
   display: none;
   background-color: $primary-color-dark;
   position: fixed;
-  top: 80px;
+  top: $height-header;
   height: 60px;
   width: 100%;
   z-index: 10000;
@@ -23,19 +23,18 @@
 .previev, .top, .bottom {
   padding: 0;
 }
-.room-img {
+.room-img-public {
   border: 1px solid black;
   width: 100%;
+}
+.room-img {
+  @extend .room-img-public;
   margin: 15px auto;
 }
 .scrol-left {
   padding: 20px;
   h2 {
     display: inline-block;
-  }
-  .user-img {
-    width: 70px;
-    border-radius: 50%;
   }
   .info {
     margin-top: 30px;

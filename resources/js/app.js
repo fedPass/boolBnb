@@ -139,4 +139,27 @@ var myChart = new Chart(ctx, {
 });
 // Fine codice per i grafici delle statistiche
 
+
+
+
+import tt from '@tomtom-international/web-sdk-maps';
+import '@tomtom-international/web-sdk-maps/dist/maps-web.min.js';
+
+
+const map = tt.map({
+    key: "SVlXnHsa1i4PAAeGkuzDAGMW5UOSgavh",
+    container: "map",
+    style: 'tomtom://vector/1/basic-main',
+    theme:{
+    style:'main',
+    layer:'basic',
+    source:'vector'
+         }
+
+    });
+
+
+map.addControl(new tt.FullscreenControl());
+map.addControl(new tt.NavigationControl());
+
 });

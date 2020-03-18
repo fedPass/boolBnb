@@ -30,16 +30,16 @@
 <div class="container-fluid room">
   <div class="row">
     <div class="col-lg-6 col-md-6 previev">
-      <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}">
+      <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}">
     </div>
     <div class="col-lg-6 col-md-6 previev">
       <div class="col-lg-6 col-md-12 top">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
       </div>
       <div class="col-lg-6 bottom">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
       </div>
     </div>
   </div>
@@ -50,7 +50,6 @@
       <div class="title" id="title">
         <h2>{{$apartment->titolo}}</h2>
         <div class="user-container float-right">
-          <img class="user-img" src="https://a0.muscache.com/im/pictures/user/bbb4fb56-fdd7-4ee5-8cc6-fc03ffd4d7bf.jpg?aki_policy=profile_x_medium" alt="">
           <p class="text-center">{{$apartment->user->first_name}}</p>
         </div>
       </div>
@@ -92,8 +91,10 @@
           <h3>Il quartiere</h3>
           <p>La casa di {{$apartment->user->first_name}} si trova a {{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
         </div>
-        <div class="maps-location">
+        {{-- <div class="maps-location">
           <img src="https://www.google.com/maps/d/thumbnail?mid=1eBOTPbXdQ5Zn4cj_n06wOPUVQHQ" alt="">
+        </div> --}}
+        <div id="map" style="width: 500px; height: 500px; margin-left:10px; margin-top:10px">
         </div>
       </div>
     </div>
