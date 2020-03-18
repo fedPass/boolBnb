@@ -1,4 +1,4 @@
-<nav class="public-nav navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="public-nav navbar fixed-top navbar-expand-lg navbar-light bg-white">
   <a href="{{ url('/') }}"><img class="img-fluid logoBlue-visible" src="https://imageog.flaticon.com/icons/png/512/1724/1724634.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" alt="logo-blue"></a>
   <form class="form-inline my-2 my-lg-0">
     @csrf

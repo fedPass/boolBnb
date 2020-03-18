@@ -107,14 +107,14 @@ class ApartmentController extends Controller
       $new_apartment->fill($data);
       $new_apartment->user_id = auth()->user()->id;
       //Federica: --- start facade used to interact with any of your configured disks
-          // if(!empty($data['img'])) {
-          //     //prendi il file
-          //     $img = $data['img'];
-          //     //estraggo la path
-          //     $img_path = Storage::put('uploads', $img);
-          //     //salvo la path
-          //     $new_apartment->img = $img_path;
-          // }
+          if(!empty($data['img'])) {
+              //prendi il file
+              $img = $data['img'];
+              //estraggo la path
+              $img_path = Storage::put('uploads', $img);
+              //salvo la path
+              $new_apartment->img = $img_path;
+          }
           //--- end facade
       $new_apartment->save();
       //fede: prima salvo e poi popolo tab pivot per options

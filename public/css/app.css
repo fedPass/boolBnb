@@ -11467,10 +11467,27 @@ footer .footer-bottom i {
   }
 }
 
+.nav-options {
+  top: 80px;
+  height: 60px;
+  border-top: 1px solid #BDBDBD;
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.nav-options .num-select {
+  width: 10%;
+  margin: 0 10px;
+}
+
+.nav-options .num-select .border-custom {
+  border: 1px solid #2196F3;
+  border-radius: 1.25rem;
+}
+
 .results-container {
   display: flex;
-  margin: 150px 0 50px;
-  justify-content: space-around;
+  flex-direction: row;
+  margin: 200px 0 50px;
   flex-wrap: wrap;
 }
 
@@ -11479,15 +11496,25 @@ footer .footer-bottom i {
 }
 
 .results-container .card-click .card-results {
-  padding-top: 20px;
+  padding: 20px;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
   margin-bottom: 50px;
+  background-color: #BBDEFB;
   color: #1976D2;
 }
 
 .results-container .card-click .card-results:hover {
+  background-color: #1976D2;
   color: #FFFFFF;
   transform: scale(1.1);
-  box-shadow: 0px 0px 39px 12px #BDBDBD;
+  box-shadow: 0px 0px 39px 12px #757575;
+}
+
+@media (max-width: 768px) {
+  .maps-results {
+    display: none;
+  }
 }
 
 .navbar-admin {
