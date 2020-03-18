@@ -37,15 +37,11 @@
         <h2>{{$apartment->titolo}}</h2>
 
         <!-- Button modifica -->
-        <button class="btn-apartment-crud modif" type="submit" name="button">
+        <button class="btn float-right modif" type="submit" name="button">
             <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
         </button>
         <!-- fine -->
 
-        <div class="user-container float-right">
-          <img class="user-img" src="https://a0.muscache.com/im/pictures/user/bbb4fb56-fdd7-4ee5-8cc6-fc03ffd4d7bf.jpg?aki_policy=profile_x_medium" alt="">
-          <p class="text-center">{{$apartment->user->first_name}}</p>
-        </div>
       </div>
 
       <div class="info section">
@@ -102,7 +98,6 @@
 
       <div id="graphic">
           <h4>Statistiche</h4>
-
           <div class="d-flex justify-content-center">
               <div class="graphic">
                 <div class="graphic-title">
@@ -130,11 +125,7 @@
                 </div>
               </div>
           </div>
-
       </div>
-
-
-
     </div>
   </div>
 </div>
