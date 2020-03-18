@@ -31,7 +31,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="results-container">
-      <div class="col-sm-12 col-md-6 col-lg-6 card-container">
+      <div class="col-sm-12 col-md-7 col-lg-7 card-container">
       @forelse ($apartments as $apartment)
         <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="card-results mb-6" >
@@ -60,11 +60,15 @@
       @empty
       <p>Non ci sono ancora appartamenti da mostrare</p>
       @endforelse
+      </div>
+      <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
+        <div class="maps-cont">
+          <img class="img-responsive" src="https://lh3.googleusercontent.com/-k27ZcQz74do/WBTMfNqXCgI/AAAAAAAABWg/-SilmtHyUwYgfb74aVBkEQnuRBk1BNvygCLcB/s1600/Schermata%2B2016-10-29%2Balle%2B18.20.20.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="page-number mx-auto">
       {{$apartments->links()}}
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-6 maps-results">
-        <h1>mappa</h1>
-      </div>
     </div>
   </div>
 </div>

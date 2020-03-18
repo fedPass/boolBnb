@@ -15,8 +15,15 @@
 .results-container {
   display: flex;
   flex-direction: row;
-  margin: 200px 0 50px;
+  margin: 150px 0 50px;
   flex-wrap: wrap;
+  .card-container {
+    overflow-y: scroll;
+    height: 800px;
+  }
+  .maps-cont {
+    height: 800px;
+  }
   .card-click {
     color: $primary-color-dark;
     .card-results {
@@ -29,7 +36,7 @@
       &:hover {
         background-color: $primary-color-dark;
         color: $primary-color-text;
-        transform: scale(1.1);
+        // transform: scale(1.1);
         -webkit-box-shadow: 0px 0px 39px 12px $secondary-text-color;
         -moz-box-shadow: 0px 0px 39px 12px $secondary-text-color;
         box-shadow: 0px 0px 39px 12px $secondary-text-color;
