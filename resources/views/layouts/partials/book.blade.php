@@ -1,7 +1,7 @@
 {{-- RIQUADRO BIANCO DELLA RICERCA APPARTAMENTI --}}
 <div class="booking-container">
   <h1>Prenota alloggi e attività unici.</h1>
-  <form id="search" action="{{ route('apartments.index') }}" method="get" enctype="multipart/form-data">
+  <form id="search" action="{{ route('apartments.index') }}" autocomplete="off" method="get" enctype="multipart/form-data">
     @csrf
     @method("GET")
     <div class="form-group">

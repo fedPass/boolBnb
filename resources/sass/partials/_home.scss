@@ -30,6 +30,22 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+  ul {
+    background-color: white;
+    z-index: 100000;
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid $divider-color;
+    border-radius: 4px;
+    li {
+      margin: 10px;
+      &:hover {
+        cursor: pointer;
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px){ //quadrato bianco di ricerca sotto i 768px si restringe
