@@ -62,9 +62,23 @@
       @endforelse
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
-        <div class="maps-cont">
-          <img class="img-responsive" src="https://lh3.googleusercontent.com/-k27ZcQz74do/WBTMfNqXCgI/AAAAAAAABWg/-SilmtHyUwYgfb74aVBkEQnuRBk1BNvygCLcB/s1600/Schermata%2B2016-10-29%2Balle%2B18.20.20.png" alt="">
-        </div>
+          <div class="maps-location" id="map" style="width: 500px">
+            <script>
+                  // tt.setProductInfo('tomtom'. '5.49.1' );
+                  var ap_coord =  [{{$apartment->lon}}, {{$apartment->lat}}]
+                  console.log(ap_coord)
+                  var map = tt.map({
+                      key: 'begalCOpySZrKc5PeNb372wgWaNLv7oq',
+                      container: 'map',
+                      style: 'tomtom://vector/1/basic-main',
+                      center: ap_coord,
+                      zoom: 15
+                    });
+                    map.addControl(new tt.FullscreenControl());
+                    map.addControl(new tt.NavigationControl());
+                  var marker = new tt.Marker().setLngLat(ap_coord).addTo(map);
+              </script>
+          </div>
       </div>
     </div>
     <div class="page-number mx-auto">
