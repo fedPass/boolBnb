@@ -163,6 +163,15 @@ var lon = 0;
       console.log(lon);
    }); // end item-list click
 
+  //  var ospiti = 1;
+  //  $("#exampleFormControlSelect1").change(function(){
+  //   ospiti = $(this).val();
+  //   console.log(opsiti);
+  //   $('#ospiti').val(ospiti);
+  // }); //end change select
+  //
+
+
 
 // autoComplete function
   function autoComplete(query){
@@ -192,23 +201,5 @@ var lon = 0;
         }); //end ajax
 
       } // end function autoComplete
-
-      $.ajax({
-        url: "https://api.tomtom.com/search/2/geocode/" + query + ".json",
-        method: "GET",
-        data:{
-          key: "begalCOpySZrKc5PeNb372wgWaNLv7oq",
-        },
-        success: function(data){
-          $('#nav-search').append(
-            "<input type='hidden' name='lat' value='" + data.results[0].position.lat + "'/>",
-                "<input type='hidden' name='lon' value='" + data.results[0].position.lon + "'/>",
-              );
-          $('#nav-search').append(
-            "<input type='hidden' name='lat' value='" + data.results[0].position.lat + "'/>",
-                "<input type='hidden' name='lon' value='" + data.results[0].position.lon + "'/>",
-              );
-        }
-      });
 
   }); // end DOM

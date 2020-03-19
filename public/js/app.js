@@ -49664,6 +49664,13 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end item-list click
+  //  var ospiti = 1;
+  //  $("#exampleFormControlSelect1").change(function(){
+  //   ospiti = $(this).val();
+  //   console.log(opsiti);
+  //   $('#ospiti').val(ospiti);
+  // }); //end change select
+  //
   // autoComplete function
 
   function autoComplete(query) {
@@ -49694,18 +49701,6 @@ $(document).ready(function () {
     }); //end ajax
   } // end function autoComplete
 
-
-  $.ajax({
-    url: "https://api.tomtom.com/search/2/geocode/" + query + ".json",
-    method: "GET",
-    data: {
-      key: "begalCOpySZrKc5PeNb372wgWaNLv7oq"
-    },
-    success: function success(data) {
-      $('#nav-search').append("<input type='hidden' name='lat' value='" + data.results[0].position.lat + "'/>", "<input type='hidden' name='lon' value='" + data.results[0].position.lon + "'/>");
-      $('#nav-search').append("<input type='hidden' name='lat' value='" + data.results[0].position.lat + "'/>", "<input type='hidden' name='lon' value='" + data.results[0].position.lon + "'/>");
-    }
-  });
 }); // end DOM
 
 /***/ }),
@@ -49842,8 +49837,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

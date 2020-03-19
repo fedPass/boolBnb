@@ -27,9 +27,9 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Ospiti</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        {{-- <option>Adulti <i class="fas fa-minus-circle"></i> 0+ <i class="fas fa-plus-circle"></i></option> --}}
-        @for ($i=0; $i <= 10; $i++)
+      <select class="form-control" name="ospiti" id="exampleFormControlSelect1">
+              {{-- <option>Adulti <i class="fas fa-minus-circle"></i> 0+ <i class="fas fa-plus-circle"></i></option> --}}
+        @for ($i=1; $i <= 10; $i++)
           <option>{{$i}}</option>
         @endfor
       </select>
