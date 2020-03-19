@@ -16,6 +16,15 @@
         border-bottom: 2px solid white;
       }
     }
+    .dropdown-menu {
+      .dropdown-item {
+        color: $primary-color-dark;
+        &:hover {
+          color: $accent-color;
+          font-weight: bold;
+        }
+      }
+    }
   }
   .logo {
     width: 50px;
@@ -38,6 +47,9 @@
         }
       }
     }
+  }
+  #search {
+    @include searcResults(60px, 96px);
   }
 }
 .change-prop{ //proprietà che cambiano (JS) quando si fa scroll

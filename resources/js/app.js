@@ -76,7 +76,15 @@ $(document).ready(function(){
 
 
 // // Codice per i grafici delle statistiche
-// var ctx = document.getElementById('yourChart').getContext('2d');
+// var currentUrl = document.location.href;
+// console.log(currentUrl);
+// if (currentUrl = "{{URL::to('admin/apartments/20')}}") {
+//
+// }
+
+//il resto del codice non funziona solo quando non è nella sua pagina, bisogna trovare un modo per includere le rotte in javascript
+
+// var ctx = document.getElementById('yourChart');
 // var chart = new Chart(ctx, {
 //     // The type of chart we want to create
 //     type: 'line',
@@ -146,13 +154,36 @@ var lon = 0;
 
   $("#search-dove").keyup(function () {
     $("#item-list").empty();
-     if (($(this).val()).length >= 2) {
+     if (($(this).val()).length >= 3) {
        autoComplete($(this).val());
      }
    }); // end keyup search
 
 
-   $(document).on('click', "li.search-dove" , function(){
+//PROVA NON RIUSCITA
+     // var typingTimer;
+     // var doneTypingInterval = 3000;  //time in ms, 5 second for example
+     //
+     //   $("#search-dove").keyup(function () {
+     //     $("#item-list").empty();
+     //      if (($(this).val()).length >= 2) {
+     //        clearTimeout(typingTimer);
+     //        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+     //      }
+     //    }); // end keyup search
+     //    //on keydown, clear the countdown
+     //   $("#search-dove").on('keydown', function () {
+     //     clearTimeout(typingTimer);
+     //   });
+     //
+     //     //user is "finished typing," do something
+     //     function doneTyping () {
+     //       autoComplete($(this).val());
+     //     }
+//FINE PROVA NON RIUSCITA
+
+
+   $(document).on('click', ".booking-container li" , function(){
       lat = $(this).attr('data-lat');
       lon = $(this).attr('data-lon');
       $("#search-dove").val($(this).text());
@@ -178,18 +209,20 @@ var lon = 0;
       },
       success: function (data) {
             console.log(data)
-            if (data.results.length !== 0){
-              $("#item-list").append(
-                '<ul class="" style="display:block; position:absolute;">'
-              );
-                for (var i = 0; i < data.results.length ; i++) {
-                  $("#search ul").append("<li class='search-dove' data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
-                }
-              $("#item-list").append("</ul>");
-            }
+            //setTimeout(function() {
+              if (data.results.length !== 0){
+                $("#item-list").append(
+                  '<ul class="" style="display:block; position:absolute;">'
+                );
+                  for (var i = 0; i < data.results.length ; i++) {
+                    $("#search ul").append("<li data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
+                  }
+                $("#item-list").append("</ul>");
+              }
+            //}, 10);
           },
           "error": function () {
-            alert("error");
+            // alert("error"); //per il momento commentato per ovviare all'errore in fase di ricerca (da l'erore in console ma la ricerca la effettua comunque)
           } //end error
         }); //end ajax
 

@@ -10,7 +10,6 @@
       <input id="lat" type='hidden' name='lat'>
       <input id="lon" type='hidden' name='lon'>
       <div id="item-list">
-
       </div>
     </div>
     <div class="form-group">

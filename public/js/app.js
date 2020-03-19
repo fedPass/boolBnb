@@ -49580,7 +49580,13 @@ $(document).ready(function () {
       });
     }, false);
   })(); // // Codice per i grafici delle statistiche
-  // var ctx = document.getElementById('yourChart').getContext('2d');
+  // var currentUrl = document.location.href;
+  // console.log(currentUrl);
+  // if (currentUrl = "{{URL::to('admin/apartments/20')}}") {
+  //
+  // }
+  //il resto del codice non funziona solo quando non è nella sua pagina, bisogna trovare un modo per includere le rotte in javascript
+  // var ctx = document.getElementById('yourChart');
   // var chart = new Chart(ctx, {
   //     // The type of chart we want to create
   //     type: 'line',
@@ -49649,12 +49655,33 @@ $(document).ready(function () {
   $("#search-dove").keyup(function () {
     $("#item-list").empty();
 
-    if ($(this).val().length >= 2) {
+    if ($(this).val().length >= 3) {
       autoComplete($(this).val());
     }
   }); // end keyup search
+  //PROVA NON RIUSCITA
+  // var typingTimer;
+  // var doneTypingInterval = 3000;  //time in ms, 5 second for example
+  //
+  //   $("#search-dove").keyup(function () {
+  //     $("#item-list").empty();
+  //      if (($(this).val()).length >= 2) {
+  //        clearTimeout(typingTimer);
+  //        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+  //      }
+  //    }); // end keyup search
+  //    //on keydown, clear the countdown
+  //   $("#search-dove").on('keydown', function () {
+  //     clearTimeout(typingTimer);
+  //   });
+  //
+  //     //user is "finished typing," do something
+  //     function doneTyping () {
+  //       autoComplete($(this).val());
+  //     }
+  //FINE PROVA NON RIUSCITA
 
-  $(document).on('click', "li.search-dove", function () {
+  $(document).on('click', ".booking-container li", function () {
     lat = $(this).attr('data-lat');
     lon = $(this).attr('data-lon');
     $("#search-dove").val($(this).text());
@@ -49675,21 +49702,21 @@ $(document).ready(function () {
         limit: "5"
       },
       success: function success(data) {
-        console.log(data);
+        console.log(data); //setTimeout(function() {
 
         if (data.results.length !== 0) {
           $("#item-list").append('<ul class="" style="display:block; position:absolute;">');
 
           for (var i = 0; i < data.results.length; i++) {
-            $("#search ul").append("<li class='search-dove' data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
+            $("#search ul").append("<li data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
           }
 
           $("#item-list").append("</ul>");
-        }
+        } //}, 10);
+
       },
-      "error": function error() {
-        alert("error");
-      } //end error
+      "error": function error() {} // alert("error"); //per il momento commentato per ovviare all'errore in fase di ricerca (da l'erore in console ma la ricerca la effettua comunque)
+      //end error
 
     }); //end ajax
   } // end function autoComplete
@@ -49830,8 +49857,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
