@@ -49579,75 +49579,7 @@ $(document).ready(function () {
         }, false);
       });
     }, false);
-  })(); // // Codice per i grafici delle statistiche
-  // var currentUrl = document.location.href;
-  // console.log(currentUrl);
-  // if (currentUrl = "{{URL::to('admin/apartments/20')}}") {
-  //
-  // }
-  //il resto del codice non funziona solo quando non è nella sua pagina, bisogna trovare un modo per includere le rotte in javascript
-  // var ctx = document.getElementById('yourChart');
-  // var chart = new Chart(ctx, {
-  //     // The type of chart we want to create
-  //     type: 'line',
-  //
-  //     // The data for our dataset
-  //     data: {
-  //         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-  //         datasets: [{
-  //             label: 'visualizzazioni per mese',
-  //             backgroundColor: 'rgb(255, 99, 132)',
-  //             borderColor: 'rgb(255, 99, 132)',
-  //             data: [0, 10, 5, 2, 20, 30, 45]
-  //         }]
-  //     },
-  //
-  //     // Configuration options go here
-  //     options: {}
-  // });
-  //
-  //
-  //
-  // var ctx = document.getElementById('myChart');
-  // var myChart = new Chart(ctx, {
-  //     type: 'bar',
-  //     data: {
-  //         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-  //         datasets: [{
-  //             label: 'messaggi per mese',
-  //             data: [3, 5, 4, 2, 10, 14, 19],
-  //             backgroundColor: [
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)',
-  //                 'rgba(54, 162, 235, 0.2)'
-  //             ],
-  //             borderColor: [
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(54, 162, 235, 1)',
-  //                 'rgba(54, 162, 235, 1)'
-  //             ],
-  //             borderWidth: 1
-  //         }]
-  //     },
-  //     options: {
-  //         scales: {
-  //             yAxes: [{
-  //                 ticks: {
-  //                     beginAtZero: true
-  //                 }
-  //             }]
-  //         }
-  //     }
-  // });
-  // Fine codice per i grafici delle statistiche
+  })(); // -----FORM VALIDATION BOOTSTRAP END-----------//
 
 
   var lat = 0;
@@ -49702,7 +49634,7 @@ $(document).ready(function () {
         limit: "5"
       },
       success: function success(data) {
-        console.log(data); //setTimeout(function() {
+        console.log(data); // setTimeout(function() {
 
         if (data.results.length !== 0) {
           $("#item-list").append('<ul class="" style="display:block; position:absolute;">');
@@ -49712,7 +49644,7 @@ $(document).ready(function () {
           }
 
           $("#item-list").append("</ul>");
-        } //}, 10);
+        } // }, 10);
 
       },
       "error": function error() {} // alert("error"); //per il momento commentato per ovviare all'errore in fase di ricerca (da l'erore in console ma la ricerca la effettua comunque)
@@ -49857,8 +49789,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
