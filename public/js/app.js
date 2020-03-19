@@ -49654,7 +49654,7 @@ $(document).ready(function () {
     }
   }); // end keyup search
 
-  $(document).on('click', "li", function () {
+  $(document).on('click', "li.search-dove", function () {
     lat = $(this).attr('data-lat');
     lon = $(this).attr('data-lon');
     $("#search-dove").val($(this).text());
@@ -49664,13 +49664,6 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end item-list click
-  //  var ospiti = 1;
-  //  $("#exampleFormControlSelect1").change(function(){
-  //   ospiti = $(this).val();
-  //   console.log(opsiti);
-  //   $('#ospiti').val(ospiti);
-  // }); //end change select
-  //
   // autoComplete function
 
   function autoComplete(query) {
@@ -49688,7 +49681,7 @@ $(document).ready(function () {
           $("#item-list").append('<ul class="" style="display:block; position:absolute;">');
 
           for (var i = 0; i < data.results.length; i++) {
-            $("#search ul").append("<li data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
+            $("#search ul").append("<li class='search-dove' data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
           }
 
           $("#item-list").append("</ul>");
