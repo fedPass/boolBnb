@@ -11454,6 +11454,11 @@ footer .footer-bottom i {
   bottom: 5px;
 }
 
+#map {
+  height: 300px;
+  position: relative;
+}
+
 @media (max-width: 992px) {
   .bottom {
     display: none;

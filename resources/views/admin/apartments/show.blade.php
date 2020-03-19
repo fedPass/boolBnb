@@ -99,7 +99,7 @@
       </div>
       <!-- fine -->
 
-
+      @include('layouts/partials/maps')
       <div id="graphic">
           <h4>Statistiche</h4>
           <div class="d-flex justify-content-center">
