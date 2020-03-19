@@ -17,8 +17,19 @@ class ApartmentController extends Controller
      */
     public function index(Request $request)
     {
-      $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();
-      $apartments = Apartment::paginate(12);
+      // $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();
+      // $apartments = Apartment::paginate(12);
+      $lat = $request->lat;
+      $lon = $request->lon;
+      $circle_radius = 20;
+      $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
+                          $query->whereRaw("111.045 * acos(cos(radians(" . $lat . "))
+                                    * cos(radians(apartments.lat))
+                                    * cos(radians(apartments.lon) - radians(" . $lon . "))
+                                    + sin(radians(" .$lat. "))
+                                    * sin(radians(apartments.lat))) <= " . $circle_radius);
+                                    })->paginate();
+
       return view('apartments.index',compact('apartments'));
     }
 

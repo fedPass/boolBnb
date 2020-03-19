@@ -27,7 +27,7 @@ Route::get('/room', function () {
 });
 
 //public apartment
-Route::get('/apartments', 'ApartmentController@index')->name('apartments');
+Route::get('/apartments', 'ApartmentController@index')->name('apartments.index');
 //corretto apertments--> Route::get('/apartments/{id}', 'ApartmentController@show')->name('apertments.show');
 Route::get('/apartments/{id}', 'ApartmentController@show')->name('apartments.show');
 

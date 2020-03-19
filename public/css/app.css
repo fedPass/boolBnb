@@ -10978,7 +10978,7 @@ a.text-dark:focus {
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0px -1px 137px 38px #1976D2;
+  box-shadow: 0px -25px 137px 38px #1976D2;
 }
 
 .change-prop .navbar-nav {
