@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-12 mt-3 d-flex justify-content-center">
                             <div class="custom-control custom-switch">
-                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}">
+                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
                               <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                 </div>
             @empty
                 <div class="col-12 mt-5 mb-5">
-                    <div class="d-flex align-items-center flex-column text-center">
+                    <div class="d-flex align-items-center flex-column text-center" >
                         <h4>Non ci sono ancora appartamenti da mostrare</h4>
                         <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
                     </div>

@@ -7,8 +7,8 @@
     <div class="form-group">
       <label id="dove-box" for="place">Dove</label>
       <input id="search-dove" type="text" class="form-control" name='place' id="place"  placeholder="Ovunque">
-      <input id="lat" type='hidden' name='lat'>
-      <input id="lon" type='hidden' name='lon'>
+      <input id="lat-create" type='hidden' name='lat'>
+      <input id="lon-create" type='hidden' name='lon'>
       <div id="item-list">
 
       </div>

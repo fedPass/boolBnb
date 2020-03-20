@@ -125,11 +125,10 @@ class ApartmentController extends Controller
               //sync per popolare tabella pivot (fill si occupa della tab Apartment)
               $new_apartment->options()->sync($data['nome_id']);
           }
+
+      
       return redirect()->route('admin.apartments.index');
-      //
-      // $alfa_romeo = new Auto();
-      // $alfa_romeo->marca = “Alfa Romeo”
-      // $alfa_romeo->targa = “AB000AD”;
+
 
     }
 

@@ -49654,7 +49654,7 @@ $(document).ready(function () {
     }
   }); // end keyup search
 
-  $(document).on('click', "li.search-dove", function () {
+  $(document).on('click', "li.singleAddress", function () {
     lat = $(this).attr('data-lat');
     lon = $(this).attr('data-lon');
     $("#search-dove").val($(this).text());
@@ -49664,7 +49664,41 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end item-list click
-  // autoComplete function
+  //  var ospiti = 1;
+  //  $("#exampleFormControlSelect1").change(function(){
+  //   ospiti = $(this).val();
+  //   console.log(opsiti);
+  //   $('#ospiti').val(ospiti);
+  // }); //end change select
+  //
+
+  $("#via").keyup(function () {
+    $("#via-list").empty();
+    console.log($(this).val());
+
+    if ($(this).val().length >= 2) {
+      autoCompleteCreate($(this).val());
+    }
+  }); // end keyup search
+
+  $(document).on('click', 'li.via-address', function () {
+    lat = $(this).attr('data-lat-create');
+    lon = $(this).attr('data-lon-create');
+    $('#via').val($(this).text());
+    $("#lat-create").val(lat);
+    $("#lon-create").val(lon);
+    $("#via-list").empty();
+    console.log(lat);
+    console.log(lon);
+  }); // end autoCompleteCreate
+
+  $('#visibilita').change(function () {
+    if ($(this).prop('checked')) {
+      $('#realvis').val('on');
+    } else {
+      $('#realvis').val('on');
+    }
+  }); // autoComplete function
 
   function autoComplete(query) {
     $.ajax({
@@ -49681,10 +49715,39 @@ $(document).ready(function () {
           $("#item-list").append('<ul class="" style="display:block; position:absolute;">');
 
           for (var i = 0; i < data.results.length; i++) {
-            $("#search ul").append("<li class='search-dove' data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
+            $("#search ul").append("<li class='singleAddress' data-lat='" + data.results[i].position.lat + "' data-lon='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
           }
 
           $("#item-list").append("</ul>");
+        }
+      },
+      "error": function error() {
+        alert("error");
+      } //end error
+
+    }); //end ajax
+  } // end function autoComplete
+
+
+  function autoCompleteCreate(query) {
+    $.ajax({
+      url: "https://api.tomtom.com/search/2/geocode/" + query + ".json",
+      method: "GET",
+      data: {
+        key: "begalCOpySZrKc5PeNb372wgWaNLv7oq",
+        limit: "5"
+      },
+      success: function success(data) {
+        console.log(data);
+
+        if (data.results.length !== 0) {
+          $("#via-list").append('<ul class="" style="display:block; position:absolute;">');
+
+          for (var i = 0; i < data.results.length; i++) {
+            $("#create ul").append("<li class='via-address' data-lat-create='" + data.results[i].position.lat + "' data-lon-create='" + data.results[i].position.lon + "'>" + data.results[i].address.freeformAddress + "</li>");
+          }
+
+          $("#via-list").append("</ul>");
         }
       },
       "error": function error() {

@@ -7,7 +7,7 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
                 <hr>
-                <form id="search" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <form id="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                     @csrf
                     @method("POST")
                     <div class="row form-group">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="via">Via</label>
-                      <input id="search-dove" type="text" class="form-control via col-12 col-md-9 @error('via') is-invalid @enderror" id="via" placeholder="Via/Piazza" name="via" value="{{ old('via') }}" required>
+                      <input id="via" type="text" class="form-control via col-12 col-md-9 @error('via') is-invalid @enderror"  placeholder="Via/Piazza" name="via" value="{{ old('via') }}" required>
                       @error('via')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -111,9 +111,9 @@
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi la via o piazza
                         </div>
-                      <input id="lat" type='hidden' name='lat'>
-                      <input id="lon" type='hidden' name='lon'>
-                      <div id="item-list">
+                      <input id="lat-create" type='hidden' name='lat'>
+                      <input id="lon-create" type='hidden' name='lon'>
+                      <div id="via-list">
 
                       </div>
                     </div>
@@ -232,7 +232,8 @@
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita">
+                          <input type="checkbox" class="custom-control-input input-visibilita" name="visibilitatoggle" id="visibilita" checked/>
+                          <input id="realvis" type="hidden" name="visibilita" value="on">
                           <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                         </div>
                     </div>

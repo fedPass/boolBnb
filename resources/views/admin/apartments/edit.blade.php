@@ -174,7 +174,7 @@
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="visibilita">
+                          <input type="checkbox" class="custom-control-input" id="visibilita" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
                           <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                         </div>
                     </div>
