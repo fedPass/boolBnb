@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Options;
+use App\Sponsor;
 
 class Apartment extends Model
 {
@@ -20,6 +21,7 @@ class Apartment extends Model
     'lon',
     'lat',
     'user_id',
+    'visibilita'
   ];
 
   // protected $guarded = [];
@@ -31,6 +33,10 @@ class Apartment extends Model
 
   public function options(){
     return $this->belongsToMany(Option::class);
+  }
+
+  public function sponsors(){
+    return $this->belongsToMany(Sponsor::class);
   }
 
 }
