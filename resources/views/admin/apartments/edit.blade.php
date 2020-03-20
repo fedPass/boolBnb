@@ -69,12 +69,17 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="indirizzo">Indirizzo</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="indirizzo" placeholder="Indirizzo" name="indirizzo" value="{{ old('indirizzo', $apartment->indirizzo) }}" required>
+                      <input type="text" class="form-control col-12 col-md-9" id="search-dove" placeholder="Indirizzo" name="indirizzo" value="{{ old('search-dove', $apartment->indirizzo) }}" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi l'indirizzo
+                        </div>
+                        <input id="lat-create" type='hidden' name='lat'>
+                        <input id="lon-create" type='hidden' name='lon'>
+                        <div id="via-list">
+
                         </div>
                     </div>
                     {{-- <div class="row form-group">

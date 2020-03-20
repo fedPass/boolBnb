@@ -98,9 +98,9 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="indirizzo">Indirizzo</label>
-                      <input id="search-dove" type="text" class="form-control via col-12 col-md-9 @error('indirizzo') is-invalid @enderror" id="indirizzo" placeholder="Indirizzo" name="indirizzo" value="{{ old('indirizzo') }}" required>
-                      @error('indirizzo')
+                      <label class="col-12 col-md-3" for="search-dove">Indirizzo</label>
+                      <input id="search-dove" type="text" class="form-control via col-12 col-md-9 @error('search-dove') is-invalid @enderror" placeholder="Indirizzo" name="indirizzo" value="{{ old('search-dove') }}" required>
+                      @error('search-dove')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                           </span>
