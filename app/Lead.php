@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     protected $fillable = [
+      'nome',
       'email_mittente',
       'messaggio',
+      'oggetto',
       'apartment_id'
     ];
 

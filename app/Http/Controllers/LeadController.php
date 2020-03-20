@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lead;
+use App\Apartment;
 
 class LeadController extends Controller
 {
@@ -33,12 +34,16 @@ class LeadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $data = $request->all();
         $new_lead = new Lead();
+        $apartment = Apartment::findOrFail($id);
+        $new_lead-> apartment()-> associate($apartment);
         $new_lead->fill($data);
         $new_lead->save();
+
+        return response('Il tuo messaggio è stato inviato');
     }
 
     /**

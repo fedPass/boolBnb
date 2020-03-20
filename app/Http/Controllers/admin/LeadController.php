@@ -15,7 +15,9 @@ class LeadController extends Controller
      */
     public function index()
     {
-        return view('admin.leads.index');
+
+      $leads = Lead::paginate(8);
+        return view('admin.leads.index', compact('leads'));
     }
 
     /**
@@ -45,9 +47,10 @@ class LeadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lead $lead)
+    public function show($id)
     {
-      return view('admin.leads.show', ['lead' => $lead]);
+      $lead = Lead::find($id);
+      return view('admin.leads.show', compact('lead'));
     }
 
     /**
@@ -79,8 +82,9 @@ class LeadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lead $lead)
+    public function destroy($id)
     {
+        $lead = Lead::find($id);
         $lead->delete();
         return redirect()->route('admin.leads.index');
     }

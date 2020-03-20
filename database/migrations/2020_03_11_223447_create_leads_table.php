@@ -16,7 +16,9 @@ class CreateLeadsTable extends Migration
         Schema::create('leads', function (Blueprint $table) {
           $table->bigIncrements('id');
           $table->unsignedBigInteger('apartment_id');
+          $table->string('nome');
           $table->string('email_mittente');
+          $table->string('oggetto');
           $table->text('messaggio');
           $table->foreign('apartment_id')->references('id')->on('apartments');
           $table->timestamps();

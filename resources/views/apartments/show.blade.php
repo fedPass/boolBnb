@@ -97,21 +97,28 @@
             @csrf
             <div class="form-group">
               <label for="name">Nome*</label>
-              <input type="text" class="form-control" name='name' id="name"  placeholder="Nome" required>
+              <input type="text" class="form-control" name='nome' id="name"  placeholder="Nome" required>
             </div>
             <div class="form-group">
               <label for="email">Email*</label>
-              <input type="email" class="form-control" name='email' id="email" placeholder="Email" required>
+              <input type="email" class="form-control" name='email_mittente' id="email" placeholder="Email" required>
             </div>
             <div class="form-group">
               <label for="subject">Oggetto*</label>
-              <input type="text" class="form-control" name='subject' id="subject" placeholder="Oggetto" required>
+              <input type="text" class="form-control" name='oggetto' id="subject" placeholder="Oggetto" required>
             </div>
             <div class="form-group">
               <label for="message">Messaggio*</label>
-              <textarea class="form-control" id="message" placeholder="Inserisci qui il tuo messaggio..." name="message" rows="5" required></textarea>
+              <textarea class="form-control" id="message" placeholder="Inserisci qui il tuo messaggio..." name="messaggio" rows="5" required></textarea>
+              <input type="hidden" name="apartment_id" value="{{$apartment->id}}">
             </div>
             <button type="submit" class="btn btn-primary">Invia</button>
+            @if(session()->has('message'))
+            <div class="alert alert-danger disappear" >
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>{{ session()->get('message') }}</strong>
+            </div>
+          @endif
           </form>
         </div>
       </div>
