@@ -11630,3 +11630,24 @@ footer .footer-bottom i {
   border: 2px solid #1976D2;
 }
 
+.add-product ul {
+  background-color: white;
+  z-index: 100000;
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+  top: 584px;
+  left: 197px;
+}
+
+.add-product ul li {
+  margin: 10px;
+}
+
+.add-product ul li:hover {
+  cursor: pointer;
+  color: #2196F3;
+  font-weight: bold;
+}
+

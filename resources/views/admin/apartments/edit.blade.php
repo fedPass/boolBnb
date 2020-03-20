@@ -7,7 +7,7 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Modifica dettagli appartamento</h1>
                 <hr>
-                 <form  id="create" action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                 <form id="create" action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" class="needs-validation edit-form" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="row form-group">
@@ -179,8 +179,8 @@
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="visibilita" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
-                          <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
+                            <input type="checkbox" class="custom-control-input" id="visibilita" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
+                            <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
                         </div>
                     </div>
                     <div class="row">

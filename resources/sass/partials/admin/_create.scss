@@ -7,4 +7,5 @@
     hr {
         border: 2px solid $primary-color-dark;
     }
+    @include searcResults(584px, 197px);
 }
