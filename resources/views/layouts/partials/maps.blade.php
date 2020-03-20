@@ -1,7 +1,6 @@
 <div class="maps" id="maps">
   <div class="maps-title">
     <h3>Il quartiere</h3>
-    <p>La casa di {{$apartment->user->first_name}} si trova a {{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
   </div>
   <div class="maps-location" id="map">
     <script>
