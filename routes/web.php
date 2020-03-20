@@ -44,6 +44,7 @@ Route::get('/logout', function(){
 //pagine visibile per utente registrato
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
     Route::get('/', 'HomeController@index')->name('index');
+    Route::get('apartments/status/change', 'ApartmentController@updateStatus')->name('apartments.change.status');
     Route::resource('/apartments', 'ApartmentController');
     Route::resource('/leads', 'LeadController');
 });

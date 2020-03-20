@@ -105,6 +105,11 @@ class ApartmentController extends Controller
       $data = $request->all();
       $new_apartment = new Apartment();
       $new_apartment->fill($data);
+        if($request->input('visibilita')){
+            $new_apartment->visibilita = 1;
+        } else{
+            $new_apartment->visibilita = 0;
+        }
       $new_apartment->user_id = auth()->user()->id;
       //Federica: --- start facade used to interact with any of your configured disks
           if(!empty($data['img'])) {
@@ -126,7 +131,7 @@ class ApartmentController extends Controller
               $new_apartment->options()->sync($data['nome_id']);
           }
 
-      
+
       return redirect()->route('admin.apartments.index');
 
 
@@ -180,6 +185,11 @@ class ApartmentController extends Controller
       // da fare: inserire validate()
       $apartment = Apartment::find($id);
       $data = $request->all();
+        if(isset($data['visibilita'])){
+            $data['visibilita'] = 1;
+        } else{
+            $apartment->visibilita = 0;
+        }
       // da fare: creare if per vedere se img cambia, eventualmente cancella da storage quella precedente e fare put in storage della nuova
       $apartment->update($data);
       // da fare: se ho selezionato dei nuovi servizi (quindi ho un array con elementi) devo fare sync() dell'array altrimenti sync([]) du array vuoto
@@ -207,5 +217,15 @@ class ApartmentController extends Controller
         }
       $apartment->delete();
       return redirect()->route('admin.apartments.index');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $apartment = Apartment::findOrFail($request->apartment_id);
+
+        $apartment->visibilita = $request->visibilita;
+        $apartment->save();
+
+        return response()->json(['message' => 'Apartment status updated successfully.']);
     }
 }

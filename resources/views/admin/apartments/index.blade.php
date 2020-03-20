@@ -45,8 +45,10 @@
                         </div>
                         <div class="col-12 mt-3 d-flex justify-content-center">
                             <div class="custom-control custom-switch">
-                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
-                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
+{{--                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>--}}
+{{--                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>--}}
+                                <input type="checkbox" data-id="{{ $apartment->id }}" name="visibilita" class="js-switch" {{ $apartment->visibilita == 1 ? 'checked' : '' }}>
+                                <label class="js-switch" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
                             </div>
                         </div>
                       </div>
@@ -63,3 +65,35 @@
         </div>
     </div>
 @endsection
+@section('script')
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' ,color:'#237DC7'});
+        });
+        $(document).ready(function(){
+            $('.js-switch').change(function () {
+                let visibilita = $(this).prop('checked') === true ? 1 : 0;
+                let apartmentId = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '{{ route('admin.apartments.change.status') }}',
+                    data: {'visibilita': visibilita, 'apartment_id': apartmentId},
+                    success: function (data) {
+                        console.log(data.message);
+                        toastr.options.closeButton = true;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    }
+                });
+            });
+        });
+    </script>
+@endsection
+

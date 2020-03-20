@@ -179,8 +179,10 @@
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="visibilita" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
-                            <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>
+{{--                            <input type="checkbox" class="custom-control-input" id="visibilita" {{($apartment->visibilita == "1") ? 'checked' : ""}}>--}}
+{{--                            <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>--}}
+                            <input type="checkbox"  name="visibilita" {{$apartment->visibilita == 1 ? 'checked' : ''}} class="js-switch">
+                            <label class="js-switch" for="visibilita">Visibilità annuncio</label>
                         </div>
                     </div>
                     <div class="row">
@@ -190,4 +192,13 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html,  { size: 'small' ,color:'#237DC7'});
+        });
+    </script>
 @endsection
