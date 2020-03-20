@@ -57,7 +57,7 @@
               {{ __('Aggiungi appartamento') }}
           </a>
           {{-- tasto messaggi --}}
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="{{route('admin.leads.index')}}">
               {{ __('Messaggi') }}
           </a>
           {{-- tasto pubblicità --}}
