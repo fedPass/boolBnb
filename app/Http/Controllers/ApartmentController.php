@@ -17,18 +17,32 @@ class ApartmentController extends Controller
      */
     public function index(Request $request)
     {
-      // $apartments = Apartment::where('visibilita',$request->query('visibilita',1))->get();
-      // $apartments = Apartment::paginate(12)
+
+        //Get lat , lon ,visibilita and nr of posti letto
       $lat = $request->lat;
       $lon = $request->lon;
-      $circle_radius = 20;
+      $visibilita = $request->visibilita;
+      $postiLetto = $request->posti_letto;
+        $circle_radius = 50;//50 km
+        //check if all the field as different of null
+      if (!$lat || !$lon) {
+          $lat = $lon = 0.0;
+          $circle_radius = 20000000000;//If no lat or no lon assign  both 0.0 and assign a very large km number that cover all the earth to return alla apartment
+      }
+      if(!$visibilita || !$postiLetto){
+          $visibilita = $postiLetto = 1;//If this values are null assign 1
+      }
+        //dd($lat,$lon);
+
       $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
-                          $query->whereRaw("6371 * acos(cos(radians(" . $lat . "))
+                          $query->whereRaw("6371 * acos(
+                                      cos(radians(" . $lat . "))
                                     * cos(radians(apartments.lat))
                                     * cos(radians(apartments.lon) - radians(" . $lon . "))
                                     + sin(radians(" .$lat. "))
                                     * sin(radians(apartments.lat))) <= " . $circle_radius);
-                                  })->where('visibilita',$request->query('visibilita', 1))->where('posti_letto', '>=' , $request->ospiti)->paginate();
+                                  })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->paginate();
+
 
       return view('apartments.index',compact('apartments'));
     }

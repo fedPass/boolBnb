@@ -6,8 +6,8 @@
       <input id="search-dove" class="form-control mr-sm-2 navsearch" type="text" name='place' id="place"  placeholder="Search" aria-label="Search">
       <input id="lat" type='hidden' name='lat'>
       <input id="lon" type='hidden' name='lon'>
-      <input id="posti_letto" type='hidden' name='posti_letto'>
-      <input id="visibilita" type='hidden' name='visibilita'>
+      <input id="posti_letto" type='hidden' name='posti_letto' value="1">
+      <input id="visibilita" type='hidden' name='visibilita' value="1">
       <div id="item-list">
       </div>
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
