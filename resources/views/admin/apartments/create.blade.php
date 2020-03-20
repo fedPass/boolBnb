@@ -98,18 +98,18 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="via">Via</label>
-                      <input id="via" type="text" class="form-control via col-12 col-md-9 @error('via') is-invalid @enderror"  placeholder="Via/Piazza" name="via" value="{{ old('via') }}" required>
-                      @error('via')
+                      <label class="col-12 col-md-3" for="search-dove">Indirizzo</label>
+                      <input id="search-dove" type="text" class="form-control via col-12 col-md-9 @error('search-dove') is-invalid @enderror" placeholder="Indirizzo" name="indirizzo" value="{{ old('search-dove') }}" required>
+                      @error('search-dove')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                           </span>
                       @enderror
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
+                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi la via o piazza
+                          Aggiungi l'indirizzo'
                         </div>
                       <input id="lat-create" type='hidden' name='lat'>
                       <input id="lon-create" type='hidden' name='lon'>
@@ -117,7 +117,7 @@
 
                       </div>
                     </div>
-                    <div class="row form-group">
+                    {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="civico">N. civico</label>
                       <input type="text" class="form-control col-12 col-md-9 @error('civico') is-invalid @enderror" id="civico" placeholder="N. civico" name="civico" value="{{ old('civico') }}" required>
                         @error('civico')
@@ -176,7 +176,7 @@
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi la provincia
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="paese">Paese</label>
                       <input type="text" class="form-control col-12 col-md-9  @error('paese') is-invalid @enderror" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
