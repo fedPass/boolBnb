@@ -38,6 +38,11 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="#" class="btn btn-primary btn-lg">Promuovi questo appartamento</a>
+                            </div>
+                        </div>
                         <div class="col-12 mt-3 d-flex justify-content-center">
                             <div class="custom-control custom-switch">
                               <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>
