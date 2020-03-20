@@ -24,7 +24,6 @@ class Apartment extends Model
     'lon',
     'lat',
     'user_id',
-    'visibilita'
   ];
 
   // protected $guarded = [];

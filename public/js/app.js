@@ -49587,7 +49587,7 @@ $(document).ready(function () {
   $("#search-dove").keyup(function () {
     $("#item-list").empty();
 
-    if ($(this).val().length >= 2) {
+    if ($(this).val().length >= 3) {
       autoComplete($(this).val());
     }
   }); // end keyup search
@@ -49659,9 +49659,8 @@ $(document).ready(function () {
           $("#item-list").append("</ul>");
         }
       },
-      "error": function error() {
-        alert("error");
-      } //end error
+      "error": function error() {} // alert("error"); //per il momento commentato per ovviare all'errore in fase di ricerca (da l'erore in console ma la ricerca la effettua comunque)
+      //end error
 
     }); //end ajax
   } // end function autoComplete

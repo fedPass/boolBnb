@@ -63,7 +63,7 @@
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
           <div class="maps-location" id="map" style="width: 500px">
-            <script>
+            {{-- <script>
                   // tt.setProductInfo('tomtom'. '5.49.1' );
                   var ap_coord =  [{{$apartment->lon}}, {{$apartment->lat}}]
                   console.log(ap_coord)
@@ -78,7 +78,7 @@
                     map.addControl(new tt.NavigationControl());
                   var marker = new tt.Marker().setLngLat(ap_coord).addTo(map);
               </script>
-          </div>
+          </div> --}}
       </div>
     </div>
     <div class="page-number mx-auto">

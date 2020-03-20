@@ -82,7 +82,7 @@ var lon = 0;
 
   $("#search-dove").keyup(function () {
     $("#item-list").empty();
-     if (($(this).val()).length >= 2) {
+     if (($(this).val()).length >= 3) {
        autoComplete($(this).val());
      }
    }); // end keyup search
@@ -162,7 +162,7 @@ var lon = 0;
             }
           },
           "error": function () {
-            alert("error");
+            // alert("error"); //per il momento commentato per ovviare all'errore in fase di ricerca (da l'erore in console ma la ricerca la effettua comunque)
           } //end error
         }); //end ajax
 
