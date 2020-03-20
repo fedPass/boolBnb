@@ -31,10 +31,20 @@
 <div class="container">
   <div class="row">
     <div class="results-container">
-      <div class="col-sm-12 col-md-7 col-lg-7 card-container">
       @forelse ($apartments as $apartment)
-        <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
-          <div class="card-results mb-6" >
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
+          <div class="card btn btn-primary card-results">
+            <div class="card-body">
+           <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
+         </div>
+         <div class="card-body">
+           <h5 class="card-title">{{ $apartment->titolo }}</h5>
+           <p class="card-text">{{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
+         </div>
+          </div>
+          {{-- CARD ORIZZONTALE --}}
+          {{-- <div class="card-results mb-6" >
           <div class="row no-gutters">
             <div class="col-md-4">
               <img src="{{ $apartment->img }}" class="img-thumbnail" alt="Immagine appartamento">
@@ -46,22 +56,15 @@
               </div>
             </div>
           </div>
-        </div>
-        {{-- <div class="card btn btn-primary card-results">
-          <div class="card-body">
-            <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{ $apartment->titolo }}</h5>
-            <p class="card-text">{{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
-          </div>
         </div> --}}
-        </a>
+          </a>
+        </div>
       @empty
-      <p>Non ci sono ancora appartamenti da mostrare</p>
+      <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
       @endforelse
-      </div>
-      <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
+      {{$apartments->links()}}
+      {{-- RIQUADRO MAPPA --}}
+      {{-- <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
           <div class="maps-location" id="map" style="width: 500px">
             {{-- <script>
                   // tt.setProductInfo('tomtom'. '5.49.1' );
