@@ -8,7 +8,8 @@ class Lead extends Model
 {
     protected $fillable = [
       'email_mittente',
-      'messaggio'
+      'messaggio',
+      'apartment_id'
     ];
 
     public function apartment(){

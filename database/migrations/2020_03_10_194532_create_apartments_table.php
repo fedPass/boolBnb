@@ -24,11 +24,7 @@ class CreateApartmentsTable extends Migration
           $table->integer('dimensioni')->nullable();
           $table->text('descrizione')->nullable();
           $table->string('img' , 255)->nullable();
-          $table->string('via')->nullable();
-          $table->integer('civico')->nullable();
-          $table->string('cap')->nullable();
-          $table->string('cita')->nullable();
-          $table->string('provincia')->nullable();
+          $table->string('indirizzo')->nullable();
           $table->string('paese')->nullable();
           $table->string('lon')->nullable();
           $table->string('lat')->nullable();
