@@ -99,8 +99,8 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="search-dove">Indirizzo</label>
-                      <input id="search-dove" type="text" class="form-control via col-12 col-md-9 @error('search-dove') is-invalid @enderror" placeholder="Indirizzo" name="indirizzo" value="{{ old('search-dove') }}" required>
-                      @error('search-dove')
+                      <input id="via" type="text" class="form-control via col-12 col-md-9 @error('via') is-invalid @enderror" placeholder="Indirizzo" name="indirizzo" value="{{ old('via') }}" required>
+                      @error('via')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                           </span>

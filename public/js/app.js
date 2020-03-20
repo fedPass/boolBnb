@@ -49629,14 +49629,7 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end autoCompleteCreate
-
-  $('#visibilita').change(function () {
-    if ($(this).prop('checked')) {
-      $('#realvis').val('on');
-    } else {
-      $('#realvis').val('on');
-    }
-  }); // autoComplete function
+  // autoComplete function
 
   function autoComplete(query) {
     $.ajax({
@@ -49830,8 +49823,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

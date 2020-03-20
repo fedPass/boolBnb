@@ -7,7 +7,7 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Modifica dettagli appartamento</h1>
                 <hr>
-                 <form action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                 <form  id="create" action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="row form-group">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="indirizzo">Indirizzo</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="search-dove" placeholder="Indirizzo" name="indirizzo" value="{{ old('search-dove', $apartment->indirizzo) }}" required>
+                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="Indirizzo" name="indirizzo" value="{{ old('via', $apartment->indirizzo) }}" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>

@@ -128,13 +128,6 @@ var lon = 0;
      console.log(lon);
    }); // end autoCompleteCreate
 
-   $('#visibilita').change(function(){
-    if($(this).prop('checked')){
-      $('#realvis').val('on');
-    }else{
-      $('#realvis').val('on');
-    }
-   });
 
 
 
