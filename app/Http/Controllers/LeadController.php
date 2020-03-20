@@ -43,7 +43,7 @@ class LeadController extends Controller
         $new_lead->fill($data);
         $new_lead->save();
 
-        return response('Il tuo messaggio è stato inviato');
+        return view('grazie');
     }
 
     /**

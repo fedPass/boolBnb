@@ -183,7 +183,7 @@ var lon = 0;
             }
           },
           "error": function () {
-            alert("error");
+            // alert("error");
           } //end error
         }); //end ajax
 

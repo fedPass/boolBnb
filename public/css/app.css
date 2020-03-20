@@ -11522,6 +11522,11 @@ footer .footer-bottom i {
   }
 }
 
+.grazie {
+  color: #1976D2;
+  margin: 15% 0 10%;
+}
+
 .nav-options {
   top: 80px;
   z-index: 100;

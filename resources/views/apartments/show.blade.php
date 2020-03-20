@@ -101,7 +101,7 @@
             </div>
             <div class="form-group">
               <label for="email">Email*</label>
-              <input type="email" class="form-control" name='email_mittente' id="email" placeholder="Email" required>
+              <input type="email" class="form-control" name='email_mittente' id="email" placeholder="{{ Auth::user() ? Auth::user()->email : 'email' }}" value="{{ Auth::user() ? Auth::user()->email : '' }}" required>
             </div>
             <div class="form-group">
               <label for="subject">Oggetto*</label>
