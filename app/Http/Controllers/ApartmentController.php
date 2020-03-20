@@ -28,7 +28,7 @@ class ApartmentController extends Controller
                                     * cos(radians(apartments.lon) - radians(" . $lon . "))
                                     + sin(radians(" .$lat. "))
                                     * sin(radians(apartments.lat))) <= " . $circle_radius);
-                                  })->where('visibilita',$request->query('visibilita', "on"))->where('posti_letto', '>=' , $request->ospiti)->paginate();
+                                  })->where('visibilita',$request->query('visibilita', 1))->where('posti_letto', '>=' , $request->ospiti)->paginate();
 
       return view('apartments.index',compact('apartments'));
     }
