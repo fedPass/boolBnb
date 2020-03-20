@@ -73,71 +73,7 @@ $(document).ready(function(){
     });
   }, false);
 })();
-
-
-// // Codice per i grafici delle statistiche
-// var ctx = document.getElementById('yourChart').getContext('2d');
-// var chart = new Chart(ctx, {
-//     // The type of chart we want to create
-//     type: 'line',
-//
-//     // The data for our dataset
-//     data: {
-//         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-//         datasets: [{
-//             label: 'visualizzazioni per mese',
-//             backgroundColor: 'rgb(255, 99, 132)',
-//             borderColor: 'rgb(255, 99, 132)',
-//             data: [0, 10, 5, 2, 20, 30, 45]
-//         }]
-//     },
-//
-//     // Configuration options go here
-//     options: {}
-// });
-//
-//
-//
-// var ctx = document.getElementById('myChart');
-// var myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-//         datasets: [{
-//             label: 'messaggi per mese',
-//             data: [3, 5, 4, 2, 10, 14, 19],
-//             backgroundColor: [
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(54, 162, 235, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
-// Fine codice per i grafici delle statistiche
+// -----FORM VALIDATION BOOTSTRAP END-----------//
 
 
 var lat = 0;

@@ -1,8 +1,13 @@
 <nav class="public-nav navbar fixed-top navbar-expand-lg navbar-light bg-white">
   <a href="{{ url('/') }}"><img class="img-fluid logoBlue-visible" src="https://imageog.flaticon.com/icons/png/512/1724/1724634.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" alt="logo-blue"></a>
-  <form class="form-inline my-2 my-lg-0">
+  <form id="search" class="form-inline my-2 my-lg-0" action="{{ route('apartments.index') }}" autocomplete="off" method="get" enctype="multipart/form-data">
     @csrf
-      <input class="form-control mr-sm-2 navsearch" type="search" placeholder="Search" aria-label="Search">
+    @method("GET")
+      <input id="search-dove" class="form-control mr-sm-2 navsearch" type="text" name='place' id="place"  placeholder="Search" aria-label="Search">
+      <input id="lat" type='hidden' name='lat'>
+      <input id="lon" type='hidden' name='lon'>
+      <div id="item-list">
+      </div>
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
   </form>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

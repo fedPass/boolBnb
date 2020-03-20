@@ -30,3 +30,24 @@ $divider-color: #BDBDBD;
 
 //custom Variables
 $height-header: 80px;
+
+@mixin searcResults($top, $left) { //setta le proprietà dei risultati del suggerimento ricerca
+  ul {
+    background-color: white;
+    z-index: 100000;
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid $divider-color;
+    border-radius: 4px;
+    top: $top;
+    left: $left;
+    li {
+      margin: 10px;
+      &:hover {
+        cursor: pointer;
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+}

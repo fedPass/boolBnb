@@ -18,10 +18,10 @@
     <div class="ul-right col-lg-6">
       <ul class="navbar-nav float-right">
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#"><i class="far fa-share-square"></i> Condividi</a>
+          <a class="nav-link text-white" href="#"><i class="far fa-share-square"></i> Condividi</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#"><i class="far fa-heart"></i> Salva</a>
+          <a class="nav-link text-white" href="#"><i class="far fa-heart"></i> Salva</a>
         </li>
       </ul>
     </div>

@@ -10921,6 +10921,27 @@ a.text-dark:focus {
   text-transform: uppercase;
 }
 
+.booking-container ul {
+  background-color: white;
+  z-index: 100000;
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+  top: 190px;
+  left: 25px;
+}
+
+.booking-container ul li {
+  margin: 10px;
+}
+
+.booking-container ul li:hover {
+  cursor: pointer;
+  color: #2196F3;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 768px) {
   .booking-container {
     width: 300px;
@@ -10947,6 +10968,15 @@ a.text-dark:focus {
   border-bottom: 2px solid white;
 }
 
+.navbar .navbar-nav .dropdown-menu .dropdown-item {
+  color: #1976D2;
+}
+
+.navbar .navbar-nav .dropdown-menu .dropdown-item:hover {
+  color: #03A9F4;
+  font-weight: bold;
+}
+
 .navbar .logo {
   width: 50px;
   padding: 10px;
@@ -10970,6 +11000,27 @@ a.text-dark:focus {
   color: #1976D2;
   font-weight: bold;
   padding: 20px;
+}
+
+.navbar #search ul {
+  background-color: white;
+  z-index: 100000;
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+  top: 60px;
+  left: 96px;
+}
+
+.navbar #search ul li {
+  margin: 10px;
+}
+
+.navbar #search ul li:hover {
+  cursor: pointer;
+  color: #2196F3;
+  font-weight: bold;
 }
 
 .change-prop {
@@ -11354,7 +11405,7 @@ footer .footer-bottom i {
   top: 80px;
   height: 60px;
   width: 100%;
-  z-index: 10000;
+  z-index: 100;
 }
 
 .info-room-navbar .navbar-nav .nav-item .nav-link {
