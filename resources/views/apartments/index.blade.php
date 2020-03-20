@@ -28,7 +28,7 @@
     </div>
   @endforeach --}}
 </nav>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="results-container">
       <div class="col-sm-12 col-md-7 col-lg-7 card-container">
@@ -77,12 +77,9 @@
                     map.addControl(new tt.FullscreenControl());
                     map.addControl(new tt.NavigationControl());
                   var marker = new tt.Marker().setLngLat(ap_coord).addTo(map);
-              </script>
-          </div> --}}
-      </div>
-    </div>
-    <div class="page-number mx-auto">
-      {{$apartments->links()}}
+            </script>
+          </div>
+      </div> --}}
     </div>
   </div>
 </div>

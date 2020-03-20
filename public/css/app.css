@@ -11527,6 +11527,7 @@ footer .footer-bottom i {
   height: 60px;
   border-top: 1px solid #BDBDBD;
   border-bottom: 1px solid #BDBDBD;
+  background-color: #BBDEFB;
 }
 
 .nav-options .num-select {
@@ -11541,18 +11542,9 @@ footer .footer-bottom i {
 
 .results-container {
   display: flex;
-  flex-direction: row;
-  margin: 150px 0 50px;
+  margin: 200px 0 50px;
+  justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.results-container .card-container {
-  overflow-y: scroll;
-  height: 800px;
-}
-
-.results-container .maps-cont {
-  height: 800px;
 }
 
 .results-container .card-click {
@@ -11560,10 +11552,8 @@ footer .footer-bottom i {
 }
 
 .results-container .card-click .card-results {
-  padding: 20px;
-  border: 1px solid #BDBDBD;
-  border-radius: 5px;
   margin-bottom: 50px;
+  min-width: 250px;
   background-color: #BBDEFB;
   color: #1976D2;
 }
@@ -11571,13 +11561,8 @@ footer .footer-bottom i {
 .results-container .card-click .card-results:hover {
   background-color: #1976D2;
   color: #FFFFFF;
+  transform: scale(1.1);
   box-shadow: 0px 0px 39px 12px #757575;
-}
-
-@media (max-width: 768px) {
-  .maps-results {
-    display: none;
-  }
 }
 
 .navbar-admin {
