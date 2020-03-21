@@ -18,17 +18,16 @@
                         <div class="card-img">
                             <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                         </div>
-                      <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                       <div class="card-body">
-                        <h5 class="card-title">{{ $apartment->titolo }}</h5>
-                        {{-- <p class="card-text">{{ $apartment->descrizione }}</p> --}}
-                      </a>
-                        <div class="row">
+                          <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
+                              <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                          </a>
+                        <div class="row d-lg-flex align-items-lg-center">
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                 <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
                             </div>
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
+                                <a id="stat-btn" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
                             </div>
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                 <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
@@ -39,16 +38,18 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <a href="#" class="btn btn-primary btn-lg">Promuovi questo appartamento</a>
+                            <div class="col-12 btn-apartment-crud">
+                                <a href="#" class="btn btn-primary ">Promuovi questo appartamento</a>
                             </div>
                         </div>
-                        <div class="col-12 mt-3 d-flex justify-content-center">
-                            <div class="custom-control custom-switch">
-{{--                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>--}}
-{{--                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>--}}
-                                <input type="checkbox" data-id="{{ $apartment->id }}" name="visibilita" class="js-switch" {{ $apartment->visibilita == 1 ? 'checked' : '' }}>
-                                <label class="js-switch" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
+                        <div class="row">
+                            <div class="col-12 mt-3 d-flex justify-content-center">
+                                <div class="custom-control custom-switch">
+    {{--                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>--}}
+    {{--                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>--}}
+                                    <input type="checkbox" data-id="{{ $apartment->id }}" name="visibilita" class="js-switch" {{ $apartment->visibilita == 1 ? 'checked' : '' }}>
+                                    <label class="js-switch" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
+                                </div>
                             </div>
                         </div>
                       </div>
@@ -96,4 +97,3 @@
         });
     </script>
 @endsection
-

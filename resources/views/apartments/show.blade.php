@@ -50,6 +50,7 @@
       <div class="title" id="title">
         <h2>{{$apartment->titolo}}</h2>
         <div class="user-container float-right">
+          <strong>Proprietario</strong>
           <p class="text-center">{{$apartment->user->first_name}}</p>
         </div>
       </div>
@@ -84,6 +85,14 @@
                 -
             @endforelse
           </div>
+        </div>
+      </div>
+      <div class="other-info-container section">
+        <div class="other-info">
+          <h2>Ospitato da {{$apartment->user->first_name}}</h2>
+        </div>
+        <div class="other-info">
+          Hello my name is {{$apartment->user->first_name}}. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </div>
       @include('layouts/partials/maps')
