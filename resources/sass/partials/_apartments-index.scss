@@ -31,17 +31,15 @@
     .card-results {
       margin-bottom: 50px;
       min-width: 250px;
-      height: 400px;
+      max-height: 600px;
       background-color: $primary-color-light;
       color: $primary-color-dark;
-      @include zoom();
-      // .card-body:last-child {
-      //   // se si vuol far vedere la descrizione delle card. ps.:se si decommenta, aumentare l'altezza della card
-      //   .descriprion {
-      //     height: 150px;
-      //     overflow-y: auto;
-      //   }
-      // }
+      @include zoom($primary-color-dark, $white);
+      .card-body {
+        .description {
+          overflow: auto;
+        }
+      }
     }
   }
 }

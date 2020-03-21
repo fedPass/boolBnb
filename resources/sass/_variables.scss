@@ -31,7 +31,7 @@ $divider-color: #BDBDBD;
 //custom Variables
 $height-header: 80px;
 
-@mixin searcResults($top, $left) { //setta le proprietà dei risultati del suggerimento ricerca
+@mixin searcResults($top, $left) { //setta le proprietà dei risultati del suggerimento ricerca modificando la posizione del riquadro in base ai parametri passati
   ul {
     background-color: white;
     z-index: 100000;
@@ -51,13 +51,13 @@ $height-header: 80px;
     }
   }
 }
-@mixin zoom() { //da uno zoom sulle card
+@mixin zoom($colorBackground, $colorText) { //da uno zoom sulle card e setta i colori che li passiamo come parametri(primo colore è lo sfondo, secondo colore è il testo)
   &:hover {
-    background-color: $primary-color-dark;
-    color: $primary-color-text;
-    transform: scale(1.1);
-    -webkit-box-shadow: 0px 0px 39px 12px $secondary-text-color;
-    -moz-box-shadow: 0px 0px 39px 12px $secondary-text-color;
-    box-shadow: 0px 0px 39px 12px $secondary-text-color;
+    background-color: $colorBackground;
+    color: $colorText;
+    transform: scale(1.05);
+    -webkit-box-shadow: 0px 0px 25px 5px $secondary-text-color;
+    -moz-box-shadow: 0px 0px 25px 5px $secondary-text-color;
+    box-shadow: 0px 0px 25px 5px $secondary-text-color;
   }
 }

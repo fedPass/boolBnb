@@ -145,6 +145,7 @@ var lon = 0;
       success: function (data) {
             console.log(data)
             if (data.results.length !== 0){
+                $("#item-list").empty();
               $("#item-list").append(
                 '<ul class="" style="display:block; position:absolute;">'
               );
@@ -173,6 +174,7 @@ var lon = 0;
       success: function (data) {
             console.log(data)
             if (data.results.length !== 0){
+                $("#via-list").empty();
               $("#via-list").append(
                 '<ul class="" style="display:block; position:absolute;">'
               );

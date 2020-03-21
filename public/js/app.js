@@ -49643,6 +49643,7 @@ $(document).ready(function () {
         console.log(data);
 
         if (data.results.length !== 0) {
+          $("#item-list").empty();
           $("#item-list").append('<ul class="" style="display:block; position:absolute;">');
 
           for (var i = 0; i < data.results.length; i++) {
@@ -49671,6 +49672,7 @@ $(document).ready(function () {
         console.log(data);
 
         if (data.results.length !== 0) {
+          $("#via-list").empty();
           $("#via-list").append('<ul class="" style="display:block; position:absolute;">');
 
           for (var i = 0; i < data.results.length; i++) {

@@ -69,7 +69,7 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="indirizzo">Indirizzo</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="Indirizzo" name="indirizzo" value="{{ old('via', $apartment->indirizzo) }}" required>
+                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="Indirizzo" name="indirizzo" value="{{ old('via', $apartment->indirizzo) }}" autocomplete="off" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
