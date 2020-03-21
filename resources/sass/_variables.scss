@@ -51,3 +51,13 @@ $height-header: 80px;
     }
   }
 }
+@mixin zoom($color) { //da uno zoom sulle card
+  &:hover {
+    background-color: $color;
+    color: $primary-color-text;
+    transform: scale(1.05);
+    -webkit-box-shadow: 0px 0px 25px 5px $secondary-text-color;
+    -moz-box-shadow: 0px 0px 25px 5px $secondary-text-color;
+    box-shadow: 0px 0px 25px 5px $secondary-text-color;
+  }
+}
