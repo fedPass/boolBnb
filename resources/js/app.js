@@ -55,8 +55,8 @@ $(document).ready(function(){
   }
 });
 // -----MESSAGGI-----------//
-$('.message-recev').on( "click", function(){
-  $(this).siblings().slideToggle();
+$('.message-recev').on( "click", function(){ //quando si clicca sul div del mittente
+  $(this).siblings().slideToggle(); //appare/scompare il messaggio
 });
 
 // -----FORM VALIDATION BOOTSTRAP-----------//

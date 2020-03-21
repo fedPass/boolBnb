@@ -32,7 +32,7 @@
   <div class="row">
     <div class="results-container">
       @forelse ($apartments as $apartment)
-        <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="col-sm-12 col-md-5 col-lg-4">
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">

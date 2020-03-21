@@ -49562,7 +49562,8 @@ $(document).ready(function () {
   }); // -----MESSAGGI-----------//
 
   $('.message-recev').on("click", function () {
-    $(this).siblings().slideToggle();
+    //quando si clicca sul div del mittente
+    $(this).siblings().slideToggle(); //appare/scompare il messaggio
   }); // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
 
