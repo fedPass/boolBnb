@@ -11634,6 +11634,22 @@ footer .footer-bottom i {
   margin: 5px 0;
 }
 
+.payment-info > div {
+  margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+  #CC-numb {
+    width: 355px;
+  }
+}
+
+@media (min-width: 960px) {
+  .btn-return {
+    height: 40px;
+  }
+}
+
 @media (min-width: 1200px) {
   .card {
     height: 475px !important;

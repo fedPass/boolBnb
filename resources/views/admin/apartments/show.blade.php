@@ -48,7 +48,9 @@
         <h4>Info</h4>
         <div class="col-lg-12">
             <a href="#">{{$apartment->cita}}</a>
-            <p>Stanze: {{$apartment->stanze}}, Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</p>
+            <p>Stanze: {{$apartment->stanze}}</p>
+            <p>Posti letto: {{$apartment->posti_letto}}</p>
+            <p>Bagni: {{$apartment->bagni}}</p>
         </div>
       </div>
       <div class="description section">
@@ -75,32 +77,18 @@
       <div class="room section">
         <h4>Immagini appartamento</h4>
         <div class="row container-admin-img container-fluid">
-          <div class="col-sm-2">
-            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}"> -->
-            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
-          </div>
-          <div class="col-sm-2">
-            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
-            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
-          </div>
-          <div class="col-sm-2">
-            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
-            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
-          </div>
-          <div class="col-sm-2">
-            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
-            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
-          </div>
-          <div class="col-sm-2">
-            <!-- <img class="room-img" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}"> -->
-            <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
-          </div>
+            @for ($i=0; $i < 5; $i++)
+                <div class="col-sm-2">
+                  {{-- <img class="room-img" src="{{ asset('storage/'. $apartment->img) }}" alt="foto:{{$apartment->title}}"> --}}
+                  <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
+                </div>
+            @endfor
         </div>
       </div>
       <!-- fine -->
 
       @include('layouts/partials/maps')
-      
+
       <div id="graphic">
           <h4>Statistiche</h4>
           <div class="d-flex justify-content-center">
