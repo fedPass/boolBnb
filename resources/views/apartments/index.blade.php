@@ -36,13 +36,15 @@
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
-           <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
-         </div>
-         <div class="card-body">
-           <h5 class="card-title">{{ $apartment->titolo }}</h5>
-           <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
-           {{-- <p class="card-text descriprion">{{$apartment->descrizione}}</p> --}}
-         </div>
+              <div class="img-container">
+                <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
+              </div>
+            </div>
+             <div class="card-body">
+               <h5 class="card-title">{{ $apartment->titolo }}</h5>
+               <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
+               {{-- <p class="card-text descriprion">{{$apartment->descrizione}}</p> --}}
+             </div>
           </div>
           {{-- CARD ORIZZONTALE --}}
           {{-- <div class="card-results mb-6" >

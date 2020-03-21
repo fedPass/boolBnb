@@ -36,10 +36,15 @@
       color: $primary-color-dark;
       @include zoom($primary-color-dark, $white);
       .card-body {
-        .description {
-          overflow: auto;
+        .img-container {
+          height: 180px;
         }
       }
+      // .card-body {
+      //   .description {
+      //     overflow: auto;
+      //   }
+      // }
     }
   }
 }

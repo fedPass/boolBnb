@@ -1,14 +1,25 @@
 {{-- foresle per visualizzare tutti i messaggi --}}
 @extends('layouts.admin')
 @section('content')
-  @forelse ($leads as $lead)
-    <p>messaggio per appartamento: {{$lead->apartment_id}}</p>
-    <p>da: {{$lead->name}}</p>
-    <p>email: {{$lead->email_mittente}}</p>
-    <p>oggetto: {{$lead->oggetto}}</p>
-    <p>messaggio: {{$lead->messaggio}}</p>
-    <hr>
-  @empty
-    <p>non ci sono messaggi da visualizzare</p>
-  @endforelse
+  <div class="container leads-container">
+    <div class="row">
+    @forelse ($leads as $lead)
+      <div class="col-12">
+        <div class="card-header text-center message-recev bg-primary text-white border-white">
+          <h5><strong>Messaggio da: </strong> {{$lead->nome}}</h5>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p><strong>ID appartamento: </strong> {{$lead->apartment_id}}</p>
+            <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
+            <p><strong>Oggetto: </strong> {{$lead->oggetto}}</p>
+            <p><strong>Testo Messaggio: </strong><br> {{$lead->messaggio}}</p>
+          </blockquote>
+        </div>
+      </div>
+    @empty
+      <p>non ci sono messaggi da visualizzare</p>
+    @endforelse
+    </div>
+  </div>
 @endsection

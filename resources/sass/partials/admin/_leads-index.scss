@@ -1,0 +1,10 @@
+.leads-container {
+  margin-top: $height-header;
+  .card-body {
+    display: none;
+    border: 1px solid $primary-color-dark;
+  }
+  .message-recev:hover {
+    cursor: pointer;
+  }
+}

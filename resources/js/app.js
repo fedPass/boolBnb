@@ -32,6 +32,7 @@ const app = new Vue({
 });
 
 $(document).ready(function(){
+  // -----NAVBAR-----------//
   $(window).on('scroll', function(e) { //quando vado a fare scroll con il mouse
   st = $(this).scrollTop(); //imposto la posizione di scorrimento
   //console.log(st);
@@ -52,6 +53,10 @@ $(document).ready(function(){
       $('.card-scroll').css('margin-top','0'); //altrimenti risale
     }
   }
+});
+// -----MESSAGGI-----------//
+$('.message-recev').on( "click", function(){
+  $(this).siblings().slideToggle();
 });
 
 // -----FORM VALIDATION BOOTSTRAP-----------//
