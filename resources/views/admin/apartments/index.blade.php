@@ -16,11 +16,21 @@
                 <div class="col-6 col-md-4 mb-3">
                     <div class="card">
                         <div class="card-img">
-                            <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                            @if ($apartment->visibilita == 1)
+                                <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                            @else
+                                <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" style="filter: blur(2px) grayscale(1);" alt="Immagine appartamento">
+                            @endif
+
                         </div>
                       <div class="card-body">
                           <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
-                              <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                              @if ($apartment->visibilita == 1)
+                                  <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                              @else
+                                  <h5 class="card-title text-dark">{{ $apartment->titolo }}</h5>
+                              @endif
+
                           </a>
                         <div class="row d-lg-flex align-items-lg-center">
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
