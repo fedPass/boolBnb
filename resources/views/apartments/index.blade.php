@@ -34,13 +34,13 @@
       @forelse ($apartments as $apartment)
         <div class="col-sm-12 col-md-6 col-lg-4">
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
-          <div class="card btn btn-primary card-results">
+          <div class="btn btn-primary card-results">
             <div class="card-body">
            <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
          </div>
          <div class="card-body">
            <h5 class="card-title">{{ $apartment->titolo }}</h5>
-           <p class="card-text">{{$apartment->descrizione}}</p>
+           <p class="card-text description">{{$apartment->descrizione}}</p>
          </div>
           </div>
           {{-- CARD ORIZZONTALE --}}

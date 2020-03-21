@@ -7,6 +7,8 @@
         border: 1px solid $primary-color-dark;
         height: 500px;
         min-width: 250px;
+        margin-top: 50px;
+        @include zoom();
         .card-img {
             height: 250px;
             width: 100%;
