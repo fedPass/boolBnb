@@ -11564,7 +11564,7 @@ footer .footer-bottom i {
 .results-container .card-click .card-results {
   margin-bottom: 50px;
   min-width: 250px;
-  max-height: 600px;
+  height: 400px;
   background-color: #BBDEFB;
   color: #1976D2;
 }
@@ -11574,10 +11574,6 @@ footer .footer-bottom i {
   color: #FFFFFF;
   transform: scale(1.1);
   box-shadow: 0px 0px 39px 12px #757575;
-}
-
-.results-container .card-click .card-results .card-body .description {
-  overflow: auto;
 }
 
 .navbar-admin {

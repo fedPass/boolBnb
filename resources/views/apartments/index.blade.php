@@ -40,7 +40,8 @@
          </div>
          <div class="card-body">
            <h5 class="card-title">{{ $apartment->titolo }}</h5>
-           <p class="card-text description">{{$apartment->descrizione}}</p>
+           <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
+           {{-- <p class="card-text descriprion">{{$apartment->descrizione}}</p> --}}
          </div>
           </div>
           {{-- CARD ORIZZONTALE --}}
