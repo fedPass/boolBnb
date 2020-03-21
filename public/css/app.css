@@ -11587,8 +11587,8 @@ footer .footer-bottom i {
 
 .admin-container .card {
   border: 1px solid #1976D2;
-  height: 500px;
-  min-width: 250px;
+  height: 570px;
+  min-width: 290px;
 }
 
 .admin-container .card .card-img {
@@ -11601,25 +11601,35 @@ footer .footer-bottom i {
   width: 100%;
 }
 
-.admin-container .card h5 {
+.admin-container .card .card-body h5 {
   height: 25px;
   overflow-y: hidden;
 }
 
-.admin-container .card p {
+.admin-container .card .card-body p {
   height: 90px;
   overflow-y: auto;
 }
 
-.admin-container .card .btn-apartment-crud a,
-.admin-container .card .btn-apartment-crud button {
-  width: 95px;
+.admin-container .card .card-body .btn-apartment-crud a,
+.admin-container .card .card-body .btn-apartment-crud form,
+.admin-container .card .card-body .btn-apartment-crud button {
+  width: 100%;
   margin: 5px 0;
 }
 
 @media (min-width: 1200px) {
   .card {
-    height: 415px !important;
+    height: 475px !important;
+  }
+
+  .custom-control.custom-switch {
+    padding: 0;
+    text-align: center !important;
+  }
+
+  #stat-btn {
+    width: 95px !important;
   }
 }
 
