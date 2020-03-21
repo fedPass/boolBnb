@@ -129,7 +129,17 @@ var lon = 0;
    }); // end autoCompleteCreate
 
 
-
+   //cambio style al cambio Visibilità
+   $('.custom-control.custom-switch').click(function(){
+       // alert('ciao');
+       if ($(this).find('input').checked) { //.is(':checked')
+           $(this).parents('.card').find('.img-thumbnail').css('filter','grayscale(0) blur(0)');
+           $(this).parents('.card').find('h5').css('color','#3490dc');
+       } else {
+           $(this).parents('.card').find('.img-thumbnail').css('filter','grayscale(1) blur(2px)');
+           $(this).parents('.card').find('h5').css('color','black');
+       }
+   });
 
 
  // autoComplete function
@@ -190,5 +200,7 @@ var lon = 0;
         }); //end ajax
 
       } // end function autoComplete
+
+
 
   }); // end DOM
