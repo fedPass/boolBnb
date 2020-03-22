@@ -32,7 +32,6 @@ const app = new Vue({
 });
 
 $(document).ready(function(){
-  // -----NAVBAR-----------//
   $(window).on('scroll', function(e) { //quando vado a fare scroll con il mouse
   st = $(this).scrollTop(); //imposto la posizione di scorrimento
   //console.log(st);
@@ -53,10 +52,6 @@ $(document).ready(function(){
       $('.card-scroll').css('margin-top','0'); //altrimenti risale
     }
   }
-});
-// -----MESSAGGI-----------//
-$('.message-recev').on( "click", function(){ //quando si clicca sul div del mittente
-  $(this).siblings().slideToggle(); //appare/scompare il messaggio
 });
 
 // -----FORM VALIDATION BOOTSTRAP-----------//
@@ -137,12 +132,13 @@ var lon = 0;
    //cambio style al cambio Visibilità
    $('.custom-control.custom-switch').click(function(){
        // alert('ciao');
-       if ($(this).find('input').checked) { //.is(':checked')
-           $(this).parents('.card').find('.img-thumbnail').css('filter','grayscale(0) blur(0)');
-           $(this).parents('.card').find('h5').css('color','#3490dc');
+
+       if ($(this).find('input').is(':checked')) { //sei a colori
+           $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
+           $(this).parents('.card').find('h5').removeClass('text-dark');
        } else {
-           $(this).parents('.card').find('.img-thumbnail').css('filter','grayscale(1) blur(2px)');
-           $(this).parents('.card').find('h5').css('color','black');
+           $(this).parents('.card').find('.img-thumbnail').addClass('apt-not-visible');
+            $(this).parents('.card').find('h5').addClass('text-dark');
        }
    });
 

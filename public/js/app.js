@@ -49527,7 +49527,6 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
-  // -----NAVBAR-----------//
   $(window).on('scroll', function (e) {
     //quando vado a fare scroll con il mouse
     st = $(this).scrollTop(); //imposto la posizione di scorrimento
@@ -49559,11 +49558,6 @@ $(document).ready(function () {
         $('.card-scroll').css('margin-top', '0'); //altrimenti risale
       }
     }
-  }); // -----MESSAGGI-----------//
-
-  $('.message-recev').on("click", function () {
-    //quando si clicca sul div del mittente
-    $(this).siblings().slideToggle(); //appare/scompare il messaggio
   }); // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
 
@@ -49639,13 +49633,13 @@ $(document).ready(function () {
 
   $('.custom-control.custom-switch').click(function () {
     // alert('ciao');
-    if ($(this).find('input').checked) {
-      //.is(':checked')
-      $(this).parents('.card').find('.img-thumbnail').css('filter', 'grayscale(0) blur(0)');
-      $(this).parents('.card').find('h5').css('color', '#3490dc');
+    if ($(this).find('input').is(':checked')) {
+      //sei a colori
+      $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
+      $(this).parents('.card').find('h5').removeClass('text-dark');
     } else {
-      $(this).parents('.card').find('.img-thumbnail').css('filter', 'grayscale(1) blur(2px)');
-      $(this).parents('.card').find('h5').css('color', 'black');
+      $(this).parents('.card').find('.img-thumbnail').addClass('apt-not-visible');
+      $(this).parents('.card').find('h5').addClass('text-dark');
     }
   }); // autoComplete function
 
@@ -49842,8 +49836,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

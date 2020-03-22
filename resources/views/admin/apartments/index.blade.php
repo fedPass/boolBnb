@@ -19,9 +19,8 @@
                             @if ($apartment->visibilita == 1)
                                 <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                             @else
-                                <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" style="filter: blur(2px) grayscale(1);" alt="Immagine appartamento">
+                                <img class="img-thumbnail apt-not-visible" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                             @endif
-
                         </div>
                       <div class="card-body">
                           <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">

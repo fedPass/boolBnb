@@ -11638,6 +11638,11 @@ footer .footer-bottom i {
   margin: 10px 0;
 }
 
+.apt-not-visible {
+  -webkit-filter: blur(2px) grayscale(1);
+          filter: blur(2px) grayscale(1);
+}
+
 @media (min-width: 768px) {
   #CC-numb {
     width: 355px;

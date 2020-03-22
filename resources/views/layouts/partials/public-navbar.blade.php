@@ -60,10 +60,6 @@
           <a class="dropdown-item" href="{{route('admin.leads.index')}}">
               {{ __('Messaggi') }}
           </a>
-          {{-- tasto pubblicità --}}
-          <a class="dropdown-item" href="#">
-              {{ __('Pubblicità') }}
-          </a>
           <hr>
           {{-- tasto logout --}}
         <a class="dropdown-item" href="{{ route('logout') }}"
