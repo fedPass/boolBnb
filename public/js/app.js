@@ -49695,13 +49695,13 @@ $(document).ready(function () {
 
   $('.custom-control.custom-switch').click(function () {
     // alert('ciao');
-    if ($(this).find('input').checked) {
-      //.is(':checked')
-      $(this).parents('.card').find('.img-thumbnail').css('filter', 'grayscale(0) blur(0)');
-      $(this).parents('.card').find('h5').css('color', '#3490dc');
+    if ($(this).find('input').is(':checked')) {
+      //sei a colori
+      $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
+      $(this).parents('.card').find('h5').removeClass('text-dark');
     } else {
-      $(this).parents('.card').find('.img-thumbnail').css('filter', 'grayscale(1) blur(2px)');
-      $(this).parents('.card').find('h5').css('color', 'black');
+      $(this).parents('.card').find('.img-thumbnail').addClass('apt-not-visible');
+      $(this).parents('.card').find('h5').addClass('text-dark');
     }
   }); // autoComplete function
 
