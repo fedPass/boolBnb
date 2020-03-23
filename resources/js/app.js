@@ -174,7 +174,8 @@ var lon = 0;
    }); // end autoCompleteCreate
 
 
-   //cambio style al cambio Visibilità
+
+   // -----cambio style al cambio Visibilità-----------//
    $('.custom-control.custom-switch').click(function(){
        // alert('ciao');
 
@@ -186,6 +187,7 @@ var lon = 0;
             $(this).parents('.card').find('h5').addClass('text-dark');
        }
    });
+      // -----cambio style al cambio Visibilità end-----------//
 
 
  // autoComplete function

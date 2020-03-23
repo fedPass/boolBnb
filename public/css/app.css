@@ -11691,6 +11691,40 @@ footer .footer-bottom i {
   margin: 10px 0;
 }
 
+.payment-info .button {
+  cursor: pointer;
+  font-weight: 500;
+  left: 3px;
+  line-height: inherit;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+}
+
+.payment-info .button--small {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+.payment-info .button--green {
+  outline: none;
+  background-color: #1976D2;
+  border-color: #1976D2;
+  color: white;
+  transition: all 200ms ease;
+}
+
+.payment-info .button--green:hover {
+  background-color: #03A9F4;
+  color: white;
+}
+
 .apt-not-visible {
   -webkit-filter: blur(2px) grayscale(1);
           filter: blur(2px) grayscale(1);
