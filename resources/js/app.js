@@ -182,7 +182,7 @@ var lon = 0;
 
 
    // -----cambio style al cambio Visibilità-----------//
-   $('.custom-control.custom-switch').click(function(){
+   $('.no-promo-section .custom-control.custom-switch').click(function(){
        // alert('ciao');
 
        if ($(this).find('input').is(':checked')) {

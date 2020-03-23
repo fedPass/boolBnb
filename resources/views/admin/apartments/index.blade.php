@@ -35,22 +35,14 @@
                         </div>
                         <div class="row">
                             <div class="col-12 btn-apartment-crud">
-                                <a href="#" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mt-3 d-flex justify-content-center">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox" name="visibilita" class="js-switch">
-                                    <label class="js-switch" for="visibilita-">Visibile</label>
-                                </div>
+                                <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per X ore</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-3 mb-3">
+        <div class="row no-promo-section mt-3 mb-3">
             @forelse ($apartments as $apartment)
                     <div class="col-12 col-sm-6 col-md-4 mb-3">
                         <div class="card">

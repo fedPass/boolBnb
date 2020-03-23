@@ -49701,7 +49701,7 @@ $(document).ready(function () {
   }); // end autoCompleteCreate
   // -----cambio style al cambio Visibilità-----------//
 
-  $('.custom-control.custom-switch').click(function () {
+  $('.no-promo-section .custom-control.custom-switch').click(function () {
     // alert('ciao');
     if ($(this).find('input').is(':checked')) {
       $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
@@ -49910,8 +49910,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolBnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
