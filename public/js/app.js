@@ -49691,7 +49691,7 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end autoCompleteCreate
-  //cambio style al cambio Visibilità
+  // -----cambio style al cambio Visibilità-----------//
 
   $('.custom-control.custom-switch').click(function () {
     // alert('ciao');
@@ -49703,7 +49703,8 @@ $(document).ready(function () {
       $(this).parents('.card').find('.img-thumbnail').addClass('apt-not-visible');
       $(this).parents('.card').find('h5').addClass('text-dark');
     }
-  }); // autoComplete function
+  }); // -----cambio style al cambio Visibilità end-----------//
+  // autoComplete function
 
   function autoComplete(query) {
     $.ajax({
@@ -49898,8 +49899,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
