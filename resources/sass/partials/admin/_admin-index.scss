@@ -77,6 +77,13 @@
     filter: blur(2px) grayscale(1);
 }
 
+.promo-section {
+    background-color: $primary-color-light;
+    border: 1px solid $primary-color-dark;
+    border-radius: 15px;
+    padding: 20px;
+}
+
 @media (min-width: 768px) {
     #CC-numb {
         width: 355px;
@@ -93,6 +100,10 @@
 @media (min-width: 1200px) {
     .card {
         height: 475px!important;
+    }
+
+    .promo-section .card {
+        height: 410px !important;
     }
 
     .custom-control.custom-switch {

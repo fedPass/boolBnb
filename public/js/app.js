@@ -49564,7 +49564,15 @@ $(document).ready(function () {
 
   $('.message-recev').on("click", function () {
     //quando si clicca sul div del mittente
-    $(this).siblings().slideToggle(); //appare/scompare il messaggio
+    if ($(this).siblings('.mex-info').is(':visible')) {
+      //se il messaggio è aperto
+      $('.mex-info').slideUp(); // chiudo il messaggio
+    } else {
+      // se non è aperto
+      $('.mex-info').slideUp(); //chiudo prima tutti i messaggi aperti
+
+      $(this).siblings().slideToggle(); //e poi apro il messaggio del mittente cliccato
+    }
   }); // -----MESSAGGI END-----------//
   // -----MODAL-----------//
 
@@ -49693,15 +49701,18 @@ $(document).ready(function () {
   }); // end autoCompleteCreate
   // -----cambio style al cambio Visibilità-----------//
 
-  $('.custom-control.custom-switch').click(function () {
+  $('.no-promo-section .custom-control.custom-switch').click(function () {
     // alert('ciao');
     if ($(this).find('input').is(':checked')) {
-      //sei a colori
       $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
       $(this).parents('.card').find('h5').removeClass('text-dark');
+      $(this).parents('.card').find('#promo-btn').removeClass('disabled');
+      $(this).parents('.card').find('.js-switch').text('Visibile');
     } else {
       $(this).parents('.card').find('.img-thumbnail').addClass('apt-not-visible');
       $(this).parents('.card').find('h5').addClass('text-dark');
+      $(this).parents('.card').find('#promo-btn').addClass('disabled');
+      $(this).parents('.card').find('.js-switch').text('Non visibile');
     }
   }); // -----cambio style al cambio Visibilità end-----------//
   // autoComplete function
@@ -49899,8 +49910,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

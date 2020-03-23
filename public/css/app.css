@@ -11754,6 +11754,13 @@ footer .footer-bottom i {
           filter: blur(2px) grayscale(1);
 }
 
+.promo-section {
+  background-color: #BBDEFB;
+  border: 1px solid #1976D2;
+  border-radius: 15px;
+  padding: 20px;
+}
+
 @media (min-width: 768px) {
   #CC-numb {
     width: 355px;
@@ -11769,6 +11776,10 @@ footer .footer-bottom i {
 @media (min-width: 1200px) {
   .card {
     height: 475px !important;
+  }
+
+  .promo-section .card {
+    height: 410px !important;
   }
 
   .custom-control.custom-switch {
@@ -11836,12 +11847,15 @@ footer .footer-bottom i {
 }
 
 .leads-container {
-  margin-top: 80px;
+  margin-top: 110px;
+  margin-bottom: 30px;
 }
 
 .leads-container .card-body {
   display: none;
   border: 1px solid #1976D2;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .leads-container .message-recev:hover {
