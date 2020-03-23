@@ -33,7 +33,7 @@ class ApartmentController extends Controller
           $visibilita = $postiLetto = 1;//If this values are null assign 1
       }
         //dd($lat,$lon);
-
+      $options = Option::all();
       $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
                           $query->whereRaw("6371 * acos(
                                       cos(radians(" . $lat . "))
@@ -44,7 +44,7 @@ class ApartmentController extends Controller
                                   })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->paginate();
 
 
-      return view('apartments.index',compact('apartments'));
+      return view('apartments.index',['apartments'=>$apartments, 'options'=> $options]);
     }
 
     // 111.045

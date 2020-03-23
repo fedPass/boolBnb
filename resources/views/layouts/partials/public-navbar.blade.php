@@ -23,10 +23,31 @@
         <a class="nav-link" href="#">vuoto<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fas fa-globe"></i> Italiano (IT) <span class="sr-only">(current)</span></a>
+        <!-- Modal language-->
+        <a class="nav-link" href="#" id="myBtn-lang">Italiano (IT) <span class="sr-only">(current)</span></a>
+        <div id="myModal-lang" class="modal">
+          <div class="modal-content col-4 text-center text-primary">
+            <span class="close-lang text-right">&times;</span>
+            <h2>Scegli La lingua</h2>
+            <p class="language"><img class="flag" src="http://icons.iconarchive.com/icons/iconscity/flags/256/italy-icon.png" alt="it-flag"> Italiano (IT)</p>
+            <p class="language"><img class="flag" src="https://icons.iconarchive.com/icons/iconscity/flags/256/uk-icon.png" alt="uk-flag"> English (EN)</p>
+          </div>
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">€ EUR</a>
+        <!-- Modal payment-->
+        <a class="nav-link" href="#" id="myBtn">€ Euro</a>
+        <div id="myModal" class="modal">
+          <div class="modal-content col-4 text-center text-primary">
+            <span class="close text-right">&times;</span>
+            <h2>Scegli una valuta</h2>
+            <p class="valuta">€ Euro</p>
+            <p class="valuta">₣ Franco</p>
+            <p class="valuta">$ Dollaro</p>
+            <p class="valuta">£ Sterlina</p>
+            <p class="valuta">¥ Yen</p>
+          </div>
+        </div>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="{{ route('admin.apartments.create') }}">Offri una casa</a>
@@ -43,6 +64,7 @@
           @endif
       @else
       <li class="nav-item"><a class="nav-link" href="{{ route('admin.apartments.index') }}">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ route('admin.leads.index') }}">Messaggi</a></li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->first_name }} <span class="caret"></span>
@@ -59,10 +81,6 @@
           {{-- tasto messaggi --}}
           <a class="dropdown-item" href="{{route('admin.leads.index')}}">
               {{ __('Messaggi') }}
-          </a>
-          {{-- tasto pubblicità --}}
-          <a class="dropdown-item" href="#">
-              {{ __('Pubblicità') }}
           </a>
           <hr>
           {{-- tasto logout --}}

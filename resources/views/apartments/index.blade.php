@@ -1,11 +1,8 @@
 {{-- PAGINA DEI RISULTATI DI RICERCA --}}
 @extends('layouts.public')
 @section('content')
-<nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
+{{-- <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="input-group num-select">
-    {{-- <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">N° min di stanze</label>
-    </div> --}}
     <select class="custom-select border-custom" id="inputGroupSelect01">
       <option selected>N° Stanze</option>
       @for ($i=0; $i <= 10; $i++)
@@ -21,18 +18,56 @@
       @endfor
     </select>
   </div>
-  {{-- @foreach ($options as $option)
+  @foreach ($options as $option)
     <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="customCheck1">
       <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
     </div>
-  @endforeach --}}
-</nav>
-<div class="container">
+  @endforeach
+</nav> --}}
+<div class="container-fluid">
   <div class="row">
-    <div class="results-container">
+    <div class="filters-container col-2">
+      <div class="input-group num-select">
+        <select class="custom-select border-custom" id="inputGroupSelect01">
+          <option selected>N° Stanze</option>
+          @for ($i=0; $i <= 10; $i++)
+            <option value="{{$i}}"> {{$i}}</option>
+          @endfor
+        </select>
+      </div>
+      <div class="input-group num-select">
+        <select class="custom-select border-custom" id="inputGroupSelect01">
+          <option selected>N° Letti</option>
+          @for ($i=0; $i <= 10; $i++)
+            <option value="{{$i}}"> {{$i}}</option>
+          @endfor
+        </select>
+      </div>
+      @foreach ($options as $option)
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="customCheck1">
+          <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
+        </div>
+      @endforeach
+    </div>
+    <div class="results-container col-10">
+      <div class="row justify-content-center evidence-container evidence">
+          <h1>Appartamenti in promozione</h1>
+        <div class="col-sm-12 in-evidenza mx-auto">
+          @for ($i=0; $i < 4; $i++)
+            <div class="col-lg-3 col-md-6">
+              <img class="img-thumbnail" src="https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+              <a class="text-white" href="#">Titolo</a>
+            </div>
+          @endfor
+        </div>
+      </div>
+      <div class="results-title col-12">
+        <h1>Risultati di ricerca</h1>
+      </div>
       @forelse ($apartments as $apartment)
-        <div class="col-sm-12 col-md-5 col-lg-4">
+        <div class="col-sm-9 col-md-5 col-lg-4">
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
@@ -65,7 +100,9 @@
       @empty
       <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
       @endforelse
-      {{$apartments->links()}}
+      <div class="paginate mx-auto">
+        {{$apartments->links()}}
+      </div>
       {{-- RIQUADRO MAPPA --}}
       {{-- <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
           <div class="maps-location" id="map" style="width: 500px">

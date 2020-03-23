@@ -49527,7 +49527,7 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
-  // -----NAVBAR-----------//
+  // -----NAVBAR AND FORM-----------//
   $(window).on('scroll', function (e) {
     //quando vado a fare scroll con il mouse
     st = $(this).scrollTop(); //imposto la posizione di scorrimento
@@ -49559,13 +49559,77 @@ $(document).ready(function () {
         $('.card-scroll').css('margin-top', '0'); //altrimenti risale
       }
     }
-  }); // -----MESSAGGI-----------//
+  }); // -----NAVBAR AND FORM END-----------//
+  // -----MESSAGGI-----------//
 
   $('.message-recev').on("click", function () {
     //quando si clicca sul div del mittente
-    $(this).siblings().slideToggle(); //appare/scompare il messaggio
-  }); // -----FORM VALIDATION BOOTSTRAP-----------//
+    if ($(this).siblings('.mex-info').is(':visible')) {
+      //se il messaggio è aperto
+      $('.mex-info').slideUp(); // chiudo il messaggio
+    } else {
+      // se non è aperto
+      $('.mex-info').slideUp(); //chiudo prima tutti i messaggi aperti
+
+      $(this).siblings().slideToggle(); //e poi apro il messaggio del mittente cliccato
+    }
+  }); // -----MESSAGGI END-----------//
+  // -----MODAL-----------//
+
+  var modal = document.getElementById("myModal"); // Prendo l'id del modal
+
+  var btn = document.getElementById("myBtn"); // Prendo l'id del pulsante che aprirà il modal
+
+  var span = document.getElementsByClassName("close")[0]; // Prendo la classe dello span con la x per la chiusura del modal
+
+  var pValuta = $('.valuta');
+  modalChangeElement(modal, btn, span, pValuta); //chiamo la mia funzione passandogli le variabili appena create
+
+  var modalLang = document.getElementById("myModal-lang"); // Prendo l'id del modal
+
+  var btnLang = document.getElementById("myBtn-lang"); // Prendo l'id del pulsante che aprirà il modal
+
+  var spanLang = document.getElementsByClassName("close-lang")[0]; // Prendo la classe dello span con la x per la chiusura del modal
+
+  var pLanguage = $('.language');
+  modalChangeElement(modalLang, btnLang, spanLang, pLanguage); //chiamo la mia funzione passandogli le variabili appena create
+
+  function modalChangeElement(modalVar, buttonVar, spanVar, pVar) {
+    //funzione che prende in pasto 4 variabili:
+    //modalVar= id del modal che si dovrà aprire
+    //buttonVar= id del pulsante che aprirà il modal
+    //spanVar= classe dello span contenente la X per la chiusura del modal
+    //pVar= la classe del p da selezionare
+    buttonVar.onclick = function () {
+      // Quando l'utente clicca sul pulsante
+      modalVar.style.display = "block"; // si apre il modal
+    };
+
+    spanVar.onclick = function () {
+      // Quando l'utente clicca sulla X
+      modalVar.style.display = "none"; // si chiude il modal
+    };
+
+    window.onclick = function (event) {
+      //OPZIONALE: Quando l'utente clicca su qualsiasi punto al di fuori del modal
+      if (event.target == modalVar) {
+        //Il modal si chiude
+        modalVar.style.display = "none";
+      }
+    };
+
+    $(pVar).on('click', function () {
+      //Quando l'utente clicca su un p all'interno del modal
+      var current = $(this).text(); //prendo il contenuto del p cliccato
+
+      $(buttonVar).text(current); // lo vado a sostituire nella navbar
+
+      modalVar.style.display = "none"; // si chiude il modal
+    });
+  } // -----MODAL END-----------//
+  // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
+
 
   (function () {
     'use strict';
@@ -49635,19 +49699,23 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end autoCompleteCreate
-  //cambio style al cambio Visibilità
+  // -----cambio style al cambio Visibilità-----------//
 
-  $('.custom-control.custom-switch').click(function () {
+  $('.no-promo-section .custom-control.custom-switch').click(function () {
     // alert('ciao');
-    if ($(this).find('input').checked) {
-      //.is(':checked')
-      $(this).parents('.card').find('.img-thumbnail').css('filter', 'grayscale(0) blur(0)');
-      $(this).parents('.card').find('h5').css('color', '#3490dc');
+    if ($(this).find('input').is(':checked')) {
+      $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
+      $(this).parents('.card').find('h5').removeClass('text-dark');
+      $(this).parents('.card').find('#promo-btn').removeClass('disabled');
+      $(this).parents('.card').find('.js-switch').text('Visibile');
     } else {
-      $(this).parents('.card').find('.img-thumbnail').css('filter', 'grayscale(1) blur(2px)');
-      $(this).parents('.card').find('h5').css('color', 'black');
+      $(this).parents('.card').find('.img-thumbnail').addClass('apt-not-visible');
+      $(this).parents('.card').find('h5').addClass('text-dark');
+      $(this).parents('.card').find('#promo-btn').addClass('disabled');
+      $(this).parents('.card').find('.js-switch').text('Non visibile');
     }
-  }); // autoComplete function
+  }); // -----cambio style al cambio Visibilità end-----------//
+  // autoComplete function
 
   function autoComplete(query) {
     $.ajax({
@@ -49842,8 +49910,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
