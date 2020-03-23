@@ -1,11 +1,8 @@
 {{-- PAGINA DEI RISULTATI DI RICERCA --}}
 @extends('layouts.public')
 @section('content')
-<nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
+{{-- <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="input-group num-select">
-    {{-- <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">N° min di stanze</label>
-    </div> --}}
     <select class="custom-select border-custom" id="inputGroupSelect01">
       <option selected>N° Stanze</option>
       @for ($i=0; $i <= 10; $i++)
@@ -21,13 +18,13 @@
       @endfor
     </select>
   </div>
-  {{-- @foreach ($options as $option)
+  @foreach ($options as $option)
     <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="customCheck1">
       <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
     </div>
-  @endforeach --}}
-</nav>
+  @endforeach
+</nav> --}}
 <div class="container">
   <div class="row">
     <div class="results-container">

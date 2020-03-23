@@ -17,7 +17,7 @@
         <div id="myModal-lang" class="modal">
           <div class="modal-content col-4 text-center text-primary">
             <span class="close-lang text-right">&times;</span>
-            <h2>Scegli La lingua</h2>
+            <h2>Scegli la lingua</h2>
             <p class="language"><img class="flag" src="http://icons.iconarchive.com/icons/iconscity/flags/256/italy-icon.png" alt="it-flag"> Italiano (IT)</p>
             <p class="language"><img class="flag" src="https://icons.iconarchive.com/icons/iconscity/flags/256/uk-icon.png" alt="uk-flag"> English (EN)</p>
           </div>
