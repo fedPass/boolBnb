@@ -29,13 +29,13 @@
                             <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                 <a id="stat-btn" href="#" class="btn btn-primary float-right">Statistiche</a>
                             </div>
-                            <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
+                            <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud disabled">
                                 <a href="#" class="btn btn-primary float-right">Elimina</a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 btn-apartment-crud">
-                                <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per X ore</a>
+                                <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per XX ore</a>
                             </div>
                         </div>
                     </div>

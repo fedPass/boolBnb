@@ -183,8 +183,6 @@ var lon = 0;
 
    // -----cambio style al cambio Visibilità-----------//
    $('.no-promo-section .custom-control.custom-switch').click(function(){
-       // alert('ciao');
-
        if ($(this).find('input').is(':checked')) {
            $(this).parents('.card').find('.img-thumbnail').removeClass('apt-not-visible');
            $(this).parents('.card').find('h5').removeClass('text-dark');
