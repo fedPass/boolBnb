@@ -25,11 +25,35 @@
     </div>
   @endforeach
 </nav> --}}
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="results-container">
+    <div class="filters-container col-2">
+      <div class="input-group num-select">
+        <select class="custom-select border-custom" id="inputGroupSelect01">
+          <option selected>N° Stanze</option>
+          @for ($i=0; $i <= 10; $i++)
+            <option value="{{$i}}"> {{$i}}</option>
+          @endfor
+        </select>
+      </div>
+      <div class="input-group num-select">
+        <select class="custom-select border-custom" id="inputGroupSelect01">
+          <option selected>N° Letti</option>
+          @for ($i=0; $i <= 10; $i++)
+            <option value="{{$i}}"> {{$i}}</option>
+          @endfor
+        </select>
+      </div>
+      @foreach ($options as $option)
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="customCheck1">
+          <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
+        </div>
+      @endforeach
+    </div>
+    <div class="results-container col-10">
       @forelse ($apartments as $apartment)
-        <div class="col-sm-12 col-md-5 col-lg-4">
+        <div class="col-sm-9 col-md-5 col-lg-4">
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
@@ -62,7 +86,7 @@
       @empty
       <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
       @endforelse
-      {{$apartments->links()}}
+
       {{-- RIQUADRO MAPPA --}}
       {{-- <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
           <div class="maps-location" id="map" style="width: 500px">
@@ -83,6 +107,9 @@
             </script>
           </div>
       </div> --}}
+    </div>
+    <div class="paginate mx-auto">
+      {{$apartments->links()}}
     </div>
   </div>
 </div>

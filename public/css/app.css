@@ -11584,9 +11584,38 @@ footer .footer-bottom i {
   margin: 15% 0 10%;
 }
 
-.results-container {
+.filters-container {
+  height: 80vh;
   display: flex;
-  margin: 200px 0 50px;
+  margin-top: 100px;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+}
+
+.filters-container .input-group,
+.filters-container .custom-control {
+  margin: 10px 5px;
+}
+
+.filters-container .input-group:hover,
+.filters-container .custom-control:hover {
+  cursor: pointer;
+  color: #1976D2;
+  font-weight: bold;
+}
+
+.paginate {
+  margin: 30px;
+}
+
+.results-container {
+  height: 80vh;
+  overflow-y: scroll;
+  display: flex;
+  margin-top: 100px;
+  padding-top: 30px;
   justify-content: space-around;
   flex-wrap: wrap;
 }
@@ -11597,7 +11626,6 @@ footer .footer-bottom i {
 
 .results-container .card-click .card-results {
   margin-bottom: 50px;
-  min-width: 250px;
   max-height: 600px;
   background-color: #BBDEFB;
   color: #1976D2;
