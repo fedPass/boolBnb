@@ -49564,7 +49564,15 @@ $(document).ready(function () {
 
   $('.message-recev').on("click", function () {
     //quando si clicca sul div del mittente
-    $(this).siblings().slideToggle(); //appare/scompare il messaggio
+    if ($(this).siblings('.mex-info').is(':visible')) {
+      //se il messaggio è aperto
+      $('.mex-info').slideUp(); // chiudo il messaggio
+    } else {
+      // se non è aperto
+      $('.mex-info').slideUp(); //chiudo prima tutti i messaggi aperti
+
+      $(this).siblings().slideToggle(); //e poi apro il messaggio del mittente cliccato
+    }
   }); // -----MESSAGGI END-----------//
   // -----MODAL-----------//
 
@@ -49902,8 +49910,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/boolBnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

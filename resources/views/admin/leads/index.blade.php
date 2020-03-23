@@ -8,7 +8,7 @@
         <div class="card-header text-center message-recev bg-primary text-white border-white">
           <h5><strong>Messaggio da: </strong> {{$lead->nome}}</h5>
         </div>
-        <div class="card-body">
+        <div class="card-body mex-info">
           <blockquote class="blockquote mb-0">
             <p><strong>ID appartamento: </strong> {{$lead->apartment_id}}</p>
             <p><strong>Email: </strong> {{$lead->email_mittente}}</p>

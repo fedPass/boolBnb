@@ -105,7 +105,7 @@
     width: 30px;
   }
   .language:hover{
-    @include modalHover;  
+    @include modalHover;
   } .valuta:hover {
     @include modalHover;
   }
@@ -117,7 +117,7 @@
 }
 .close, .close-lang:hover,
 .close, .close-lang:focus {
-  color: black;
+  color: $primary-color;
   text-decoration: none;
   cursor: pointer;
 }
