@@ -48,7 +48,12 @@
                         </div>
                         <div class="row">
                             <div class="col-12 btn-apartment-crud">
-                                <a href="{{ route('admin.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary ">Promuovi questo appartamento</a>
+                                @if ($apartment->visibilita == 1)
+                                    <a href="{{ route('admin.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
+                                @else
+                                    <a href="{{ route('admin.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary disabled" id="promo-btn">Promuovi questo appartamento</a>
+                                @endif
+
                             </div>
                         </div>
                         <div class="row">
@@ -57,7 +62,12 @@
     {{--                              <input type="checkbox" class="custom-control-input input-visibilita" id="visibilita-{{$apartment->id}}" data-id="{{$apartment->id}}" {{($apartment->visibilita == "1") ? 'checked' : ""}}>--}}
     {{--                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>--}}
                                     <input type="checkbox" data-id="{{ $apartment->id }}" name="visibilita" class="js-switch" {{ $apartment->visibilita == 1 ? 'checked' : '' }}>
-                                    <label class="js-switch" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>
+                                    @if ($apartment->visibilita == 1)
+                                        <label class="js-switch" for="visibilita-{{$apartment->id}}">Visibile</label>
+                                    @else
+                                        <label class="js-switch" for="visibilita-{{$apartment->id}}">Non visibile</label>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
