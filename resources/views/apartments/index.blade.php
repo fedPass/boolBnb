@@ -1,33 +1,12 @@
 {{-- PAGINA DEI RISULTATI DI RICERCA --}}
 @extends('layouts.public')
 @section('content')
-{{-- <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="input-group num-select">
-    <select class="custom-select border-custom" id="inputGroupSelect01">
-      <option selected>N° Stanze</option>
-      @for ($i=0; $i <= 10; $i++)
-        <option value="{{$i}}"> {{$i}}</option>
-      @endfor
-    </select>
-  </div>
-  <div class="input-group num-select">
-    <select class="custom-select border-custom" id="inputGroupSelect01">
-      <option selected>N° Letti</option>
-      @for ($i=0; $i <= 10; $i++)
-        <option value="{{$i}}"> {{$i}}</option>
-      @endfor
-    </select>
-  </div>
-  @foreach ($options as $option)
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="customCheck1">
-      <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
-    </div>
-  @endforeach
-</nav> --}}
+<nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<a class="show-filters btn btn-primary btn-sm" href="#">Mostra Filtri</a>
+</nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="filters-container col-2">
+    <div class="filters-container col-sm-12 col-lg-2 col-md-2">
       <div class="input-group num-select">
         <select class="custom-select border-custom" id="inputGroupSelect01">
           <option selected>N° Stanze</option>
@@ -50,6 +29,7 @@
           <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
         </div>
       @endforeach
+      <a class="hide-filters btn btn-primary btn-sm" href="#">Conferma/Nascondi</a>
     </div>
     <div class="results-container col-10">
       <div class="row justify-content-center evidence-container evidence">
