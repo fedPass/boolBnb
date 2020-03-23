@@ -2,6 +2,7 @@
 @extends('layouts.admin')
 @section('content')
   <div class="container leads-container">
+      <h1>Messaggi</h1>
     <div class="row">
     @forelse ($leads as $lead)
       <div class="col-12">
