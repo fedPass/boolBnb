@@ -1,6 +1,9 @@
 .leads-container {
   margin-top: 110px;
   margin-bottom: 30px;
+    hr {
+        border: 2px solid $primary-color-dark;
+    }
   .card-body {
     display: none;
     border: 1px solid $primary-color-dark;
