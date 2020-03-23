@@ -7,7 +7,7 @@
   </div>
   <div class="container">
     <div class="row justify-content-center evidence-container">
-        <h1>Appartamenti in evidenza</h1>
+        <h1>Appartamenti in promozione</h1>
       <div class="col-sm-12 in-evidenza mx-auto">
         @for ($i=0; $i < 4; $i++)
           <div class="col-lg-3 col-md-6">

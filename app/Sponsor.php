@@ -9,7 +9,8 @@ class Sponsor extends Model
 {
     protected $fillable = [
       'nome',
-      'prezzo'
+      'prezzo',
+       'durata'
     ];
 
     public function apartments(){

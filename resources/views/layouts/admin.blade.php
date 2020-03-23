@@ -27,9 +27,10 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-      {{-- braintree --}}
-      <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
-    
+    {{--      cdn braintree--}}
+      <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
+
+
   </head>
   <body>
       <main>

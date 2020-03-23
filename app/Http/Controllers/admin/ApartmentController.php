@@ -4,13 +4,15 @@ namespace App\Http\Controllers\admin;
 // li aggiungo perchè stanno su un namespace diverso
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
+use App\Sponsor;
 use Illuminate\Support\Facades\Validator;
 // Federica: facade used to interact with any of your configured disks
 use Illuminate\Support\Facades\Storage;
-
+use Braintree_Transaction;
 //----
 
 class ApartmentController extends Controller
@@ -227,5 +229,60 @@ class ApartmentController extends Controller
         $apartment->save();
 
         return response()->json(['message' => 'Apartment status updated successfully.']);
+    }
+
+    //funzione provvisoria per promo
+    public function promoEdit($id)
+    {
+        $apartment = Apartment::find($id);
+        return view('admin.promo',['apartment' => $apartment]);
+    }
+
+    //funzione per attivare braintree payment
+    public function process(Request $request)
+    {
+
+        $apartment_id= $request->apartmentID;
+        $nonce = $request->payment_method_nonce;
+        $amount = 0;
+        $sponsor_id = 0;
+        $promo = $request->promo;
+        switch ($promo){
+            case 24:
+                $amount = 2.99;
+                $sponsor_id = 1;
+                break;
+            case 72:
+                $amount = 5.99;
+                $sponsor_id = 2;
+                 break;
+             case 144:
+                $amount = 9.99;
+                 $sponsor_id = 3;
+                break;
+        }
+
+
+        $status = Braintree_Transaction::sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => True
+            ]
+        ]);
+        //dd($status);
+        if ($status->success){
+            $transaction = $status->transaction;
+            // header("Location: transaction.php?id=" . $transaction->id);
+            $apartment = Apartment::find($apartment_id);
+            $apartment->sponsors()->attach($sponsor_id,['due_date' => Carbon::now()->addHour($promo)]);
+
+
+            $apartments = Apartment::where('user_id', auth()->user()->id)->get();
+            $sponsors = Sponsor::all();
+            return view('admin.apartments.index' , ['apartments' => $apartments, 'sponsors' => $sponsors])->with('success_message', 'Transaction successful. The ID is:'. $transaction);
+        }
+       //return  response()->json($status);
+
     }
 }

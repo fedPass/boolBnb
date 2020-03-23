@@ -80,9 +80,9 @@
                             <div class="row">
                                 <div class="col-12 btn-apartment-crud">
                                     @if ($apartment->visibilita == 1)
-                                        <a href="{{ route('admin.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
+                                        <a href="{{ route('admin.apartments.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
                                     @else
-                                        <a href="{{ route('admin.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary disabled" id="promo-btn">Promuovi questo appartamento</a>
+                                        <a href="{{ route('admin.apartments.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary disabled" id="promo-btn">Promuovi questo appartamento</a>
                                     @endif
 
                                 </div>
