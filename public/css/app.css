@@ -11730,6 +11730,13 @@ footer .footer-bottom i {
           filter: blur(2px) grayscale(1);
 }
 
+.promo-section {
+  background-color: #BBDEFB;
+  border: 1px solid #1976D2;
+  border-radius: 15px;
+  padding: 20px;
+}
+
 @media (min-width: 768px) {
   #CC-numb {
     width: 355px;
