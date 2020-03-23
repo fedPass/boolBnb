@@ -17,11 +17,7 @@ class HomeController extends Controller
         return view('admin.home');
     }
 
-    //funzione provvisoria per promo
-    public function promo()
-    {
-        return view('admin.promo');
-    }
+
 
     /**
      * Show the form for creating a new resource.

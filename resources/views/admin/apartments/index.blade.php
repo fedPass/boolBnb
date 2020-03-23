@@ -49,7 +49,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 btn-apartment-crud">
-                                <a href="{{ route('admin.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary ">Promuovi questo appartamento</a>
+                                <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary ">Promuovi questo appartamento</a>
                             </div>
                         </div>
                         <div class="row">

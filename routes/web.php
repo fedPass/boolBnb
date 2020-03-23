@@ -44,8 +44,14 @@ Route::get('/logout', function(){
 //pagine visibile per utente registrato
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function(){
     Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/promo', 'HomeController@promo')->name('promo'); //route provvisoria per sponsorizzazione
+
+    //Queste rotte gestiscono la sponsorizzazione degli appartamenti
+   Route::get('apartments/promo/{id}', 'ApartmentController@promoEdit')->name('apartments.promo'); //route provvisoria per sponsorizzazione
+   //Route::post('apartments/promo/{id}', 'ApartmentController@promoEdit')->name('apartments.promo'); //route provvisoria per sponsorizzazione
+    Route::post('apartments/promo/payment/process' , 'ApartmentController@process')->name('apartments.promo.payment.process');
     Route::get('apartments/status/change', 'ApartmentController@updateStatus')->name('apartments.change.status');
+
+    //Route resource
     Route::resource('/apartments', 'ApartmentController');
     Route::resource('/leads', 'LeadController');
 });
