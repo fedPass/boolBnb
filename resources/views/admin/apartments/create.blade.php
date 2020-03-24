@@ -212,12 +212,13 @@
                     <div class="row form-group">
                         {{-- <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
                         <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img"> --}}
-                        <div id="dropzone" class="dz-default dz-message">
+                        <div id="dropzone" class="dropzone needsclick dz-clickable">
                           <span>Upload File</span>
-                        </div>
-                        <div class="dropzone-previews">
+                          <div class="dropzone-previews">
 
+                          </div>
                         </div>
+
                     </div>
                     {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>
@@ -270,7 +271,7 @@
             previewsContainer: 'div.dropzone-previews',
             addRemoveLinks: true,
             autoPrecessQueue: false,
-            uploadMultiple: true;
+            uploadMultiple: true,
             maxFiles: 5,
             params:{
               _token: token
