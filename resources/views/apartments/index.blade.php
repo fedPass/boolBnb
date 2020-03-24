@@ -29,6 +29,15 @@
           <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
         </div>
       @endforeach
+        <div class="cucstom-cuntrol">
+            <p>Max distance from your search: <span id="kmOutput"></span></p>
+            <input id="sliderKM" type="range" name="kmDistance" min="1" max="250" value="25">
+        </div>
+        <input id="latSearch" type='hidden' name='lat' value="{{$lat}}">
+        <input id="lonSearch" type='hidden' name='lon' value="{{$lon}}">
+        <div class="custom-control">
+            <button id="searchDeepButton" class="btn btn-primary"></button>
+        </div>
       <a class="hide-filters btn btn-primary btn-sm" href="#">Conferma/Nascondi</a>
     </div>
     <div class="results-container col-10">
@@ -107,3 +116,48 @@
   </div>
 </div>
 @endsection
+
+@section('script')
+    <script>
+        $('#searchDeepButton').click(function (event) {
+            event.preventDefault();
+
+            // let options = [];
+            // $('.option-check-box').each(function () {
+            //     if ($(this).is(":checked")){
+            //         options.push($(this));
+            //     }
+            // })
+            let latSearch = $('#latSearch').val() ? $('#latSearch').val() : 0;
+            let lonSearch = $('#lonSearch').val() ? $('#lonSearch').val() : 0;
+            let circle_radius = $('#sliderKM').val();
+            // let visibilita = 1;
+            // let posti_letto = 1;
+            console.log(circle_radius,latSearch,lonSearch);
+            $.ajax({
+                type : 'get',
+
+                url : '/apartments/search',
+
+                data:{
+
+                    lat:latSearch,
+                    lon:lonSearch,
+                    circle_radius:circle_radius,
+
+
+                },
+
+                success:function(data){
+                    console.log(data);
+
+                },
+                error:function(err){
+                    console.log(err)
+                }
+
+            })
+
+        })
+    </script>
+    @endsection
