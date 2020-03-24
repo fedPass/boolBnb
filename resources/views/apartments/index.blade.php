@@ -29,6 +29,15 @@
           <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
         </div>
       @endforeach
+        <div class="cucstom-cuntrol">
+            <p>Max distance from your search: <span id="kmOutput"></span></p>
+            <input id="sliderKM" type="range" name="kmDistance" min="1" max="250" value="25">
+        </div>
+        <input id="latSearch" type='hidden' name='lat' value="{{$lat}}">
+        <input id="lonSearch" type='hidden' name='lon' value="{{$lon}}">
+        <div class="custom-control">
+            <button id="searchDeepButton" class="btn btn-primary"></button>
+        </div>
       <a class="hide-filters btn btn-primary btn-sm" href="#">Conferma/Nascondi</a>
     </div>
     <div class="results-container col-10">
