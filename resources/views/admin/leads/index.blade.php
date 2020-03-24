@@ -4,11 +4,11 @@
   <div class="container leads-container">
       <div class="row pt-5">
           <div class="col-12">
-              <h1 class="float-left">Messaggi</h1>
-              <a class="btn btn-info float-right" href="{{ route('admin.apartments.index') }}">Torna alla Dashboard</a>
+              <h1 class="float-left">Leggi i tuoi messaggi</h1>
+              <a class="btn btn-info float-right" href="{{ route('admin.index') }}">Torna alla dashboard</a>
           </div>
-      </div>
-      <hr/>
+    </div>
+    <hr>
     <div class="row">
     @forelse ($leads as $lead)
       <div class="col-12">
