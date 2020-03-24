@@ -54,4 +54,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     //Route resource
     Route::resource('/apartments', 'ApartmentController');
     Route::resource('/leads', 'LeadController');
+
+    Route::post('apartments/uploadimg', 'ApartmentController@uploadimg')->name('apartments.uploadimg');
+
 });

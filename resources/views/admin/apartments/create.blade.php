@@ -210,8 +210,15 @@
                     </div>
                     <hr>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
-                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img">
+                        {{-- <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
+                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img"> --}}
+                        <div id="dropzone" class="dropzone needsclick dz-clickable">
+                          <span>Upload File</span>
+                          <div class="dropzone-previews">
+
+                          </div>
+                        </div>
+
                     </div>
                     {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>
@@ -254,5 +261,44 @@
         elems.forEach(function(html) {
             let switchery = new Switchery(html,  { size: 'small' ,color:'#237DC7'});
         });
+
+        Dropzone.autoDiscover = false;
+        let token = $('meta[name="csrd-token"]').attr('content');
+        $(function(){
+          var myDropzone = new Dropzone("div#dropzone", {
+            paramName: 'file',
+            url: "{{ url('/files') }}",
+            previewsContainer: 'div.dropzone-previews',
+            addRemoveLinks: true,
+            autoPrecessQueue: false,
+            uploadMultiple: true,
+            maxFiles: 5,
+            params:{
+              _token: token
+            },
+            init: function(){
+              var myDropzone = this;
+
+            this.on("sending", function(file,xhr,formData){
+
+            });
+            this.on("success", function(file, response){
+
+            });
+            this.on("queuecomplete", function(){
+
+            });
+            this.on("sendingmultiple", function(){
+
+            });
+            this.on("successmultiple", function(files, responses){
+
+            });
+            this.on("errormultiple", function(files, responses){
+
+            });
+          }
+        });
+      });
     </script>
 @endsection
