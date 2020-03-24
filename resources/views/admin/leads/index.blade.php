@@ -1,8 +1,8 @@
 {{-- foresle per visualizzare tutti i messaggi --}}
 @extends('layouts.admin')
 @section('content')
-    <div class="container leads-container admin-container">
-        <div class="row pt-5">
+  <div class="container leads-container">
+      <div class="row pt-5">
           <div class="col-12">
               <h1 class="float-left">Leggi i tuoi messaggi</h1>
               <a class="btn btn-info float-right" href="{{ route('admin.index') }}">Torna alla dashboard</a>
