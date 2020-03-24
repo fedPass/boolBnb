@@ -27,6 +27,9 @@
     @empty
       <p>non ci sono messaggi da visualizzare</p>
     @endforelse
+    <div class="paginate mx-auto">
+      {{$leads->links()}}
+    </div>
     </div>
   </div>
 @endsection

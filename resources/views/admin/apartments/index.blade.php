@@ -11,39 +11,79 @@
             </div>
         </div>
         <hr>
-        <div class="row promo-section">
-            <div class="col-12">
-                <h3 class="mb-3">Appartamenti in promozione</h3>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-img">
-                        <img class="img-thumbnail" src="https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento">
-                    </div>
-                    <div class="card-body">
-                        <h5>title</h5>
-                        <div class="row d-lg-flex align-items-lg-center">
-                            <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                <a href="#" class="btn btn-primary float-left" style="width: 81px;">Modifica</a>
-                            </div>
-                            <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                <a id="stat-btn" href="#" class="btn btn-primary float-right">Statistiche</a>
-                            </div>
-                            <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud disabled">
-                                <a href="#" class="btn btn-primary float-right">Elimina</a>
+    {{-- se ci sono elementi in Apartment_sponsor stampali in questo div --}}
+
+            @foreach ($apartments as $apartment)
+                @if (($apartment->sponsors)->isNotEmpty())
+                    <div class="row promo-section">
+                        {{-- <div class="col-12">
+                            <h3 class="mb-3">Appartamenti in promozione</h3>
+                        </div> --}}
+                        <div class="col-12 col-sm-6 col-md-4 mb-3">
+                            {{-- card statica --}}
+                            {{-- <div class="card">
+                                <div class="card-img">
+                                    <img class="img-thumbnail" src="https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento">
+                                </div>
+                                <div class="card-body">
+                                    <h5>title</h5>
+                                    <div class="row d-lg-flex align-items-lg-center">
+                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
+                                            <a href="#" class="btn btn-primary float-left" style="width: 81px;">Modifica</a>
+                                        </div>
+                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
+                                            <a id="stat-btn" href="#" class="btn btn-primary float-right">Statistiche</a>
+                                        </div>
+                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud disabled">
+                                            <a href="#" class="btn btn-primary float-right">Elimina</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 btn-apartment-crud">
+                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per XX ore</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="card">
+                                <div class="card-img">
+                                    <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                                </div>
+                                <div class="card-body">
+                                    <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
+                                        <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                                    </a>
+                                    <div class="row d-lg-flex align-items-lg-center">
+                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
+                                            <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left" style="width: 81px;">Modifica</a>
+                                        </div>
+                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
+                                            <a id="stat-btn" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
+                                        </div>
+                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud disabled">
+                                            <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 btn-apartment-crud">
+                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per XX ore</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 btn-apartment-crud">
-                                <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per XX ore</a>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                @endif
+            @endforeach
+
+
         <div class="row no-promo-section mt-3 mb-3">
             @forelse ($apartments as $apartment)
+                @if (($apartment->sponsors)->isEmpty())
                     <div class="col-12 col-sm-6 col-md-4 mb-3">
                         <div class="card">
                             <div class="card-img">
@@ -80,9 +120,9 @@
                             <div class="row">
                                 <div class="col-12 btn-apartment-crud">
                                     @if ($apartment->visibilita == 1)
-                                        <a href="{{ route('admin.apartments.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
+                                        <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
                                     @else
-                                        <a href="{{ route('admin.apartments.promo', ['apartment' => $apartment->id])}}" class="btn btn-primary disabled" id="promo-btn">Promuovi questo appartamento</a>
+                                        <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary disabled" id="promo-btn">Promuovi questo appartamento</a>
                                     @endif
 
                                 </div>
@@ -105,6 +145,7 @@
                           </div>
                         </div>
                     </div>
+                @endif
             @empty
                 <div class="col-12 mt-5 mb-5">
                     <div class="d-flex align-items-center flex-column text-center" >
