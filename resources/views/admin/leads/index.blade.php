@@ -1,14 +1,14 @@
 {{-- foresle per visualizzare tutti i messaggi --}}
 @extends('layouts.admin')
 @section('content')
-  <div class="container leads-container">
+  <div class="container leads-container admin-container">
       <div class="row pt-5">
           <div class="col-12">
               <h1 class="float-left">Messaggi</h1>
-              <a class="btn btn-info float-right" href="{{ route('admin.apartments.index') }}">Torna alla Dashboard</a>
+              <a class="btn btn-info float-right" href="{{ route('admin.apartments.index') }}">Torna alla dashboard</a>
           </div>
-      </div>
-      <hr/>
+    </div>
+    <hr>
     <div class="row">
     @forelse ($leads as $lead)
       <div class="col-12">
@@ -27,6 +27,9 @@
     @empty
       <p>non ci sono messaggi da visualizzare</p>
     @endforelse
+    <div class="paginate mx-auto">
+      {{$leads->links()}}
+    </div>
     </div>
   </div>
 @endsection

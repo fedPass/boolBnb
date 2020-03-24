@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-12 col-md-3 d-flex justify-content-center">
-                <a class="btn btn-info float-md-right btn-return" href="{{ route('admin.index') }}">Torna alla Dashboad</a>
+                <a class="btn btn-info float-md-right btn-return" href="{{ route('admin.apartments.index') }}">Torna alla Dashboad</a>
             </div>
             <hr style="width: 100%">
             @if (session('success_message'))
@@ -19,12 +19,11 @@
                     {{ session('success_message') }}
                 </div>
             @endif
-            <div class="row mb-5 d-flex justify-content-center">
+            <div class="row w-100 mb-5 d-flex justify-content-center">
                 <div class="col-8 add-product">
                     <div class="row form-group">
                         <div class="col-12">
-                            {{-- <p>Seleziona la promozione che vuoi attivare per il tuo appartamento <strong>{{$apartment->titolo}}</strong>:</p> --}}
-                            <p>Seleziona la promozione che vuoi attivare per il tuo appartamento TITOLO APPARTAMENTO</p>
+                            <p>Seleziona la promozione che vuoi attivare per il tuo appartamento <strong>{{$apartment->titolo}}</strong>:</p>
                         </div>
                     </div>
 
