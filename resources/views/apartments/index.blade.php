@@ -7,7 +7,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="filters-container col-sm-12 col-lg-2 col-md-2">
-      <div class="input-group num-select">
+      <h3>Filtri</h3>
+      <div class="input-group num-select input-num-size">
         <select class="custom-select border-custom" id="inputGroupSelect01">
           <option selected>N° Stanze</option>
           @for ($i=0; $i <= 10; $i++)
@@ -15,7 +16,7 @@
           @endfor
         </select>
       </div>
-      <div class="input-group num-select">
+      <div class="input-group num-select input-num-size">
         <select class="custom-select border-custom" id="inputGroupSelect01">
           <option selected>N° Letti</option>
           @for ($i=0; $i <= 10; $i++)
@@ -29,6 +30,7 @@
           <label class="custom-control-label" for="customCheck1">{{$option->nome}}</label>
         </div>
       @endforeach
+      <a class="apply-filters btn btn-primary btn-sm" href="#">Applica filtri</a>
       <a class="hide-filters btn btn-primary btn-sm" href="#">Conferma/Nascondi</a>
     </div>
     <div class="results-container col-10">
@@ -51,9 +53,7 @@
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
-              <div class="img-container">
-                <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
-              </div>
+                <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
             </div>
              <div class="card-body">
                <h5 class="card-title">{{ $apartment->titolo }}</h5>

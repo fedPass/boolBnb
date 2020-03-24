@@ -8,15 +8,21 @@
   display: none;
 }
 .filters-container {
-  height: 80vh;
+  height: 90vh;
   display: flex;
-  margin-top: 100px;
+  margin-top: $height-header;
   flex-direction: column;
   background-color: white;
   border: 1px solid $divider-color;
   border-radius: 5px;
+  h3 {
+    padding-top: 10px;
+  }
   .hide-filters {
     display: none;
+  }
+  .input-num-size {
+    width: 80%;
   }
   .input-group, .custom-control {
     margin: 10px 5px;
@@ -49,15 +55,10 @@
     color: $primary-color-dark;
     .card-results {
       margin-bottom: 50px;
-      max-height: 600px;
+      height: 350px;
       background-color: $primary-color-light;
       color: $primary-color-dark;
       @include zoom($primary-color-dark, $white);
-      .card-body {
-        .img-container {
-          height: 180px;
-        }
-      }
       // .card-body {
       //   .description {
       //     overflow: auto;
@@ -94,8 +95,11 @@
   .filters-container {
     margin-top: 130px;
   }
-  .filters-container {
+  .filters-container, .apply-filters {
     display: none;
+  }
+  .input-num-size {
+    width: 60%!important;
   }
   .evidence {
     margin-left: 10px;
