@@ -8,7 +8,7 @@
   display: none;
 }
 .filters-container {
-  height: 90vh;
+  height: 105vh;
   display: flex;
   margin-top: $height-header;
   flex-direction: column;
@@ -37,20 +37,13 @@
   margin: 30px;
 }
 .results-container {
-  height: 95vh;
+  height: 100vh;
   overflow-y: scroll;
   display: flex;
   margin-top: 30px;
   padding-top: 30px;
   justify-content: space-around;
   flex-wrap: wrap;
-  // .card-container {
-  //   overflow-y: scroll;
-  //   height: 800px;
-  // }
-  // .maps-cont {
-  //   height: 800px;
-  // }
   .card-click {
     color: $primary-color-dark;
     .card-results {
@@ -59,11 +52,6 @@
       background-color: $primary-color-light;
       color: $primary-color-dark;
       @include zoom($primary-color-dark, $white);
-      // .card-body {
-      //   .description {
-      //     overflow: auto;
-      //   }
-      // }
     }
   }
   .evidence {
@@ -79,11 +67,7 @@
 .results-container::-webkit-scrollbar {
     display: none; /* Chrome Safari */
 }
-// @media (max-width: 768px) {
-//   .maps-results {
-//     display: none;
-//   }
-// }
+
 
 @media (max-width: 768px) {
   .nav-options {
