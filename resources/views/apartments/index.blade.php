@@ -7,7 +7,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="filters-container col-sm-12 col-lg-2 col-md-2">
-      <div class="input-group num-select">
+      <h3>Filtri</h3>
+      <div class="input-group num-select input-num-size">
         <select class="custom-select border-custom" id="inputGroupSelect01">
           <option selected>N° Stanze</option>
           @for ($i=0; $i <= 10; $i++)
@@ -15,7 +16,7 @@
           @endfor
         </select>
       </div>
-      <div class="input-group num-select">
+      <div class="input-group num-select input-num-size">
         <select class="custom-select border-custom" id="inputGroupSelect01">
           <option selected>N° Letti</option>
           @for ($i=0; $i <= 10; $i++)
@@ -30,13 +31,13 @@
         </div>
       @endforeach
         <div class="cucstom-cuntrol">
-            <p>Max distance from your search: <span id="kmOutput"></span></p>
+            <p>Max distance from your search: <span id="kmOutput"></span> KM</p>
             <input id="sliderKM" type="range" name="kmDistance" min="1" max="250" value="25">
         </div>
         <input id="latSearch" type='hidden' name='lat' value="{{$lat}}">
         <input id="lonSearch" type='hidden' name='lon' value="{{$lon}}">
         <div class="custom-control">
-            <button id="searchDeepButton" class="btn btn-primary"></button>
+          <button id="searchDeepButton" class="apply-filters btn btn-primary">Applica Filtri</button>
         </div>
       <a class="hide-filters btn btn-primary btn-sm" href="#">Conferma/Nascondi</a>
     </div>
@@ -60,9 +61,7 @@
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
-              <div class="img-container">
-                <img class="img-thumbnail" src="{{ $apartment->img }}" alt="Immagine appartamento">
-              </div>
+                <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
             </div>
              <div class="card-body">
                <h5 class="card-title">{{ $apartment->titolo }}</h5>
@@ -70,20 +69,6 @@
                {{-- <p class="card-text descriprion">{{$apartment->descrizione}}</p> --}}
              </div>
           </div>
-          {{-- CARD ORIZZONTALE --}}
-          {{-- <div class="card-results mb-6" >
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="{{ $apartment->img }}" class="img-thumbnail" alt="Immagine appartamento">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{ $apartment->titolo }}</h5>
-                <p class="card-text">{{$apartment->cita}}, {{$apartment->provincia}}, {{$apartment->paese}}.</p>
-              </div>
-            </div>
-          </div>
-        </div> --}}
           </a>
         </div>
       @empty
@@ -92,26 +77,6 @@
       <div class="paginate mx-auto">
         {{$apartments->links()}}
       </div>
-      {{-- RIQUADRO MAPPA --}}
-      {{-- <div class="col-sm-12 col-md-5 col-lg-5 maps-results">
-          <div class="maps-location" id="map" style="width: 500px">
-            {{-- <script>
-                  // tt.setProductInfo('tomtom'. '5.49.1' );
-                  var ap_coord =  [{{$apartment->lon}}, {{$apartment->lat}}]
-                  console.log(ap_coord)
-                  var map = tt.map({
-                      key: 'begalCOpySZrKc5PeNb372wgWaNLv7oq',
-                      container: 'map',
-                      style: 'tomtom://vector/1/basic-main',
-                      center: ap_coord,
-                      zoom: 15
-                    });
-                    map.addControl(new tt.FullscreenControl());
-                    map.addControl(new tt.NavigationControl());
-                  var marker = new tt.Marker().setLngLat(ap_coord).addTo(map);
-            </script>
-          </div>
-      </div> --}}
     </div>
   </div>
 </div>
@@ -119,6 +84,15 @@
 
 @section('script')
     <script>
+
+        var slider = document.getElementById("sliderKM");
+        var output = document.getElementById("kmOutput");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+
         $('#searchDeepButton').click(function (event) {
             event.preventDefault();
 
