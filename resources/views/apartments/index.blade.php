@@ -116,3 +116,48 @@
   </div>
 </div>
 @endsection
+
+@section('script')
+    <script>
+        $('#searchDeepButton').click(function (event) {
+            event.preventDefault();
+
+            // let options = [];
+            // $('.option-check-box').each(function () {
+            //     if ($(this).is(":checked")){
+            //         options.push($(this));
+            //     }
+            // })
+            let latSearch = $('#latSearch').val() ? $('#latSearch').val() : 0;
+            let lonSearch = $('#lonSearch').val() ? $('#lonSearch').val() : 0;
+            let circle_radius = $('#sliderKM').val();
+            // let visibilita = 1;
+            // let posti_letto = 1;
+            console.log(circle_radius,latSearch,lonSearch);
+            $.ajax({
+                type : 'get',
+
+                url : '/apartments/search',
+
+                data:{
+
+                    lat:latSearch,
+                    lon:lonSearch,
+                    circle_radius:circle_radius,
+
+
+                },
+
+                success:function(data){
+                    console.log(data);
+
+                },
+                error:function(err){
+                    console.log(err)
+                }
+
+            })
+
+        })
+    </script>
+    @endsection
