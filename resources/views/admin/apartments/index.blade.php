@@ -12,10 +12,10 @@
         </div>
         <hr>
     {{-- se ci sono elementi in Apartment_sponsor stampali in questo div --}}
-
+        <div class="row promo-section">
             @foreach ($apartments as $apartment)
                 @if (($apartment->sponsors)->isNotEmpty())
-                    <div class="row promo-section">
+
                         {{-- <div class="col-12">
                             <h3 class="mb-3">Appartamenti in promozione</h3>
                         </div> --}}
@@ -76,10 +76,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
                 @endif
             @endforeach
-
+        </div>
 
         <div class="row no-promo-section mt-3 mb-3">
             @forelse ($apartments as $apartment)
