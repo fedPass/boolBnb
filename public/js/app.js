@@ -49577,18 +49577,22 @@ $(document).ready(function () {
   }); // -----NAVBAR AND FORM END-----------//
   // -----FILTERS -----------//
 
-  $('.show-filters').on("click", function () {
-    //al click sul pulsante "mostra filtri"
-    $('.filters-container').slideDown(); //appare il riquadro delle opzioni
+  if ($(window).width() > 768) {
+    $('.show-filters').on("click", function () {
+      //al click sul pulsante "mostra filtri"
+      $('.filters-container').slideDown(); //appare il riquadro delle opzioni
 
-    $('.hide-filters').css('display', 'block'); //appare il pulsante di conferma
-  });
-  $('.hide-filters').on("click", function () {
-    //al click sul pulsante "conferma"
-    //$('.hide-filters').css('display','none'); //il pulsante scompare
-    $('.filters-container').slideUp(); //la navbar scompare
-  }); // -----FILTERS END-----------//
+      $('.hide-filters').css('display', 'block'); //appare il pulsante di conferma
+    });
+    $('.hide-filters').on("click", function () {
+      //al click sul pulsante "conferma"
+      $('.hide-filters').css('display', 'none'); //il pulsante scompare
+
+      $('.filters-container').slideUp(); //la navbar scompare
+    });
+  } // -----FILTERS END-----------//
   // -----MESSAGGI-----------//
+
 
   $('.message-recev').on("click", function () {
     //quando si clicca sul div del mittente
@@ -49655,9 +49659,19 @@ $(document).ready(function () {
       modalVar.style.display = "none"; // si chiude il modal
     });
   } // -----MODAL END-----------//
+  // -----CARD TITLE SLICE-----------//
+
+
+  var cardTitle = $('.customJS').text(); //prendo il testo del titolo
+
+  console.log(cardTitle);
+  var cardSlice = cardTitle.slice(0, 20) + '...'; //di quel testo prendo i primi 20 caratteri e ci aggiungo in fine 3 punti
+
+  console.log(cardSlice);
+  $(cardTitle).text(cardSlice); //sostituisco il testo iniziale con il testo modificato
+  // -----CARD TITLE SLICE  END-----------//
   // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
-
 
   (function () {
     'use strict';
@@ -49926,7 +49940,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n   ╷\n18 │ @import 'partials/admin/_edit';\r\n   │         ^^^^^^^^^^^^^^^^^^^^^^\n   ╵\n  C:\\MAMP\\htdocs\\boolean\\boolBnB\\resources\\sass\\app.scss 18:9  root stylesheet\n    at C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:87203:16)\n    at _render_closure1.call$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:76994:12)\n    at _RootZone.runBinary$3$3 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:25521:18)\n    at _RootZone.runBinary$3 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:25525:19)\n    at _FutureListener.handleError$1 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23975:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:24271:40)\n    at Object._Future__propagateToListeners (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3500:88)\n    at _Future._completeError$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:24099:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23491:12)\n    at Object._asyncRethrow (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3256:17)\n    at C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:13326:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3279:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23512:12)\n    at _awaitOnObject_closure0.call$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23504:25)\n    at _RootZone.runBinary$3$3 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:25521:18)\n    at _RootZone.runBinary$3 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:25525:19)\n    at _FutureListener.handleError$1 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23975:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:24271:40)\n    at Object._Future__propagateToListeners (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3500:88)\n    at _Future._completeError$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:24099:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23491:12)\n    at Object._asyncRethrow (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3256:17)\n    at C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:15981:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3279:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23512:12)\n    at _awaitOnObject_closure0.call$2 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23504:25)\n    at _RootZone.runBinary$3$3 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:25521:18)\n    at _RootZone.runBinary$3 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:25525:19)\n    at _FutureListener.handleError$1 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:23975:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:24271:40)\n    at Object._Future__propagateToListeners (C:\\MAMP\\htdocs\\boolean\\boolBnB\\node_modules\\sass\\sass.dart.js:3500:88)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

@@ -10893,7 +10893,7 @@ a.text-dark:focus {
 }
 
 .evidence-container {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .evidence-container h1 {
@@ -10903,6 +10903,13 @@ a.text-dark:focus {
 .evidence-container .in-evidenza {
   display: flex;
   flex-wrap: wrap;
+}
+
+.evidence-container .in-evidenza .apartments-promo:hover {
+  border-radius: 5px;
+  padding-top: 10px;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 25px 5px #1976D2;
 }
 
 .booking-container {
@@ -11628,10 +11635,6 @@ footer .footer-bottom i {
   font-weight: bold;
 }
 
-.paginate {
-  margin: 30px;
-}
-
 .results-container {
   height: 100vh;
   overflow-y: scroll;
@@ -11658,12 +11661,6 @@ footer .footer-bottom i {
   color: #fff;
   transform: scale(1.05);
   box-shadow: 0px 0px 25px 5px #757575;
-}
-
-.results-container .card-click .card-results .custom-img {
-  border: 2px solid white;
-  max-width: 100%;
-  max-height: 250px;
 }
 
 .results-container .evidence {
@@ -11716,6 +11713,11 @@ footer .footer-bottom i {
     display: block;
   }
 
+  .custom-img {
+    width: 150px;
+    height: 100px;
+  }
+
   .results-container {
     margin-top: 80px;
   }
@@ -11736,6 +11738,17 @@ footer .footer-bottom i {
   .evidence {
     margin-left: 10px;
   }
+}
+
+.custom-img {
+  border: 2px solid white;
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+.paginate {
+  margin: 30px;
 }
 
 .navbar-admin {
