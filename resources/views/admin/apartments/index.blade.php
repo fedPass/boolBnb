@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="card-body">
                                     <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
-                                        <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                                        <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                                     </a>
                                     <div class="row d-lg-flex align-items-lg-center">
                                         <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
@@ -109,7 +109,7 @@
                           <div class="card-body">
                               <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                                   @if ($apartment->visibilita == 1)
-                                      <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                                      <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                                   @else
                                       <h5 class="card-title text-dark">{{ $apartment->titolo }}</h5>
                                   @endif

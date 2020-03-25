@@ -93,7 +93,9 @@
   background: $primary-color-dark;
   cursor: pointer;
 }
-
+#resultApartmentSection {
+  display: contents;
+}
 //MEDIA QUERY
 @media (max-width: 768px) {
   .nav-options {

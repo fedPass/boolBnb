@@ -11708,6 +11708,10 @@ footer .footer-bottom i {
   cursor: pointer;
 }
 
+#resultApartmentSection {
+  display: contents;
+}
+
 @media (max-width: 768px) {
   .nav-options {
     display: block;

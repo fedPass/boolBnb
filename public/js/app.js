@@ -49662,14 +49662,17 @@ $(document).ready(function () {
   // -----CARD TITLE SLICE-----------//
 
 
-  var cardTitle = $('.customJS').text(); //prendo il testo del titolo
+  $('.customJS').each(function () {
+    //ciclo tutti i titoli di ogni card
+    var customLenght = $(this).text(); //mi prendo il contenuto di ogni titolo
 
-  console.log(cardTitle);
-  var cardSlice = cardTitle.slice(0, 20) + '...'; //di quel testo prendo i primi 20 caratteri e ci aggiungo in fine 3 punti
+    if (customLenght.length >= 15) {
+      //se il numero di caratteri di quel titolo è maggiore o uguale a 15
+      var cardSlice = $(this).text().slice(0, 15) + '...'; //del testo di ogni titolo prendo solo i primi 15 caratteri e ci aggiungo in fine 3 punti
 
-  console.log(cardSlice);
-  $(cardTitle).text(cardSlice); //sostituisco il testo iniziale con il testo modificato
-  // -----CARD TITLE SLICE  END-----------//
+      $(this).text(cardSlice); //sostituisco il testo di ogni titolo con il testo modificato
+    }
+  }); // -----CARD TITLE SLICE  END-----------//
   // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
 
@@ -49951,8 +49954,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
