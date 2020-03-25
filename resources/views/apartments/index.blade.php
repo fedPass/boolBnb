@@ -60,8 +60,8 @@
         <div class="col-sm-9 col-md-5 col-lg-4">
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
-            <div class="card-body">
-                <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+            <div class="card-img">
+                <img class="custom-img" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
             </div>
              <div class="card-body">
                <h5 class="card-title">{{ $apartment->titolo }}</h5>
