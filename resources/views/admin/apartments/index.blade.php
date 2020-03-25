@@ -68,15 +68,17 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                      @foreach ($apartment->sponsors as $time)
                                         <div class="col-12 btn-apartment-crud">
                                             @php
-                                                // $expired_date = $apartment->sponsors->due_date;
+                                                $expired_date = $time->pivot->due_date;
                                                 // // $current_date = Carbon::now();
                                                 // // $diff_in_hours = $to->diffInHours($from);
-                                                // $diff_in_hours = now()->diffInHours($expired_date);
+                                                $diff_in_hours = now()->diffInHours($expired_date);
                                             @endphp
-                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per {{--$diff_in_hours--}} XX ore</a>
+                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per {{$diff_in_hours}} ore</a>
                                         </div>
+                                    @endforeach
                                     </div>
                                 </div>
                             </div>
