@@ -70,7 +70,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12 btn-apartment-crud">
-                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per XX ore</a>
+                                            @php
+                                                // $expired_date = $apartment->sponsors->due_date;
+                                                // // $current_date = Carbon::now();
+                                                // // $diff_in_hours = $to->diffInHours($from);
+                                                // $diff_in_hours = now()->diffInHours($expired_date);
+                                            @endphp
+                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per {{--$diff_in_hours--}} XX ore</a>
                                         </div>
                                     </div>
                                 </div>

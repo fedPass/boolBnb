@@ -7,7 +7,7 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
                 <hr>
-                <form id="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate>
+                <form id="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="on" class="needs-validation" novalidate>
                     @csrf
                     @method("POST")
                     <div class="row form-group">
