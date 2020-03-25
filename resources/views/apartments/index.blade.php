@@ -31,7 +31,7 @@
         </div>
       @endforeach
         <div class="cucstom-cuntrol">
-            <p>Max distance from your search: <span id="kmOutput"></span></p>
+            <p>Max distance from your search: <span id="kmOutput"></span> KM</p>
             <input id="sliderKM" type="range" name="kmDistance" min="1" max="250" value="25">
         </div>
         <input id="latSearch" type='hidden' name='lat' value="{{$lat}}">
@@ -84,6 +84,15 @@
 
 @section('script')
     <script>
+
+        var slider = document.getElementById("sliderKM");
+        var output = document.getElementById("kmOutput");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+
         $('#searchDeepButton').click(function (event) {
             event.preventDefault();
 

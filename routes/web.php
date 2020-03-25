@@ -29,6 +29,11 @@ Route::get('/room', function () {
 //public apartment
 Route::get('/apartments', 'ApartmentController@index')->name('apartments.index');
 //corretto apertments--> Route::get('/apartments/{id}', 'ApartmentController@show')->name('apertments.show');
+
+//deep search route(aiax)
+Route::get('/apartments/search','ApartmentController@search')->name('apartments.search');
+
+
 Route::get('/apartments/{id}', 'ApartmentController@show')->name('apartments.show');
 
 Route::post('/apartments/{id}', 'LeadController@store')->name('email');
