@@ -32,6 +32,22 @@ const app = new Vue({
 });
 
 $(document).ready(function(){
+    // -----se non ci sono promo non far apparire promo-section -----------//
+    // if (!$('.row.promo').is(':empty')) {
+    //     console.log('sono pieno');
+    //     $('.row.promo').addClass('promo-section');
+    // }
+    // else {
+    //     console.log('sono vuoto');
+    //     $('.row.promo').css('display','none');
+    // }
+    // if ($('.row.promo').is(':empty')) {
+    //     console.log('sono vuoto');
+    //     $('.row.promo').css('display','none');
+    // }
+    // $('.row.promo:empty').css('display','none');
+    // -----end non far apparire promo-section -----------//
+    
   // -----NAVBAR AND FORM-----------//
   $(window).on('scroll', function(e) { //quando vado a fare scroll con il mouse
   st = $(this).scrollTop(); //imposto la posizione di scorrimento
@@ -190,8 +206,6 @@ var lon = 0;
      console.log(lat);
      console.log(lon);
    }); // end autoCompleteCreate
-
-
 
    // -----cambio style al cambio Visibilità-----------//
    $('.no-promo-section .custom-control.custom-switch').click(function(){

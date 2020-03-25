@@ -13,12 +13,11 @@
         <hr>
     {{-- se ci sono elementi in Apartment_sponsor stampali in questo div --}}
         <div class="row promo-section">
-            @foreach ($apartments as $apartment)
+            {{-- <div class="col-12">
+                <h3 class="mb-3">Appartamenti in promozione</h3>
+            </div> --}}
+            @forelse ($apartments as $apartment)
                 @if (($apartment->sponsors)->isNotEmpty())
-
-                        {{-- <div class="col-12">
-                            <h3 class="mb-3">Appartamenti in promozione</h3>
-                        </div> --}}
                         <div class="col-12 col-sm-6 col-md-4 mb-3">
                             {{-- card statica --}}
                             {{-- <div class="card">
@@ -82,10 +81,16 @@
                                 </div>
                             </div>
                         </div>
-
                 @endif
-            @endforeach
+            @empty
+                <div class="col-12 mt-2 mb-2">
+                    <div class="d-flex align-items-center flex-column text-center" >
+                        <h4>Non ci sono ancora appartamenti in promozione</h4>
+                    </div>
+                </div>
+            @endforelse
         </div>
+        <hr>
 
         <div class="row no-promo-section mt-3 mb-3">
             @forelse ($apartments as $apartment)
