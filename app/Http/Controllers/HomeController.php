@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $apartments = Apartment::where('user_id', auth()->user()->id)->get(); //Luca: aggiunto per poter visualizzare gli appartamenti in promozione nella home
+      $apartments = Apartment::all(); //Luca: aggiunto per poter visualizzare gli appartamenti in promozione nella home
 
         return view('public-home', ['apartments' => $apartments]);
     }

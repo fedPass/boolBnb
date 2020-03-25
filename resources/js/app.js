@@ -47,7 +47,7 @@ $(document).ready(function(){
     // }
     // $('.row.promo:empty').css('display','none');
     // -----end non far apparire promo-section -----------//
-    
+
   // -----NAVBAR AND FORM-----------//
   $(window).on('scroll', function(e) { //quando vado a fare scroll con il mouse
   st = $(this).scrollTop(); //imposto la posizione di scorrimento
@@ -134,6 +134,14 @@ function modalChangeElement(modalVar, buttonVar, spanVar, pVar) { //funzione che
   });
 }
 // -----MODAL END-----------//
+
+// -----CARD TITLE SLICE-----------//
+var cardTitle = $('.customJS').text(); //prendo il testo del titolo
+console.log(cardTitle);
+var cardSlice = cardTitle.slice(0, 20) + '...'; //di quel testo prendo i primi 20 caratteri e ci aggiungo in fine 3 punti
+console.log(cardSlice);
+$(cardTitle).text(cardSlice); //sostituisco il testo iniziale con il testo modificato
+// -----CARD TITLE SLICE  END-----------//
 
 // -----FORM VALIDATION BOOTSTRAP-----------//
 // Example starter JavaScript for disabling form submissions if there are invalid fields

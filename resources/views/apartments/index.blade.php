@@ -70,7 +70,7 @@
                 <img class="custom-img" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
             </div>
              <div class="card-body">
-               <h5 class="card-title">{{ $apartment->titolo }}</h5>
+               <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
                {{-- <p class="card-text descriprion">{{$apartment->descrizione}}</p> --}}
              </div>

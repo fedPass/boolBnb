@@ -14,8 +14,10 @@
           <div class="col-lg-3 col-md-6 text-center">
             <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
             @if ($apartment->visibilita == 1)
+              <div class="apartments-promo">
                 <img class="custom-img" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                 <h5 class="text-primary font-weight-bold">{{ $apartment->titolo }}</h5>
+              </div>
             @endif
             </a>
           </div>

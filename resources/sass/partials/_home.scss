@@ -15,8 +15,10 @@
   .in-evidenza {
     display: flex;
     flex-wrap: wrap;
-    .custom-img:hover {
-      transform: scale(1.05);
+    .apartments-promo:hover {
+      border-radius: 5px;
+      padding-top: 10px;
+      transform: scale(1.1);
       -webkit-box-shadow: 0px 0px 25px 5px $primary-color-dark;
       -moz-box-shadow: 0px 0px 25px 5px $primary-color-dark;
       box-shadow: 0px 0px 25px 5px $primary-color-dark;
