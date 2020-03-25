@@ -109,7 +109,7 @@
                           <div class="card-body">
                               <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                                   @if ($apartment->visibilita == 1)
-                                      <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                                      <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                                   @else
                                       <h5 class="card-title text-dark">{{ $apartment->titolo }}</h5>
                                   @endif
