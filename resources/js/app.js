@@ -58,14 +58,16 @@ $(document).ready(function(){
 
 
 // -----FILTERS -----------//
+if ($(window).width() > 768) {
   $('.show-filters').on( "click", function(){ //al click sul pulsante "mostra filtri"
     $('.filters-container').slideDown(); //appare il riquadro delle opzioni
     $('.hide-filters').css('display','block'); //appare il pulsante di conferma
   });
   $('.hide-filters').on( "click", function(){ //al click sul pulsante "conferma"
-    //$('.hide-filters').css('display','none'); //il pulsante scompare
+    $('.hide-filters').css('display','none'); //il pulsante scompare
     $('.filters-container').slideUp(); //la navbar scompare
   });
+}
 // -----FILTERS END-----------//
 
 // -----MESSAGGI-----------//

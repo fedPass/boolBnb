@@ -33,9 +33,6 @@
     }
   }
 }
-.paginate {
-  margin: 30px;
-}
 .results-container {
   height: 100vh;
   overflow-y: scroll;
@@ -52,11 +49,6 @@
       background-color: $primary-color-light;
       color: $primary-color-dark;
       @include zoom($primary-color-dark, $white);
-      .custom-img {
-        border: 2px solid white;
-        max-width: 100%;
-        max-height: 250px;
-      }
     }
   }
   .evidence {
@@ -106,6 +98,10 @@
 @media (max-width: 768px) {
   .nav-options {
     display: block;
+  }
+  .custom-img {
+    width: 150px;
+    height: 100px;
   }
   .results-container {
     margin-top: 80px;
