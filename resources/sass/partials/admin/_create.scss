@@ -4,8 +4,46 @@
     border: 1px solid $primary-color-dark;
     padding: 40px 30px;
     border-radius: 15px;
+    h1 {
+        font-size: 22px;
+    }
     hr {
         border: 2px solid $primary-color-dark;
     }
-    @include searcResults(584px, 197px);
+    img {
+        width: 180px;
+        margin-bottom: 10px;
+    }
+    .custom-control.custom-switch {
+        text-align: center;
+        padding: 0;
+    }
+    #via-list {
+        position: relative;
+        width: 100%;
+    }
+    @include searcResults(0, 0);
+}
+
+
+    @media (min-width: 768px) {
+        .add-product {
+            @include searcResults(0, 110px);
+        }
+    }
+
+    @media (min-width: 992px) {
+        .add-product {
+            @include searcResults(0, 152px);
+        }
+    }
+
+@media (min-width: 1200px) {
+    .add-product {
+        @include searcResults(0, 182px);
+        h1 {
+            font-size: 36px;
+        }
+    }
+
 }

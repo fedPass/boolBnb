@@ -137,7 +137,7 @@
                         <label class="col-12 col-md-3">Servizi</label>
                         <div class="col-12 col-md-9 d-flex flex-row flex-wrap">
                             @foreach ($options as $option)
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <input class="form-check-input" type="checkbox" id="nome_{{ $option->id }}" name="nome_id[]" value="{{ $option->id }}"
                                     @if ($errors->any())
                                         {{ in_array($option->id, old('nome_id', array())) ? 'checked' : '' }}
