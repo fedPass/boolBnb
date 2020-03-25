@@ -11894,8 +11894,27 @@ footer .footer-bottom i {
   border-radius: 15px;
 }
 
+.add-product h1 {
+  font-size: 22px;
+}
+
 .add-product hr {
   border: 2px solid #1976D2;
+}
+
+.add-product img {
+  width: 180px;
+  margin-bottom: 10px;
+}
+
+.add-product .custom-control.custom-switch {
+  text-align: center;
+  padding: 0;
+}
+
+.add-product #via-list {
+  position: relative;
+  width: 100%;
 }
 
 .add-product ul {
@@ -11905,8 +11924,8 @@ footer .footer-bottom i {
   padding: 10px;
   border: 1px solid #BDBDBD;
   border-radius: 4px;
-  top: 584px;
-  left: 197px;
+  top: 0;
+  left: 0;
 }
 
 .add-product ul li {
@@ -11919,25 +11938,77 @@ footer .footer-bottom i {
   font-weight: bold;
 }
 
-.edit-form #via ul {
-  background-color: white;
-  z-index: 100000;
-  list-style-type: none;
-  padding: 10px;
-  border: 1px solid #BDBDBD;
-  border-radius: 4px;
-  top: 584px;
-  left: 197px;
+@media (min-width: 768px) {
+  .add-product ul {
+    background-color: white;
+    z-index: 100000;
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 4px;
+    top: 0;
+    left: 110px;
+  }
+
+  .add-product ul li {
+    margin: 10px;
+  }
+
+  .add-product ul li:hover {
+    cursor: pointer;
+    color: #2196F3;
+    font-weight: bold;
+  }
 }
 
-.edit-form #via ul li {
-  margin: 10px;
+@media (min-width: 992px) {
+  .add-product ul {
+    background-color: white;
+    z-index: 100000;
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 4px;
+    top: 0;
+    left: 152px;
+  }
+
+  .add-product ul li {
+    margin: 10px;
+  }
+
+  .add-product ul li:hover {
+    cursor: pointer;
+    color: #2196F3;
+    font-weight: bold;
+  }
 }
 
-.edit-form #via ul li:hover {
-  cursor: pointer;
-  color: #2196F3;
-  font-weight: bold;
+@media (min-width: 1200px) {
+  .add-product ul {
+    background-color: white;
+    z-index: 100000;
+    list-style-type: none;
+    padding: 10px;
+    border: 1px solid #BDBDBD;
+    border-radius: 4px;
+    top: 0;
+    left: 182px;
+  }
+
+  .add-product ul li {
+    margin: 10px;
+  }
+
+  .add-product ul li:hover {
+    cursor: pointer;
+    color: #2196F3;
+    font-weight: bold;
+  }
+
+  .add-product h1 {
+    font-size: 36px;
+  }
 }
 
 .leads-container {
