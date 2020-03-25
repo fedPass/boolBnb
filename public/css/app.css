@@ -11660,6 +11660,12 @@ footer .footer-bottom i {
   box-shadow: 0px 0px 25px 5px #757575;
 }
 
+.results-container .card-click .card-results .custom-img {
+  border: 2px solid white;
+  max-width: 100%;
+  max-height: 250px;
+}
+
 .results-container .evidence {
   background-color: #1976D2;
   border-radius: 5px;
@@ -11674,6 +11680,35 @@ footer .footer-bottom i {
 .results-container::-webkit-scrollbar {
   display: none;
   /* Chrome Safari */
+}
+
+#sliderKM {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: #BBDEFB;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#sliderKM::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #1976D2;
+  cursor: pointer;
+}
+
+#sliderKM::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #1976D2;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
