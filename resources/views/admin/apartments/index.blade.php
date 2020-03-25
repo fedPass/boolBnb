@@ -5,9 +5,11 @@
 @section('content')
     <div class="container admin-container">
         <div class="row pt-5">
-            <div class="col-12">
-                <h1 class="float-left">Gestisci i tuoi appartamenti</h1>
-                <a class="btn btn-info float-right" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
+            <div class="col-12 col-md-9">
+                <h1 class="text-center float-md-left">Gestisci i tuoi appartamenti</h1>
+            </div>
+            <div class="col-12 col-md-3 d-flex justify-content-center d-lg-inline">
+                <a class="text-center btn btn-info float-md-right" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
             </div>
         </div>
         <hr>
@@ -18,71 +20,43 @@
             </div> --}}
             @forelse ($apartments as $apartment)
                 @if (($apartment->sponsors)->isNotEmpty())
-                        <div class="col-12 col-sm-6 col-md-4 mb-3">
-                            {{-- card statica --}}
-                            {{-- <div class="card">
-                                <div class="card-img">
-                                    <img class="img-thumbnail" src="https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento">
-                                </div>
-                                <div class="card-body">
-                                    <h5>title</h5>
-                                    <div class="row d-lg-flex align-items-lg-center">
-                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                            <a href="#" class="btn btn-primary float-left" style="width: 81px;">Modifica</a>
-                                        </div>
-                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                            <a id="stat-btn" href="#" class="btn btn-primary float-right">Statistiche</a>
-                                        </div>
-                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud disabled">
-                                            <a href="#" class="btn btn-primary float-right">Elimina</a>
-                                        </div>
+                    @foreach ($apartment->sponsors as $time)
+                        @php
+                            $expired_date = $time->pivot->due_date;
+                            // // $current_date = Carbon::now();
+                            // // $diff_in_hours = $to->diffInHours($from);
+                            $diff_in_hours = now()->diffInHours($expired_date);
+                        @endphp
+                        @if (now() <= $expired_date)
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12 btn-apartment-crud">
-                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per XX ore</a>
+                                    <div class="card-body">
+                                        <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
+                                            <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-12 col-xl-6 btn-apartment-crud">
+                                                <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
+                                            </div>
+                                            <div class="col-12 col-xl-6 btn-apartment-crud">
+                                                <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <div class="card">
-                                <div class="card-img">
-                                    <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
-                                </div>
-                                <div class="card-body">
-                                    <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
-                                        <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
-                                    </a>
-                                    <div class="row d-lg-flex align-items-lg-center">
-                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                            <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left" style="width: 81px;">Modifica</a>
+                                        <div class="row">
+                                          {{-- @foreach ($apartment->sponsors as $time) --}}
+                                            <div class="col-12 btn-apartment-crud">
+                                                <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per {{$diff_in_hours}} ore</a>
+                                            </div>
+                                        {{-- @endforeach --}}
                                         </div>
-                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                            <a id="stat-btn" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
-                                        </div>
-                                        <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud disabled">
-                                            <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-outline-danger">Elimina</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                      @foreach ($apartment->sponsors as $time)
-                                        <div class="col-12 btn-apartment-crud">
-                                            @php
-                                                $expired_date = $time->pivot->due_date;
-                                                // // $current_date = Carbon::now();
-                                                // // $diff_in_hours = $to->diffInHours($from);
-                                                $diff_in_hours = now()->diffInHours($expired_date);
-                                            @endphp
-                                            <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per {{$diff_in_hours}} ore</a>
-                                        </div>
-                                    @endforeach
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
+                    @endforeach
                 @endif
             @empty
                 <div class="col-12 mt-2 mb-2">
@@ -97,7 +71,7 @@
         <div class="row no-promo-section mt-3 mb-3">
             @forelse ($apartments as $apartment)
                 @if (($apartment->sponsors)->isEmpty())
-                    <div class="col-12 col-sm-6 col-md-4 mb-3">
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
                         <div class="card">
                             <div class="card-img">
                                 @if ($apartment->visibilita == 1)
