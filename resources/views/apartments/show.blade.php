@@ -30,17 +30,17 @@
 <div class="container-fluid room">
   <div class="row">
     <div class="col-lg-6 col-md-6 previev">
-      <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->title}}">
+      <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->title}}">
       {{-- <img class="room-img-public" src="{{ asset('storage/'. $apartment->img) }}" alt="foto:{{$apartment->title}}"> --}}
     </div>
     <div class="col-lg-6 col-md-6 previev">
       <div class="col-lg-6 col-md-12 top">
-        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
       </div>
       <div class="col-lg-6 bottom">
-        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public" src="{{$apartment->img}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
       </div>
     </div>
   </div>

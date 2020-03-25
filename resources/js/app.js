@@ -32,6 +32,22 @@ const app = new Vue({
 });
 
 $(document).ready(function(){
+    // -----se non ci sono promo non far apparire promo-section -----------//
+    // if (!$('.row.promo').is(':empty')) {
+    //     console.log('sono pieno');
+    //     $('.row.promo').addClass('promo-section');
+    // }
+    // else {
+    //     console.log('sono vuoto');
+    //     $('.row.promo').css('display','none');
+    // }
+    // if ($('.row.promo').is(':empty')) {
+    //     console.log('sono vuoto');
+    //     $('.row.promo').css('display','none');
+    // }
+    // $('.row.promo:empty').css('display','none');
+    // -----end non far apparire promo-section -----------//
+
   // -----NAVBAR AND FORM-----------//
   $(window).on('scroll', function(e) { //quando vado a fare scroll con il mouse
   st = $(this).scrollTop(); //imposto la posizione di scorrimento
@@ -58,14 +74,16 @@ $(document).ready(function(){
 
 
 // -----FILTERS -----------//
+if ($(window).width() > 768) {
   $('.show-filters').on( "click", function(){ //al click sul pulsante "mostra filtri"
     $('.filters-container').slideDown(); //appare il riquadro delle opzioni
     $('.hide-filters').css('display','block'); //appare il pulsante di conferma
   });
   $('.hide-filters').on( "click", function(){ //al click sul pulsante "conferma"
-    //$('.hide-filters').css('display','none'); //il pulsante scompare
+    $('.hide-filters').css('display','none'); //il pulsante scompare
     $('.filters-container').slideUp(); //la navbar scompare
   });
+}
 // -----FILTERS END-----------//
 
 // -----MESSAGGI-----------//
@@ -116,6 +134,14 @@ function modalChangeElement(modalVar, buttonVar, spanVar, pVar) { //funzione che
   });
 }
 // -----MODAL END-----------//
+
+// -----CARD TITLE SLICE-----------//
+var cardTitle = $('.customJS').text(); //prendo il testo del titolo
+console.log(cardTitle);
+var cardSlice = cardTitle.slice(0, 20) + '...'; //di quel testo prendo i primi 20 caratteri e ci aggiungo in fine 3 punti
+console.log(cardSlice);
+$(cardTitle).text(cardSlice); //sostituisco il testo iniziale con il testo modificato
+// -----CARD TITLE SLICE  END-----------//
 
 // -----FORM VALIDATION BOOTSTRAP-----------//
 // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -190,8 +216,6 @@ var lon = 0;
      console.log(lat);
      console.log(lon);
    }); // end autoCompleteCreate
-
-
 
    // -----cambio style al cambio Visibilità-----------//
    $('.no-promo-section .custom-control.custom-switch').click(function(){
