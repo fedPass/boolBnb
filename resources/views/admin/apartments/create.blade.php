@@ -2,18 +2,23 @@
 @extends('layouts.admin')
 
 @section('content')
+
+  <?php error_reporting(E_ALL);
+        ini_set("display_errors",1);
+   ?>
     <div class="container mt-5 mb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
                 <hr>
-                <form id="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate>
+                <form id="create" name="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate>
                     @csrf
                     @method("POST")
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="titolo">Titolo</label>
                       {{-- old per recuperare vallue in caso di errore compilazione form --}}
                       <input type="text" class="form-control col-12 col-md-9 @error('titolo') is-invalid @enderror" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
+                        <input type="hidden" class="apartmentid" name="apartmentid" id="apartmentid" value="">
                       @error('titolo')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -217,6 +222,7 @@
                           <div class="dropzone-previews">
 
                           </div>
+
                         </div>
 
                     </div>
@@ -263,24 +269,46 @@
         });
 
         Dropzone.autoDiscover = false;
-        let token = $('meta[name="csrd-token"]').attr('content');
+        let token = $('meta[name="csrf-token"]').attr('content');
         $(function(){
           var myDropzone = new Dropzone("div#dropzone", {
             paramName: 'file',
-            url: "{{ url('/files') }}",
+            url: "{{ url('/admin/apartments/uploadimg/') }}",
             previewsContainer: 'div.dropzone-previews',
             addRemoveLinks: true,
             autoPrecessQueue: false,
             uploadMultiple: true,
-            maxFiles: 5,
+            parallelUploads: 1,
+            maxFiles: 1,
             params:{
               _token: token
             },
             init: function(){
               var myDropzone = this;
+              $("form[name='create']").submit(function(event){
+
+                URL = $("#create").attr('action');
+                formData = $("#create").serialize();
+                $.ajax({
+                  type:'POST',
+                  url: URL,
+                  data: formData,
+                  success: function(result){
+                    if(result.status == "success"){
+                      var apartmentid = result.apartmentid;
+                      $("#apartmentid").val(apartmentid);
+                      //process the queue
+                      myDropzone.processQueue();
+                    }else{
+                      console.log("error");
+                    }
+                  }
+                });
+              });
 
             this.on("sending", function(file,xhr,formData){
-
+              let apartmentid = document.getElementById('apartmentid').value;
+              formData.append('apartmentid', apartmentid);
             });
             this.on("success", function(file, response){
 
@@ -288,7 +316,8 @@
             this.on("queuecomplete", function(){
 
             });
-            this.on("sendingmultiple", function(){
+            this.on("sendingmultiple", function(file,xhr,formData){
+
 
             });
             this.on("successmultiple", function(files, responses){

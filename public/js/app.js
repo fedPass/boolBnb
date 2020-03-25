@@ -49527,6 +49527,21 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
+  // -----se non ci sono promo non far apparire promo-section -----------//
+  // if (!$('.row.promo').is(':empty')) {
+  //     console.log('sono pieno');
+  //     $('.row.promo').addClass('promo-section');
+  // }
+  // else {
+  //     console.log('sono vuoto');
+  //     $('.row.promo').css('display','none');
+  // }
+  // if ($('.row.promo').is(':empty')) {
+  //     console.log('sono vuoto');
+  //     $('.row.promo').css('display','none');
+  // }
+  // $('.row.promo:empty').css('display','none');
+  // -----end non far apparire promo-section -----------//
   // -----NAVBAR AND FORM-----------//
   $(window).on('scroll', function (e) {
     //quando vado a fare scroll con il mouse
@@ -49926,8 +49941,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

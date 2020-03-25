@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 // li aggiungo perchè stanno su un namespace diverso
 
 use App\Http\Controllers\Controller;
+use http\Env\Response;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Apartment;
@@ -125,6 +126,7 @@ class ApartmentController extends Controller
           }
           //--- end facade
       $new_apartment->save();
+      $apartmentid = $new_apartment->id;
       //fede: prima salvo e poi popolo tab pivot per options
           //se ho selezionato delle options le assegno all'apart
           //controllo quindi l'array che ho creato dal form
@@ -134,6 +136,7 @@ class ApartmentController extends Controller
               $new_apartment->options()->sync($data['nome_id']);
           }
 
+          response()->json(['status' =>"success" , 'apartmentid' => $apartmentid]);
 
       return redirect()->route('admin.apartments.index');
 
@@ -288,35 +291,32 @@ class ApartmentController extends Controller
     }
 
 
-    // public function uploadimg(Request $request)
-    // {
-    //   if($request->hasFile('file')) {
-    //
-    //      // Upload path
-    //      $destinationPath = 'files/';
-    //
-    //      // Create directory if not exists
-    //      if (!file_exists($destinationPath)) {
-    //         mkdir($destinationPath, 0755, true);
-    //      }
-    //
-    //      // Get file extension
-    //      $extension = $request->file('file')->getClientOriginalExtension();
-    //
-    //      // Valid extensions
-    //      $validextensions = array("jpeg","jpg","png","pdf");
-    //
-    //      // Check extension
-    //      if(in_array(strtolower($extension), $validextensions)){
-    //
-    //        // Rename file
-    //        $fileName = str_slug(Carbon::now()->toDayDateTimeString()).rand(11111, 99999) .'.' . $extension;
-    //
-    //        // Uploading file to given path
-    //        $request->file('file')->move($destinationPath, $fileName);
-    //
-    //      }
-    //
-    //    }
-    // }
+    public function uploadimg(Request $request)
+    {
+
+      if($request->file('file')) {
+
+         $image = $request->file('file');
+         $apartmentid = $request->apartmentid;
+         $imageName = strtotime(now()).rand(11111,99999).'.'.$img->getClientOriginalExtension();
+
+         $apartment->img = New Apartment();
+         $original_name = $image->getClientOriginalName();
+         $apartment_image->img = $imageName;
+
+         if(!is_dir(public_path(). '/uploads/images/')){
+           mkdir(public_path(). '/uploads/images/', 0777, true);
+         }
+
+
+         $request->file('file')->move(public_path(). '/uploads/images/', $imageName);
+
+         $apartment_image->where('id', $apartmentid)->update(['img' =>$imageName]);
+
+
+         return response()->json(['status' => "success", 'imgdata' => $original_name , 'apartmentid' => $apartmentid]);
+
+
+       }
+    }
 }
