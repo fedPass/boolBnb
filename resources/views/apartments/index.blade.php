@@ -73,10 +73,10 @@
             <div class="card-body">
               <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
             </div>
-             <div class="card-body">
+             <div class="card-text">
                <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
-              <p class="card-text customJS">{{$apartment->indirizzo}}</p>
+              <p class="small-text smallJS">{{$apartment->indirizzo}}</p>
              </div>
           </div>
           </a>
@@ -85,7 +85,7 @@
           <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
           @endforelse
       </section>
-      <div class="paginate mx-auto">
+      <div class="paginate mx-auto mt-3">
         {{$apartments->links()}}
       </div>
     </div>

@@ -49662,19 +49662,29 @@ $(document).ready(function () {
   // -----CARD TITLE SLICE-----------//
 
 
-  $('.customJS').each(function () {
-    //ciclo tutti i titoli di ogni card
-    var customLenght = $(this).text(); //mi prendo il contenuto di ogni titolo
+  tagliaTesto('.customJS', 15); //applico la funzione al titolo della card in index apartments (lato public)
 
-    if (customLenght.length >= 15) {
-      //se il numero di caratteri di quel titolo è maggiore o uguale a 15
-      var cardSlice = $(this).text().slice(0, 15) + '...'; //del testo di ogni titolo prendo solo i primi 15 caratteri e ci aggiungo in fine 3 punti
+  tagliaTesto('.smallJS', 20); //applico la funzione all'indirizzo della card in index apartments (lato public)
 
-      $(this).text(cardSlice); //sostituisco il testo di ogni titolo con il testo modificato
-    }
-  }); // -----CARD TITLE SLICE  END-----------//
+  tagliaTesto('.customAdminJS', 30); //applico la funzione al titolo della card in index apartments (lato admin)
+
+  function tagliaTesto(classeTesto, numeroCaratteri) {
+    //prende in pasto la classe del testo da tagliare e il numero di caratteri da tenere prima del taglio (CONSIGLIO: dare una classe a parte solo per poter utilizzare questa funzione, così si evitano casini nel caso la classe si ripeta da un'altra parte)
+    $(classeTesto).each(function () {
+      //ciclo tutti i titoli di ogni card
+      var customLenght = $(this).text(); //mi prendo il contenuto di ogni titolo
+
+      if (customLenght.length >= numeroCaratteri) {
+        //se il numero di caratteri di quel titolo è maggiore o uguale a 15
+        var cardSlice = $(this).text().slice(0, numeroCaratteri) + '...'; //del testo di ogni titolo prendo solo i primi 15 caratteri e ci aggiungo in fine 3 punti
+
+        $(this).text(cardSlice); //sostituisco il testo di ogni titolo con il testo modificato
+      }
+    });
+  } // -----CARD TITLE SLICE  END-----------//
   // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
+
 
   (function () {
     'use strict';

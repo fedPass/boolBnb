@@ -11651,7 +11651,7 @@ footer .footer-bottom i {
 
 .results-container .card-click .card-results {
   margin-bottom: 50px;
-  height: 350px;
+  height: 360px;
   background-color: #BBDEFB;
   color: #1976D2;
 }
@@ -11751,8 +11751,8 @@ footer .footer-bottom i {
   border-radius: 5px;
 }
 
-.paginate {
-  margin: 30px;
+.small-text {
+  font-size: 13px;
 }
 
 .navbar-admin {
