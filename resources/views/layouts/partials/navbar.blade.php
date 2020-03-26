@@ -8,12 +8,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"></ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active ita">
+      <li class="nav-item ita">
         <a class="nav-link" href="#">vuoto<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <!-- Modal language-->
-        <a class="nav-link" href="#" id="myBtn-lang"> Italiano (IT) <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#" id="myBtn-lang"> Italiano (IT) <span class="sr-only"></span></a>
         <div id="myModal-lang" class="modal">
           <div class="modal-content col-4 text-center text-primary">
             <span class="close-lang text-right">&times;</span>
@@ -39,21 +39,21 @@
        </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="{{ route('admin.apartments.create') }}">Offri una casa</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'admin.apartments.create' ? 'active' : '' }}" href="{{ route('admin.apartments.create') }}">Offri una casa</a>
       </li>
       <!-- Authentication Links -->
       @guest
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <a class="nav-link {{ Route::currentRouteName() == 'login' ? 'active' : '' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
           </li>
           @if (Route::has('register'))
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <a class="nav-link {{ Route::currentRouteName() == 'register' ? 'active' : '' }}" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
           @endif
       @else
-      <li class="nav-item"><a class="nav-link" href="{{ route('admin.apartments.index') }}">Dashboard</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{ route('admin.leads.index') }}">Messaggi</a></li>
+      <li class="nav-item {{ Route::currentRouteName() == 'admin.apartments.index' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.apartments.index') }}">Dashboard</a></li>
+      <li class="nav-item {{ Route::currentRouteName() == 'admin.leads.index' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.leads.index') }}">Messaggi</a></li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->first_name }} <span class="caret"></span>

@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-lg-12 scrol-left">
       <div class="title" id="title">
-        <h2>{{$apartment->titolo}}</h2>
+        <h2 class="text-primary">{{$apartment->titolo}}</h2>
 
         <!-- Button modifica -->
         <button class="btn float-right modif" type="submit" name="button">
@@ -91,8 +91,8 @@
 
       <div id="graphic">
           <h4>Statistiche</h4>
-          <div class="d-flex justify-content-center">
-              <div class="graphic">
+          <div class="row justify-content-center">
+              <div class="graphic col">
                 <div class="graphic-title">
                   <h5>Visualizzazioni</h5>
                 </div>
@@ -105,7 +105,7 @@
                 </div>
               </div>
 
-              <div class="graphic">
+              <div class="graphic col">
                 <div class="graphic-title">
                   <h5>Messaggi</h5>
                 </div>
