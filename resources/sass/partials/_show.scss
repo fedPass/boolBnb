@@ -14,7 +14,7 @@
     margin-top: 150px;
 }
 .room {
-  margin-top: 20px;
+  margin-top: $height-header;
   padding-bottom: 22px;
 }
 .previev {
@@ -26,6 +26,12 @@
 .room-img-public {
   border: 1px solid black;
   width: 100%;
+}
+.im-left {
+  height: 300px;
+}
+.im-right {
+  height: 150px;
 }
 .room-img {
   @extend .room-img-public;
