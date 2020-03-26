@@ -93,11 +93,12 @@ class ApartmentController extends Controller
         $options = Option::all();
         //$apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$options)->paginate();
         $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->paginate();
+        $apartmentsAll = Apartment::all(); //Luca: aggiunto per poter viasualizzare tutti gli appartamenti in promo indipendentemente dalla query di ricerca
 
 
         //dd($apartments);
 
-        return view('apartments.index',['apartments'=>$apartments, 'options'=> $options, 'lat'=>$lat,'lon'=>$lon]);
+        return view('apartments.index',['apartments'=>$apartments, 'options'=> $options, 'lat'=>$lat,'lon'=>$lon, 'apartmentsAll'=>$apartmentsAll ]);
     }
 
     public function search(Request $request)

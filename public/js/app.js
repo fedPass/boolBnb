@@ -49662,6 +49662,26 @@ $(document).ready(function () {
   // -----CARD TITLE SLICE-----------//
 
 
+  tagliaTesto('.customJS', 15); //applico la funzione al titolo della card in index apartments (lato public)
+
+  tagliaTesto('.smallJS', 20); //applico la funzione all'indirizzo della card in index apartments (lato public)
+
+  tagliaTesto('.customAdminJS', 30); //applico la funzione al titolo della card in index apartments (lato admin)
+
+  function tagliaTesto(classeTesto, numeroCaratteri) {
+    //prende in pasto la classe del testo da tagliare e il numero di caratteri da tenere prima del taglio (CONSIGLIO: dare una classe a parte solo per poter utilizzare questa funzione, così si evitano casini nel caso la classe si ripeta da un'altra parte)
+    $(classeTesto).each(function () {
+      //ciclo tutti i titoli di ogni card
+      var customLenght = $(this).text(); //mi prendo il contenuto di ogni titolo
+
+      if (customLenght.length >= numeroCaratteri) {
+        //se il numero di caratteri di quel titolo è maggiore o uguale a 15
+        var cardSlice = $(this).text().slice(0, numeroCaratteri) + '...'; //del testo di ogni titolo prendo solo i primi 15 caratteri e ci aggiungo in fine 3 punti
+
+        $(this).text(cardSlice); //sostituisco il testo di ogni titolo con il testo modificato
+      }
+    });
+  } // -----CARD TITLE SLICE  END-----------//
   var cardTitle = $('.customJS').text(); //prendo il testo del titolo
 
   console.log(cardTitle);
@@ -49940,7 +49960,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n23 │ @import 'partials/admin/_leads-index';\n   │                                      ^\n   ╵\n  /Users/giovdigua/PhpstormProjects/boolBnb/resources/sass/app.scss 23:38  root stylesheet\n    at /Users/giovdigua/PhpstormProjects/boolBnb/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Users/giovdigua/PhpstormProjects/boolBnb/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/giovdigua/PhpstormProjects/boolBnb/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass-loader/dist/index.js:73:7\n    at Function.call$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:87203:16)\n    at _render_closure1.call$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:76994:12)\n    at _RootZone.runBinary$3$3 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:25521:18)\n    at _RootZone.runBinary$3 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:25525:19)\n    at _FutureListener.handleError$1 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:23975:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:24271:40)\n    at Object._Future__propagateToListeners (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:3500:88)\n    at _Future._completeError$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:24099:9)\n    at _AsyncAwaitCompleter.completeError$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:23491:12)\n    at Object._asyncRethrow (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:3256:17)\n    at /Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:13326:20\n    at _wrapJsFunctionForAsync_closure.$protected (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:3279:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:23512:12)\n    at _awaitOnObject_closure0.call$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:23504:25)\n    at _RootZone.runBinary$3$3 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:25521:18)\n    at _RootZone.runBinary$3 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:25525:19)\n    at _FutureListener.handleError$1 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:23975:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:24271:40)\n    at Object._Future__propagateToListeners (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:3500:88)\n    at _Future._completeError$2 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:24099:9)\n    at _Future__asyncCompleteError_closure.call$0 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:24194:18)\n    at Object._microtaskLoop (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:3550:21)\n    at StaticClosure._startMicrotaskLoop (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:3556:11)\n    at _AsyncRun__scheduleImmediateJsOverride_internalCallback.call$0 (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:23409:21)\n    at invokeClosure (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:1360:26)\n    at Immediate.<anonymous> (/Users/giovdigua/PhpstormProjects/boolBnb/node_modules/sass/sass.dart.js:1381:18)\n    at processImmediate (internal/timers.js:439:21)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -49953,6 +49973,8 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 
 __webpack_require__(/*! /Users/giovdigua/PhpstormProjects/boolBnb/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/giovdigua/PhpstormProjects/boolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

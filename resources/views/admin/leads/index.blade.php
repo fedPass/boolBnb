@@ -3,9 +3,11 @@
 @section('content')
   <div class="container leads-container admin-container">
       <div class="row pt-5">
-          <div class="col-12">
-              <h1 class="float-left">Messaggi</h1>
-              <a class="btn btn-info float-right" href="{{ route('admin.apartments.index') }}">Torna alla dashboard</a>
+          <div class="col-12 col-md-9">
+              <h1 class="text-center float-md-left">Messaggi</h1>
+          </div>
+          <div class="col-12 col-md-3 d-flex justify-content-center d-lg-inline">
+              <a class="text-center btn btn-info float-md-right" href="{{ route('admin.apartments.index') }}">Torna alla dashboard</a>
           </div>
     </div>
     <hr>

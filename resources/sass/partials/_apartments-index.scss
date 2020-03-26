@@ -45,7 +45,7 @@
     color: $primary-color-dark;
     .card-results {
       margin-bottom: 50px;
-      height: 350px;
+      height: 360px;
       background-color: $primary-color-light;
       color: $primary-color-dark;
       @include zoom($primary-color-dark, $white);

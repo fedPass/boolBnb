@@ -7,7 +7,7 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Modifica dettagli appartamento</h1>
                 <hr>
-                 <form id="create" action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" class="needs-validation edit-form" novalidate>
+                 <form id="create" action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation edit-form" novalidate>
                     @csrf
                     @method('PUT')
                     <div class="row form-group">

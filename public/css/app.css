@@ -11651,7 +11651,7 @@ footer .footer-bottom i {
 
 .results-container .card-click .card-results {
   margin-bottom: 50px;
-  height: 350px;
+  height: 360px;
   background-color: #BBDEFB;
   color: #1976D2;
 }
@@ -11751,8 +11751,8 @@ footer .footer-bottom i {
   border-radius: 5px;
 }
 
-.paginate {
-  margin: 30px;
+.small-text {
+  font-size: 13px;
 }
 
 .navbar-admin {
@@ -11769,10 +11769,13 @@ footer .footer-bottom i {
   border: 2px solid #1976D2;
 }
 
+.admin-container .promo-section .card {
+  height: 460px;
+}
+
 .admin-container .card {
   border: 1px solid #1976D2;
   height: 570px;
-  min-width: 290px;
 }
 
 .admin-container .card:hover {
@@ -11872,6 +11875,10 @@ footer .footer-bottom i {
 }
 
 @media (min-width: 1200px) {
+  .promo-section .card {
+    height: 460px;
+  }
+
   .card {
     height: 475px !important;
   }

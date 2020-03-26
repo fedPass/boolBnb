@@ -3,10 +3,13 @@
     hr {
         border: 2px solid $primary-color-dark;
     }
+    .promo-section .card {
+        height: 460px;
+    }
     .card {
         border: 1px solid $primary-color-dark;
         height: 570px;
-        min-width: 290px;
+        // min-width: 290px;
          @include zoom(white, $primary-text-color);
         .card-img {
             height: 250px;
@@ -84,6 +87,7 @@
     padding: 20px;
 }
 
+
 @media (min-width: 768px) {
     #CC-numb {
         width: 355px;
@@ -98,6 +102,9 @@
 
 
 @media (min-width: 1200px) {
+    .promo-section .card {
+        height: 460px;
+    }
     .card {
         height: 475px!important;
     }
