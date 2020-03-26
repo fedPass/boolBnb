@@ -7,7 +7,7 @@
   </div>
   <div class="container">
     <div class="row justify-content-center evidence-container">
-        <h1>Appartamenti in promozione</h1>
+        <h1>{{__('home-public.HomeTitle')}}</h1>
       <div class="col-sm-12 in-evidenza mx-auto">
         @foreach ($apartments as $apartment)
           @if (($apartment->sponsors)->isNotEmpty())

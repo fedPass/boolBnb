@@ -4,42 +4,42 @@
             <div class="col-12 col-lg-3">
                 <ul class="list-unstyled text-center text-lg-left">
                     <li><strong>Airbnb</strong></li>
-                    <li><a href="#">Opportunità di lavoro</a></li>
+                    <li><a href="#">{{__('home-public.footerWork')}}</a></li>
                     <li><a href="#">News</a></li>
-                    <li><a href="#">Condizioni</a></li>
-                    <li><a href="#">Diversità e apparteneza</a></li>
-                    <li><a href="#">Accessibilità</a></li>
-                    <li><a href="#">Informazioni di contatto</a></li>
+                    <li><a href="#">{{__('home-public.footerCondict')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerDivers')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerAcces')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerInfoCont')}}</a></li>
                 </ul>
             </div>
             <div class="col-12 col-lg-3">
                 <ul class="list-unstyled text-center text-lg-left">
-                    <li><strong>Scopri</strong></li>
-                    <li><a href="#">Affidabilità e sicurezza</a></li>
-                    <li><a href="#">Crediti di viaggio</a></li>
-                    <li><a href="#">Cittadino di Airbnb</a></li>
-                    <li><a href="#">Viaggi di lavoro</a></li>
-                    <li><a href="#">Attività</a></li>
+                    <li><strong>{{__('home-public.footerDiscov')}}</strong></li>
+                    <li><a href="#">{{__('home-public.footerAffidSic')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerTravCred')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerCity')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerTravWork')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerActiv')}}</a></li>
                     <li><a href="#">Airbnbmag</a></li>
                 </ul>
             </div>
             <div class="col-12 col-lg-3">
                 <ul class="list-unstyled text-center text-lg-left">
-                    <li><strong>Ospita</strong></li>
-                    <li><a href="#">Perché affittare</a></li>
-                    <li><a href="#">Raccomanda host</a></li>
-                    <li><a href="#">Ospitalità</a></li>
-                    <li><a href="#">Ospitare responsabilmente</a></li>
+                    <li><strong>{{__('home-public.footerOsp')}}</strong></li>
+                    <li><a href="#">{{__('home-public.footerWhy')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerRacc')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerHospit')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerHospResp')}}</a></li>
                     <li><a href="#">Community Center</a></li>
-                    <li><a href="#">Offri un'esperienza</a></li>
+                    <li><a href="#">{{__('home-public.footerOff')}}</a></li>
                     <li><a href="#">Open Homes</a></li>
                 </ul>
             </div>
             <div class="col-12 col-lg-3">
                 <ul class="list-unstyled text-center text-lg-left">
-                    <li><strong>Assistenza</strong></li>
-                    <li><a href="#">Aiuto</a></li>
-                    <li><a href="#">Servizio di assistenza di quartiere</a></li>
+                    <li><strong>{{__('home-public.footerAss')}}</strong></li>
+                    <li><a href="#">{{__('home-public.footerHelp')}}</a></li>
+                    <li><a href="#">{{__('home-public.footerServAss')}}</a></li>
                     {{-- after con label nuovo --}}
                 </ul>
             </div>
@@ -57,7 +57,7 @@
                 <span><a href="#"><i class="fab fa-airbnb"></i></a>© 2020 Airbnb, Inc. All rights reserved.</span>
             </div>
             <div class="col-12 col-xl-4 float-xl-left">
-                <span><a href="{{ route('termini-privacy') }}"> Termini & Privacy</a></span>
+                <span><a href="{{ route('termini-privacy') }}">{{__('home-public.footerPrivacy')}}</a></span>
                 {{-- <span>- <a href="{{ route('termini-privacy') }}#list-privacy"> Privacy</a></span> --}}
             </div>
 

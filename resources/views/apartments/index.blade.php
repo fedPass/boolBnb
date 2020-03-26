@@ -96,7 +96,7 @@
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
-              <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+              <img class="img-thumbnail" src="{{asset('storage/' . $apartment->photos)}}" alt="Immagine appartamento">
             </div>
              <div class="card-text">
                <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
@@ -111,7 +111,6 @@
           <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
           @endforelse
       </section>
-        .entry
       <div class="paginate mx-auto mt-3">
         {{$apartments->links()}}
       </div>
