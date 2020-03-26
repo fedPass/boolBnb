@@ -26,7 +26,7 @@
         <div id="myModal-lang" class="modal">
           <div class="modal-content col-4 text-center text-primary">
             <span class="close-lang text-right">&times;</span>
-            <h2>Scegli la lingua</h2>
+            <h2>{{__('home-public.navLinkSelectLang')}}</h2>
             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
               <a class="language" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
             @endforeach
@@ -41,7 +41,7 @@
        <div id="myModal" class="modal">
          <div class="modal-content col-4 text-center text-primary">
            <span class="close text-right">&times;</span>
-           <h2>Scegli una valuta</h2>
+           <h2>{{__('home-public.navLinkSelectVal')}}</h2>
            <p class="valuta">€ Euro</p>
            <p class="valuta">₣ Franco</p>
            <p class="valuta">$ Dollaro</p>
@@ -65,7 +65,7 @@
           @endif
       @else
       <li class="nav-item {{ Route::currentRouteName() == 'admin.apartments.index' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.apartments.index') }}">Dashboard</a></li>
-      <li class="nav-item {{ Route::currentRouteName() == 'admin.leads.index' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.leads.index') }}">Messaggi</a></li>
+      <li class="nav-item {{ Route::currentRouteName() == 'admin.leads.index' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.leads.index') }}">{{__('home-public.navLinkMessages')}}</a></li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->first_name }} <span class="caret"></span>
@@ -77,11 +77,11 @@
           </a>
           {{-- tasto agg app --}}
           <a class="dropdown-item" href="{{ route('admin.apartments.create') }}">
-              {{ __('Aggiungi appartamento') }}
+              {{__('home-public.navLinkAddApp')}}
           </a>
           {{-- tasto messaggi --}}
           <a class="dropdown-item" href="{{route('admin.leads.index')}}">
-              {{ __('Messaggi') }}
+              {{__('home-public.navLinkMessages')}}
           </a>
           <hr>
           {{-- tasto logout --}}

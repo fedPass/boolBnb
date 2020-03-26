@@ -8,8 +8,42 @@ crea un tuo file php per la pagina da tradurre e metti tutte le traduzioni dentr
 
 <?php
 return [
-  // navbar
-  'navLinkOffer'/*nome della chiave*/ => 'Offer a house'/*testo tradotto*/
+  // NAVBAR
+  'navLinkOffer'/*nome della chiave*/ => 'Offer a house',/*testo tradotto*/
+  'navLinkMessages'=>'Messages',
+  'navLinkAddApp'=>'Add apartment',
+  'navLinkSelectVal'=>'Select a currency',
+  'navLinkSelectLang'=>'Select a language',
+  //BOOK
+  'bookTitle'=>'Book unique places to stay and things to do.',
+  'bookLabelW'=>'Where',
+  'bookInputW'=>'Everywhere',
+  'bookLabelVisit'=>'Guests',
+  'bookButtonSearc'=>'Search',
+  //PUBLIC-HOME
+  'HomeTitle'=>'Promotional apartments',
+  //FOOTER
+  'footerWork'=>'Job opportunities',
+  'footerCondict'=>'Condictions',
+  'footerDivers'=>'Diversity and belonging',
+  'footerAcces'=>'Accessibility',
+  'footerInfoCont'=>'Contact Info',
+  'footerDiscov'=>'Discover',
+  'footerAffidSic'=>'Reliability and security',
+  'footerTravCred'=>'Travel credits',
+  'footerCity'=>'Citizen of Airbnb',
+  'footerTravWork'=>'Business trips',
+  'footerActiv'=>'Activities',
+  'footerOsp'=>'Accommodate',
+  'footerWhy'=>'Why rent',
+  'footerRacc'=> 'Recommend host',
+  'footerHospit'=>'Hospitality',
+  'footerHospResp'=>'Host responsibly',
+  'footerOff'=>'Offer an experience',
+  'footerAss'=>'Assistance',
+  'footerHelp'=>'Help',
+  'footerServAss'=>'Neighborhood assistance service',
+  'footerPrivacy'=>'Terms & Privacy'
 
 ]
 

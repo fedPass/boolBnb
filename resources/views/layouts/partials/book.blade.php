@@ -1,12 +1,12 @@
 {{-- RIQUADRO BIANCO DELLA RICERCA APPARTAMENTI --}}
 <div class="booking-container">
-  <h1>Prenota alloggi e attività unici.</h1>
+  <h1>{{__('home-public.bookTitle')}}</h1>
   <form id="search" action="{{ route('apartments.index') }}" autocomplete="off" method="get" enctype="multipart/form-data">
     @csrf
     @method("GET")
     <div class="form-group">
-      <label id="dove-box" for="place">Dove</label>
-      <input id="search-dove" type="text" class="form-control" name='place' id="place"  placeholder="Ovunque">
+      <label id="dove-box" for="place">{{__('home-public.bookLabelW')}}</label>
+      <input id="search-dove" type="text" class="form-control" name='place' id="place"  placeholder="{{__('home-public.bookInputW')}}">
       <input id="lat" type='hidden' name='lat'>
       <input id="lon" type='hidden' name='lon'>
       <div id="item-list">
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Ospiti</label>
+      <label for="exampleFormControlSelect1">{{__('home-public.bookLabelVisit')}}</label>
       <select class="form-control" name="ospiti" id="exampleFormControlSelect1">
               {{-- <option>Adulti <i class="fas fa-minus-circle"></i> 0+ <i class="fas fa-plus-circle"></i></option> --}}
         @for ($i=1; $i <= 10; $i++)
@@ -33,7 +33,7 @@
         @endfor
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Cerca</button>
+    <button type="submit" class="btn btn-primary">{{__('home-public.bookButtonSearc')}}</button>
   </form>
 </div>
 
