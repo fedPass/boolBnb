@@ -11769,10 +11769,13 @@ footer .footer-bottom i {
   border: 2px solid #1976D2;
 }
 
+.admin-container .promo-section .card {
+  height: 460px;
+}
+
 .admin-container .card {
   border: 1px solid #1976D2;
   height: 570px;
-  min-width: 290px;
 }
 
 .admin-container .card:hover {
@@ -11872,6 +11875,10 @@ footer .footer-bottom i {
 }
 
 @media (min-width: 1200px) {
+  .promo-section .card {
+    height: 460px;
+  }
+
   .card {
     height: 475px !important;
   }
