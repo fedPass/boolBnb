@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-// li aggiungo perchè stanno su un namespace diverso
+
 
 use App\Http\Controllers\Controller;
 use http\Env\Response;
@@ -11,10 +11,11 @@ use App\Apartment;
 use App\Option;
 use App\Sponsor;
 use Illuminate\Support\Facades\Validator;
-// Federica: facade used to interact with any of your configured disks
 use Illuminate\Support\Facades\Storage;
 use Braintree_Transaction;
-//----
+use Illuminate\Support\Facades\Log;
+use App\Image;
+
 
 class ApartmentController extends Controller
 {
@@ -126,7 +127,7 @@ class ApartmentController extends Controller
           }
           //--- end facade
       $new_apartment->save();
-      $apartmentid = $new_apartment->id;
+
       //fede: prima salvo e poi popolo tab pivot per options
           //se ho selezionato delle options le assegno all'apart
           //controllo quindi l'array che ho creato dal form
@@ -136,7 +137,19 @@ class ApartmentController extends Controller
               $new_apartment->options()->sync($data['nome_id']);
           }
 
-          response()->json(['status' =>"success" , 'apartmentid' => $apartmentid]);
+          for ($i = 0; $i < 5; $i++){
+            if($request -> hasfile("images.".$i)){
+              $file = $request -> file("images.".$i);
+              $fileName = $file -> getClientOriginalName();
+              $file -> move("uploads/images/".$new_apartment->id, $fileName);
+              $new_image = [
+                "filename" => $fileName
+              ];
+              $image= Image::make($new_image);
+              $image -> apartment() -> associate($new_apartment);
+              $image -> save();
+            }
+          }
 
       return redirect()->route('admin.apartments.index');
 
@@ -156,13 +169,6 @@ class ApartmentController extends Controller
       return view('admin.apartments.show', ['apartment' => $apartment]);
     }
 
-//     public function show($id)
-// {
-//     $post = Post::find($id);
-//     return view('admin.posts.show', ['post' => $post]);
-// }
-
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -171,10 +177,10 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
-        //Federica ---prendo le options per creare le checkbox e le passo alla view
+
         $apartment = Apartment::find($id);
         $options = Option::all();
-        //---
+
 
       return view('admin.apartments.edit', ['apartment' => $apartment, 'options' => $options]);
     }
@@ -215,12 +221,12 @@ class ApartmentController extends Controller
      */
     public function destroy($id)
     {
-        //da fare: prevedere delete da Storage
-        //da fare: se l'array delle options non è vuoto fare sync([]) di array vuoto per cancellare options da apartment e cancellare la relazione tra le due tabelle
+
       $apartment = Apartment::find($id);
       if($apartment->options->isNotEmpty()) {
             $apartment->options()->sync([]);
         }
+      $apartment->images()->delete();
       $apartment->delete();
       return redirect()->route('admin.apartments.index');
     }
@@ -274,7 +280,6 @@ class ApartmentController extends Controller
                 'submitForSettlement' => True
             ]
         ]);
-        //dd($status);
         if ($status->success){
             $transaction = $status->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
@@ -290,33 +295,47 @@ class ApartmentController extends Controller
 
     }
 
+   //  public function uploadImageForm()
+   // {
+   //       return view('admin.apartments.create');
+   // }
+   //  public function uploadSubmit(Request $request)
+   //  {
+   //    $this->validate($request, [
+   //      'images' => 'required',
+   //      'filename.*' =>   'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+   //      ]);
+   //
+   //    $post = Post::create($request->all());
+   //
+   //    }
+   //    return 'Images Uploaded successful!';
+   //  }
 
-    public function uploadimg(Request $request)
-    {
-
-      if($request->file('file')) {
-
-         $image = $request->file('file');
-         $apartmentid = $request->apartmentid;
-         $imageName = strtotime(now()).rand(11111,99999).'.'.$img->getClientOriginalExtension();
-
-         $apartment->img = New Apartment();
-         $original_name = $image->getClientOriginalName();
-         $apartment_image->img = $imageName;
-
-         if(!is_dir(public_path(). '/uploads/images/')){
-           mkdir(public_path(). '/uploads/images/', 0777, true);
-         }
-
-
-         $request->file('file')->move(public_path(). '/uploads/images/', $imageName);
-
-         $apartment_image->where('id', $apartmentid)->update(['img' =>$imageName]);
-
-
-         return response()->json(['status' => "success", 'imgdata' => $original_name , 'apartmentid' => $apartmentid]);
-
-
-       }
-    }
+    // public function uploadimg(Request $request)
+    // {
+    //
+              // for ($i=0; $i < 5 ; $i++) {
+              //   if($request->file('file.'.$i)) {
+              //      $image = $request->file('file.'.$i);
+              //      $imageName = $image->getClientOriginalName();
+              //      $image->move(public_path('/uploads/images/'), $imageName);
+              //      $img = [
+              //         "img" => $imageName,
+              //         "apartment_id" => $new_apartment->id
+              //      ];
+              //
+              //      $new_img = New Image($img);
+              //      $new_img->apartment()->associate($apartmentid);
+              //      $new_img->save();
+              //
+              // }
+    //
+    //
+    //      return response()->json(['status' => "success", 'apartmentid' => $apartmentid]);
+    //
+    //
+    //    }
+    //
+    //  }
 }

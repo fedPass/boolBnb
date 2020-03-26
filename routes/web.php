@@ -60,6 +60,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     Route::resource('/apartments', 'ApartmentController');
     Route::resource('/leads', 'LeadController');
 
+    Route::get('/apartment/uploadimg' , 'ApartmentController@uploadImageForm');
     Route::post('/apartments/uploadimg', 'ApartmentController@uploadimg')->name('apartments.uploadimg');
 
 });

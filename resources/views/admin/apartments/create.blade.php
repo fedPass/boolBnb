@@ -217,14 +217,20 @@
                     <div class="row form-group">
                         {{-- <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
                         <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img"> --}}
-                        <div id="dropzone" class="dropzone needsclick dz-clickable">
-                          <span>Upload File</span>
-                          <div class="dropzone-previews">
-
-                          </div>
-
+                      <div class="input-group control-group increment" >
+                        <input type="file" name="images[]" class="form-control">
+                        <div class="input-group-btn">
+                          <button class="btn btn-success" type="button">Add</button>
                         </div>
-
+                      </div>
+                      <div class="clone d-none">
+                        <div class="control-group input-group" style="margin-top:10px">
+                          <input type="file" name="images[]" class="form-control">
+                          <div class="input-group-btn">
+                            <button class="btn btn-danger" type="button">Remove</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>
@@ -268,66 +274,77 @@
             let switchery = new Switchery(html,  { size: 'small' ,color:'#237DC7'});
         });
 
-        Dropzone.autoDiscover = false;
-        let token = $('meta[name="csrf-token"]').attr('content');
-        $(function(){
-          var myDropzone = new Dropzone("div#dropzone", {
-            paramName: 'file',
-            url: "{{ url('/admin/apartments/uploadimg/') }}",
-            previewsContainer: 'div.dropzone-previews',
-            addRemoveLinks: true,
-            autoPrecessQueue: false,
-            uploadMultiple: true,
-            parallelUploads: 1,
-            maxFiles: 1,
-            params:{
-              _token: token
-            },
-            init: function(){
-              var myDropzone = this;
-              $("form[name='create']").submit(function(event){
+        $(document).ready(function() {
 
-                URL = $("#create").attr('action');
-                formData = $("#create").serialize();
-                $.ajax({
-                  type:'POST',
-                  url: URL,
-                  data: formData,
-                  success: function(result){
-                    if(result.status == "success"){
-                      var apartmentid = result.apartmentid;
-                      $("#apartmentid").val(apartmentid);
-                      //process the queue
-                      myDropzone.processQueue();
-                    }else{
-                      console.log("error");
-                    }
-                  }
-                });
-              });
-
-            this.on("sending", function(file,xhr,formData){
-              let apartmentid = document.getElementById('apartmentid').value;
-              formData.append('apartmentid', apartmentid);
-            });
-            this.on("success", function(file, response){
-
-            });
-            this.on("queuecomplete", function(){
-
-            });
-            this.on("sendingmultiple", function(file,xhr,formData){
-
-
-            });
-            this.on("successmultiple", function(files, responses){
-
-            });
-            this.on("errormultiple", function(files, responses){
-
-            });
-          }
+        $(".btn-success").click(function(){
+            var html = $(".clone").html();
+            $(".increment").after(html);
         });
+
+        $("body").on("click",".btn-danger",function(){
+            $(this).parents(".control-group").remove();
+        });
+
       });
+
+      //   Dropzone.autoDiscover = false;
+      //   let token = $('meta[name="csrf-token"]').attr('content');
+      //   $(function(){
+      //     var myDropzone = new Dropzone("#dropzone", {
+      //       paramName: 'file',
+      //       url: "{{-- url('/admin/apartments/create/') --}}",
+      //       previewsContainer: 'div.dropzone-previews',
+      //       addRemoveLinks: true,
+      //       autoPrecessQueue: false,
+      //       uploadMultiple: true,
+      //       parallelUploads: 1,
+      //       maxFiles: 1,
+      //       params:{
+      //         _token: token
+      //       },
+      //       init: function(){
+      //         var myDropzone = this;
+      //         $("form[name='create']").submit(function(event){
+      //
+      //           URL = $("#create").attr('action');
+      //           formData = $("#create").serialize();
+      //           $.ajax({
+      //             type:'POST',
+      //             url: URL,
+      //             data: formData,
+      //             success: function(result){
+      //               if(result.status == "success"){
+      //
+      //                 //process the queue
+      //                 myDropzone.processQueue();
+      //               }else{
+      //                 console.log("error");
+      //               }
+      //             }
+      //           });
+      //         });
+      //
+      //       this.on("sending", function(file,xhr,formData){
+      //
+      //       });
+      //       this.on("success", function(file, response){
+      //
+      //       });
+      //       this.on("queuecomplete", function(){
+      //
+      //       });
+      //       this.on("sendingmultiple", function(file,xhr,formData){
+      //
+      //
+      //       });
+      //       this.on("successmultiple", function(files, responses){
+      //
+      //       });
+      //       this.on("errormultiple", function(files, responses){
+      //
+      //       });
+      //     }
+      //   });
+      // });
     </script>
 @endsection

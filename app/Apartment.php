@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Options;
 use App\Sponsor;
+use App\Image;
 
 class Apartment extends Model
 {
@@ -15,7 +16,6 @@ class Apartment extends Model
     'bagni',
     'dimensioni',
     'descrizione',
-    'img',
     'indirizzo',
     'paese',
     'lon',
@@ -39,4 +39,7 @@ class Apartment extends Model
     return $this->belongsToMany(Sponsor::class)->withPivot('due_date')->withTimestamps();
   }
 
+  public function images(){
+    return $this->hasMany(Image::class);
+  }
 }
