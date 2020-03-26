@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
@@ -18,37 +19,37 @@ class ApartmentController extends Controller
      */
     protected function querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$options)
     {
+//
+//        $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
+//            $query->whereRaw("6371 * acos(
+//                                      cos(radians(" . $lat . "))
+//                                    * cos(radians(apartments.lat))
+//                                    * cos(radians(apartments.lon) - radians(" . $lon . "))
+//                                    + sin(radians(" .$lat. "))
+//                                    * sin(radians(apartments.lat))) <= " . $circle_radius);
+//        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze)->whereHas('options',function ($query) use($options){
+//            //$query->where('nome',$options);
+//            foreach ($options as $option){
+//                $query->where('nome','=',$option);
+//            }
+//        });
 
-        $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
+            $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
             $query->whereRaw("6371 * acos(
                                       cos(radians(" . $lat . "))
                                     * cos(radians(apartments.lat))
                                     * cos(radians(apartments.lon) - radians(" . $lon . "))
                                     + sin(radians(" .$lat. "))
                                     * sin(radians(apartments.lat))) <= " . $circle_radius);
-        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze)->whereHas('options',function ($query) use($options){
-            //$query->where('nome',$options);
-            foreach ($options as $option){
-                $query->where('nome','=',$option);
-            }
-        });
+        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze);
 
-
-
-
-//        whereHas('options',function ($query) use($options){
-//
-//            $query->whereIn('nome','=',$options);
-//
-//        });
-
-
-//        with('options',function ($query) use($options){
-//            //$query->where('nome',$options);
-//            foreach ($options as $option){
-//                $query->where('nome','=',$option);
-//            }
-//        });
+        if ($options === null){
+            return $apartments;
+        }else{
+            $apartments->whereHas('options',function ($query) use($options){
+                $query->whereIn('nome',$options);
+            });
+        }
 
         return $apartments;
 
@@ -77,22 +78,22 @@ class ApartmentController extends Controller
         if ($request->options){
             $opzioni = $request->options;
         }else{
-            $opzioni = [];
+            $opzioni = null;
         }
-        //dd($opzioni);
+
         $options = Option::all();
-        //$apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$options)->paginate();
         $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->paginate();
         $apartmentsAll = Apartment::all(); //Luca: aggiunto per poter viasualizzare tutti gli appartamenti in promo indipendentemente dalla query di ricerca
 
 
-        //dd($apartments);
+
 
         return view('apartments.index',['apartments'=>$apartments, 'options'=> $options, 'lat'=>$lat,'lon'=>$lon, 'apartmentsAll'=>$apartmentsAll ]);
     }
 
     public function search(Request $request)
     {
+
         if ($request->ajax()){
 
             //Get lat , lon ,visibilita and nr of posti letto
@@ -112,36 +113,29 @@ class ApartmentController extends Controller
             if($lat == 0 AND $lon == 0){
                 $circle_radius = 20000000000;
             }
-            if(!$visibilita || !$postiLetto || $stanze){
+            if(!$visibilita || !$postiLetto || !$stanze){
                 $visibilita =  1;//If this values are null assign 1
                 $postiLetto = 1;
                 $stanze = 1;
             }
-//            if ($request->options) {
-//                $opzioni = Option::all()->whereIn('nome', $request->options);
-//            }else{
-//                $opzioni = Option::all();
-//            }
+
 
             if ($request->options){
                 $opzioni = $request->options;
             }else{
-                $opzioni = [];
+                $opzioni = null;
             }
 
-            $options = Option::all();
+
             $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->get();
 
 
-            return Response([$apartments,$options]);
+            return Response($apartments);
+
         }
-
-//        $input = $request->all();
-//
-//        return response()->json(['success'=>'Got Simple Ajax Request.']);
-
+        
     }
-    // 111.045
+
 
     /**
      * Show the form for creating a new resource.
