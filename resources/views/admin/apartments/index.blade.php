@@ -29,10 +29,10 @@
                             <div class="col-12 col-md-6 col-lg-4 mb-3">
                                 <div class="card">
                                     <div class="card-img">
+                                        <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                                         <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                                     </div>
                                     <div class="card-body">
-                                        <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                                             <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                                         </a>
                                         <div class="row">
@@ -81,6 +81,7 @@
                         <div class="col-12 col-md-6 col-lg-4 mb-3">
                             <div class="card">
                                 <div class="card-img">
+                                     <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                                     @if ($apartment->visibilita == 1)
                                         <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
                                     @else
@@ -88,7 +89,6 @@
                                     @endif
                                 </div>
                               <div class="card-body">
-                                  <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
                                       @if ($apartment->visibilita == 1)
                                           <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                                       @else

@@ -9,3 +9,7 @@
 .small-text { //se si vuol rimpicciolire un p
   font-size: 13px;
 }
+
+nav .nav-item.active {
+    border-bottom: 2px solid $primary-color-dark;
+}
