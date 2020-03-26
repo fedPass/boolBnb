@@ -11672,11 +11672,20 @@ footer .footer-bottom i {
   box-shadow: 0px 0px 25px 5px #757575;
 }
 
-.results-container .evidence {
+.results-container .evidence-container {
   background-color: #1976D2;
   border-radius: 5px;
   color: white;
-  margin-left: 10px;
+  margin-left: 25%;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.results-container .evidence-container .evidence {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .results-container .results-title {
@@ -11686,6 +11695,32 @@ footer .footer-bottom i {
 .results-container::-webkit-scrollbar {
   display: none;
   /* Chrome Safari */
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+
+.evidence::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #FFFFFF;
+  border-radius: 10px;
+}
+
+/* Handle */
+
+.evidence::-webkit-scrollbar-thumb {
+  background: #BBDEFB;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+.evidence::-webkit-scrollbar-thumb:hover {
+  background: #2196F3;
 }
 
 #sliderKM {
@@ -11746,10 +11781,6 @@ footer .footer-bottom i {
 
   .input-num-size {
     width: 60% !important;
-  }
-
-  .evidence {
-    margin-left: 10px;
   }
 }
 

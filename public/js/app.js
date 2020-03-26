@@ -49668,6 +49668,8 @@ $(document).ready(function () {
 
   tagliaTesto('.customAdminJS', 30); //applico la funzione al titolo della card in index apartments (lato admin)
 
+  tagliaTesto('.promo-title', 15); //applico la funzione al titolo degli appartamenti in promozione
+
   function tagliaTesto(classeTesto, numeroCaratteri) {
     //prende in pasto la classe del testo da tagliare e il numero di caratteri da tenere prima del taglio (CONSIGLIO: dare una classe a parte solo per poter utilizzare questa funzione, così si evitano casini nel caso la classe si ripeta da un'altra parte)
     $(classeTesto).each(function () {
@@ -49964,8 +49966,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean\boolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
