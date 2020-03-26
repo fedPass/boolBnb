@@ -6,6 +6,10 @@
   height: 150px;
   border-radius: 5px;
 }
-.paginate { //contenitore dei numeri pagine
-  margin: 30px;
+.small-text { //se si vuol rimpicciolire un p
+  font-size: 13px;
+}
+
+nav .nav-item.active {
+    border-bottom: 2px solid $primary-color-dark;
 }

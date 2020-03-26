@@ -1,6 +1,7 @@
 <div class="maps" id="maps">
   <div class="maps-title">
     <h3>Il quartiere</h3>
+    <p class="card-text mb-3">{{$apartment->indirizzo}}</p>
   </div>
   <div class="maps-location" id="map">
     <script>
