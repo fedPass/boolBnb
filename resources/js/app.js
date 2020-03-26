@@ -62,13 +62,13 @@ $(document).ready(function(){
     $('.info-room-navbar').slideUp();
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
-  if ($(window).width() > 996) { //se le dimensioni del display sono superiori a 996px
-    if (st > 1000) { //se si fa scroll oltre i 900px
-      $('.card-scroll').css('margin-top','700px'); //la card a lato scende fino in fondo
-    } else {
-      $('.card-scroll').css('margin-top','0'); //altrimenti risale
-    }
-  }
+  // if ($(window).width() > 996) { //se le dimensioni del display sono superiori a 996px
+  //   if (st > 1000) { //se si fa scroll oltre i 900px
+  //     $('.card-scroll').css('margin-top','700px'); //la card a lato scende fino in fondo
+  //   } else {
+  //     $('.card-scroll').css('margin-top','0'); //altrimenti risale
+  //   }
+  // }
 });
 // -----NAVBAR AND FORM END-----------//
 

@@ -3,7 +3,7 @@
     <h3>Il quartiere</h3>
     <p class="card-text mb-3">{{$apartment->indirizzo}}</p>
   </div>
-  <div class="maps-location" id="map">
+  <div class="maps-location mb-3" id="map">
     <script>
           // tt.setProductInfo('tomtom'. '5.49.1' );
           var ap_coord =  [{{$apartment->lon}}, {{$apartment->lat}}]
