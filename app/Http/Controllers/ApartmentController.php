@@ -43,22 +43,13 @@ class ApartmentController extends Controller
                                     * sin(radians(apartments.lat))) <= " . $circle_radius);
         })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze);
 
-
-        //dd($apartments);
-
-//        whereHas('options',function ($query) use($options){
-//
-//            $query->whereIn('nome','=',$options);
-//
-//        });
-
-
-//        with('options',function ($query) use($options){
-//            //$query->where('nome',$options);
-//            foreach ($options as $option){
-//                $query->where('nome','=',$option);
-//            }
-//        });
+        if ($options === null){
+            return $apartments;
+        }else{
+            $apartments->whereHas('options',function ($query) use($options){
+                $query->whereIn('nome',$options);
+            });
+        }
 
         return $apartments;
 
@@ -87,16 +78,15 @@ class ApartmentController extends Controller
         if ($request->options){
             $opzioni = $request->options;
         }else{
-            $opzioni = [];
+            $opzioni = null;
         }
-        //dd($opzioni);
+
         $options = Option::all();
-        //$apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$options)->paginate();
         $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->paginate();
         $apartmentsAll = Apartment::all(); //Luca: aggiunto per poter viasualizzare tutti gli appartamenti in promo indipendentemente dalla query di ricerca
 
 
-        //dd($apartments);
+
 
         return view('apartments.index',['apartments'=>$apartments, 'options'=> $options, 'lat'=>$lat,'lon'=>$lon, 'apartmentsAll'=>$apartmentsAll ]);
     }
@@ -128,32 +118,24 @@ class ApartmentController extends Controller
                 $postiLetto = 1;
                 $stanze = 1;
             }
-//            if ($request->options) {
-//                $opzioni = Option::all()->whereIn('nome', $request->options);
-//            }else{
-//                $opzioni = Option::all();
-//            }
+
 
             if ($request->options){
                 $opzioni = $request->options;
             }else{
-                $opzioni = [];
+                $opzioni = null;
             }
 
-            $options = Option::all();
+
             $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->get();
 
 
-            return Response([$apartments,$options,$request]);
+            return Response($apartments);
 
         }
-
-//        $input = $request->all();
-//
-//        return response()->json(['success'=>'Got Simple Ajax Request.']);
-
+        
     }
-    // 111.045
+
 
     /**
      * Show the form for creating a new resource.

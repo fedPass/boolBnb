@@ -1,5 +1,9 @@
 {{-- PAGINA DEI RISULTATI DI RICERCA --}}
 @extends('layouts.public')
+@section('cdn')
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+@endsection
+
 @section('content')
 <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
 <a class="show-filters btn btn-primary btn-sm" href="#">Mostra Filtri</a>
@@ -107,67 +111,109 @@
           <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
           @endforelse
       </section>
+        .entry
       <div class="paginate mx-auto mt-3">
         {{$apartments->links()}}
       </div>
     </div>
   </div>
 </div>
+
 @endsection
 
 @section('script')
+
     <script>
 
-        //   Slider in searchsidebar
-        let slider = document.getElementById("sliderKM");
-        let output = document.getElementById("kmOutput");
-        output.innerHTML = slider.value;
+        $(document).ready(function() {
+            //   Slider in searchsidebar
+            let slider = document.getElementById("sliderKM");
+            let output = document.getElementById("kmOutput");
+            output.innerHTML = slider.value;
 
-        slider.oninput = function() {
-            output.innerHTML = this.value;
-        };
+            slider.oninput = function () {
+                output.innerHTML = this.value;
+            };
 
-        //   Sidebar search ajax call
-        $('#searchDeepButton').click(function (event) {
-            event.preventDefault();
+            // compile the template
+            let source = $('#apartment-template').html();
 
-            let options = [];
-            $('.option-check-box').each(function () {
-                if ($(this).is(":checked")){
-                    options.push($(this).val());
+            let template = Handlebars.compile(source);
+            // execute the compiled template and print the output to the console
+            console.log(template({doesWhat: "rocks!"}));
+
+            function getFilterResult(results){
+                for (let i = 0; i < results.length; i++) {
+                    console.log(results[i])
                 }
+
+            }
+
+            //   Sidebar search ajax call
+            $('#searchDeepButton').click(function (event) {
+                event.preventDefault();
+                console.log('test')
+                let options = [];
+                $('.option-check-box').each(function () {
+                    if ($(this).is(":checked")) {
+                        options.push($(this).val());
+                    }
+                });
+
+                let latSearch = $('#latSearch').val() ? $('#latSearch').val() : 0.0;
+                let lonSearch = $('#lonSearch').val() ? $('#lonSearch').val() : 0.0;
+                let circle_radius = $('#sliderKM').val();
+                let stanze = $.isNumeric($('#roomsNumSelect').val()) ? $('#roomsNumSelect').val() : 1;
+                let posti_letto = $.isNumeric($('#bedsNumSelect').val()) ? $('#bedsNumSelect').val() : 1;
+                $.ajax({
+                    type: 'get',
+
+                    url: '/apartments/search',
+
+                    data: {
+                        lat: latSearch,
+                        lon: lonSearch,
+                        circle_radius: circle_radius,
+                        options: options,
+                        posti_letto: posti_letto,
+                        stanze: stanze,
+
+                    },
+
+                    success: function (data) {
+                        $('#resultApartmentSection').empty();
+                        getFilterResult(data);
+
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+
+                })
+
             });
 
-            let latSearch = $('#latSearch').val() ? $('#latSearch').val() : 0.0;
-            let lonSearch = $('#lonSearch').val() ? $('#lonSearch').val() : 0.0;
-            let circle_radius = $('#sliderKM').val();
-            let stanze = $.isNumeric($('#roomsNumSelect').val()) ? $('#roomsNumSelect').val() : 1;
-            let posti_letto = $.isNumeric($('#bedsNumSelect').val()) ? $('#bedsNumSelect').val() : 1;
-            $.ajax({
-                type : 'get',
 
-                url : '/apartments/search',
+        });
 
-                data:{
-                    lat:latSearch,
-                    lon:lonSearch,
-                    circle_radius:circle_radius,
-                    options:options,
-                    posti_letto:posti_letto,
-                    stanze:stanze,
-
-                },
-
-                success:function(data){
-                    console.log(data);
-
-                },
-                error:function(err){
-                    console.log(err)
-                }
-
-            })
-
-        })
     </script>
+    {{--    Tempalte Hendelbars--}}
+    <script id="apartment-template" type="text/x-handlebars-template">
+              <div class="col-12 col-sm-9 col-md-5 col-lg-4">
+                  <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
+                  <div class="btn btn-primary card-results">
+                    <div class="card-body">
+                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                    </div>
+                     <div class="card-text">
+                       <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
+                       <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
+                      <p class="small-text smallJS">{{$apartment->indirizzo}}</p>
+                     </div>
+                  </div>
+                  </a>
+               </div>
+     </script>
+
+
     @endsection
