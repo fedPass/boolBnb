@@ -17,6 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
       $apartments = Apartment::all(); //Luca: aggiunto per poter visualizzare gli appartamenti in promozione nella home
 
         return view('public-home', ['apartments' => $apartments]);

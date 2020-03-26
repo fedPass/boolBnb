@@ -13,13 +13,25 @@
       </li>
       <li class="nav-item">
         <!-- Modal language-->
-        <a class="nav-link" href="#" id="myBtn-lang"> Italiano (IT) <span class="sr-only"></span></a>
+        @php //per visualizzare il nome del locale
+        $locale = App::getLocale();
+        if (App::isLocale('en')) {
+            $currentLocale = 'English (EN)';
+        }
+        if (App::isLocale('it')) {
+            $currentLocale = 'Italiano (IT)';
+        }
+        @endphp
+        <a class="nav-link" href="#" id="myBtn-lang"> {{$currentLocale}} <span class="sr-only"></span></a>
         <div id="myModal-lang" class="modal">
           <div class="modal-content col-4 text-center text-primary">
             <span class="close-lang text-right">&times;</span>
             <h2>Scegli la lingua</h2>
-            <p class="language"><img class="flag" src="http://icons.iconarchive.com/icons/iconscity/flags/256/italy-icon.png" alt="it-flag"> Italiano (IT)</p>
-            <p class="language"><img class="flag" src="https://icons.iconarchive.com/icons/iconscity/flags/256/uk-icon.png" alt="uk-flag"> English (EN)</p>
+            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+              <a class="language" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
+            @endforeach
+            {{-- <p class="language"><img class="flag" src="http://icons.iconarchive.com/icons/iconscity/flags/256/italy-icon.png" alt="it-flag"> Italiano (IT)</p>
+            <p class="language"><img class="flag" src="https://icons.iconarchive.com/icons/iconscity/flags/256/uk-icon.png" alt="uk-flag"> English (EN)</p> --}}
           </div>
         </div>
       </li>
@@ -39,7 +51,7 @@
        </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link {{ Route::currentRouteName() == 'admin.apartments.create' ? 'active' : '' }}" href="{{ route('admin.apartments.create') }}">Offri una casa</a>
+          <a class="nav-link {{ Route::currentRouteName() == 'admin.apartments.create' ? 'active' : '' }}" href="{{ route('admin.apartments.create') }}">{{__('home-public.navLinkOffer')}}</a>
       </li>
       <!-- Authentication Links -->
       @guest
