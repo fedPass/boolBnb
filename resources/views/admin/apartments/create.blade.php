@@ -2,23 +2,20 @@
 @extends('layouts.admin')
 
 @section('content')
-
-  <?php error_reporting(E_ALL);
-        ini_set("display_errors",1);
-   ?>
     <div class="container mt-5 mb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-8 add-product">
-                <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
+                <div class="col-12">
+                    <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
+                </div>
                 <hr>
-                <form id="create" name="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate>
+                <form id="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate>
                     @csrf
                     @method("POST")
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="titolo">Titolo</label>
                       {{-- old per recuperare vallue in caso di errore compilazione form --}}
                       <input type="text" class="form-control col-12 col-md-9 @error('titolo') is-invalid @enderror" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
-                        <input type="hidden" class="apartmentid" name="apartmentid" id="apartmentid" value="">
                       @error('titolo')
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -202,7 +199,7 @@
                         <label class="col-12 col-md-3">Servizi</label>
                         <div class="col-12 col-md-9 d-flex flex-row flex-wrap">
                             @foreach ($options as $option)
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     <input class="form-check-input" type="checkbox" id="nome_{{ $option->id }}" name="nome_id[]" value="{{ $option->id }}"
                                     {{-- recuperare check selezionati in caso di errore --}}
                                     {{ in_array($option->id, old('nome_id', array())) ? 'checked' : '' }}>

@@ -19,6 +19,13 @@ footer {
     }
 }
 
+.terms-privacy {
+    .list-group > a {
+    overflow-x: hidden;
+    font-size: x-small;
+    }
+}
+
 @media (min-width: 768px) {
   .footer-top {
     display: flex!important;
@@ -49,6 +56,12 @@ footer {
                   color: $accent-color;
               }
           }
+      }
+  }
+
+  .terms-privacy {
+      .list-group > a {
+      font-size: 14px;
       }
   }
 }

@@ -49527,6 +49527,21 @@ var app = new Vue({
   el: '#app'
 });
 $(document).ready(function () {
+  // -----se non ci sono promo non far apparire promo-section -----------//
+  // if (!$('.row.promo').is(':empty')) {
+  //     console.log('sono pieno');
+  //     $('.row.promo').addClass('promo-section');
+  // }
+  // else {
+  //     console.log('sono vuoto');
+  //     $('.row.promo').css('display','none');
+  // }
+  // if ($('.row.promo').is(':empty')) {
+  //     console.log('sono vuoto');
+  //     $('.row.promo').css('display','none');
+  // }
+  // $('.row.promo:empty').css('display','none');
+  // -----end non far apparire promo-section -----------//
   // -----NAVBAR AND FORM-----------//
   $(window).on('scroll', function (e) {
     //quando vado a fare scroll con il mouse
@@ -49562,18 +49577,22 @@ $(document).ready(function () {
   }); // -----NAVBAR AND FORM END-----------//
   // -----FILTERS -----------//
 
-  $('.show-filters').on("click", function () {
-    //al click sul pulsante "mostra filtri"
-    $('.filters-container').slideDown(); //appare il riquadro delle opzioni
+  if ($(window).width() > 768) {
+    $('.show-filters').on("click", function () {
+      //al click sul pulsante "mostra filtri"
+      $('.filters-container').slideDown(); //appare il riquadro delle opzioni
 
-    $('.hide-filters').css('display', 'block'); //appare il pulsante di conferma
-  });
-  $('.hide-filters').on("click", function () {
-    //al click sul pulsante "conferma"
-    //$('.hide-filters').css('display','none'); //il pulsante scompare
-    $('.filters-container').slideUp(); //la navbar scompare
-  }); // -----FILTERS END-----------//
+      $('.hide-filters').css('display', 'block'); //appare il pulsante di conferma
+    });
+    $('.hide-filters').on("click", function () {
+      //al click sul pulsante "conferma"
+      $('.hide-filters').css('display', 'none'); //il pulsante scompare
+
+      $('.filters-container').slideUp(); //la navbar scompare
+    });
+  } // -----FILTERS END-----------//
   // -----MESSAGGI-----------//
+
 
   $('.message-recev').on("click", function () {
     //quando si clicca sul div del mittente
@@ -49640,6 +49659,31 @@ $(document).ready(function () {
       modalVar.style.display = "none"; // si chiude il modal
     });
   } // -----MODAL END-----------//
+  // -----CARD TITLE SLICE-----------//
+
+
+  tagliaTesto('.customJS', 15); //applico la funzione al titolo della card in index apartments (lato public)
+
+  tagliaTesto('.smallJS', 20); //applico la funzione all'indirizzo della card in index apartments (lato public)
+
+  tagliaTesto('.customAdminJS', 30); //applico la funzione al titolo della card in index apartments (lato admin)
+
+  tagliaTesto('.promo-title', 15); //applico la funzione al titolo degli appartamenti in promozione
+
+  function tagliaTesto(classeTesto, numeroCaratteri) {
+    //prende in pasto la classe del testo da tagliare e il numero di caratteri da tenere prima del taglio (CONSIGLIO: dare una classe a parte solo per poter utilizzare questa funzione, così si evitano casini nel caso la classe si ripeta da un'altra parte)
+    $(classeTesto).each(function () {
+      //ciclo tutti i titoli di ogni card
+      var customLenght = $(this).text(); //mi prendo il contenuto di ogni titolo
+
+      if (customLenght.length >= numeroCaratteri) {
+        //se il numero di caratteri di quel titolo è maggiore o uguale a 15
+        var cardSlice = $(this).text().slice(0, numeroCaratteri) + '...'; //del testo di ogni titolo prendo solo i primi 15 caratteri e ci aggiungo in fine 3 punti
+
+        $(this).text(cardSlice); //sostituisco il testo di ogni titolo con il testo modificato
+      }
+    });
+  } // -----CARD TITLE SLICE  END-----------//
   // -----FORM VALIDATION BOOTSTRAP-----------//
   // Example starter JavaScript for disabling form submissions if there are invalid fields
 

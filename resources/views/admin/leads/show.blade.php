@@ -1,1 +1,0 @@
-{{-- dettaglio del singolo messaggio --}}

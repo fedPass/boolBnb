@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
-use Illuminate\Database\Eloquent\Builder;
+
+
 
 class ApartmentController extends Controller
 {
@@ -15,20 +17,39 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected function querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$options)
+    protected function querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$options)
     {
+//
+//        $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
+//            $query->whereRaw("6371 * acos(
+//                                      cos(radians(" . $lat . "))
+//                                    * cos(radians(apartments.lat))
+//                                    * cos(radians(apartments.lon) - radians(" . $lon . "))
+//                                    + sin(radians(" .$lat. "))
+//                                    * sin(radians(apartments.lat))) <= " . $circle_radius);
+//        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze)->whereHas('options',function ($query) use($options){
+//            //$query->where('nome',$options);
+//            foreach ($options as $option){
+//                $query->where('nome','=',$option);
+//            }
+//        });
 
-        //dd($options);
-        $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
+            $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
             $query->whereRaw("6371 * acos(
                                       cos(radians(" . $lat . "))
                                     * cos(radians(apartments.lat))
                                     * cos(radians(apartments.lon) - radians(" . $lon . "))
                                     + sin(radians(" .$lat. "))
                                     * sin(radians(apartments.lat))) <= " . $circle_radius);
-        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->whereHas('options',function ($query) use($options){
-            $query->whereIn('nome',$options);
-        })->paginate();
+        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze);
+
+        if ($options === null){
+            return $apartments;
+        }else{
+            $apartments->whereHas('options',function ($query) use($options){
+                $query->whereIn('nome',$options);
+            });
+        }
 
         return $apartments;
 
@@ -41,58 +62,80 @@ class ApartmentController extends Controller
         $lon = $request->lon;
         $visibilita = $request->visibilita;
         $postiLetto = $request->posti_letto;
+        $stanze = $request->stanze;
         $circle_radius = 50;//50 km
         //check if all the field as different of null
         if (!$lat || !$lon) {
             $lat = $lon = 0.0;
             $circle_radius = 20000000000;//If no lat or no lon assign  both 0.0 and assign a very large km number that cover all the earth to return alla apartment
         }
-        if(!$visibilita || !$postiLetto){
+        if(!$visibilita || !$postiLetto || !$stanze){
             $visibilita =  1;//If this values are null assign 1
             $postiLetto = 1;
+            $stanze = 1;
         }
-        $options = Option::all();   //['Portineria']; //
-        //dd($lat,$lon);
-        $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$options);
+        //dd($request->options);
+        if ($request->options){
+            $opzioni = $request->options;
+        }else{
+            $opzioni = null;
+        }
+
+        $options = Option::all();
+        $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->paginate();
+        $apartmentsAll = Apartment::all(); //Luca: aggiunto per poter viasualizzare tutti gli appartamenti in promo indipendentemente dalla query di ricerca
 
 
 
 
-        return view('apartments.index',['apartments'=>$apartments, 'options'=> $options, 'lat'=>$lat,'lon'=>$lon]);
+        return view('apartments.index',['apartments'=>$apartments, 'options'=> $options, 'lat'=>$lat,'lon'=>$lon, 'apartmentsAll'=>$apartmentsAll ]);
     }
 
     public function search(Request $request)
     {
+
         if ($request->ajax()){
 
             //Get lat , lon ,visibilita and nr of posti letto
-//            $lat = $request->lat;
-//            $lon = $request->lon;
-//            $visibilita = $request->visibilita;
-//            $postiLetto = $request->posti_letto;
-//            $circle_radius = $request->circle_radius;//50 km
-//            //check if all the field as different of null
-//            if (!$lat || !$lon) {
-//                $lat = $lon = 0.0;
-//                $circle_radius = 20000000000;//If no lat or no lon assign  both 0.0 and assign a very large km number that cover all the earth to return alla apartment
-//            }
-//            if(!$visibilita || !$postiLetto){
-//                $visibilita =  1;//If this values are null assign 1
-//                $postiLetto = 1;
-//            }
-//            $options = $request->options;   //['Portineria']; //
-//            //dd($lat,$lon);
-//            $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$options);
+            $lat = $request->lat;
+            $lon = $request->lon;
+            $circle_radius = $request->circle_radius;
+            $visibilita = 1;
+            $stanze = $request->stanze;
+            $postiLetto = $request->posti_letto;
 
-            return Response($request);
+            //check if all the field as different of null
+            if (!$lat || !$lon) {
+                $lat = $lon = 0.0;
+                $circle_radius = 20000000000;//If no lat or no lon assign  both 0.0 and assign a very large km number that cover all the earth to return alla apartment
+            }
+
+            if($lat == 0 AND $lon == 0){
+                $circle_radius = 20000000000;
+            }
+            if(!$visibilita || !$postiLetto || !$stanze){
+                $visibilita =  1;//If this values are null assign 1
+                $postiLetto = 1;
+                $stanze = 1;
+            }
+
+
+            if ($request->options){
+                $opzioni = $request->options;
+            }else{
+                $opzioni = null;
+            }
+
+
+            $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->get();
+
+
+            return Response($apartments);
+
         }
-
-//        $input = $request->all();
-//
-//        return response()->json(['success'=>'Got Simple Ajax Request.']);
-
+        
     }
-    // 111.045
+
 
     /**
      * Show the form for creating a new resource.
