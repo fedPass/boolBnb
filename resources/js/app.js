@@ -139,6 +139,7 @@ function modalChangeElement(modalVar, buttonVar, spanVar, pVar) { //funzione che
 tagliaTesto('.customJS', 15); //applico la funzione al titolo della card in index apartments (lato public)
 tagliaTesto('.smallJS', 20); //applico la funzione all'indirizzo della card in index apartments (lato public)
 tagliaTesto('.customAdminJS', 30); //applico la funzione al titolo della card in index apartments (lato admin)
+tagliaTesto('.promo-title', 15); //applico la funzione al titolo degli appartamenti in promozione
 
 
 function tagliaTesto(classeTesto, numeroCaratteri) { //prende in pasto la classe del testo da tagliare e il numero di caratteri da tenere prima del taglio (CONSIGLIO: dare una classe a parte solo per poter utilizzare questa funzione, così si evitano casini nel caso la classe si ripeta da un'altra parte)
