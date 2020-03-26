@@ -111,7 +111,6 @@
           <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
           @endforelse
       </section>
-        .entry
       <div class="paginate mx-auto mt-3">
         {{$apartments->links()}}
       </div>
