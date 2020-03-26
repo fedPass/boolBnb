@@ -62,29 +62,31 @@
         @endforeach
         </div>
       </div>
-      <section class="container" id="resultApartmentSection">
-        <div class="results-title col-12">
-          <h1>Risultati di ricerca</h1>
-        </div>
-          @forelse ($apartments as $apartment)
-        <div class="col-12 col-sm-9 col-md-5 col-lg-4">
-          <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
-          <div class="btn btn-primary card-results">
-            <div class="card-body">
-              <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+      <div class="results-title col-12">
+        <h1>Risultati di ricerca</h1>
+      </div>
+
+      @forelse ($apartments as $apartment)
+
+            <div class="col-12 col-sm-9 col-md-5 col-lg-4">
+              <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
+              <div class="btn btn-primary card-results">
+                <div class="card-body">
+                    <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                </div>
+                 <div class="card-body">
+                   <h5 class="card-title">{{ $apartment->titolo }}</h5>
+                   <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
+                    <p class="card-text descriprion">{{$apartment->descrizione}}</p>
+                 </div>
+              </div>
+              </a>
             </div>
-             <div class="card-body">
-               <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
-               <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
-              <p class="card-text customJS">{{$apartment->indirizzo}}</p>
-             </div>
-          </div>
-          </a>
-        </div>
-          @empty
-          <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
-          @endforelse
-      </section>
+
+
+      @empty
+      <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
+      @endforelse
       <div class="paginate mx-auto">
         {{$apartments->links()}}
       </div>
