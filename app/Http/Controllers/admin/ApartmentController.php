@@ -20,6 +20,7 @@ use App\Image;
 
 class ApartmentController extends Controller
 {
+
   public function __construct()
     {
         $this->middleware('auth');
@@ -208,6 +209,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
       $apartment = Apartment::find($id);
+      views($apartment)->record();
       // dd($apartment);
       return view('admin.apartments.show', ['apartment' => $apartment]);
     }
