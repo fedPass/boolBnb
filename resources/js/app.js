@@ -62,19 +62,19 @@ $(document).ready(function(){
     $('.info-room-navbar').slideUp();
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
-  if ($(window).width() > 996) { //se le dimensioni del display sono inferiori a 996px
-    if (st > 1000) { //se si fa scroll oltre i 900px
-      $('.card-scroll').css('margin-top','700px'); //la card a lato scende fino in fondo
-    } else {
-      $('.card-scroll').css('margin-top','0'); //altrimenti risale
-    }
-  }
+  // if ($(window).width() > 996) { //se le dimensioni del display sono superiori a 996px
+  //   if (st > 1000) { //se si fa scroll oltre i 900px
+  //     $('.card-scroll').css('margin-top','700px'); //la card a lato scende fino in fondo
+  //   } else {
+  //     $('.card-scroll').css('margin-top','0'); //altrimenti risale
+  //   }
+  // }
 });
 // -----NAVBAR AND FORM END-----------//
 
 
 // -----FILTERS -----------//
-if ($(window).width() > 768) {
+// if ($(window).width() > 768) { //se le dimensioni del display sono superiori a 768px
   $('.show-filters').on( "click", function(){ //al click sul pulsante "mostra filtri"
     $('.filters-container').slideDown(); //appare il riquadro delle opzioni
     $('.hide-filters').css('display','block'); //appare il pulsante di conferma
@@ -83,7 +83,7 @@ if ($(window).width() > 768) {
     $('.hide-filters').css('display','none'); //il pulsante scompare
     $('.filters-container').slideUp(); //la navbar scompare
   });
-}
+// }
 // -----FILTERS END-----------//
 
 // -----MESSAGGI-----------//

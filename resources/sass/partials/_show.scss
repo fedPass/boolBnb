@@ -14,7 +14,7 @@
     margin-top: 150px;
 }
 .room {
-  margin-top: 20px;
+  margin-top: $height-header;
   padding-bottom: 22px;
 }
 .previev {
@@ -26,6 +26,12 @@
 .room-img-public {
   border: 1px solid black;
   width: 100%;
+}
+.im-left {
+  height: 300px;
+}
+.im-right {
+  height: 150px;
 }
 .room-img {
   @extend .room-img-public;
@@ -58,7 +64,7 @@
   border-bottom: 1px solid $primary-color-dark;
 }
 .fix-right {
-  padding: 20px;
+  padding: 25px;
   .card-scroll {
     border: 1px solid $divider-color;
     border-radius: 5px;

@@ -30,24 +30,24 @@
 <div class="container-fluid room">
   <div class="row">
     <div class="col-lg-6 col-md-6 previev">
-      <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->title}}">
+      <img class="room-img-public im-left" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->title}}">
       {{-- <img class="room-img-public" src="{{ asset('storage/'. $apartment->img) }}" alt="foto:{{$apartment->title}}"> --}}
     </div>
     <div class="col-lg-6 col-md-6 previev">
       <div class="col-lg-6 col-md-12 top">
-        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
       </div>
       <div class="col-lg-6 bottom">
-        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-sm-12 scrol-left">
+    <div class="col-lg-7 col-sm-12 scrol-left">
       <div class="title" id="title">
         <h2>{{$apartment->titolo}}</h2>
         <div class="user-container float-right">
@@ -96,12 +96,11 @@
           Hello my name is {{$apartment->user->first_name}}. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </div>
-      @include('layouts/partials/maps')
     </div>
-    <div class="col-lg-4 fix-right">
-      <div class="card-scroll" style="width: 20rem;">
+    <div class="col-lg-5 fix-right">
+      <div class="card-scroll" >
         <div class="card-body">
-          <h5 class="card-title">Scrivi al proprietario</h5>
+          <h3 class="card-title">Scrivi al proprietario</h5>
           <small>* Campi obbligatori</small>
           <form action="{{--inserire la rotta che ti porta alla view grazie--}}" method="post">
             @csrf
@@ -119,7 +118,7 @@
             </div>
             <div class="form-group">
               <label for="message">Messaggio*</label>
-              <textarea class="form-control" id="message" placeholder="Inserisci qui il tuo messaggio..." name="messaggio" rows="5" required></textarea>
+              <textarea class="form-control" id="message" placeholder="Inserisci qui il tuo messaggio..." name="messaggio" rows="9" required></textarea>
               <input type="hidden" name="apartment_id" value="{{$apartment->id}}">
             </div>
             <button type="submit" class="btn btn-primary">Invia</button>
@@ -132,6 +131,9 @@
           </form>
         </div>
       </div>
+    </div>
+    <div class="col-12">
+      @include('layouts/partials/maps')
     </div>
   </div>
 </div>

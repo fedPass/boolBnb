@@ -11486,7 +11486,7 @@ footer .footer-bottom i {
 }
 
 .room {
-  margin-top: 20px;
+  margin-top: 80px;
   padding-bottom: 22px;
 }
 
@@ -11504,6 +11504,14 @@ footer .footer-bottom i {
 .room-img {
   border: 1px solid black;
   width: 100%;
+}
+
+.im-left {
+  height: 300px;
+}
+
+.im-right {
+  height: 150px;
 }
 
 .room-img {
@@ -11545,7 +11553,7 @@ footer .footer-bottom i {
 }
 
 .fix-right {
-  padding: 20px;
+  padding: 25px;
 }
 
 .fix-right .card-scroll {
@@ -11676,7 +11684,6 @@ footer .footer-bottom i {
   background-color: #1976D2;
   border-radius: 5px;
   color: white;
-  margin-left: 25%;
   margin-top: 20px;
   padding: 10px;
   width: 100%;
