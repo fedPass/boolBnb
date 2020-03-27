@@ -46,7 +46,16 @@
         </div>
         <div class="row footer-bottom pt-3 text-center">
             <div class="col-12 col-xl-4 mb-3 float-xl-right">
-                <a class="d-md-inline" href="#"><i class="fas fa-globe"></i></i>IT</a>
+              @php //per visualizzare il nome del locale
+              $locale = App::getLocale();
+              if (App::isLocale('en')) {
+                  $footercurrentLocale = 'EN';
+              }
+              if (App::isLocale('it')) {
+                  $footercurrentLocale = 'IT';
+              }
+              @endphp
+                <a class="d-md-inline" href="#"><i class="fas fa-globe"></i></i>{{$footercurrentLocale}}</a>
                 <ul class="list-inline social-icon d-none d-sm-none d-md-inline">
                     <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>

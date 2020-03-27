@@ -35,13 +35,15 @@
           @php
           $pathImage = $image->filename
           @endphp
-          <img class="room-img-public im-left" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->title}}">
+          {{-- <div class="room-img-public"> --}}
+            <img  class="room-img-public" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->title}}">
+          {{-- </div> --}}
         @endforeach
     </div>
       @endif
       {{-- <button class="leftArrow" type="button" name="button"><i class="fas fa-chevron-left"></i>prec</button>
       <button class="rightArrow" type="button" name="button">succ <i class="fas fa-chevron-right"></i></button> --}}
-      
+
     {{-- <div class="col-lg-6 col-md-6 previev">
       <div class="col-lg-6 col-md-12 top">
           <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->titolo}}">
