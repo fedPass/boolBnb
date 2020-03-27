@@ -138,66 +138,6 @@
 
                       </div>
                     </div>
-                    {{-- <div class="row form-group">
-                      <label class="col-12 col-md-3" for="civico">N. civico</label>
-                      <input type="text" class="form-control col-12 col-md-9 @error('civico') is-invalid @enderror" id="civico" placeholder="N. civico" name="civico" value="{{ old('civico') }}" required>
-                        @error('civico')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi il numero civico
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                      <label class="col-12 col-md-3" for="cap">CAP</label>
-                      <input type="text" class="form-control col-12 col-md-9 @error('cap') is-invalid @enderror" id="cap" placeholder="CAP" name="cap" value="{{ old('cap') }}" required>
-                      @error('cap')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi il CAP
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                      <label class="col-12 col-md-3" for="cita">Città</label>
-                      <input type="text" class="form-control col-12 col-md-9 @error('cita') is-invalid @enderror" id="cita" placeholder="Città" name="cita" value="{{ old('cita') }}" required>
-                      @error('cita')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi la città
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                      <label class="col-12 col-md-3" for="provincia">Provincia</label>
-                      <input type="text" class="form-control col-12 col-md-9 @error('provincia') is-invalid @enderror" id="provincia" placeholder="Provincia" name="provincia" value="{{ old('provincia') }}" required>
-                      @error('provincia')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi la provincia
-                        </div>
-                    </div> --}}
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="paese">Paese</label>
                       <input type="text" class="form-control col-12 col-md-9  @error('paese') is-invalid @enderror" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
@@ -243,17 +183,22 @@
                         <div class="input-group-btn">
                           <button class="btn btn-success" type="button">Add</button>
                         </div>
-                      </div>
-                      <div class="clone d-none">
-                        <div class="control-group input-group" style="margin-top:10px">
-                          <input type="file" name="images[]" class="form-control">
-                          <div class="input-group-btn">
-                            <button class="btn btn-danger" type="button">Remove</button>
+                          {{-- <div class="input-group control-group increment" >
+                              <label class="col-12 " for="images[]">Aggiungi fino a 5 immagini</label>
+                            <input type="file" multiple="multiple" name="images[]" class="form-control col-12" required>
+                            <div class="input-group-btn">
+                              <button class="btn btn-primary" type="button">Carica</button>
+                            </div>
+                           <div class="clone d-none">
+                            <div class="control-group input-group" style="margin-top:10px">
+                              <input type="file" name="images[]" class="form-control">
+                              <div class="input-group-btn">
+                                <button class="btn btn-danger" type="button">Remove</button>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                    {{-- <div class="row form-group">
+                            </div> --}}
+                        {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-2" name="img-2">
                     </div>
@@ -269,6 +214,7 @@
                       <label class="col-12 col-md-3" for="img-5">Immagine 5</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-5" name="img-5">
                     </div> --}}
+                    </div>
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
@@ -307,6 +253,7 @@
         });
 
       });
+
 
       //   Dropzone.autoDiscover = false;
       //   let token = $('meta[name="csrf-token"]').attr('content');
@@ -367,5 +314,6 @@
       //     }
       //   });
       // });
+
     </script>
 @endsection

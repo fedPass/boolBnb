@@ -16,6 +16,7 @@
             {{-- <div class="col-12">
                 <h3 class="mb-3">Appartamenti in promozione</h3>
             </div> --}}
+
             @forelse ($apartments as $apartment)
                 @if (($apartment->sponsors)->isNotEmpty())
                     @foreach ($apartment->sponsors as $time)
@@ -30,7 +31,13 @@
                                 <div class="card">
                                     <div class="card-img">
                                         <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
-                                        <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                                        @if (($apartment->images)->isNotEmpty())
+                                            @php
+                                                $copertina = $apartment->images->first()->filename
+                                                // $copertina = $apartment->images()->first()
+                                            @endphp
+                                        @endif
+                                        <img class="img-thumbnail" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
                                     </div>
                                     <div class="card-body">
                                             <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
@@ -76,16 +83,22 @@
                         $diff_in_hours = now()->diffInHours($expired_date);
                     @endphp
                 @endforeach
-                    {{-- @if (($apartment->sponsors)->isEmpty()) --}}
                     @if ((($apartment->sponsors)->isEmpty()) || (($apartment->sponsors)->isNotEmpty() && now() > $expired_date))
                         <div class="col-12 col-md-6 col-lg-4 mb-3">
                             <div class="card">
                                 <div class="card-img">
                                      <a class="text-decoration-none" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}">
+
+                                         @if (($apartment->images)->isNotEmpty())
+                                             @php
+                                                 $copertina = $apartment->images->first()->filename
+                                                 // $copertina = $apartment->images()->first()
+                                             @endphp
+                                         @endif
                                     @if ($apartment->visibilita == 1)
-                                        <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                                        <img class="img-thumbnail" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento">
                                     @else
-                                        <img class="img-thumbnail apt-not-visible" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                                        <img class="img-thumbnail apt-not-visible" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento">
                                     @endif
                                 </div>
                               <div class="card-body">
