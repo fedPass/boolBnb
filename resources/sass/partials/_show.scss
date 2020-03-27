@@ -19,24 +19,51 @@
 }
 .previev {
   display: flex;
-}
-.previev, .top, .bottom {
-  padding: 0;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+  padding-left: 2px;
 }
 .room-img-public {
   border: 1px solid black;
-  width: 100%;
-}
-.im-left {
+  width: 50%;
   height: 300px;
+  // position: relative;
+  // .fa-chevron-left {
+  //   position: absolute;
+  // }
 }
-.im-right {
-  height: 150px;
+//CUSTOM SCROLLBAR PREVIEV CONTAINER
+/* width */
+.previev::-webkit-scrollbar {
+  width: 20px;
 }
-.room-img {
-  @extend .room-img-public;
-  margin: 15px auto;
+/* Track */
+.previev::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $primary-color;
+  border-radius: 10px;
 }
+/* Handle */
+.previev::-webkit-scrollbar-thumb {
+  background: $primary-color;
+  border-radius: 10px;
+}
+/* Handle on hover */
+.previev::-webkit-scrollbar-thumb:hover {
+  background: $primary-color-dark;
+}
+// .previev, .top, .bottom {
+//   padding: 0;
+// }
+// .im-left {
+//   height: 300px;
+// }
+// .im-right {
+//   height: 150px;
+// }
+// .room-img {
+//   @extend .room-img-public;
+//   margin: 15px auto;
+// }
 .scrol-left {
   padding: 20px;
   h2 {
@@ -106,6 +133,10 @@
 @media (max-width: 768px) {
   .ul-right {
     display: none;
+  }
+  .room-img-public {
+    width: 90%;
+    height: 200px;
   }
 }
 
