@@ -66,13 +66,15 @@
               <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
               @if ($apartment->visibilita == 1)
                   @if (($apartment->images)->isNotEmpty())
-                      @php
+                      {{-- @php
                           $copertina = $apartment->images->first()->filename
                           // $copertina = $apartment->images()->first()
-                      @endphp
+                      @endphp --}}
+                        <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->images->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
+                      @else
+                        <img class="custom-img" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento . {{$apartment->titolo}}">
                   @endif
-                  <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
-                  <h5 class="text-white promo-title">{{ $apartment->titolo }}</h5>
+                <h5 class="text-white promo-title">{{ $apartment->titolo }}</h5>
               @endif
               </a>
             </div>
@@ -102,13 +104,15 @@
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
-                @if (($apartment->images)->isNotEmpty())
-                    @php
-                        $copertina = $apartment->images->first()->filename
-                        // $copertina = $apartment->images()->first()
-                    @endphp
-                @endif
-                <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
+              @if (($apartment->images)->isNotEmpty())
+                  {{-- @php
+                      $copertina = $apartment->images->first()->filename
+                      // $copertina = $apartment->images()->first()
+                  @endphp --}}
+                    <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->images->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
+                  @else
+                    <img class="custom-img" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento . {{$apartment->titolo}}">
+              @endif
             </div>
              <div class="card-text">
                <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>

@@ -249,6 +249,8 @@ class ApartmentController extends Controller
         'bagni'=> 'required|numeric|min:1',
         'dimensioni'=> 'required', 'integer', 'min:1',
         'descrizione'=> 'required',
+        'lat' => 'required',
+        'lon' => 'required',
         'indirizzo'=> 'required|min:5',
         'paese'=> 'required|min:2',
         'images[]'=> 'nullable|image|mimes:jpeg,jpg,png,gif,svg|max:4048'
