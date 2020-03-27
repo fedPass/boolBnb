@@ -11969,7 +11969,8 @@ nav .nav-item.active {
 }
 
 .add-product img {
-  width: 180px;
+  width: 100%;
+  height: 120px;
   margin-bottom: 10px;
 }
 

@@ -10,21 +10,13 @@
                 </div>
                 <hr>
                 @if (count($errors) > 0)
-
                   <div class="alert alert-danger">
-
                       <strong>Whoops!</strong> Controlla i tuoi dati.
-
                       <ul>
-
                           @foreach ($errors->all() as $error)
-
                               <li>{{ $error }}</li>
-
                           @endforeach
-
                       </ul>
-
                   </div>
 
               @endif
@@ -132,8 +124,8 @@
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi l'indirizzo'
                         </div>
-                      <input id="lat-create" type='hidden' name='lat'>
-                      <input id="lon-create" type='hidden' name='lon'>
+                      <input id="lat-create" type='hidden' name='lat' value="{{ old('lat') }}">
+                      <input id="lon-create" type='hidden' name='lon' value="{{ old('lon') }}">
                       <div id="via-list">
 
                       </div>
@@ -174,15 +166,19 @@
                         {{-- <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
                         <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img"> --}}
                       <div class="input-group control-group increment" >
-                        <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror">
+                        {{-- <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror"> --}}
+                        <div class="custom-file">
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
+                          <label class="custom-file-label" for="customFile">Carica fino a 5 immagini</label>
+                        </div>
                           @error('images[]')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
                           @enderror
-                        <div class="input-group-btn">
+                        {{-- <div class="input-group-btn">
                           <button class="btn btn-success" type="button">Add</button>
-                        </div>
+                        </div> --}}
                           {{-- <div class="input-group control-group increment" >
                               <label class="col-12 " for="images[]">Aggiungi fino a 5 immagini</label>
                             <input type="file" multiple="multiple" name="images[]" class="form-control col-12" required>
@@ -214,6 +210,7 @@
                       <label class="col-12 col-md-3" for="img-5">Immagine 5</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-5" name="img-5">
                     </div> --}}
+                      </div>
                     </div>
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
