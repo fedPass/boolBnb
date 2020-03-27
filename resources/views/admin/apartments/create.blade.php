@@ -6,12 +6,12 @@
         <div class="row d-flex justify-content-center">
             <div class="col-8 add-product">
                 <div class="col-12">
-                    <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
+                    <h1 class="text-center pb-3">{{__('home-admin.CreateTitle')}}</h1>
                 </div>
                 <hr>
                 @if (count($errors) > 0)
                   <div class="alert alert-danger">
-                      <strong>Whoops!</strong> Controlla i tuoi dati.
+                      <strong>Whoops!</strong> {{__('home-admin.ErrorForm')}}
                       <ul>
                           @foreach ($errors->all() as $error)
                               <li>{{ $error }}</li>
@@ -24,15 +24,15 @@
                     @csrf
                     @method("POST")
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="titolo">Titolo</label>
+                      <label class="col-12 col-md-3" for="titolo">{{__('home-admin.FormTitle')}}</label>
                       {{-- old per recuperare vallue in caso di errore compilazione form --}}
-                      <input type="text" class="form-control col-12 col-md-9" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
+                      <input type="text" class="form-control col-12 col-md-9" id="titolo" placeholder="{{__('home-admin.FormTitle')}}" name="titolo" value="{{ old('titolo') }}" required autofocus>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">Ok!</div>
                       <div class="invalid-feedback col-12 col-md-9 offset-md-3">Aggiungi un titolo</div>
                     </div>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3" for="stanze">Numero di stanze</label>
-                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="stanze" placeholder="Numero di stanze" name="stanze" value="{{ old('stanze') }}" required>
+                        <label class="col-12 col-md-3" for="stanze">{{__('home-admin.FormRooms')}}</label>
+                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="stanze" placeholder="{{__('home-admin.FormRooms')}}" name="stanze" value="{{ old('stanze') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                         </div>
@@ -41,8 +41,8 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3" for="posti_letto">Numero posti letto</label>
-                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="posti_letto" placeholder="Numero di posti letto" name="posti_letto" value="{{ old('posti_letto') }}" required>
+                        <label class="col-12 col-md-3" for="posti_letto">{{__('home-admin.FormBeds')}}</label>
+                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="posti_letto" placeholder="{{__('home-admin.FormBeds')}}" name="posti_letto" value="{{ old('posti_letto') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -51,8 +51,8 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3" for="bagni">Numero di bagni</label>
-                        <input type="number" min="1" class="form-control col-12 col-md-9" id="bagni" placeholder="Numero di bagni" name="bagni" value="{{ old('bagni') }}" required>
+                        <label class="col-12 col-md-3" for="bagni">{{__('home-admin.FormBath')}}</label>
+                        <input type="number" min="1" class="form-control col-12 col-md-9" id="bagni" placeholder="{{__('home-admin.FormBath')}}" name="bagni" value="{{ old('bagni') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                         </div>
@@ -61,8 +61,8 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3" for="dimensioni">Dimensioni (mq)</label>
-                        <input type="number" min="1" class="form-control col-12 col-md-9" id="dimensioni" placeholder="Dimensioni in mq" name="dimensioni" value="{{ old('dimensioni') }}" required>
+                        <label class="col-12 col-md-3" for="dimensioni">{{__('home-admin.FormMq')}}</label>
+                        <input type="number" min="1" class="form-control col-12 col-md-9" id="dimensioni" placeholder="{{__('home-admin.FormMq')}}" name="dimensioni" value="{{ old('dimensioni') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                           </div>
@@ -71,8 +71,8 @@
                           </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="descrizione">Descrizione</label>
-                      <textarea type="text" class="form-control col-12 col-md-9" id="descrizione" placeholder="Descrizione" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
+                      <label class="col-12 col-md-3" for="descrizione">{{__('home-admin.FormDescr')}}</label>
+                      <textarea type="text" class="form-control col-12 col-md-9" id="descrizione" placeholder="{{__('home-admin.FormDescr')}}" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -81,22 +81,22 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="search-dove">Indirizzo</label>
-                      <input id="via" type="text" class="form-control via col-12 col-md-9" placeholder="Indirizzo" name="indirizzo" value="{{ old('via') }}" required>
+                      <label class="col-12 col-md-3" for="search-dove">{{__('home-admin.FormAddress')}}</label>
+                      <input id="via" type="text" class="form-control via col-12 col-md-9" placeholder="{{__('home-admin.FormAddress')}}" name="indirizzo" required>
                        <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi l'indirizzo'
                         </div>
-                      <input id="lat-create" type='hidden' name='lat' value="{{ old('lat') }}">
-                      <input id="lon-create" type='hidden' name='lon' value="{{ old('lon') }}">
+                      <input id="lat-create" type='hidden' name='lat'>
+                      <input id="lon-create" type='hidden' name='lon'>
                       <div id="via-list">
                       </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="paese">Paese</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
+                      <label class="col-12 col-md-3" for="paese">{{__('home-admin.FormCountry')}}</label>
+                      <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="{{__('home-admin.FormCountry')}}" name="paese" value="{{ old('paese') }}" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -106,7 +106,7 @@
                     </div>
                     <hr>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3">Servizi</label>
+                        <label class="col-12 col-md-3">{{__('home-admin.FormService')}}</label>
                         <div class="col-12 col-md-9 d-flex flex-row flex-wrap">
                             @foreach ($options as $option)
                                 <div class="col-12 col-md-6">
@@ -126,7 +126,7 @@
                         {{-- <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror"> --}}
                         <div class="custom-file">
                           <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
-                          <label class="custom-file-label" for="customFile">Carica fino a 5 immagini</label>
+                          <label class="custom-file-label" for="customFile">{{__('home-admin.FormFiles')}}</label>
                         </div>
                           @error('images[]')
                               <span class="invalid-feedback" role="alert">
@@ -173,11 +173,11 @@
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
                             <input type="checkbox"  name="visibilita" checked="checked" class="js-switch">
-                            <label class="js-switch" for="visibilita">Visibilità annuncio</label>
+                            <label class="js-switch" for="visibilita">{{__('home-admin.FormVisible')}}</label>
                         </div>
                     </div>
                     <div class="row">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Aggiungi un nuovo appartamento</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">{{__('home-admin.FormAddBtn')}}</button>
                     </div>
                 </form>
             </div>

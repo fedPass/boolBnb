@@ -11995,6 +11995,10 @@ nav .nav-item.active {
   padding: 0;
 }
 
+.add-product .custom-file {
+  margin: 0 20px;
+}
+
 .add-product #via-list {
   position: relative;
   width: 100%;
