@@ -16,19 +16,19 @@
       @if ($leads->count() >= 1)
         <div class="col-12">
           <div class="card-header text-center message-recev bg-primary text-white border-white">
-            <h5><strong>Messaggio da: </strong> {{$lead->nome}}</h5>
+            <h5><strong>{{__('messages.messagesCardHead')}}: </strong> {{$lead->nome}}</h5>
           </div>
           <div class="card-body mex-info">
             <blockquote class="blockquote mb-0">
-              <p><strong>ID appartamento: </strong> {{$lead->apartment_id}}</p>
+              <p><strong>{{__('messages.messagesCardBodyId')}}: </strong> {{$lead->apartment_id}}</p>
               <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
-              <p><strong>Oggetto: </strong> {{$lead->oggetto}}</p>
-              <p><strong>Testo Messaggio: </strong><br> {{$lead->messaggio}}</p>
+              <p><strong>{{__('messages.messagesCardBodyObject')}}: </strong> {{$lead->oggetto}}</p>
+              <p><strong>{{__('messages.messagesCardBodyText')}}: </strong><br> {{$lead->messaggio}}</p>
             </blockquote>
           </div>
         </div>
       @else
-        <p>non ci sono messaggi da visualizzare</p>
+        <p>{{__('messages.messagesNone')}}</p>
       @endif
     @endforeach
     <div class="paginate mx-auto">
