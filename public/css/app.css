@@ -11968,6 +11968,13 @@ nav .nav-item.active {
   }
 }
 
+.room-img {
+  width: 165px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .add-product {
   margin-top: 80px;
   background-color: white;
@@ -11993,6 +12000,10 @@ nav .nav-item.active {
 .add-product .custom-control.custom-switch {
   text-align: center;
   padding: 0;
+}
+
+.add-product .custom-file {
+  margin: 0 20px;
 }
 
 .add-product #via-list {
