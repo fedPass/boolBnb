@@ -103,7 +103,7 @@
           <div class="row justify-content-center">
               <div class="graphic col">
                 <div class="graphic-title">
-                  <h5>Visualizzazioni</h5>
+                  <h5>Visualizzazioni: {{$apartment->views->count()}}</h5>
                 </div>
                 <div class="grafici">
                     <div class="grafico1">
@@ -116,7 +116,7 @@
 
               <div class="graphic col">
                 <div class="graphic-title">
-                  <h5>Messaggi</h5>
+                  <h5>Messaggi: {{$apartment->leads()->count()}}</h5>
                 </div>
                 <div class="grafici">
                     <div class="grafico2">

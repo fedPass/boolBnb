@@ -9,6 +9,25 @@
                     <h1 class="text-center pb-3">Aggiungi un appartamento</h1>
                 </div>
                 <hr>
+                @if (count($errors) > 0)
+
+                  <div class="alert alert-danger">
+
+                      <strong>Whoops!</strong> Controlla i tuoi dati.
+
+                      <ul>
+
+                          @foreach ($errors->all() as $error)
+
+                              <li>{{ $error }}</li>
+
+                          @endforeach
+
+                      </ul>
+
+                  </div>
+
+              @endif
                 <form id="create" action="{{ route('admin.apartments.store')}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation" novalidate>
                     @csrf
                     @method("POST")
@@ -154,9 +173,15 @@
                     <div class="row form-group">
                         {{-- <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
                         <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img"> --}}
-                        <div class="custom-file">
-                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
-                          <label class="custom-file-label" for="customFile">Carica fino a 5 immagini</label>
+                      <div class="input-group control-group increment" >
+                        <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror">
+                          @error('images[]')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                        <div class="input-group-btn">
+                          <button class="btn btn-success" type="button">Add</button>
                         </div>
                           {{-- <div class="input-group control-group increment" >
                               <label class="col-12 " for="images[]">Aggiungi fino a 5 immagini</label>

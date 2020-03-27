@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Options;
 use App\Sponsor;
 use App\Image;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class Apartment extends Model
+class Apartment extends Model implements Viewable
 {
+  use InteractsWithViews;
+
   protected $fillable = [
     'titolo',
     'stanze',
@@ -41,5 +45,9 @@ class Apartment extends Model
 
   public function images(){
     return $this->hasMany(Image::class);
+  }
+
+  public function leads(){
+    return $this->hasMany(Lead::class);
   }
 }

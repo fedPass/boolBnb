@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Option;
 use App\Sponsor;
+use App\Http\Requests\ApartmentRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Braintree_Transaction;
@@ -19,6 +20,7 @@ use App\Image;
 
 class ApartmentController extends Controller
 {
+
   public function __construct()
     {
         $this->middleware('auth');
@@ -42,49 +44,49 @@ class ApartmentController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        $message = [
-            'titolo.required' => 'Titolo richiesto',
-            'titolo.min' => 'Minimo 2 carateri',
-            'titolo.max' => 'Titolo troppo lungo!',
-            'visibilita.required' => 'Nascondi o mostra?',
-            'stanze.required' => 'Campo richiesto',
-            'stanze.integer' => 'Campo non negativo!',
-            'stanze.min' => 'Minimo 2 carateri',
-            'posti_letto.required' => 'Campo richiesto',
-            'posti_letto.integer' => 'Campo non negativo!',
-            'posti_letto.min' => 'Minimo 2 carateri',
-            'bagni.required' => 'Campo richiesto',
-            'bagni.integer' => 'Campo non negativo!',
-            'dimensioni.required' => 'Campo richiesto',
-            'dimensioni.integer' => 'Campo non negativo!',
-            'descrizione.required' => 'Campo richiesto',
-            'via.required' => 'Campo richiesto',
-            'civico.required' => 'Campo richiesto',
-            'civico.integer' => 'Campo non negativo!',
-            'cap.required' => 'Campo richiesto',
-            'cap.integer' => 'Campo non negativo!',
-            'cita.required' => 'Campo richiesto',
-            'provincia.required' => 'Campo richiesto',
-            'paese.required' => 'Campo richiesto'
-        ];
-
-        return Validator::make($data, [
-            'titolo' => ['required', 'string', 'min:2','max:255'],
-            'stanze' => ['required', 'integer', 'min:1'],
-            'posti_letto' => ['required', 'integer','min:1'],
-            'bagni' => ['required', 'integer', 'min:1'],
-            'dimensioni' => ['required', 'integer', 'min:1'],
-            'descrizione' => ['required', 'string'],
-            'via' => ['required', 'string'],
-            'civico' => ['required', 'integer', 'min:1'],
-            'cap' => ['required', 'integer', 'min:1'],
-            'cita' => ['required', 'string'],
-            'provincia' => ['required', 'string'],
-            'paese' => ['required', 'string', 'min:2']
-        ],$message);
-    }
+    // protected function validator(array $data)
+    // {
+    //     $message = [
+    //         'titolo.required' => 'Titolo richiesto',
+    //         'titolo.min' => 'Minimo 2 carateri',
+    //         'titolo.max' => 'Titolo troppo lungo!',
+    //         'visibilita.required' => 'Nascondi o mostra?',
+    //         'stanze.required' => 'Campo richiesto',
+    //         'stanze.integer' => 'Campo non negativo!',
+    //         'stanze.min' => 'Minimo 2 carateri',
+    //         'posti_letto.required' => 'Campo richiesto',
+    //         'posti_letto.integer' => 'Campo non negativo!',
+    //         'posti_letto.min' => 'Minimo 2 carateri',
+    //         'bagni.required' => 'Campo richiesto',
+    //         'bagni.integer' => 'Campo non negativo!',
+    //         'dimensioni.required' => 'Campo richiesto',
+    //         'dimensioni.integer' => 'Campo non negativo!',
+    //         'descrizione.required' => 'Campo richiesto',
+    //         'via.required' => 'Campo richiesto',
+    //         'civico.required' => 'Campo richiesto',
+    //         'civico.integer' => 'Campo non negativo!',
+    //         'cap.required' => 'Campo richiesto',
+    //         'cap.integer' => 'Campo non negativo!',
+    //         'cita.required' => 'Campo richiesto',
+    //         'provincia.required' => 'Campo richiesto',
+    //         'paese.required' => 'Campo richiesto'
+    //     ];
+    //
+    //     return Validator::make($data, [
+    //         'titolo' => ['required', 'string', 'min:2','max:255'],
+    //         'stanze' => ['required', 'integer', 'min:1'],
+    //         'posti_letto' => ['required', 'integer','min:1'],
+    //         'bagni' => ['required', 'integer', 'min:1'],
+    //         'dimensioni' => ['required', 'integer', 'min:1'],
+    //         'descrizione' => ['required', 'string'],
+    //         'via' => ['required', 'string'],
+    //         'civico' => ['required', 'integer', 'min:1'],
+    //         'cap' => ['required', 'integer', 'min:1'],
+    //         'cita' => ['required', 'string'],
+    //         'provincia' => ['required', 'string'],
+    //         'paese' => ['required', 'string', 'min:2']
+    //     ],$message);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -107,8 +109,49 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         // da fare: inserire validate()
-      $data = $request->all();
-      // dd($data);
+      // $data = $request->validate([
+      //   'titolo' => 'required|string|min:2|max:255',
+      //   'stanze' => 'required|numeric|min:1',
+      //   'posti_letto'=> 'required|numeric|min:1',
+      //   'bagni'=> 'required|numeric|min:1',
+      //   'dimensioni'=> 'required', 'integer', 'min:1',
+      //   'descrizione'=> 'required',
+      //   'indirizzo'=> 'required',
+      //   'paese'=> 'required'
+      // ]);
+
+      $data =  request()->validate([
+        'titolo' => 'required|string|min:2|max:255',
+        'stanze' => 'required|numeric|min:1',
+        'posti_letto'=> 'required|numeric|min:1',
+        'bagni'=> 'required|numeric|min:1',
+        'dimensioni'=> 'required', 'integer', 'min:1',
+        'descrizione'=> 'required',
+        'indirizzo'=> 'required|min:5',
+        'paese'=> 'required|min:2',
+        'images[]'=> 'nullable|image|mimes:jpeg,jpg,png,gif,svg|max:4048'
+      ],
+      [
+        'titolo.required' => 'Titolo: Campo richiesto',
+        'titolo.min' => 'Titolo: Minimo 2 carateri',
+        'titolo.max' => 'Titolo: Titolo troppo lungo!',
+        'stanze.required' => 'Stanze: Campo richiesto',
+        'stanze.numeric' => 'Stanze: Il campo deve essere un numero e non può essere negativo',
+        'posti_letto.required' => 'Posti Letto: Campo richiesto',
+        'posti_letto.numeric' => 'Posti Letto: Il campo deve essere un numero e non può essere negativo',
+        'bagni.required' => 'Bagni: Campo richiesto',
+        'bagni.numeric' => 'Bagni: Il campo deve essere un numero e non può essere negativo',
+        'dimensioni.required' => 'Dimensioni:Campo richiesto',
+        'dimensioni.numeric' => 'Dimensioni: Il campo deve essere un numero e non può essere negativo',
+        'descrizione.required' => 'Descrizione: Campo richiesto',
+        'indirizzo.required' => 'Indirizzo: Campo richiesto',
+        'indirizzo.min' => 'Indirizzo: Deve essere più lungo',
+        'paese.required' => 'Paese: Campo richiesto',
+        'paese.min' => 'Paese: Minimo 2 carateri',
+        'images[].image' => 'Immagini: Solo formati jpeg,jpg,png,gif,svg'
+      ]);
+
+
       $new_apartment = new Apartment();
       $new_apartment->fill($data);
         if($request->input('visibilita')){
@@ -166,6 +209,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
       $apartment = Apartment::find($id);
+      views($apartment)->record();
       // dd($apartment);
       return view('admin.apartments.show', ['apartment' => $apartment]);
     }
@@ -197,7 +241,36 @@ class ApartmentController extends Controller
     {
       // da fare: inserire validate()
       $apartment = Apartment::find($id);
-      $data = $request->all();
+      $data =  request()->validate([
+        'titolo' => 'required|string|min:2|max:255',
+        'stanze' => 'required|numeric|min:1',
+        'posti_letto'=> 'required|numeric|min:1',
+        'bagni'=> 'required|numeric|min:1',
+        'dimensioni'=> 'required', 'integer', 'min:1',
+        'descrizione'=> 'required',
+        'indirizzo'=> 'required|min:5',
+        'paese'=> 'required|min:2',
+        'images[]'=> 'nullable|image|mimes:jpeg,jpg,png,gif,svg|max:4048'
+      ],
+      [
+        'titolo.required' => 'Titolo: Campo richiesto',
+        'titolo.min' => 'Titolo: Minimo 2 carateri',
+        'titolo.max' => 'Titolo: Titolo troppo lungo!',
+        'stanze.required' => 'Stanze: Campo richiesto',
+        'stanze.numeric' => 'Stanze: Il campo deve essere un numero e non può essere negativo',
+        'posti_letto.required' => 'Posti Letto: Campo richiesto',
+        'posti_letto.numeric' => 'Posti Letto: Il campo deve essere un numero e non può essere negativo',
+        'bagni.required' => 'Bagni: Campo richiesto',
+        'bagni.numeric' => 'Bagni: Il campo deve essere un numero e non può essere negativo',
+        'dimensioni.required' => 'Dimensioni:Campo richiesto',
+        'dimensioni.numeric' => 'Dimensioni: Il campo deve essere un numero e non può essere negativo',
+        'descrizione.required' => 'Descrizione: Campo richiesto',
+        'indirizzo.required' => 'Indirizzo: Campo richiesto',
+        'indirizzo.min' => 'Indirizzo: Deve essere più lungo',
+        'paese.required' => 'Paese: Campo richiesto',
+        'paese.min' => 'Paese: Minimo 2 carateri',
+        'images[].image' => 'Immagini: Solo formati jpeg,jpg,png,gif,svg'
+      ]);
         if(isset($data['visibilita'])){
             $data['visibilita'] = 1;
         } else{

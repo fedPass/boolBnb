@@ -7,6 +7,26 @@
             <div class="col-8 add-product">
                 <h1 class="text-center pb-3">Modifica dettagli appartamento</h1>
                 <hr>
+
+                @if (count($errors) > 0)
+
+                  <div class="alert alert-danger">
+
+                      <strong>Whoops!</strong> Controlla i tuoi dati.
+
+                      <ul>
+
+                          @foreach ($errors->all() as $error)
+
+                              <li>{{ $error }}</li>
+
+                          @endforeach
+
+                      </ul>
+
+                  </div>
+
+              @endif
                  <form id="create" action="{{ route('admin.apartments.update' , ['apartment' => $apartment->id])}}" method="post" enctype="multipart/form-data" autocomplete="off" class="needs-validation edit-form" novalidate>
                     @csrf
                     @method('PUT')
