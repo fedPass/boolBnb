@@ -6,8 +6,8 @@
     <div class="container admin-container">
         <div class="row pt-5">
             <div class="col-12">
-                <h1 class="float-left">Gestisci i tuoi appartamenti</h1>
-                <a class="btn btn-info float-right" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
+                <h1 class="float-left">{{__('home-admin.IndexAdminTitle')}}</h1>
+                <a class="btn btn-info float-right" href="{{ route('admin.apartments.create') }}">{{__('home-admin.BtnAddApart')}}</a>
             </div>
         </div>
         <hr>
@@ -16,7 +16,6 @@
             {{-- <div class="col-12">
                 <h3 class="mb-3">Appartamenti in promozione</h3>
             </div> --}}
-
             @forelse ($apartments as $apartment)
                 @if (($apartment->sponsors)->isNotEmpty())
                     @foreach ($apartment->sponsors as $time)
@@ -34,7 +33,6 @@
                                         @if (($apartment->images)->isNotEmpty())
                                             @php
                                                 $copertina = $apartment->images->first()->filename
-                                                // $copertina = $apartment->images()->first()
                                             @endphp
                                         @endif
                                         <img class="img-thumbnail" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
@@ -44,16 +42,16 @@
                                         </a>
                                         <div class="row">
                                             <div class="col-12 col-xl-6 btn-apartment-crud">
-                                                <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
+                                                <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">{{__('home-admin.BtnEdit')}}</a>
                                             </div>
                                             <div class="col-12 col-xl-6 btn-apartment-crud">
-                                                <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
+                                                <a href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">{{__('home-admin.BtnChart')}}</a>
                                             </div>
                                         </div>
                                         <div class="row">
                                           {{-- @foreach ($apartment->sponsors as $time) --}}
                                             <div class="col-12 btn-apartment-crud">
-                                                <a href="#" class="btn btn-primary disabled" id="promo-btn">In promo ancora per {{$diff_in_hours}} ore</a>
+                                                <a href="#" class="btn btn-primary disabled" id="promo-btn">{{__('home-admin.AnnPromo')}} {{$diff_in_hours}} {{__('home-admin.AnnHours')}}</a>
                                             </div>
                                         {{-- @endforeach --}}
                                         </div>
@@ -66,7 +64,7 @@
             @empty
                 <div class="col-12 mt-2 mb-2">
                     <div class="d-flex align-items-center flex-column text-center" >
-                        <h4>Non ci sono ancora appartamenti in promozione</h4>
+                        <h4>{{__('home-admin.NoApartPromo')}}</h4>
                     </div>
                 </div>
             @endforelse
@@ -111,25 +109,25 @@
                                   </a>
                                 <div class="row d-lg-flex align-items-lg-center">
                                     <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                        <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">Modifica</a>
+                                        <a href="{{ route('admin.apartments.edit', ['apartment' => $apartment->id]) }}" class="btn btn-primary float-left">{{__('home-admin.BtnEdit')}}</a>
                                     </div>
                                     <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
-                                        <a id="stat-btn" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">Statistiche</a>
+                                        <a id="stat-btn" href="{{ route('admin.apartments.show', ['apartment' => $apartment->id]) }}#graphic" class="btn btn-primary float-right">{{__('home-admin.BtnChart')}}</a>
                                     </div>
                                     <div class="col-12 col-xl-4 d-flex justify-content-center btn-apartment-crud">
                                         <form action="{{ route('admin.apartments.destroy', ['apartment' => $apartment->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                                            <button type="submit" class="btn btn-outline-danger">{{__('home-admin.BtnDelete')}}</button>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 btn-apartment-crud">
                                         @if ($apartment->visibilita == 1)
-                                            <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary" id="promo-btn">Promuovi questo appartamento</a>
+                                            <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary" id="promo-btn">{{__('home-admin.BtnPromo')}}</a>
                                         @else
-                                            <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary disabled" id="promo-btn">Promuovi questo appartamento</a>
+                                            <a href="{{ route('admin.apartments.promo', $apartment->id)}}" class="btn btn-primary disabled" id="promo-btn">{{__('home-admin.BtnPromo')}}</a>
                                         @endif
 
                                     </div>
@@ -141,9 +139,9 @@
             {{--                              <label class="custom-control-label" for="visibilita-{{$apartment->id}}">Visibilità annuncio</label>--}}
                                             <input type="checkbox" data-id="{{ $apartment->id }}" name="visibilita" class="js-switch" {{ $apartment->visibilita == 1 ? 'checked' : '' }}>
                                             @if ($apartment->visibilita == 1)
-                                                <label class="js-switch" for="visibilita-{{$apartment->id}}">Visibile</label>
+                                                <label class="js-switch" for="visibilita-{{$apartment->id}}">{{__('home-admin.Visible')}}</label>
                                             @else
-                                                <label class="js-switch" for="visibilita-{{$apartment->id}}">Non visibile</label>
+                                                <label class="js-switch" for="visibilita-{{$apartment->id}}">{{__('home-admin.NotVisible')}}</label>
                                             @endif
 
                                         </div>
@@ -156,8 +154,8 @@
             @empty
                 <div class="col-12 mt-5 mb-5">
                     <div class="d-flex align-items-center flex-column text-center" >
-                        <h4>Non ci sono ancora appartamenti da mostrare</h4>
-                        <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">Aggiungi appartamento</a>
+                        <h4>{{__('home-admin.NoApart')}}</h4>
+                        <a class="btn btn-info btn-lg" href="{{ route('admin.apartments.create') }}">{{__('home-admin.BtnAddApart')}}</a>
                     </div>
                 </div>
             @endforelse
