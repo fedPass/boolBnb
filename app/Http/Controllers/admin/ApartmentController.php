@@ -119,7 +119,6 @@ class ApartmentController extends Controller
       //   'indirizzo'=> 'required',
       //   'paese'=> 'required'
       // ]);
-
       $data =  request()->validate([
         'titolo' => 'required|string|min:2|max:255',
         'stanze' => 'required|numeric|min:1',
@@ -128,6 +127,8 @@ class ApartmentController extends Controller
         'dimensioni'=> 'required', 'integer', 'min:1',
         'descrizione'=> 'required',
         'indirizzo'=> 'required|min:5',
+        'lat' => 'required',
+        'lon' => 'required',
         'paese'=> 'required|min:2',
         'images[]'=> 'nullable|image|max:4048'
       ],
