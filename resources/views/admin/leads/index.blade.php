@@ -4,7 +4,7 @@
   <div class="container leads-container admin-container">
       <div class="row pt-5">
           <div class="col-12 col-md-9">
-              <h1 class="text-center float-md-left">Messaggi</h1>
+              <h1 class="text-center float-md-left">{{__('messages.messages')}}</h1>
           </div>
           <div class="col-12 col-md-3 d-flex justify-content-center d-lg-inline">
               <a class="text-center btn btn-info float-md-right" href="{{ route('admin.apartments.index') }}">Torna alla dashboard</a>

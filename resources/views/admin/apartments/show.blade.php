@@ -45,22 +45,22 @@
       </div>
 
       <div class="info section">
-        <h4>Info</h4>
+        <h4>{{__('show-admin.infoTitle')}}</h4>
         <div class="col-lg-12">
             <a href="#">{{$apartment->cita}}</a>
-            <p>Stanze: {{$apartment->stanze}}</p>
-            <p>Posti letto: {{$apartment->posti_letto}}</p>
-            <p>Bagni: {{$apartment->bagni}}</p>
+            <p>{{__('show-admin.infoRooms')}}: {{$apartment->stanze}}</p>
+            <p>{{__('show-admin.infoBeds')}}: {{$apartment->posti_letto}}</p>
+            <p>{{__('show-admin.infoBathrooms')}}: {{$apartment->bagni}}</p>
         </div>
       </div>
       <div class="description section">
-        <h4>Descrizione</h4>
+        <h4>{{__('show-admin.descriptionsTitle')}}</h4>
         <div class="col-lg-12">
             <p>{{$apartment->descrizione}}</p>
         </div>
       </div>
       <div class="services-container section" id="services">
-        <h4>Servizi</h4>
+        <h4>{{__('show-admin.servicesTitle')}}</h4>
         <div class="services">
           <div class="col-lg-12">
             @forelse ($apartment->options as $option)
@@ -75,7 +75,7 @@
 
       <!-- parte da implementare con le immagini -->
       <div class="room section">
-        <h4>Immagini appartamento</h4>
+        <h4>{{__('show-admin.imgTitle')}}</h4>
         <div class="row container-admin-img container-fluid justify-content-center">
             {{-- @for ($i=0; $i < 5; $i++)
                 <div class="col-sm-2">
@@ -99,11 +99,11 @@
       @include('layouts/partials/maps')
 
       <div id="graphic">
-          <h4>Statistiche</h4>
+          <h4>{{__('show-admin.statsTitle')}}</h4>
           <div class="row justify-content-center">
               <div class="graphic col">
                 <div class="graphic-title">
-                  <h5>Visualizzazioni: {{$apartment->views->count()}}</h5>
+                  <h5>{{__('show-admin.graphicsTitleVis')}}: {{$apartment->views->count()}}</h5>
                 </div>
                 <div class="grafici">
                     <div class="grafico1">
@@ -116,7 +116,7 @@
 
               <div class="graphic col">
                 <div class="graphic-title">
-                  <h5>Messaggi: {{$apartment->leads()->count()}}</h5>
+                  <h5>{{__('show-admin.graphicsTitleMes')}}: {{$apartment->leads()->count()}}</h5>
                 </div>
                 <div class="grafici">
                     <div class="grafico2">
