@@ -133,7 +133,7 @@ class ApartmentController extends Controller
             return Response($apartments);
 
         }
-        
+
     }
 
 
@@ -167,6 +167,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
       $apartment = Apartment::find($id);
+      views($apartment)->record();
       // $apartment = Apartment::where('titolo')->get();
       return view('apartments.show', compact('apartment'));
     }
