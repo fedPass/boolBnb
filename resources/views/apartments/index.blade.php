@@ -1,8 +1,6 @@
 {{-- PAGINA DEI RISULTATI DI RICERCA --}}
 @extends('layouts.public')
-@section('cdn')
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-@endsection
+
 
 @section('content')
 <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -66,15 +64,15 @@
               <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
               @if ($apartment->visibilita == 1)
                   @if (($apartment->images)->isNotEmpty())
-                      {{-- @php
-                          $copertina = $apartment->images->first()->filename
-                          // $copertina = $apartment->images()->first()
-                      @endphp --}}
-                        <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->images->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
-                      @else
-                        <img class="custom-img" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento . {{$apartment->titolo}}">
-                  @endif
-                <h5 class="text-white promo-title">{{ $apartment->titolo }}</h5>
+{{--                      @php--}}
+{{--                          $copertina = $apartment->images->first()->filename--}}
+{{--                          // $copertina = $apartment->images()->first()--}}
+{{--                      @endphp--}}
+                          <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->image->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
+                    @else
+                  <img class="custom-img" src="" alt="Immagine appartamento . {{$apartment->titolo}}">
+                      @endif
+                      <h5 class="text-white promo-title">{{ $apartment->titolo }}</h5>
               @endif
               </a>
             </div>
@@ -88,48 +86,10 @@
         <h1>Risultati di ricerca</h1>
       </div>
       <section class="container" id="resultApartmentSection">
-
-         @forelse ($apartments as $apartment)
-          {{--   @foreach ($apartment->sponsors as $time)
-                @php
-                    $expired_date = $time->pivot->due_date;
-                    // // $current_date = Carbon::now();
-                    // // $diff_in_hours = $to->diffInHours($from);
-                    $diff_in_hours = now()->diffInHours($expired_date);
-                @endphp
-            @endforeach
-                {{-- @if (($apartment->sponsors)->isEmpty())
-                @if ((($apartment->sponsors)->isEmpty()) || (($apartment->sponsors)->isNotEmpty() && now() > $expired_date)) --}}
-        <div class="col-12 col-sm-9 col-md-5 col-lg-4">
-          <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
-          <div class="btn btn-primary card-results">
-            <div class="card-body">
-              @if (($apartment->images)->isNotEmpty())
-                  {{-- @php
-                      $copertina = $apartment->images->first()->filename
-                      // $copertina = $apartment->images()->first()
-                  @endphp --}}
-                    <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->images->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
-                  @else
-                    <img class="custom-img" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento . {{$apartment->titolo}}">
-              @endif
-            </div>
-             <div class="card-text">
-               <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
-               <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
-              <p class="small-text smallJS">{{$apartment->indirizzo}}</p>
-             </div>
-          </div>
-          </a>
-        </div>
-      {{-- @endif --}}
-          @empty
-          <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
-          @endforelse
+            @include('layouts.partials.pagination_data')
       </section>
-      <div class="paginate mx-auto mt-3">
-        {{$apartments->links()}}
-      </div>
+        <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
+
     </div>
   </div>
 </div>
@@ -137,37 +97,27 @@
 @endsection
 
 @section('script')
-
     <script>
 
         $(document).ready(function() {
             //   Slider in searchsidebar
             let slider = document.getElementById("sliderKM");
             let output = document.getElementById("kmOutput");
+            // let container =  $('#resultApartmentSection');
+            // let paginator = $('#paginator');
             output.innerHTML = slider.value;
 
             slider.oninput = function () {
                 output.innerHTML = this.value;
             };
 
-            // compile the template
-            let source = $('#apartment-template').html();
 
-            let template = Handlebars.compile(source);
-            // execute the compiled template and print the output to the console
-            console.log(template({doesWhat: "rocks!"}));
 
-            function getFilterResult(results){
-                for (let i = 0; i < results.length; i++) {
-                    console.log(results[i])
-                }
-
-            }
-
-            //   Sidebar search ajax call
-            $('#searchDeepButton').click(function (event) {
+            $(document).on('click', '.pagination a', function(event){
                 event.preventDefault();
-                console.log('test')
+                console.log('click');
+                let page = $(this).attr('href').split('page=')[1];
+                $('#hidden_page').val(page);
                 let options = [];
                 $('.option-check-box').each(function () {
                     if ($(this).is(":checked")) {
@@ -175,60 +125,69 @@
                     }
                 });
 
+
                 let latSearch = $('#latSearch').val() ? $('#latSearch').val() : 0.0;
                 let lonSearch = $('#lonSearch').val() ? $('#lonSearch').val() : 0.0;
                 let circle_radius = $('#sliderKM').val();
                 let stanze = $.isNumeric($('#roomsNumSelect').val()) ? $('#roomsNumSelect').val() : 1;
                 let posti_letto = $.isNumeric($('#bedsNumSelect').val()) ? $('#bedsNumSelect').val() : 1;
+
+
+                fetch_data(page,latSearch,lonSearch,circle_radius,options,posti_letto,stanze);
+                //fetch_data(page);
+            });
+
+
+            function fetch_data(page,lat,lon,circle_radius,options,posti_letto,stanze)
+            {
+                console.log()
                 $.ajax({
-                    type: 'get',
-
+                    //url:"/apartments/search?page="+page+"&lat="+lat+"&lon="+lon+"&circle_radius="+circle_radius+"&options="+options+"&posti_letto="+posti_letto+"&stanze="+stanze,
                     url: '/apartments/search',
-
                     data: {
-                        lat: latSearch,
-                        lon: lonSearch,
+                        page: page,
+                        lat: lat,
+                        lon: lon,
                         circle_radius: circle_radius,
                         options: options,
                         posti_letto: posti_letto,
                         stanze: stanze,
 
                     },
-
-                    success: function (data) {
-                        $('#resultApartmentSection').empty();
-                        getFilterResult(data);
-
+                    success:function(data)
+                    {
+                        console.log(data)
+                        $('#resultApartmentSection').html(data);
                     },
-                    error: function (err) {
+                    error:function (err) {
                         console.log(err)
                     }
+                });
+            }
 
-                })
+
+
+            //   Sidebar search ajax call
+            $('#searchDeepButton').click(function (event) {
+                event.preventDefault();
+                let options = [];
+                $('.option-check-box').each(function () {
+                    if ($(this).is(":checked")) {
+                        options.push($(this).val());
+                    }
+                });
+                console.log(options)
+                let page = $('#hidden_page').val();
+                let latSearch = $('#latSearch').val() ? $('#latSearch').val() : 0.0;
+                let lonSearch = $('#lonSearch').val() ? $('#lonSearch').val() : 0.0;
+                let circle_radius = $('#sliderKM').val();
+                let stanze = $.isNumeric($('#roomsNumSelect').val()) ? $('#roomsNumSelect').val() : 1;
+                let posti_letto = $.isNumeric($('#bedsNumSelect').val()) ? $('#bedsNumSelect').val() : 1;
+                fetch_data(page,latSearch,lonSearch,circle_radius,options,posti_letto,stanze);
 
             });
 
 
         });
-
     </script>
-    {{--    Tempalte Hendelbars--}}
-    <script id="apartment-template" type="text/x-handlebars-template">
-              <div class="col-12 col-sm-9 col-md-5 col-lg-4">
-                  <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
-                  <div class="btn btn-primary card-results">
-                    <div class="card-body">
-                      <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
-                    </div>
-                     <div class="card-text">
-                       <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
-                       <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
-                      <p class="small-text smallJS">{{$apartment->indirizzo}}</p>
-                     </div>
-                  </div>
-                  </a>
-               </div>
-     </script>
-
-
-    @endsection
+@endsection

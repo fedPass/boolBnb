@@ -5,6 +5,12 @@
             <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
                 <div class="btn btn-primary card-results">
                     <div class="card-body">
+                        @if (($apartment->images)->isNotEmpty())
+
+                            <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->image->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
+                        @else
+                            <img class="custom-img" src="" alt="Immagine appartamento . {{$apartment->titolo}}">
+                        @endif
 {{--                        <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">--}}
                     </div>
                     <div class="card-text">
@@ -19,5 +25,8 @@
     @empty
         <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
     @endforelse
-        {{  $apartments->links() }}
+      <div class="paginate mx-auto mt-3">
+        {{$apartments->links()}}
+      </div>
+
 
