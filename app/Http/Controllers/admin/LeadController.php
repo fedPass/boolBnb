@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Lead;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 
 class LeadController extends Controller
 {
@@ -15,8 +18,11 @@ class LeadController extends Controller
      */
     public function index()
     {
-
-      $leads = Lead::paginate(8);
+      $leads = DB::table('apartments')
+      ->join('leads', 'apartments.id', '=', 'leads.apartment_id')
+      ->where('user_id', '=', Auth::user()->id)
+      ->orderBy('leads.created_at', 'DESC')
+      ->paginate(8);
         return view('admin.leads.index', compact('leads'));
     }
 

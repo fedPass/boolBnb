@@ -129,7 +129,7 @@ class ApartmentController extends Controller
         'descrizione'=> 'required',
         'indirizzo'=> 'required|min:5',
         'paese'=> 'required|min:2',
-        'images[]'=> 'nullable|image|mimes:jpeg,jpg,png,gif,svg|max:4048'
+        'images[]'=> 'nullable|image|max:4048'
       ],
       [
         'titolo.required' => 'Titolo: Campo richiesto',
