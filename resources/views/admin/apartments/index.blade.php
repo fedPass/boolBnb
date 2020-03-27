@@ -38,7 +38,7 @@
                                         <img class="img-thumbnail" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
                                     </div>
                                     <div class="card-body">
-                                            <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
+                                            <h5 class="card-title customAdminJS">{{ $apartment->titolo }}</h5>
                                         </a>
                                         <div class="row">
                                             <div class="col-12 col-xl-6 btn-apartment-crud">
@@ -101,7 +101,7 @@
                                 </div>
                               <div class="card-body">
                                       @if ($apartment->visibilita == 1)
-                                          <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
+                                          <h5 class="card-title customAdminJS">{{ $apartment->titolo }}</h5>
                                       @else
                                           <h5 class="card-title text-dark">{{ $apartment->titolo }}</h5>
                                       @endif

@@ -21,7 +21,7 @@ return [
   'bookLabelVisit'=>'Guests',
   'bookButtonSearc'=>'Search',
   //PUBLIC-HOME
-  'HomeTitle'=>'Promotional apartments',
+  'HomeTitle'=>'Featured apartments',
   //FOOTER
   'footerWork'=>'Job opportunities',
   'footerCondict'=>'Condictions',

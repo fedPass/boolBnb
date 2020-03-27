@@ -33,7 +33,7 @@
             $currentLocale = 'Italiano (IT)';
         }
         @endphp
-        <a class="nav-link" href="#" id="myBtn-lang">{{$currentLocale}}<span class="sr-only"></span></a>
+        <a class="nav-link" href="#" id="myBtn-lang"><i class="fas fa-globe"></i> {{$currentLocale}}<span class="sr-only"></span></a>
         <div id="myModal-lang" class="modal">
           <div class="modal-content col-4 text-center text-primary">
             <span class="close-lang text-right">&times;</span>
