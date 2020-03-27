@@ -76,7 +76,7 @@
       <!-- parte da implementare con le immagini -->
       <div class="room section">
         <h4>Immagini appartamento</h4>
-        <div class="row container-admin-img container-fluid">
+        <div class="row container-admin-img container-fluid justify-content-center">
             {{-- @for ($i=0; $i < 5; $i++)
                 <div class="col-sm-2">
                   <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
@@ -87,7 +87,7 @@
                 @php
                     $pathImage = $image->filename
                 @endphp
-                <div class="col-sm-2">
+                <div class="col-lg-2 col-md-4 col-sm-6">
                     <img class="room-img" src="{{ asset('uploads/images/'. $apartment->id . '/' . $pathImage) }}" alt="foto:{{$apartment->title}}">
                 </div>
             @endforeach

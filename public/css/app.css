@@ -11952,6 +11952,13 @@ nav .nav-item.active {
   }
 }
 
+.room-img {
+  width: 165px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .add-product {
   margin-top: 80px;
   background-color: white;
