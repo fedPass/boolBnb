@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://energywarroomlogogenerator.com/wp-content/uploads/2019/12/airbnb.png" />
+
     <title>Boolbnb</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->

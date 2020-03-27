@@ -50,7 +50,7 @@
       {{--      end filter area     --}}
     <div class="results-container col-10">
       <div class="row justify-content-center evidence-container">
-          <h1>Appartamenti in promozione</h1>
+          <h1>Appartamenti in evidenza</h1>
         <div class="col-sm-12 mx-auto evidence">
           @foreach ($apartmentsAll as $apartment)
             @if (($apartment->sponsors)->isNotEmpty())

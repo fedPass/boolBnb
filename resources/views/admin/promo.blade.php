@@ -7,11 +7,11 @@
     <div class="container admin-container">
         <div class="row pt-5">
             <div class="col-12 col-md-9">
-                <h1 class="text-center float-md-left">Promuovi il tuo appartamento</h1>
+                <h1 class="text-center float-md-left">{{__('home-admin.PromoTitle')}}</h1>
             </div>
 
             <div class="col-12 col-md-3 d-flex justify-content-center">
-                <a class="btn btn-info float-md-right btn-return" href="{{ route('admin.apartments.index') }}">Torna alla Dashboad</a>
+                <a class="btn btn-info float-md-right btn-return" href="{{ route('admin.apartments.index') }}">{{__('home-admin.BtnGoBack')}}</a>
             </div>
             <hr style="width: 100%">
             @if (session('success_message'))
@@ -23,7 +23,7 @@
                 <div class="col-8 add-product">
                     <div class="row form-group">
                         <div class="col-12">
-                            <p>Seleziona la promozione che vuoi attivare per il tuo appartamento <strong>{{$apartment->titolo}}</strong>:</p>
+                            <p>{{__('home-admin.SelectAdPromo')}} <strong>{{$apartment->titolo}}</strong>:</p>
                         </div>
                     </div>
 
@@ -32,11 +32,11 @@
                         <div class="row form-group">
                             <div class="col-12">
                                 <input type="radio" id="promo_1" name="promo" value="24">
-                                <label for="promo_1"><strong>Basic:</strong> 24h di sponsorizzazione-2,99€</label><br>
+                                <label for="promo_1"><strong>Basic:</strong> 24h / 2,99€</label><br>
                                 <input type="radio" id="promo_2" name="promo" value="72">
-                                <label for="promo_2"><strong>Standard:</strong> 72h di sponsorizzazione / 5,99€</label><br>
+                                <label for="promo_2"><strong>Standard:</strong> 72h / 5,99€</label><br>
                                 <input type="radio" id="promo_3" name="promo" value="144">
-                                <label for="promo_3"><strong>Premium:</strong> 144h di sponsorizzazione / 9,99€</label><br><br>
+                                <label for="promo_3"><strong>Premium:</strong> 144h / 9,99€</label><br><br>
                             </div>
                         </div>
                         <div class="row form-group payment-info">
@@ -48,7 +48,7 @@
                             <div class="col-12 d-flex justify-content-center">
                                 <input id="nonce" name="payment_method_nonce" type="hidden" />
                                 <input id="nonce" name="apartmentID" value="{{$apartment->id}}"type="hidden" />
-                                <button type="submit" class="btn btn-info float-right">Prosegui con il pagamento</button>
+                                <button type="submit" class="btn btn-info float-right">{{__('home-admin.ProcessPromo')}}</button>
                             </div>
                         </div>
                     </form>

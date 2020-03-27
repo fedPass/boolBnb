@@ -14,7 +14,7 @@ return [
    'bookLabelVisit'=>'Ospiti',
    'bookButtonSearc'=>'Cerca',
    //PUBLIC-HOME
-   'HomeTitle'=>'Appartamenti in promozione',
+   'HomeTitle'=>'Appartamenti in evidenza',
    //FOOTER
    'footerWork'=>'Opportunità di lavoro',
    'footerCondict'=>'Condizioni',

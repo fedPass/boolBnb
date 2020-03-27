@@ -86,6 +86,17 @@ $(document).ready(function(){
 // }
 // -----FILTERS END-----------//
 
+//--------CAROUSEL------------//
+// $(".leftArrow").click(function () { //al click sul pulsante di sinistra
+//   var leftPos = $('.previev').scrollLeft();
+//   $(".previev").animate({scrollLeft: leftPos - 500}, 800); //sottraggo 500px alle foto
+// });
+// $(".rightArrow").click(function () { //al click sul pulsante di destra
+//   var leftPos = $('.previev').scrollLeft();
+//   $(".previev").animate({scrollLeft: leftPos + 500}, 800); //aggiungo 500px alle foto
+// });
+//--------CAROUSEL END------------//
+
 // -----MESSAGGI-----------//
 $('.message-recev').on( "click", function(){ //quando si clicca sul div del mittente
   if($(this).siblings('.mex-info').is(':visible')){ //se il messaggio è aperto
