@@ -65,7 +65,13 @@
             <div class="col-lg-3 col-md-6 text-center">
               <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
               @if ($apartment->visibilita == 1)
-                  <img class="custom-img" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                  @if (($apartment->images)->isNotEmpty())
+                      @php
+                          $copertina = $apartment->images->first()->filename
+                          // $copertina = $apartment->images()->first()
+                      @endphp
+                  @endif
+                  <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
                   <h5 class="text-white promo-title">{{ $apartment->titolo }}</h5>
               @endif
               </a>
@@ -96,7 +102,13 @@
           <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
           <div class="btn btn-primary card-results">
             <div class="card-body">
-              <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                @if (($apartment->images)->isNotEmpty())
+                    @php
+                        $copertina = $apartment->images->first()->filename
+                        // $copertina = $apartment->images()->first()
+                    @endphp
+                @endif
+                <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
             </div>
              <div class="card-text">
                <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>

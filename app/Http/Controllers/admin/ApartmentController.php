@@ -108,6 +108,7 @@ class ApartmentController extends Controller
     {
         // da fare: inserire validate()
       $data = $request->all();
+      // dd($data);
       $new_apartment = new Apartment();
       $new_apartment->fill($data);
         if($request->input('visibilita')){

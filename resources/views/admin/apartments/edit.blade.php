@@ -82,46 +82,6 @@
 
                         </div>
                     </div>
-                    {{-- <div class="row form-group">
-                      <label class="col-12 col-md-3" for="civico">N. civico</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="civico" placeholder="N. civico" name="civico" value="{{ old('civico', $apartment->civico) }}" required>
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi il numero civico
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                      <label class="col-12 col-md-3" for="cap">CAP</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="cap" placeholder="CAP" name="cap" value="{{ old('cap', $apartment->cap) }}" required>
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi il CAP
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                      <label class="col-12 col-md-3" for="cita">Città</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="cita" placeholder="Città" name="cita" value="{{ old('cita', $apartment->cita) }}" required>
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi la città
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                      <label class="col-12 col-md-3" for="provincia">Provincia</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="provincia" placeholder="Provincia" name="provincia" value="{{ old('provincia', $apartment->provincia) }}" required>
-                      <div class="valid-feedback col-12 col-md-9 offset-md-3">
-                          Ok!
-                        </div>
-                        <div class="invalid-feedback col-12 col-md-9 offset-md-3">
-                          Aggiungi la provincia
-                        </div>
-                    </div> --}}
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="paese">Paese</label>
                       <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="Paese" name="paese" value="{{ old('paese', $apartment->paese) }}" required>
@@ -153,12 +113,21 @@
                     </div>
                     <hr>
                     <div class="row form-group">
-                        <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
+                        <div class="custom-file">
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
+                          <label class="custom-file-label" for="customFile">Carica fino a 5 immagini</label>
+                        </div>
                         {{-- se avevo caricato img mostramela --}}
-                        @if ($apartment->img)
-                            <img src="{{ asset('storage/'. $apartment->img) }}" alt="{{ $apartment->titolo }}">
+                        @if (($apartment->images)->isNotEmpty())
+                        @foreach ($apartment->images as $image)
+                            @php
+                                $pathImage = $image->filename
+                            @endphp
+                            <div class="col-12 col-sm-2">
+                                <img class="room-img" src="{{ asset('uploads/images/'. $apartment->id . '/' . $pathImage) }}" alt="foto:{{$apartment->title}}">
+                            </div>
+                        @endforeach
                         @endif
-                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img">
                     </div>
                     {{-- <div class="row form-group">
                       <label class="col-12 col-md-3" for="img-2">Immagine 2</label>

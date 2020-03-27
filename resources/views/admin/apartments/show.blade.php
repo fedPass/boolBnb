@@ -77,12 +77,21 @@
       <div class="room section">
         <h4>Immagini appartamento</h4>
         <div class="row container-admin-img container-fluid">
-            @for ($i=0; $i < 5; $i++)
+            {{-- @for ($i=0; $i < 5; $i++)
                 <div class="col-sm-2">
-                  {{-- <img class="room-img" src="{{ asset('storage/'. $apartment->img) }}" alt="foto:{{$apartment->title}}"> --}}
                   <img class="room-img" src="https://r-cf.bstatic.com/images/hotel/max1024x768/669/66981196.jpg" alt="">
                 </div>
-            @endfor
+            @endfor --}}
+            @if (($apartment->images)->isNotEmpty())
+            @foreach ($apartment->images as $image)
+                @php
+                    $pathImage = $image->filename
+                @endphp
+                <div class="col-sm-2">
+                    <img class="room-img" src="{{ asset('uploads/images/'. $apartment->id . '/' . $pathImage) }}" alt="foto:{{$apartment->title}}">
+                </div>
+            @endforeach
+            @endif
         </div>
       </div>
       <!-- fine -->

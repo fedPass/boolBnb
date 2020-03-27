@@ -30,19 +30,35 @@
 <div class="container-fluid room">
   <div class="row">
     <div class="col-lg-6 col-md-6 previev">
-      <img class="room-img-public im-left" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->title}}">
-      {{-- <img class="room-img-public" src="{{ asset('storage/'. $apartment->img) }}" alt="foto:{{$apartment->title}}"> --}}
+        @if (($apartment->images)->isNotEmpty())
+            @foreach ($apartment->images as $image)
+                @php
+                    $copertina = $apartment->images->first()->filename
+                    // $foto1 = $image->get(2)->filename
+                    // $foto2 = $image->get(3)->filename
+                    // $foto3 = $image->get(4)->filename
+                    // $foto4 = $image->get(5)->filename
+                @endphp
+            @endforeach
+        <img class="room-img-public im-left" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="foto:{{$apartment->title}}">
+        {{-- <img class="room-img-public" src="{{ asset('storage/'. $apartment->img) }}" alt="foto:{{$apartment->title}}"> --}}
     </div>
-    <div class="col-lg-6 col-md-6 previev">
-      <div class="col-lg-6 col-md-12 top">
-        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
-      </div>
-      <div class="col-lg-6 bottom">
-        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
-      </div>
-    </div>
+              <div class="col-lg-6 col-md-6 previev">
+                <div class="col-lg-6 col-md-12 top">
+                    {{-- <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $foto1)}}" alt="foto:{{$apartment->titolo}}"> --}}
+                  <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+                  {{-- <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $foto2)}}" alt="foto:{{$apartment->titolo}}"> --}}
+                  <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+                </div>
+                <div class="col-lg-6 bottom">
+                    {{-- <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $foto3)}}" alt="foto:{{$apartment->titolo}}"> --}}
+                  <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+                  {{-- <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $foto4)}}" alt="foto:{{$apartment->titolo}}"> --}}
+                  <img class="room-img-public im-right" src="{{asset('storage/' . $apartment->img)}}" alt="foto:{{$apartment->titolo}}">
+                </div>
+              </div>
+            {{-- @endforeach --}}
+        @endif
   </div>
 </div>
 <div class="container">
