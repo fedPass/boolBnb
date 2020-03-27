@@ -6,13 +6,15 @@
                 <div class="btn btn-primary card-results">
                     <div class="card-body">
                         @if (($apartment->images)->isNotEmpty())
-
+                            {{--                      @php--}}
+                            {{--                          $copertina = $apartment->images->first()->filename--}}
+                            {{--                          // $copertina = $apartment->images()->first()--}}
+                            {{--                      @endphp--}}
                             <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->image->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
                         @else
                             <img class="custom-img" src="" alt="Immagine appartamento . {{$apartment->titolo}}">
                         @endif
-{{--                        <img class="img-thumbnail" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">--}}
-                    </div>
+                        <h5 class="text-white promo-title">{{ $apartment->titolo }}</h5>
                     <div class="card-text">
                         <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
                         <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
