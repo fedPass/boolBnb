@@ -88,48 +88,10 @@
         <h1>Risultati di ricerca</h1>
       </div>
       <section class="container" id="resultApartmentSection">
-
-         @forelse ($apartments as $apartment)
-          {{--   @foreach ($apartment->sponsors as $time)
-                @php
-                    $expired_date = $time->pivot->due_date;
-                    // // $current_date = Carbon::now();
-                    // // $diff_in_hours = $to->diffInHours($from);
-                    $diff_in_hours = now()->diffInHours($expired_date);
-                @endphp
-            @endforeach
-                {{-- @if (($apartment->sponsors)->isEmpty())
-                @if ((($apartment->sponsors)->isEmpty()) || (($apartment->sponsors)->isNotEmpty() && now() > $expired_date)) --}}
-        <div class="col-12 col-sm-9 col-md-5 col-lg-4">
-          <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
-          <div class="btn btn-primary card-results">
-            <div class="card-body">
-              @if (($apartment->images)->isNotEmpty())
-                  {{-- @php
-                      $copertina = $apartment->images->first()->filename
-                      // $copertina = $apartment->images()->first()
-                  @endphp --}}
-                    <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $apartment->images->first()->filename)}}" alt="Immagine appartamento . {{$apartment->titolo}}">
-                  @else
-                    <img class="custom-img" src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Immagine appartamento . {{$apartment->titolo}}">
-              @endif
-            </div>
-             <div class="card-text">
-               <h5 class="card-title customJS">{{ $apartment->titolo }}</h5>
-               <small>Stanze: {{$apartment->stanze}},  Posti letto: {{$apartment->posti_letto}}, Bagni: {{$apartment->bagni}}</small>
-              <p class="small-text smallJS">{{$apartment->indirizzo}}</p>
-             </div>
-          </div>
-          </a>
-        </div>
-      {{-- @endif --}}
-          @empty
-          <p class="text-center">Non ci sono ancora appartamenti da mostrare</p>
-          @endforelse
+            @include('layouts.partials.pagination_data')
       </section>
-      <div class="paginate mx-auto mt-3">
-        {{$apartments->links()}}
-      </div>
+        <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
+
     </div>
   </div>
 </div>
@@ -150,22 +112,9 @@
                 output.innerHTML = this.value;
             };
 
-            // compile the template
-            let source = $('#apartment-template').html();
 
-            let template = Handlebars.compile(source);
-            // execute the compiled template and print the output to the console
-            console.log(template({doesWhat: "rocks!"}));
 
-            function getFilterResult(results){
-                for (let i = 0; i < results.length; i++) {
-                    console.log(results[i])
-                }
-
-            }
-
-            //   Sidebar search ajax call
-            $('#searchDeepButton').click(function (event) {
+            $(document).on('click', '.pagination a', function(event){
                 event.preventDefault();
                 console.log('test')
                 let options = [];
