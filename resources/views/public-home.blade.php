@@ -23,7 +23,13 @@
             <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
             @if ($apartment->visibilita == 1)
               <div class="apartments-promo">
-                <img class="custom-img" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento">
+                  @if (($apartment->images)->isNotEmpty())
+                      @php
+                          $copertina = $apartment->images->first()->filename
+                      @endphp
+                  @endif
+                  <img class="custom-img" src="{{asset('uploads/images/'. $apartment->id . '/' . $copertina)}}" alt="Immagine appartamento . {{$apartment->title}}">
+                {{-- <img class="custom-img" src="{{asset('storage/' . $apartment->img)}}" alt="Immagine appartamento"> --}}
                 <h5 class="text-primary font-weight-bold promo-title">{{ $apartment->titolo }}</h5>
               </div>
             @endif

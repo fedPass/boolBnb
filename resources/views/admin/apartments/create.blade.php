@@ -10,21 +10,13 @@
                 </div>
                 <hr>
                 @if (count($errors) > 0)
-
                   <div class="alert alert-danger">
-
                       <strong>Whoops!</strong> Controlla i tuoi dati.
-
                       <ul>
-
                           @foreach ($errors->all() as $error)
-
                               <li>{{ $error }}</li>
-
                           @endforeach
-
                       </ul>
-
                   </div>
 
               @endif
@@ -34,23 +26,13 @@
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="titolo">Titolo</label>
                       {{-- old per recuperare vallue in caso di errore compilazione form --}}
-                      <input type="text" class="form-control col-12 col-md-9 @error('titolo') is-invalid @enderror" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
-                      @error('titolo')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
+                      <input type="text" class="form-control col-12 col-md-9" id="titolo" placeholder="Titolo" name="titolo" value="{{ old('titolo') }}" required autofocus>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">Ok!</div>
                       <div class="invalid-feedback col-12 col-md-9 offset-md-3">Aggiungi un titolo</div>
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="stanze">Numero di stanze</label>
-                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9 @error('stanze') is-invalid @enderror" id="stanze" placeholder="Numero di stanze" name="stanze" value="{{ old('stanze') }}" required>
-                        @error('stanze')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="stanze" placeholder="Numero di stanze" name="stanze" value="{{ old('stanze') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                         </div>
@@ -60,12 +42,7 @@
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="posti_letto">Numero posti letto</label>
-                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9 @error('posti_letto') is-invalid @enderror" id="posti_letto" placeholder="Numero di posti letto" name="posti_letto" value="{{ old('posti_letto') }}" required>
-                        @error('posti_letto')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input type="number" min="1" max="10" class="form-control col-12 col-md-9" id="posti_letto" placeholder="Numero di posti letto" name="posti_letto" value="{{ old('posti_letto') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -75,12 +52,7 @@
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="bagni">Numero di bagni</label>
-                        <input type="number" min="1" class="form-control col-12 col-md-9 @error('bagni') is-invalid @enderror" id="bagni" placeholder="Numero di bagni" name="bagni" value="{{ old('bagni') }}" required>
-                        @error('bagni')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input type="number" min="1" class="form-control col-12 col-md-9" id="bagni" placeholder="Numero di bagni" name="bagni" value="{{ old('bagni') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                         </div>
@@ -90,12 +62,7 @@
                     </div>
                     <div class="row form-group">
                         <label class="col-12 col-md-3" for="dimensioni">Dimensioni (mq)</label>
-                        <input type="number" min="1" class="form-control col-12 col-md-9 @error('dimensioni') is-invalid @enderror" id="dimensioni" placeholder="Dimensioni in mq" name="dimensioni" value="{{ old('dimensioni') }}" required>
-                        @error('dimensioni')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input type="number" min="1" class="form-control col-12 col-md-9" id="dimensioni" placeholder="Dimensioni in mq" name="dimensioni" value="{{ old('dimensioni') }}" required>
                         <div class="valid-feedback col-12 col-md-9 offset-md-3">
                             Ok!
                           </div>
@@ -105,12 +72,7 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="descrizione">Descrizione</label>
-                      <textarea type="text" class="form-control col-12 col-md-9 @error('descrizione') is-invalid @enderror" id="descrizione" placeholder="Descrizione" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
-                      @error('descrizione')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
+                      <textarea type="text" class="form-control col-12 col-md-9" id="descrizione" placeholder="Descrizione" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -120,32 +82,21 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="search-dove">Indirizzo</label>
-                      <input id="via" type="text" class="form-control via col-12 col-md-9 @error('via') is-invalid @enderror" placeholder="Indirizzo" name="indirizzo" value="{{ old('via') }}" required>
-                      @error('via')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
+                      <input id="via" type="text" class="form-control via col-12 col-md-9" placeholder="Indirizzo" name="indirizzo" value="{{ old('via') }}" required>
                        <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi l'indirizzo'
                         </div>
-                      <input id="lat-create" type='hidden' name='lat'>
-                      <input id="lon-create" type='hidden' name='lon'>
+                      <input id="lat-create" type='hidden' name='lat' value="{{ old('lat') }}">
+                      <input id="lon-create" type='hidden' name='lon' value="{{ old('lon') }}">
                       <div id="via-list">
-
                       </div>
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="paese">Paese</label>
-                      <input type="text" class="form-control col-12 col-md-9  @error('paese') is-invalid @enderror" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
-                      @error('paese')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
+                      <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="Paese" name="paese" value="{{ old('paese') }}" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -171,18 +122,20 @@
                     </div>
                     <hr>
                     <div class="row form-group">
-                        {{-- <label class="col-12 col-md-3" for="img-1">Immagine 1</label>
-                        <input class="col-12 col-md-9" type="file" class="form-control-file" id="img" name="img"> --}}
                       <div class="input-group control-group increment" >
-                        <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror">
+                        {{-- <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror"> --}}
+                        <div class="custom-file">
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
+                          <label class="custom-file-label" for="customFile">Carica fino a 5 immagini</label>
+                        </div>
                           @error('images[]')
                               <span class="invalid-feedback" role="alert">
                                   <strong>{{ $message }}</strong>
                               </span>
                           @enderror
-                        <div class="input-group-btn">
+                        {{-- <div class="input-group-btn">
                           <button class="btn btn-success" type="button">Add</button>
-                        </div>
+                        </div> --}}
                           {{-- <div class="input-group control-group increment" >
                               <label class="col-12 " for="images[]">Aggiungi fino a 5 immagini</label>
                             <input type="file" multiple="multiple" name="images[]" class="form-control col-12" required>
@@ -214,13 +167,11 @@
                       <label class="col-12 col-md-3" for="img-5">Immagine 5</label>
                       <input class="col-12 col-md-9" type="file" class="form-control-file" id="img-5" name="img-5">
                     </div> --}}
+                      </div>
                     </div>
                     <hr>
                     <div class="row form-group d-flex justify-content-center">
                         <div class="custom-control custom-switch">
-{{--                          <input type="checkbox" class="custom-control-input input-visibilita" name="visibilitatoggle" id="visibilita" checked/>--}}
-{{--                          <input id="realvis" type="hidden" name="visibilita" value="on">--}}
-{{--                          <label class="custom-control-label" for="visibilita">Visibilità annuncio</label>--}}
                             <input type="checkbox"  name="visibilita" checked="checked" class="js-switch">
                             <label class="js-switch" for="visibilita">Visibilità annuncio</label>
                         </div>
@@ -251,69 +202,6 @@
         $("body").on("click",".btn-danger",function(){
             $(this).parents(".control-group").remove();
         });
-
       });
-
-
-      //   Dropzone.autoDiscover = false;
-      //   let token = $('meta[name="csrf-token"]').attr('content');
-      //   $(function(){
-      //     var myDropzone = new Dropzone("#dropzone", {
-      //       paramName: 'file',
-      //       url: "{{-- url('/admin/apartments/create/') --}}",
-      //       previewsContainer: 'div.dropzone-previews',
-      //       addRemoveLinks: true,
-      //       autoPrecessQueue: false,
-      //       uploadMultiple: true,
-      //       parallelUploads: 1,
-      //       maxFiles: 1,
-      //       params:{
-      //         _token: token
-      //       },
-      //       init: function(){
-      //         var myDropzone = this;
-      //         $("form[name='create']").submit(function(event){
-      //
-      //           URL = $("#create").attr('action');
-      //           formData = $("#create").serialize();
-      //           $.ajax({
-      //             type:'POST',
-      //             url: URL,
-      //             data: formData,
-      //             success: function(result){
-      //               if(result.status == "success"){
-      //
-      //                 //process the queue
-      //                 myDropzone.processQueue();
-      //               }else{
-      //                 console.log("error");
-      //               }
-      //             }
-      //           });
-      //         });
-      //
-      //       this.on("sending", function(file,xhr,formData){
-      //
-      //       });
-      //       this.on("success", function(file, response){
-      //
-      //       });
-      //       this.on("queuecomplete", function(){
-      //
-      //       });
-      //       this.on("sendingmultiple", function(file,xhr,formData){
-      //
-      //
-      //       });
-      //       this.on("successmultiple", function(files, responses){
-      //
-      //       });
-      //       this.on("errormultiple", function(files, responses){
-      //
-      //       });
-      //     }
-      //   });
-      // });
-
     </script>
 @endsection

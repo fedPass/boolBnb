@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Options;
 use App\Sponsor;
 use App\Image;
+use App\Leads;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
