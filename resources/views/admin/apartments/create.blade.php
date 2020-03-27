@@ -135,6 +135,20 @@
                         <div class="input-group-btn">
                           <button class="btn btn-success" type="button">Add</button>
                         </div>
+                          {{-- <div class="input-group control-group increment" >
+                              <label class="col-12 " for="images[]">Aggiungi fino a 5 immagini</label>
+                            <input type="file" multiple="multiple" name="images[]" class="form-control col-12" required>
+                            <div class="input-group-btn">
+                              <button class="btn btn-primary" type="button">Carica</button>
+                            </div>
+                           <div class="clone d-none">
+                            <div class="control-group input-group" style="margin-top:10px">
+                              <input type="file" name="images[]" class="form-control">
+                              <div class="input-group-btn">
+                                <button class="btn btn-danger" type="button">Remove</button>
+                              </div>
+                            </div>
+                          </div>
                       </div>
                       <div class="clone d-none">
                         <div class="control-group input-group" style="margin-top:10px">

@@ -4213,6 +4213,10 @@ input[type=button].btn-block {
   content: "Browse";
 }
 
+.custom-file-input:lang(it) ~ .custom-file-label::after {
+  content: "Scegli";
+}
+
 .custom-file-input ~ .custom-file-label[data-browse]::after {
   content: attr(data-browse);
 }

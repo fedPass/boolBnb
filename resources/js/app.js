@@ -243,6 +243,26 @@ var lon = 0;
    });
       // -----cambio style al cambio Visibilità end-----------//
 
+      //---controllo click agg file in forms-----//
+      $(".add-product input[type='submit']").click(function(){
+          if (images.files.length > 5){
+           alert("Puoi inserire al massimo 5 immagini");
+          }
+          // var $fileUpload = $("input[type='file']");
+          //      if (parseInt($fileUpload.get(0).files.length) > 5){
+          //         alert("Puoi inserire al massimo 5 immagini");
+          //      }
+      });
+      // $(".add-product input[type='file']").change(function(){
+      //     if (images.files.length > 5){
+      //      alert("Puoi inserire al massimo 5 immagini");
+      //     }
+      //     // var $fileUpload = $("input[type='file']");
+      //     //      if (parseInt($fileUpload.get(0).files.length) > 5){
+      //     //         alert("Puoi inserire al massimo 5 immagini");
+      //     //      }
+      // });
+      //---controllo click agg file in forms-----//
 
  // autoComplete function
   function autoComplete(query){
