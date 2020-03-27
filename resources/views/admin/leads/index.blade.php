@@ -12,23 +12,25 @@
     </div>
     <hr>
     <div class="row">
-    @forelse ($leads as $lead)
-      <div class="col-12">
-        <div class="card-header text-center message-recev bg-primary text-white border-white">
-          <h5><strong>Messaggio da: </strong> {{$lead->nome}}</h5>
+    @foreach ($leads as $lead)
+      @if ($leads->count() >= 1)
+        <div class="col-12">
+          <div class="card-header text-center message-recev bg-primary text-white border-white">
+            <h5><strong>Messaggio da: </strong> {{$lead->nome}}</h5>
+          </div>
+          <div class="card-body mex-info">
+            <blockquote class="blockquote mb-0">
+              <p><strong>ID appartamento: </strong> {{$lead->apartment_id}}</p>
+              <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
+              <p><strong>Oggetto: </strong> {{$lead->oggetto}}</p>
+              <p><strong>Testo Messaggio: </strong><br> {{$lead->messaggio}}</p>
+            </blockquote>
+          </div>
         </div>
-        <div class="card-body mex-info">
-          <blockquote class="blockquote mb-0">
-            <p><strong>ID appartamento: </strong> {{$lead->apartment_id}}</p>
-            <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
-            <p><strong>Oggetto: </strong> {{$lead->oggetto}}</p>
-            <p><strong>Testo Messaggio: </strong><br> {{$lead->messaggio}}</p>
-          </blockquote>
-        </div>
-      </div>
-    @empty
-      <p>non ci sono messaggi da visualizzare</p>
-    @endforelse
+      @else
+        <p>non ci sono messaggi da visualizzare</p>
+      @endif
+    @endforeach
     <div class="paginate mx-auto">
       {{$leads->links()}}
     </div>
