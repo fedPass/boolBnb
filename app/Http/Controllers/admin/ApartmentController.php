@@ -108,6 +108,7 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         // da fare: inserire validate()
       // $data = $request->validate([
       //   'titolo' => 'required|string|min:2|max:255',
@@ -152,7 +153,8 @@ class ApartmentController extends Controller
         'images[].image' => 'Immagini: Solo formati jpeg,jpg,png,gif,svg'
       ]);
 
-
+      $options = $request->nome_id;
+        //dd($data['nome_id']);
       $new_apartment = new Apartment();
       $new_apartment->fill($data);
         if($request->input('visibilita')){
@@ -172,14 +174,14 @@ class ApartmentController extends Controller
           }
           //--- end facade
       $new_apartment->save();
-
+        //dd($new_apartment);
       //fede: prima salvo e poi popolo tab pivot per options
           //se ho selezionato delle options le assegno all'apart
           //controllo quindi l'array che ho creato dal form
-          if (!empty($data['nome_id'])) {
+          if (!empty($options)) {
               //la funzione options() è quello dichiarata nel model Apartment
               //sync per popolare tabella pivot (fill si occupa della tab Apartment)
-              $new_apartment->options()->sync($data['nome_id']);
+              $new_apartment->options()->sync($options);
           }
 
           for ($i = 0; $i < 5; $i++){
@@ -274,18 +276,22 @@ class ApartmentController extends Controller
         'paese.min' => 'Paese: Minimo 2 carateri',
         'images[].image' => 'Immagini: Solo formati jpeg,jpg,png,gif,svg'
       ]);
-        if(isset($data['visibilita'])){
-            $data['visibilita'] = 1;
+      $visibilita = $request->visibilita;
+      $options = $request->nome_id;
+        if(isset($visibilita)){
+          $apartment->visibilita = 1;
         } else{
             $apartment->visibilita = 0;
         }
       // da fare: creare if per vedere se img cambia, eventualmente cancella da storage quella precedente e fare put in storage della nuova
       $apartment->update($data);
       // da fare: se ho selezionato dei nuovi servizi (quindi ho un array con elementi) devo fare sync() dell'array altrimenti sync([]) du array vuoto
-      if (!empty($data['nome_id'])) {
+      if (!empty($options)) {
           //la funzione options() è quello dichiarata nel model Apartment
           //sync per popolare tabella pivot (fill si occupa della tab Apartment)
-          $apartment->options()->sync($data['nome_id']);
+          $apartment->options()->sync($options);
+      }else{
+          $apartment->options()->detach();
       }
       return redirect()->route('admin.apartments.index');
     }
