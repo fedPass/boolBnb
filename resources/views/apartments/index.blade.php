@@ -4,16 +4,16 @@
 
 @section('content')
     <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="show-filters btn btn-primary btn-sm" href="#">Filtri</a>
+        <a class="show-filters btn btn-primary btn-sm" href="#">{{__('index-public.filt')}}</a>
     </nav>
     <div class="container-fluid">
         <div class="row">
             {{--      start filter area     --}}
             <div class="filters-container col-sm-12 col-lg-2 col-md-2">
-                <h3>Filtri</h3>
+                <h3>{{__('index-public.filt')}}</h3>
                 <div class="input-group num-select input-num-size">
                     <select class="custom-select border-custom" id="roomsNumSelect">
-                        <option selected>N° Stanze</option>
+                        <option selected>N° {{__('index-public.rooms')}}</option>
                         @for ($i=1; $i <= 10; $i++)
                             <option value="{{$i}}"> {{$i}}</option>
                         @endfor
@@ -21,7 +21,7 @@
                 </div>
                 <div class="input-group num-select input-num-size">
                     <select class="custom-select border-custom" id="bedsNumSelect">
-                        <option selected>N° Letti</option>
+                        <option selected>N° {{__('index-public.beds')}}</option>
                         @for ($i=1; $i <= 10; $i++)
                             <option value="{{$i}}"> {{$i}}</option>
                         @endfor
@@ -34,20 +34,20 @@
                     </div>
                 @endforeach
                 <div class="cucstom-cuntrol">
-                    <p>Max distance from your search: <span id="kmOutput"></span> KM</p>
+                    <p>{{__('index-public.dist')}}: <span id="kmOutput"></span> KM</p>
                     <input id="sliderKM" type="range" name="kmDistance" min="1" max="250" value="25">
                 </div>
 
                 <div class="custom-control">
                     <input id="latSearch" type='hidden' name='lat' value="{{$lat}}">
                     <input id="lonSearch" type='hidden' name='lon' value="{{$lon}}">
-                    <button id="searchDeepButton" class="apply-filters btn btn-primary">Applica Filtri</button>
+                    <button id="searchDeepButton" class="apply-filters btn btn-primary">{{__('index-public.apply')}}</button>
                 </div>
             </div>
             {{--      end filter area     --}}
             <div class="results-container col-10">
                 <div class="row justify-content-center evidence-container">
-                    <h1>Appartamenti in evidenza</h1>
+                    <h1>{{__('home-public.HomeTitle')}}</h1>
                     <div class="col-sm-12 mx-auto evidence">
                         @foreach ($apartmentsAll as $apartment)
                             @if (($apartment->sponsors)->isNotEmpty())
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="results-title col-12">
-                    <h1>Risultati di ricerca</h1>
+                    <h1>{{__('index-public.search')}}</h1>
                 </div>
                 <section class="container" id="resultApartmentSection">
                     @include('layouts.partials.pagination_data')
@@ -164,7 +164,9 @@
             //   Sidebar search ajax call
             $('#searchDeepButton').click(function (event) {
                 event.preventDefault();
-                $('.filters-container').slideUp(); //la navbar scompare
+                if ($(window).width() < 768) { //se la mediaquery è inferiore a 768px
+                  $('.filters-container').slideUp(); //la ricerca filtri scompare
+                }
                 let options = [];
                 $('.option-check-box').each(function () {
                     if ($(this).is(":checked")) {
