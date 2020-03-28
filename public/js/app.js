@@ -49710,6 +49710,9 @@ $(document).ready(function () {
       });
     }, false);
   })(); // -----FORM VALIDATION BOOTSTRAP END-----------//
+  // document.addEventListener("keydown", function(event) {
+  //   console.log(event.which);
+  // })
 
 
   var lat = 0;
@@ -49732,6 +49735,19 @@ $(document).ready(function () {
     console.log(lat);
     console.log(lon);
   }); // end item-list click
+  //SELEZIONE DEGLI LI CON I PULSANTI SU E GIU
+  // $("#search-dove").keydown(function(event) {
+  //   var giu = 40;
+  //   var su = 38
+  //   if (event.which == giu) {
+  //    $("#item-list").children('ul').each(function() {
+  //     $(this).children("li.singleAddress").css('color','#3490DC');
+  //    });
+  //   }
+  //   if (event.which == su) {
+  //
+  //   }
+  // });
   //  var ospiti = 1;
   //  $("#exampleFormControlSelect1").change(function(){
   //   ospiti = $(this).val();

@@ -164,7 +164,9 @@
             //   Sidebar search ajax call
             $('#searchDeepButton').click(function (event) {
                 event.preventDefault();
-                $('.filters-container').slideUp(); //la navbar scompare
+                if ($(window).width() < 768) { //se la mediaquery è inferiore a 768px
+                  $('.filters-container').slideUp(); //la ricerca filtri scompare
+                }
                 let options = [];
                 $('.option-check-box').each(function () {
                     if ($(this).is(":checked")) {
