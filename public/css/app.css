@@ -11485,6 +11485,10 @@ footer .footer-bottom i {
   padding: 10px;
 }
 
+.info-room-navbar .nav-item.active {
+  border-bottom: 2px solid white !important;
+}
+
 .stacca {
   margin-top: 150px;
 }
@@ -11652,10 +11656,6 @@ footer .footer-bottom i {
   padding-top: 10px;
 }
 
-.filters-container .hide-filters {
-  display: none;
-}
-
 .filters-container .input-num-size {
   width: 80%;
 }
@@ -11801,8 +11801,7 @@ footer .footer-bottom i {
     margin-top: 130px;
   }
 
-  .filters-container,
-  .apply-filters {
+  .filters-container {
     display: none;
   }
 

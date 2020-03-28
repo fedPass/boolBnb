@@ -49561,6 +49561,7 @@ $(document).ready(function () {
       $('.home-navbar').removeClass('change-prop'); //rimetto le proprietÃ  della navbar come prima
 
       $('.info-room-navbar').slideUp();
+      $('.info-room-navbar .nav-item').removeClass('active');
     }
 
     prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
@@ -49572,20 +49573,16 @@ $(document).ready(function () {
     //   }
     // }
   }); // -----NAVBAR AND FORM END-----------//
-  // -----FILTERS -----------//
+
+  $('.info-room-navbar .nav-item').click(function () {
+    $('.info-room-navbar .nav-item').removeClass('active');
+    $(this).addClass('active');
+  }); // -----FILTERS -----------//
   // if ($(window).width() > 768) { //se le dimensioni del display sono superiori a 768px
 
   $('.show-filters').on("click", function () {
-    //al click sul pulsante "mostra filtri"
-    $('.filters-container').slideDown(); //appare il riquadro delle opzioni
-
-    $('.hide-filters').css('display', 'block'); //appare il pulsante di conferma
-  });
-  $('.hide-filters').on("click", function () {
-    //al click sul pulsante "conferma"
-    $('.hide-filters').css('display', 'none'); //il pulsante scompare
-
-    $('.filters-container').slideUp(); //la navbar scompare
+    //al click sul pulsante "Filtri"
+    $('.filters-container').slideToggle(); //appare il riquadro delle opzioni
   }); // }
   // -----FILTERS END-----------//
   //--------CAROUSEL------------//
@@ -49992,8 +49989,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/giovdigua/PhpstormProjects/boolBnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/giovdigua/PhpstormProjects/boolBnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\lucar\Desktop\Boolean #8\boolBnb.git\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

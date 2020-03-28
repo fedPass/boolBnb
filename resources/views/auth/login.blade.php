@@ -114,7 +114,7 @@
                     <i class="fab fa-google"></i>
                     Continua con Google</button>
                 <p>Non hai un account?</p>
-                <a href="#"> <p>Registrati</p></a>
+                <a href="{{ route('register') }}"> <p>Registrati</p></a>
             </form>
         </div>
 

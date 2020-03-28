@@ -4,8 +4,8 @@
   <div class="container">
     <div class="ul-left col-lg-6">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link text-white {{Route::currentRouteName() == 'apartments/{id}#title' ? 'active' : ''}}" href="#title">Panoramica</a>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#title">Panoramica</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="#services">Servizi</a>
