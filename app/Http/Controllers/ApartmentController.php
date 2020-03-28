@@ -19,20 +19,6 @@ class ApartmentController extends Controller
      */
     protected function querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$options)
     {
-//
-//        $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
-//            $query->whereRaw("6371 * acos(
-//                                      cos(radians(" . $lat . "))
-//                                    * cos(radians(apartments.lat))
-//                                    * cos(radians(apartments.lon) - radians(" . $lon . "))
-//                                    + sin(radians(" .$lat. "))
-//                                    * sin(radians(apartments.lat))) <= " . $circle_radius);
-//        })->where('visibilita', '>=', $visibilita)->where('posti_letto', '>=' , $postiLetto)->where('stanze', '>=', $stanze)->whereHas('options',function ($query) use($options){
-//            //$query->where('nome',$options);
-//            foreach ($options as $option){
-//                $query->where('nome','=',$option);
-//            }
-//        });
 
             $apartments = Apartment::where(function($query) use ($lat, $lon, $circle_radius){
             $query->whereRaw("6371 * acos(
@@ -95,14 +81,13 @@ class ApartmentController extends Controller
     {
 
         if ($request->ajax()){
-
             //Get lat , lon ,visibilita and nr of posti letto
             $lat = $request->lat;
             $lon = $request->lon;
             $circle_radius = $request->circle_radius;
             $visibilita = 1;
             $stanze = $request->stanze;
-            $postiLetto = $request->posti_letto;
+            $postiLetto = $request->get('posti_letto');
 
             //check if all the field as different of null
             if (!$lat || !$lon) {
@@ -119,20 +104,20 @@ class ApartmentController extends Controller
                 $stanze = 1;
             }
 
-
             if ($request->options){
                 $opzioni = $request->options;
             }else{
                 $opzioni = null;
             }
 
+            $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->paginate();
 
-            $apartments = $this->querySearch($lat,$lon,$circle_radius,$visibilita,$postiLetto,$stanze,$opzioni)->get();
-
-
-            return Response($apartments);
+            //return Response($request);
+            return view('layouts.partials.pagination_data',compact('apartments'))->render();
+            //return view('layouts.partials.pagination_data',['apartments'=>$apartments, 'query'=>$query])->render();
 
         }
+
 
     }
 
