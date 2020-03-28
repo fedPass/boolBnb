@@ -79,15 +79,15 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="indirizzo">{{__('home-admin.FormAddress')}}</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="{{__('home-admin.FormAddress')}}" name="indirizzo" value="{{ old('via', $apartment->indirizzo) }}" autocomplete="off" required>
+                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="{{__('home-admin.FormAddress')}}" name="indirizzo" value="{{$apartment->indirizzo }}" autocomplete="off" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi l'indirizzo
                         </div>
-                        <input id="lat-create" type='hidden' name='lat'>
-                        <input id="lon-create" type='hidden' name='lon'>
+                        <input id="lat-create" type='hidden' name='lat' value="{{$apartment->lat}}">
+                        <input id="lon-create" type='hidden' name='lon' value="{{$apartment->lon}}">
                         <div id="via-list">
 
                         </div>
@@ -124,7 +124,7 @@
                     <hr>
                     <div class="row form-group">
                         <div class="custom-file">
-                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required accept="image/png, image/jpeg">
                           <label class="custom-file-label" for="customFile">{{__('home-admin.FormFiles')}}</label>
                         </div>
                         {{-- se avevo caricato img mostramela --}}
@@ -179,5 +179,17 @@
         elems.forEach(function(html) {
             let switchery = new Switchery(html,  { size: 'small' ,color:'#237DC7'});
         });
+
+        $('input[type="file"]').on("change", function() {
+            let filenames = [];
+            let files = document.getElementById("customFile").files;
+              filenames.push("File caricati: " + files.length);
+            $(this).next(".custom-file-label").html(filenames);
+            if (files.length > 5) {
+                alert('Non puoi caricare più di 5 immagini');
+                $('input[type="file"]').val('');
+                $('.custom-file-label').html('Carica fino a 5 immagini');
+            }
+          });
     </script>
 @endsection
