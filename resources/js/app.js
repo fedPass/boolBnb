@@ -60,6 +60,7 @@ $(document).ready(function(){
     $('.logoBlue').hide(); //scompare il logo blue
     $('.home-navbar').removeClass('change-prop'); //rimetto le proprietÃ  della navbar come prima
     $('.info-room-navbar').slideUp();
+    $('.info-room-navbar .nav-item').removeClass('active');
   }
   prevTop = st; //la posizione iniziale sulla posizione corrente sulla pagina, diventa la posizione di scorrimento
   // if ($(window).width() > 996) { //se le dimensioni del display sono superiori a 996px
@@ -72,16 +73,14 @@ $(document).ready(function(){
 });
 // -----NAVBAR AND FORM END-----------//
 
-
+$('.info-room-navbar .nav-item').click(function(){
+  $('.info-room-navbar .nav-item').removeClass('active');
+    $(this).addClass('active');
+});
 // -----FILTERS -----------//
 // if ($(window).width() > 768) { //se le dimensioni del display sono superiori a 768px
-  $('.show-filters').on( "click", function(){ //al click sul pulsante "mostra filtri"
-    $('.filters-container').slideDown(); //appare il riquadro delle opzioni
-    $('.hide-filters').css('display','block'); //appare il pulsante di conferma
-  });
-  $('.hide-filters').on( "click", function(){ //al click sul pulsante "conferma"
-    $('.hide-filters').css('display','none'); //il pulsante scompare
-    $('.filters-container').slideUp(); //la navbar scompare
+  $('.show-filters').on( "click", function(){ //al click sul pulsante "Filtri"
+    $('.filters-container').slideToggle(); //appare il riquadro delle opzioni
   });
 // }
 // -----FILTERS END-----------//
@@ -147,6 +146,7 @@ function modalChangeElement(modalVar, buttonVar, spanVar, pVar) { //funzione che
 // -----MODAL END-----------//
 
 // -----CARD TITLE SLICE-----------//
+
 tagliaTesto('.customJS', 15); //applico la funzione al titolo della card in index apartments (lato public)
 tagliaTesto('.smallJS', 20); //applico la funzione all'indirizzo della card in index apartments (lato public)
 tagliaTesto('.customAdminJS', 30); //applico la funzione al titolo della card in index apartments (lato admin)

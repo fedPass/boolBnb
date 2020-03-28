@@ -4,7 +4,7 @@
 
 @section('content')
     <nav class="nav-options navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="show-filters btn btn-primary btn-sm" href="#">Mostra Filtri</a>
+        <a class="show-filters btn btn-primary btn-sm" href="#">Filtri</a>
     </nav>
     <div class="container-fluid">
         <div class="row">
@@ -43,7 +43,6 @@
                     <input id="lonSearch" type='hidden' name='lon' value="{{$lon}}">
                     <button id="searchDeepButton" class="apply-filters btn btn-primary">Applica Filtri</button>
                 </div>
-                <a class="hide-filters btn btn-primary btn-sm" href="#">Conferma/Nascondi</a>
             </div>
             {{--      end filter area     --}}
             <div class="results-container col-10">
@@ -136,7 +135,6 @@
 
             function fetch_data(page,lat,lon,circle_radius,options,posti_letto,stanze)
             {
-                console.log()
                 $.ajax({
                     //url:"/apartments/search?page="+page+"&lat="+lat+"&lon="+lon+"&circle_radius="+circle_radius+"&options="+options+"&posti_letto="+posti_letto+"&stanze="+stanze,
                     url: '/apartments/search',
@@ -166,6 +164,7 @@
             //   Sidebar search ajax call
             $('#searchDeepButton').click(function (event) {
                 event.preventDefault();
+                $('.filters-container').slideUp(); //la navbar scompare
                 let options = [];
                 $('.option-check-box').each(function () {
                     if ($(this).is(":checked")) {

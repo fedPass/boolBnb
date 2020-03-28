@@ -12,25 +12,45 @@
     </div>
     <hr>
     <div class="row">
-    @foreach ($leads as $lead)
-      @if ($leads->count() >= 1)
-        <div class="col-12">
-          <div class="card-header text-center message-recev bg-primary text-white border-white">
-            <h5><strong>{{__('messages.messagesCardHead')}}: </strong> {{$lead->nome}}</h5>
-          </div>
-          <div class="card-body mex-info">
-            <blockquote class="blockquote mb-0">
-              <p><strong>{{__('messages.messagesCardBodyId')}}: </strong> {{$lead->apartment_id}}</p>
-              <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
-              <p><strong>{{__('messages.messagesCardBodyObject')}}: </strong> {{$lead->oggetto}}</p>
-              <p><strong>{{__('messages.messagesCardBodyText')}}: </strong><br> {{$lead->messaggio}}</p>
-            </blockquote>
-          </div>
-        </div>
-      @else
-        <p>{{__('messages.messagesNone')}}</p>
-      @endif
-    @endforeach
+{{--    @foreach ($leads as $lead)--}}
+{{--      @if ($leads->count() >= 1)--}}
+{{--        <div class="col-12">--}}
+{{--          <div class="card-header text-center message-recev bg-primary text-white border-white">--}}
+{{--            <h5><strong>{{__('messages.messagesCardHead')}}: </strong> {{$lead->nome}}</h5>--}}
+{{--          </div>--}}
+{{--          <div class="card-body mex-info">--}}
+{{--            <blockquote class="blockquote mb-0">--}}
+{{--              <p><strong>{{__('messages.messagesCardBodyId')}}: </strong> {{$lead->apartment_id}}</p>--}}
+{{--              <p><strong>Email: </strong> {{$lead->email_mittente}}</p>--}}
+{{--              <p><strong>{{__('messages.messagesCardBodyObject')}}: </strong> {{$lead->oggetto}}</p>--}}
+{{--              <p><strong>{{__('messages.messagesCardBodyText')}}: </strong><br> {{$lead->messaggio}}</p>--}}
+{{--            </blockquote>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      @else--}}
+{{--        <p>{{__('messages.messagesNone')}}</p>--}}
+{{--                <p>ciao</p>--}}
+{{--      @endif--}}
+{{--    @endforeach--}}
+        @forelse($leads as $lead)
+
+            <div class="col-12">
+                <div class="card-header text-center message-recev bg-primary text-white border-white">
+                    <h5><strong>{{__('messages.messagesCardHead')}}: </strong> {{$lead->nome}}</h5>
+                </div>
+                <div class="card-body mex-info">
+                    <blockquote class="blockquote mb-0">
+                        <p><strong>{{__('messages.messagesCardBodyId')}}: </strong> {{$lead->apartment_id}}</p>
+                        <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
+                        <p><strong>{{__('messages.messagesCardBodyObject')}}: </strong> {{$lead->oggetto}}</p>
+                        <p><strong>{{__('messages.messagesCardBodyText')}}: </strong><br> {{$lead->messaggio}}</p>
+                    </blockquote>
+                </div>
+            </div>
+          @empty
+            <p>{{__('messages.messagesNone')}}</p>
+
+        @endforelse
     <div class="paginate mx-auto">
       {{$leads->links()}}
     </div>
