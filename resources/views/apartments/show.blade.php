@@ -85,6 +85,7 @@
         </div>
       </div>
       <div class="description section">
+        <h3>Descrizione</h3>
         <p>{{$apartment->descrizione}}</p>
       </div>
       <div class="services-container section" id="services">
