@@ -71,8 +71,8 @@
                           </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="descrizione">Descrizione</label>
-                      <textarea type="text" class="form-control col-12 col-md-9" id="descrizione" placeholder="Descrizione" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
+                      <label class="col-12 col-md-3" for="descrizione">{{__('home-admin.FormDescr')}}</label>
+                      <textarea type="text" class="form-control col-12 col-md-9" id="descrizione" placeholder="{{__('home-admin.FormDescr')}}" name="descrizione" rows="5" required>{{ old('descrizione') }}</textarea>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -81,8 +81,8 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="search-dove">Indirizzo</label>
-                      <input id="via" type="text" class="form-control via col-12 col-md-9" placeholder="Indirizzo" name="indirizzo" autocomplete="off"  required>
+                      <label class="col-12 col-md-3" for="search-dove">{{__('home-admin.FormAddress')}}</label>
+                      <input id="via" type="text" class="form-control via col-12 col-md-9" placeholder="{{__('home-admin.FormAddress')}}" name="indirizzo" autocomplete="off"  required>
                        <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
@@ -95,8 +95,8 @@
                       </div>
                     </div>
                     <div class="row form-group">
-                      <label class="col-12 col-md-3" for="paese">Paese</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="Paese" name="paese"  required>
+                      <label class="col-12 col-md-3" for="paese">{{__('home-admin.FormCountry')}}</label>
+                      <input type="text" class="form-control col-12 col-md-9" id="paese" placeholder="{{__('home-admin.FormCountry')}}" name="paese"  required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
