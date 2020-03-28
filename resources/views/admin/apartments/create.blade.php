@@ -125,7 +125,7 @@
                       <div class="input-group control-group increment" >
                         {{-- <input type="file" multiple="multiple" name="images[]" class="form-control @error('images[]') is-invalid @enderror"> --}}
                         <div class="custom-file">
-                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required accept="image/png, image/jpeg">
                           <label class="custom-file-label" for="customFile">{{__('home-admin.FormFiles')}}</label>
                         </div>
                           @error('images[]')
@@ -202,6 +202,18 @@
         $("body").on("click",".btn-danger",function(){
             $(this).parents(".control-group").remove();
         });
+
+        $('input[type="file"]').on("change", function() {
+            let filenames = [];
+            let files = document.getElementById("customFile").files;
+              filenames.push("File caricati: " + files.length);
+            $(this).next(".custom-file-label").html(filenames);
+            if (files.length > 5) {
+                alert('Non puoi caricare più di 5 immagini');
+                $('input[type="file"]').val('');
+                $('.custom-file-label').html('Carica fino a 5 immagini');
+            }
+          });
       });
     </script>
 @endsection
