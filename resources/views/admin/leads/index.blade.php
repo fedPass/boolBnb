@@ -44,7 +44,7 @@
                         <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
                         <p><strong>{{__('messages.messagesCardBodyObject')}}: </strong> {{$lead->oggetto}}</p>
                         <p><strong>{{__('messages.messagesCardBodyText')}}: </strong><br> {{$lead->messaggio}}</p>
-                        <form action="{{ route('admin.leads.destroy', ['lead' => $lead->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo appartamento?')">
+                        <form action="{{ route('admin.leads.destroy', ['lead' => $lead->id])}}" method="post" onclick="return confirm('Sei sicuro di voler eliminare questo messaggio?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">{{__('home-admin.BtnDelete')}}</button>
