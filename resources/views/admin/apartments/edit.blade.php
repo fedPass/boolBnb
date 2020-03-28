@@ -124,7 +124,7 @@
                     <hr>
                     <div class="row form-group">
                         <div class="custom-file">
-                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required>
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required accept="image/png, image/jpeg">
                           <label class="custom-file-label" for="customFile">{{__('home-admin.FormFiles')}}</label>
                         </div>
                         {{-- se avevo caricato img mostramela --}}
@@ -179,5 +179,17 @@
         elems.forEach(function(html) {
             let switchery = new Switchery(html,  { size: 'small' ,color:'#237DC7'});
         });
+
+        $('input[type="file"]').on("change", function() {
+            let filenames = [];
+            let files = document.getElementById("customFile").files;
+              filenames.push("File caricati: " + files.length);
+            $(this).next(".custom-file-label").html(filenames);
+            if (files.length > 5) {
+                alert('Non puoi caricare più di 5 immagini');
+                $('input[type="file"]').val('');
+                $('.custom-file-label').html('Carica fino a 5 immagini');
+            }
+          });
     </script>
 @endsection
