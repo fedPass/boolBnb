@@ -79,15 +79,15 @@
                     </div>
                     <div class="row form-group">
                       <label class="col-12 col-md-3" for="indirizzo">{{__('home-admin.FormAddress')}}</label>
-                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="{{__('home-admin.FormAddress')}}" name="indirizzo" value="{{ old('via', $apartment->indirizzo) }}" autocomplete="off" required>
+                      <input type="text" class="form-control col-12 col-md-9" id="via" placeholder="{{__('home-admin.FormAddress')}}" name="indirizzo" value="{{$apartment->indirizzo }}" autocomplete="off" required>
                       <div class="valid-feedback col-12 col-md-9 offset-md-3">
                           Ok!
                         </div>
                         <div class="invalid-feedback col-12 col-md-9 offset-md-3">
                           Aggiungi l'indirizzo
                         </div>
-                        <input id="lat-create" type='hidden' name='lat'>
-                        <input id="lon-create" type='hidden' name='lon'>
+                        <input id="lat-create" type='hidden' name='lat' value="{{$apartment->lat}}">
+                        <input id="lon-create" type='hidden' name='lon' value="{{$apartment->lon}}">
                         <div id="via-list">
 
                         </div>
