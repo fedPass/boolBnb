@@ -7,8 +7,5 @@ return[
     'messagesCardBodyObject'=>'Object',
     'messagesCardBodyText'=>'Message text',
     'messagesNone'=>'there are no messages to display'
-
 ]
-
-
  ?>

@@ -102,8 +102,9 @@
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Continua</button>
                 <hr>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Continua</button>
+                <!-- <hr>
                 <button type="submit" class="btn btn-light btn-lg btn-block">
                     <i class="far fa-envelope"></i>
                     Continua con un indirizzo e-mail</button>
@@ -112,7 +113,7 @@
                     Continua con Facebook</button>
                 <button type="button" class="btn btn-light btn-lg btn-block">
                     <i class="fab fa-google"></i>
-                    Continua con Google</button>
+                    Continua con Google</button> -->
                 <p>Non hai un account?</p>
                 <a href="{{ route('register') }}"> <p>Registrati</p></a>
             </form>
