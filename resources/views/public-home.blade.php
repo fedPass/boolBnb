@@ -19,7 +19,7 @@
                   $diff_in_hours = now()->diffInHours($expired_date);
               @endphp
               @if (now() <= $expired_date)
-          <div class="col-lg-3 col-md-6 text-center">
+          <div class="col-lg-3 col-md-6 text-center evidenceApartment">
             <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
             @if ($apartment->visibilita == 1)
               <div class="apartments-promo">
