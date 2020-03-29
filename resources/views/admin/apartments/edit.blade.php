@@ -124,7 +124,7 @@
                     <hr>
                     <div class="row form-group">
                         <div class="custom-file">
-                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" required accept="image/png, image/jpeg">
+                          <input type="file" multiple="multiple" name="images[]" class="custom-file-input" id="customFile" lang="it" accept="image/png, image/jpeg">
                           <label class="custom-file-label" for="customFile">{{__('home-admin.FormFiles')}}</label>
                         </div>
                         {{-- se avevo caricato img mostramela --}}
