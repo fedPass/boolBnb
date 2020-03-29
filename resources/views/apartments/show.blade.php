@@ -35,25 +35,13 @@
           @php
           $pathImage = $image->filename
           @endphp
-          {{-- <div class="room-img-public"> --}}
+          <div class="col-12 col-md-6 col-lg-6  showImgContainer">
             <img  class="room-img-public" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->title}}">
-          {{-- </div> --}}
+          </div>
         @endforeach
+        @endif
     </div>
-      @endif
-      {{-- <button class="leftArrow" type="button" name="button"><i class="fas fa-chevron-left"></i>prec</button>
-      <button class="rightArrow" type="button" name="button">succ <i class="fas fa-chevron-right"></i></button> --}}
 
-    {{-- <div class="col-lg-6 col-md-6 previev">
-      <div class="col-lg-6 col-md-12 top">
-          <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->titolo}}">
-      </div>
-      <div class="col-lg-6 bottom">
-          <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->titolo}}">
-        <img class="room-img-public im-right" src="{{asset('uploads/images/'. $apartment->id . '/' . $pathImage)}}" alt="foto:{{$apartment->titolo}}">
-      </div>
-    </div> --}}
   </div>
 </div>
 <div class="container" id="title">
