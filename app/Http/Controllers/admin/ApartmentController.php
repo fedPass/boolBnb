@@ -33,7 +33,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-      $apartments = Apartment::where('user_id', auth()->user()->id)->get();
+      $apartments = Apartment::where('user_id', auth()->user()->id)->orderBy('visibilita','DESC')->get();
 
       return view('admin.apartments.index' , ['apartments' => $apartments]);
     }
@@ -309,6 +309,9 @@ class ApartmentController extends Controller
       if($apartment->options->isNotEmpty()) {
             $apartment->options()->sync([]);
         }
+      if($apartment->sponsors->isNotEmpty()) {
+            $apartment->sponsors()->sync([]);
+        }
       $apartment->images()->delete();
       $apartment->delete();
       return redirect()->route('admin.apartments.index');
@@ -372,53 +375,10 @@ class ApartmentController extends Controller
 
             $apartments = Apartment::where('user_id', auth()->user()->id)->get();
             $sponsors = Sponsor::all();
-            return view('admin.apartments.index' , ['apartments' => $apartments, 'sponsors' => $sponsors])->with('success_message', 'Transaction successful. The ID is:'. $transaction);
+            return redirect()->route('admin.apartments.index' , ['apartments' => $apartments, 'sponsors' => $sponsors])->with('success_message', 'Transaction successful. The ID is:'. $transaction);
         }
        //return  response()->json($status);
 
     }
 
-   //  public function uploadImageForm()
-   // {
-   //       return view('admin.apartments.create');
-   // }
-   //  public function uploadSubmit(Request $request)
-   //  {
-   //    $this->validate($request, [
-   //      'images' => 'required',
-   //      'filename.*' =>   'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-   //      ]);
-   //
-   //    $post = Post::create($request->all());
-   //
-   //    }
-   //    return 'Images Uploaded successful!';
-   //  }
-
-    // public function uploadimg(Request $request)
-    // {
-    //
-              // for ($i=0; $i < 5 ; $i++) {
-              //   if($request->file('file.'.$i)) {
-              //      $image = $request->file('file.'.$i);
-              //      $imageName = $image->getClientOriginalName();
-              //      $image->move(public_path('/uploads/images/'), $imageName);
-              //      $img = [
-              //         "img" => $imageName,
-              //         "apartment_id" => $new_apartment->id
-              //      ];
-              //
-              //      $new_img = New Image($img);
-              //      $new_img->apartment()->associate($apartmentid);
-              //      $new_img->save();
-              //
-              // }
-    //
-    //
-    //      return response()->json(['status' => "success", 'apartmentid' => $apartmentid]);
-    //
-    //
-    //    }
-    //
-    //  }
 }

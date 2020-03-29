@@ -13,9 +13,9 @@
         <hr>
     {{-- se ci sono elementi in Apartment_sponsor stampali in questo div --}}
         <div class="row promo-section">
-            {{-- <div class="col-12">
+            <div class="col-12">
                 <h3 class="mb-3">Appartamenti in promozione</h3>
-            </div> --}}
+            </div>
             @forelse ($apartments as $apartment)
                 @if (($apartment->sponsors)->isNotEmpty())
                     @foreach ($apartment->sponsors as $time)

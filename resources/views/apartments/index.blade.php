@@ -45,7 +45,7 @@
                 </div>
             </div>
             {{--      end filter area     --}}
-            <div class="results-container col-10">
+            <div class="results-container col-12 col-md-10">
                 <div class="row justify-content-center evidence-container">
                     <h1>{{__('home-public.HomeTitle')}}</h1>
                     <div class="col-sm-12 mx-auto evidence">
@@ -59,7 +59,7 @@
                                         $diff_in_hours = now()->diffInHours($expired_date);
                                     @endphp
                                     @if (now() <= $expired_date)
-                                        <div class="col-lg-3 col-md-6 text-center">
+                                        <div class="col-12 col-md-6 col-lg-3 text-center d-flex justify-content-center">
                                             <a href="{{route('apartments.show', $apartment->id)}}"  class="card-click text-decoration-none">
                                                 @if ($apartment->visibilita == 1)
                                                     @if ($apartment->images->isNotEmpty())

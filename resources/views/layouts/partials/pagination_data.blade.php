@@ -1,7 +1,7 @@
 {{--<section class="container" id="resultApartmentSection">--}}
 
     @forelse ($apartments as $apartment)
-        <div class="col-12 col-sm-9 col-md-5 col-lg-4">
+        <div class="col-12 col-sm-9 col-md-5 col-lg-4 d-flex justify-content-center">
             <a href="{{route('apartments.show', $apartment->id)}}" class="card-click text-decoration-none">
                 <div class="btn btn-primary card-results">
                     <div class="card-body">
