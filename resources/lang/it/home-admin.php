@@ -6,7 +6,7 @@
         'BtnAddApart'=>'Aggiungi appartamento',
         'BtnEdit'=>'Modifica',
         'BtnChart'=>'Statistiche',
-        'BtnChart'=>'Elimina',
+        'BtnDelete'=>'Elimina',
         'BtnPromo'=>'Promuovi questo appartamento',
         'AnnPromo'=>'In promo ancora per',
         'AnnHours'=>'ore',
