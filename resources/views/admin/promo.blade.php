@@ -13,7 +13,7 @@
             <div class="col-12 col-md-3 d-flex justify-content-center">
                 <a class="btn btn-info float-md-right btn-return" href="{{ route('admin.apartments.index') }}">{{__('home-admin.BtnGoBack')}}</a>
             </div>
-            <hr style="width: 100%">
+            <hr class="w-100">
             @if (session('success_message'))
                 <div class="alert alert-success">
                     {{ session('success_message') }}
@@ -31,7 +31,7 @@
                         @csrf
                         <div class="row form-group">
                             <div class="col-12">
-                                <input type="radio" id="promo_1" name="promo" value="24">
+                                <input type="radio" id="promo_1" name="promo" value="24" checked>
                                 <label for="promo_1"><strong>Basic:</strong> 24h / 2,99€</label><br>
                                 <input type="radio" id="promo_2" name="promo" value="72">
                                 <label for="promo_2"><strong>Standard:</strong> 72h / 5,99€</label><br>
