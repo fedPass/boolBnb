@@ -41,6 +41,7 @@
                 <div class="card-body mex-info">
                     <blockquote class="blockquote mb-0">
                         <p><strong>{{__('messages.messagesCardBodyId')}}: </strong> {{$lead->apartment_id}}</p>
+                        <p><strong>{{__('messages.messagesCardBodyTitle')}}: </strong> {{$lead->titolo}}</p>
                         <p><strong>Email: </strong> {{$lead->email_mittente}}</p>
                         <p><strong>{{__('messages.messagesCardBodyObject')}}: </strong> {{$lead->oggetto}}</p>
                         <p><strong>{{__('messages.messagesCardBodyText')}}: </strong><br> {{$lead->messaggio}}</p>

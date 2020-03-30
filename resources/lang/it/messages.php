@@ -6,7 +6,8 @@ return[
     'messagesCardBodyId'=>'ID appartamento',
     'messagesCardBodyObject'=>'Oggetto',
     'messagesCardBodyText'=>'Testo Messaggio',
-    'messagesNone'=>'non ci sono messaggi da visualizzare'
+    'messagesNone'=>'non ci sono messaggi da visualizzare',
+    'messagesCardBodyTitle'=>'Titolo'
 
 ]
 

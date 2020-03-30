@@ -6,6 +6,7 @@ return[
     'messagesCardBodyId'=>'ID apartment',
     'messagesCardBodyObject'=>'Object',
     'messagesCardBodyText'=>'Message text',
-    'messagesNone'=>'there are no messages to display'
+    'messagesNone'=>'there are no messages to display',
+    'messagesCardBodyTitle'=>'Title'
 ]
  ?>
