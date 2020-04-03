@@ -42,6 +42,7 @@ Open your comand prompt and run the following commands, to populate DB tables an
 
 ```
 composer dump-autoload
+composer require cyrildewit/eloquent-viewable
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
